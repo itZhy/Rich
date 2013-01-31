@@ -4,13 +4,17 @@
     <list default="true" id="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" name="Default" comment="" />
     <ignored path="Rich.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359521646794" ignored="false" />
+    <file path="/Dummy.txt" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359641595032" ignored="false" />
     <file path="/PlayerTest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359526056798" ignored="false" />
     <file path="/DieTest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359592245579" ignored="false" />
     <file path="/Player.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359523859443" ignored="false" />
-    <file path="/fragment.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359591902087" ignored="false" />
+    <file path="/fragment.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359641595032" ignored="false" />
     <file path="/Position.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359526307427" ignored="false" />
     <file path="/Die.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359592845925" ignored="false" />
+    <file path="/GameGUI.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359634377853" ignored="false" />
+    <file path="/UI.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359643682263" ignored="false" />
+    <file path="/UITest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359636494274" ignored="false" />
+    <file path="/pom.xml" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359643035698" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,75 +73,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="UI.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Display/UI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="3" selection-start="695" selection-end="695" vertical-scroll-proportion="0.64450127">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Player/PlayerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="45" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="64" selection-start="1390" selection-end="1390" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DieTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Player/DieTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="29" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Die.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Player/Die.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="34" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Random.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.7.0_10/src.zip!/java/util/Random.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="38" selection-start="8765" selection-end="8765" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Player/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Player/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="31" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+            <state line="16" column="31" selection-start="395" selection-end="395" vertical-scroll-proportion="0.3127148">
               <folding />
             </state>
           </provider>
@@ -167,6 +106,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Player/Position.java" />
         <option value="$PROJECT_DIR$/src/test/java/Player/DieTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Player/Die.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Display/GameGUI.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Display/GameGUITest.java" />
+        <option value="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_8_2.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/Display/UITest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Display/UI.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -181,6 +126,10 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="Rich" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -231,8 +180,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,67 +264,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Display" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.9/jansi-1.9.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="Downloaded.Files.Path" value="E:\Home\Documents\GitHub\Rich\lib" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Display" />
       <recent name="Player" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Rich">
-    <configuration default="false" name="PlayerTest.its_position_should_be_1_after_forward_more_than_a_lap" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="Application.UI">
+    <configuration default="false" name="UITest.it_should_display_default_UI_with_color" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="Rich" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Player" />
-      <option name="MAIN_CLASS_NAME" value="Player.PlayerTest" />
-      <option name="METHOD_NAME" value="its_position_should_be_1_after_forward_more_than_a_lap" />
+      <option name="PACKAGE_NAME" value="Display" />
+      <option name="MAIN_CLASS_NAME" value="Display.UITest" />
+      <option name="METHOD_NAME" value="it_should_display_default_UI_with_color" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="Rich" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Player" />
-      <option name="MAIN_CLASS_NAME" value="Player.PlayerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -493,6 +437,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -518,19 +475,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -567,20 +511,56 @@
       <patterns />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.PlayerTest.its_position_should_be_1_after_forward_more_than_a_lap" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.PlayerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DieTest.its_return_value_should_between_0_and_6" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DieTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Rich" />
+    <configuration default="false" name="UI" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Display.UI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Rich" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="UITest" type="JUnit" factoryName="JUnit">
+      <module name="Rich" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Display" />
+      <option name="MAIN_CLASS_NAME" value="Display.UITest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.UI" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UITest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UITest.it_should_display_default_UI_with_color" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DieTest.its_return_value_should_between_0_and_6" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DieTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.All in Rich" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Rich" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DieTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DieTest.its_return_value_should_between_0_and_6" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.PlayerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.PlayerTest.its_position_should_be_1_after_forward_more_than_a_lap" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UITest.it_should_display_default_UI_with_color" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Rich" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DieTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DieTest.its_return_value_should_between_0_and_6" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -636,8 +616,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.4936306" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -647,16 +627,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5039809" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.4968153" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.4968153" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.60096157" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.67467946" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21019109" sideWeight="0.6730769" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32692307" sideWeight="0.49044585" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26671976" sideWeight="0.67467946" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.49044585" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -721,116 +701,93 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="64" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Player/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="41" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="58" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="36" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_10/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="38" selection-start="8765" selection-end="8765" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Player/DieTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="29" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="64" selection-start="1390" selection-end="1390" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Player/PlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="45" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="64" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Player/Die.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="34" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0">
+        <state line="4" column="13" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Player/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.9/jansi-1.9.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="35" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Player/PlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="14" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_8_2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="12" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__org_fusesource_jansi_jansi_1_9.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="22" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.9/jansi-1.9.jar!/org/fusesource/jansi/Ansi.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="203" column="120" selection-start="9165" selection-end="9381" vertical-scroll-proportion="-4.96" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.9/jansi-1.9.jar!/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="509" selection-end="509" vertical-scroll-proportion="0.49456522" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rich.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="3" selection-start="695" selection-end="695" vertical-scroll-proportion="0.64450127">
+        <state line="45" column="76" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.48235294">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Display/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="31" selection-start="395" selection-end="395" vertical-scroll-proportion="0.3127148">
           <folding />
         </state>
       </provider>
