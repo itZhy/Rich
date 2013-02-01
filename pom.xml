@@ -33,7 +33,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>Display.UI</mainClass>
+                            <mainClass>Application.Rich</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
