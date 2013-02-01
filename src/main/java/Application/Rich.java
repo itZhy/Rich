@@ -1,9 +1,9 @@
 package Application;
 
-import Display.UI;
+import UI.Map;
 
 public class Rich {
     public static void main(String args[])  {
-        new UI().show();
+        new Map().show();
     }
 }

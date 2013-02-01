@@ -1,9 +1,8 @@
 package Player;
 
 public class Position {
-    private Integer index;
-    private final Integer maxIndex = 69;
-
+    private final int MAX_INDEX = 69;
+    private int index;
 
     public Position(int index) {
         this.index = index;
@@ -11,11 +10,15 @@ public class Position {
 
     public void change(int step) {
         index += step;
-        index %= maxIndex + 1;
+        index %= MAX_INDEX + 1;
     }
 
     public boolean equals(Object position) {
         return position.getClass() == Position.class &&
-                index.equals(((Position) position).index);
+                ((Position) position).index == index;
+    }
+
+    public int hashCode() {
+        return index;
     }
 }
