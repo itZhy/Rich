@@ -39,6 +39,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>Application.Rich</mainClass>
                         </manifest>
                     </archive>
@@ -56,7 +57,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${project.build.directory}
+                                ${project.build.directory}/lib
                             </outputDirectory>
                         </configuration>
                     </execution>

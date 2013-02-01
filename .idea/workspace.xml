@@ -14,7 +14,7 @@
     <file path="/GameGUI.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359634377853" ignored="false" />
     <file path="/UI.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359695508764" ignored="false" />
     <file path="/UITest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359695765565" ignored="false" />
-    <file path="/pom.xml" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359695237793" ignored="false" />
+    <file path="/pom.xml" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359710018299" ignored="false" />
     <file path="/Rich.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359703995578" ignored="false" />
     <file path="/DisplayMapTest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359696159717" ignored="false" />
     <file path="/DisplayMap.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359699381504" ignored="false" />
@@ -26,7 +26,7 @@
     <file path="/Adapter.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359704854552" ignored="false" />
     <file path="/UIException.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359704365427" ignored="false" />
     <file path="/AdapterTest.java" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359706634628" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359709656355" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="dd8be27f-bbf5-48f4-9a0b-afcd64bcd944" time="1359710219799" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,10 +146,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="17" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
+            <state line="48" column="66" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.9264448">
               <folding />
             </state>
           </provider>
@@ -164,10 +164,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Surface.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Surface.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UI/Surface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="14" selection-start="759" selection-end="774" vertical-scroll-proportion="0.5874126">
+            <state line="22" column="18" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#299#308#0" expanded="true" />
               </folding>
@@ -224,10 +224,10 @@
         <option value="$PROJECT_DIR$/src/main/java/UI/UIException.java" />
         <option value="$PROJECT_DIR$/src/main/java/UI/Adapter.java" />
         <option value="$PROJECT_DIR$/src/test/java/UI/AdapterTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/UI/Converter.java" />
         <option value="$PROJECT_DIR$/src/main/java/UI/Map.java" />
         <option value="$PROJECT_DIR$/src/main/java/UI/Surface.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -386,6 +386,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -954,13 +958,6 @@
         <state line="69" column="0" selection-start="429" selection-end="435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="17" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/default_map">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
@@ -1019,10 +1016,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UI/Surface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="14" selection-start="759" selection-end="774" vertical-scroll-proportion="0.5874126">
+        <state line="22" column="18" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#299#308#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="66" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.9264448">
+          <folding />
         </state>
       </provider>
     </entry>
