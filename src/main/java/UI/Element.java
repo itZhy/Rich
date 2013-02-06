@@ -17,4 +17,10 @@ public class Element {
     public void display() {
         AnsiConsole.out.print(ansi().bg(Ansi.Color.BLACK).fg(color).a(symbol).reset());
     }
+
+    public boolean equals(Object object)    {
+        return Element.class == object.getClass()&&
+                symbol == ((Element) object).symbol &&
+                color.equals(((Element) object).color);
+    }
 }

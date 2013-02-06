@@ -15,9 +15,9 @@ public class Player {
         currentPosition.change(step);
     }
 
-    public boolean equals(Object player) {
-        return player.getClass() == Player.class &&
-                currentPosition.equals(((Player) player).currentPosition);
+    public boolean equals(Object object) {
+        return Player.class == object.getClass()&&
+                currentPosition.equals(((Player) object).currentPosition);
     }
     public void update() {};
     public void rehabilitatePrevElement(){};

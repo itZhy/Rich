@@ -46,4 +46,10 @@ public class Map implements Observer {
     public Element get(Position position) {
         return surface.get(converter.convert(position));
     }
+
+    public void add(Position position, Element element) {
+    }
+
+    public void remove(Position position, Element element) {
+    }
 }
