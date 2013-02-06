@@ -21,6 +21,10 @@ public class Surface {
         elements.set(index, element);
     }
 
+    public Element get(int index) {
+        return elements.get(index);
+    }
+
     public void display() {
         for (int rowIndex = 0; rowIndex != ROW_COUNT; ++rowIndex) {
             displayOneRow(rowIndex);

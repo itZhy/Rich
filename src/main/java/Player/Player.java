@@ -1,7 +1,11 @@
 package Player;
 
+import UI.Element;
+import org.fusesource.jansi.Ansi;
+
 public class Player {
-    private final Position currentPosition;
+    public final Position currentPosition;
+    public Element recordedElement = new Element('S', Ansi.Color.WHITE);
 
     public Player(Position initialPosition) {
         currentPosition = initialPosition;
@@ -15,4 +19,6 @@ public class Player {
         return player.getClass() == Player.class &&
                 currentPosition.equals(((Player) player).currentPosition);
     }
+    public void update() {};
+    public void rehabilitatePrevElement(){};
 }

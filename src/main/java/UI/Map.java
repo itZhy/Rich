@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Map {
+public class Map implements UIObserver {
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
     private final String DEFAULT_MAP_PATH = "default_map";
 
-    public Map()    {
+    public Map() {
         initializeDefaultMap();
     }
 
@@ -32,10 +32,19 @@ public class Map {
         }
     }
 
-    private void readDefaultMap()throws FileNotFoundException {
+    private void readDefaultMap() throws FileNotFoundException {
         String defaultMapStr = new Scanner(new File(DEFAULT_MAP_PATH)).nextLine();
-        for (int index = 0; index != defaultMapStr.length(); ++index)   {
+        for (int index = 0; index != defaultMapStr.length(); ++index) {
             set(new Position(index), new Element(defaultMapStr.charAt(index), Ansi.Color.WHITE));
         }
+    }
+
+
+    public void update(Position position, Element element) {
+        set(position, element);
+    }
+
+    public Element get(Position position) {
+        return surface.get(converter.convert(position));
     }
 }
