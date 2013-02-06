@@ -17,13 +17,17 @@ public class Surface {
         }
     }
 
-    public void set(int index, Element element) {
+    public void add(int index, Element element) {
         pixels.get(index).add(element);
     }
 
-    public Element get(int index) {
-        return pixels.get(index).top();
+    public void remove(int index, Element element) {
+        pixels.get(index).remove(element);
+    }
 
+    public boolean equals(Object object) {
+        return Surface.class == object.getClass() &&
+                pixels.equals(((Surface) object).pixels);
     }
 
     public void display() {
@@ -37,19 +41,6 @@ public class Surface {
             pixels.get(rowIndex * COLUMNS_COUNT + columnIndex).display();
         }
         AnsiConsole.out().print('\n');
-    }
-
-    public void add(int index, Element element) {
-        pixels.get(index).add(element);
-    }
-
-    public void remove(int index, Element element) {
-        pixels.get(index).remove(element);
-    }
-
-    public boolean equals(Object object) {
-        return Surface.class == object.getClass() &&
-                pixels.equals(((Surface) object).pixels);
     }
 }
 

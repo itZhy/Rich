@@ -8,9 +8,8 @@ public class Position {
         this.index = index;
     }
 
-    public void change(int step) {
-        index += step;
-        index %= MAX_INDEX + 1;
+    public Position move(int step) {
+        return new Position((index + step) % (MAX_INDEX + 1));
     }
 
     public boolean equals(Object position) {

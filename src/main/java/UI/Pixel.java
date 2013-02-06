@@ -18,10 +18,6 @@ public class Pixel {
         elements.get(elements.size() - 1).display();
     }
 
-    public Element top() {
-        return elements.get(elements.size() - 1);
-    }
-
     public void add(Element element) {
         elements.add(element);
     }

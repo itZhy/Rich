@@ -3,7 +3,6 @@ package UI;
 import Player.Position;
 
 public interface Observer {
-    public void update(Position position, Element element);
-
-    public Element get(Position position);
+    public void add(Position position, Element element);
+    public void move(Position source, Position destination, Element element);
 }

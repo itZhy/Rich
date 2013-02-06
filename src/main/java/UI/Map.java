@@ -16,12 +16,22 @@ public class Map implements Observer {
         initializeDefaultMap();
     }
 
-    public void show() {
+    public void display() {
         surface.display();
     }
 
-    public void set(Position position, Element element) {
-        surface.set(converter.convert(position), element);
+    public void add(Position position, Element element) {
+        surface.add(converter.convert(position), element);
+    }
+
+    public void move(Position source, Position destination, Element element) {
+        surface.remove(converter.convert(source), element);
+        surface.add(converter.convert(destination), element);
+    }
+
+    public boolean equals(Object object) {
+        return Map.class == object.getClass() &&
+                surface.equals(((Map) object).surface);
     }
 
     private void initializeDefaultMap() {
@@ -35,28 +45,7 @@ public class Map implements Observer {
     private void readDefaultMap() throws FileNotFoundException {
         String defaultMapStr = new Scanner(new File(DEFAULT_MAP_PATH)).nextLine();
         for (int index = 0; index != defaultMapStr.length(); ++index) {
-            set(new Position(index), new Element(defaultMapStr.charAt(index), Ansi.Color.WHITE));
+            add(new Position(index), new Element(defaultMapStr.charAt(index), Ansi.Color.WHITE));
         }
-    }
-
-    public void update(Position position, Element element) {
-        set(position, element);
-    }
-
-    public Element get(Position position) {
-        return surface.get(converter.convert(position));
-    }
-
-    public void add(Position position, Element element) {
-        surface.add(converter.convert(position), element);
-    }
-
-    public void remove(Position position, Element element) {
-        surface.remove(converter.convert(position), element);
-    }
-
-    public boolean equals(Object object)    {
-        return Map.class == object.getClass() &&
-                surface.equals(((Map) object).surface);
     }
 }

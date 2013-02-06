@@ -37,7 +37,7 @@ public class Controller {
     }
 
     public void play() {
-        map.show();
+        map.display();
         while (true) {
             playAround();
         }
@@ -52,7 +52,7 @@ public class Controller {
     private void eachPlayerRun(Player player) {
         invoker.setCommand(waitForInputCommand());
         invoker.execute(player);
-        map.show();
+        map.display();
     }
 
     private void initializePlayerList(String player_ids) {

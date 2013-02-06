@@ -5,7 +5,6 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Player {
-    private final Element ELEMENT = new Element('Q', Ansi.Color.MAGENTA);
     private Observer observer;
 
     public MadameChyan(Position initialPosition, Observer observer) {
@@ -13,13 +12,7 @@ public class MadameChyan extends Player {
         this.observer = observer;
     }
 
-    public void rehabilitatePrevElement() {
-        observer.update(currentPosition, recordedElement);
+    protected void updateUI(Position source, Position destination) {
+        observer.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
     }
-
-    public void update() {
-        recordedElement = observer.get(currentPosition);
-        observer.update(currentPosition, ELEMENT);
-    }
-
 }
