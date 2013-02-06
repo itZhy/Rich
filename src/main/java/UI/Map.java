@@ -48,8 +48,15 @@ public class Map implements Observer {
     }
 
     public void add(Position position, Element element) {
+        surface.add(converter.convert(position), element);
     }
 
     public void remove(Position position, Element element) {
+        surface.remove(converter.convert(position), element);
+    }
+
+    public boolean equals(Object object)    {
+        return Map.class == object.getClass() &&
+                surface.equals(((Map) object).surface);
     }
 }
