@@ -9,20 +9,21 @@ import java.util.List;
 public class Surface {
     private final int ROW_COUNT = 8;
     private final int COLUMNS_COUNT = 29;
-    private final List<Element> elements = new ArrayList<Element>(ROW_COUNT * COLUMNS_COUNT);
+    private final List<Pixel> pixels = new ArrayList<Pixel>(ROW_COUNT * COLUMNS_COUNT);
 
     public Surface() {
         for (int index = 0; index != ROW_COUNT * COLUMNS_COUNT; ++index) {
-            elements.add(new Element(' ', Ansi.Color.WHITE));
+            pixels.add(new Pixel(new Element(' ', Ansi.Color.WHITE)));
         }
     }
 
     public void set(int index, Element element) {
-        elements.set(index, element);
+        pixels.get(index).add(element);
     }
 
     public Element get(int index) {
-        return elements.get(index);
+        return pixels.get(index).top();
+
     }
 
     public void display() {
@@ -33,9 +34,22 @@ public class Surface {
 
     private void displayOneRow(int rowIndex) {
         for (int columnIndex = 0; columnIndex != COLUMNS_COUNT; ++columnIndex) {
-            elements.get(rowIndex * COLUMNS_COUNT + columnIndex).display();
+            pixels.get(rowIndex * COLUMNS_COUNT + columnIndex).display();
         }
         AnsiConsole.out().print('\n');
+    }
+
+    public void add(int index, Element element) {
+        pixels.get(index).add(element);
+    }
+
+    public void remove(int index, Element element) {
+        pixels.get(index).remove(element);
+    }
+
+    public boolean equals(Object object) {
+        return Surface.class == object.getClass() &&
+                pixels.equals(((Surface) object).pixels);
     }
 }
 

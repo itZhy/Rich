@@ -6,6 +6,22 @@ import java.util.List;
 public class Pixel {
     private final List<Element> elements = new ArrayList<Element>();
 
+    public Pixel(Element element) {
+        elements.add(element);
+    }
+
+    public void display() {
+        if (elements.isEmpty()) {
+            throw new Exception("There isn't any element to display in one pixel.");
+        }
+
+        elements.get(elements.size() - 1).display();
+    }
+
+    public Element top() {
+        return elements.get(elements.size() - 1);
+    }
+
     public void add(Element element) {
         elements.add(element);
     }
