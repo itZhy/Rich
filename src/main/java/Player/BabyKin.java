@@ -2,24 +2,24 @@ package Player;
 
 
 import UI.Element;
-import UI.UIObserver;
+import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class BabyKin extends Player {
     private final Element ELEMENT = new Element('J', Ansi.Color.BLUE);
-    private UIObserver uiObserver;
+    private Observer observer;
 
-    public BabyKin(Position initialPosition, UIObserver initialObserver) {
+    public BabyKin(Position initialPosition, Observer observer) {
         super(initialPosition);
-        uiObserver = initialObserver;
+        this.observer = observer;
     }
 
     public void rehabilitatePrevElement() {
-        uiObserver.update(currentPosition, recordedElement);
+        observer.update(currentPosition, recordedElement);
     }
 
     public void update() {
-        recordedElement = uiObserver.get(currentPosition);
-        uiObserver.update(currentPosition, ELEMENT);
+        recordedElement = observer.get(currentPosition);
+        observer.update(currentPosition, ELEMENT);
     }
 }

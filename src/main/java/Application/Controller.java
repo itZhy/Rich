@@ -2,8 +2,8 @@ package Application;
 
 import Command.Invoker;
 import Player.*;
-import UI.Map;
-import UI.UIException;
+import UI.*;
+import UI.Exception;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class Controller {
         try {
             return reader.readLine();
         } catch (IOException e) {
-            throw new UIException(e.toString());
+            throw new Exception(e.toString());
         }
     }
 
@@ -59,7 +59,7 @@ public class Controller {
         try {
             getPlayerList(player_ids);
         } catch (IndexOutOfBoundsException e) {
-            throw new UIException("\nPlease input correct player numbers\n" + e.toString());
+            throw new UI.Exception("\nPlease input correct player numbers\n" + e.toString());
         }
     }
 

@@ -1,9 +1,9 @@
 package UI;
 
-public class UIException extends RuntimeException {
+public class Exception extends RuntimeException {
     private String message;
 
-    public UIException(String message) {
+    public Exception(String message) {
         this.message = message;
     }
 

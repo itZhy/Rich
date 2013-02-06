@@ -1,6 +1,6 @@
 package Application;
 
-import Player.*;
+import Player.Player;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -32,14 +32,13 @@ public class ControllerTest {
         assertThat(session.ordered_players.size(), is(0));
     }
 
-    @Test(expected = UI.UIException.class)
+    @Test(expected = UI.Exception.class)
     public void it_should_get_an_empty_player_list_and_return_error_message() {
         //given
         Controller session = new Controller("abc");
         //then
         assertThat(session.ordered_players.size(), is(0));
     }
-
 
 
 }

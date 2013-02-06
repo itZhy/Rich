@@ -2,7 +2,6 @@ package Command;
 
 
 import Player.Player;
-import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class Invoker {
         try {
             command.execute(player);
         } catch (NullPointerException e) {
-            throw new UIException(e.toString());
+            throw new UI.Exception(e.toString());
         }
     }
 

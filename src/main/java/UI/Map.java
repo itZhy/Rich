@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Map implements UIObserver {
+public class Map implements Observer {
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
     private final String DEFAULT_MAP_PATH = "default_map";
@@ -28,7 +28,7 @@ public class Map implements UIObserver {
         try {
             readDefaultMap();
         } catch (FileNotFoundException e) {
-            throw new UIException(e.toString());
+            throw new Exception(e.toString());
         }
     }
 
