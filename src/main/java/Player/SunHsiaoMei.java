@@ -1,19 +1,19 @@
 package Player;
+
 import UI.Element;
 import UI.UIObserver;
-
 import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Player {
-    private UIObserver uiObserver;
     private final Element ELEMENT = new Element('S', Ansi.Color.YELLOW);
+    private UIObserver uiObserver;
 
     public SunHsiaoMei(Position initialPosition, UIObserver initialObserver) {
         super(initialPosition);
         uiObserver = initialObserver;
     }
 
-    public void rehabilitatePrevElement(){
+    public void rehabilitatePrevElement() {
         uiObserver.update(currentPosition, recordedElement);
     }
 

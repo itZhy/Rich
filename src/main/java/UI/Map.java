@@ -39,7 +39,6 @@ public class Map implements UIObserver {
         }
     }
 
-
     public void update(Position position, Element element) {
         set(position, element);
     }
