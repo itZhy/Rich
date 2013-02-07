@@ -17,6 +17,6 @@ public class InvokerTest {
         invoker.setCommand("roll");
         invoker.execute(player);
         //then
-        assertThat(player, is(new Player(new Position(5))));
+        assertThat(player, is(new Player(new Position(1))));
     }
 }

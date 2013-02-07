@@ -7,6 +7,6 @@ public class Die {
     private final int upperBound = 6;
 
     public int roll() {
-        return random.nextInt(upperBound + 1);
+        return 1 + random.nextInt(upperBound);
     }
 }

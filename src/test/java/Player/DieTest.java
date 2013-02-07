@@ -13,6 +13,6 @@ public class DieTest {
         //when
         int value = die.roll();
         //then
-        assertThat(value, allOf(greaterThanOrEqualTo(0), lessThanOrEqualTo(6)));
+        assertThat(value, allOf(greaterThan(0), lessThanOrEqualTo(6)));
     }
 }
