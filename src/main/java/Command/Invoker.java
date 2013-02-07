@@ -16,16 +16,14 @@ public class Invoker {
     }
 
     public void setCommand(String command) {
-        System.out.println(command);
         this.command = stringToCommand.get(command);
     }
 
     public void execute(Player player) {
-
         try {
             command.execute(player);
         } catch (NullPointerException e) {
-            throw new UI.Exception("command is null.");
+            throw new UI.Exception(e.toString());
         }
     }
 

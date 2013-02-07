@@ -6,6 +6,8 @@ import org.fusesource.jansi.AnsiConsole;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 public class Surface {
     private final int ROW_COUNT = 8;
     private final int COLUMNS_COUNT = 29;
@@ -31,6 +33,7 @@ public class Surface {
     }
 
     public void display() {
+        AnsiConsole.out.print(ansi().eraseScreen());
         for (int rowIndex = 0; rowIndex != ROW_COUNT; ++rowIndex) {
             displayOneRow(rowIndex);
         }
