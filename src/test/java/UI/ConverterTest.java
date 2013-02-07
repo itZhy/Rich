@@ -22,7 +22,7 @@ public class ConverterTest {
         //when
         int index = converter.convert(position);
         //then
-        assertThat(index, is(115));
+        assertThat(index, is(202));
     }
 
     @Test
@@ -32,6 +32,6 @@ public class ConverterTest {
         //when
         int index = converter.convert(position);
         //then
-        assertThat(index, is(231));
+        assertThat(index, is(29));
     }
 }
