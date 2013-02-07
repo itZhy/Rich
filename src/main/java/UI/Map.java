@@ -24,9 +24,13 @@ public class Map implements Observer {
         surface.add(converter.convert(position), element);
     }
 
+    public void delete(Position position, Element element)  {
+        surface.remove(converter.convert(position), element);
+    }
+
     public void move(Position source, Position destination, Element element) {
-        surface.remove(converter.convert(source), element);
-        surface.add(converter.convert(destination), element);
+        delete(source, element);
+        add(destination, element);
     }
 
     public boolean equals(Object object) {

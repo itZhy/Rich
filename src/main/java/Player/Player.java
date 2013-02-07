@@ -17,5 +17,6 @@ public class Player {
                 currentPosition.equals(((Player) object).currentPosition);
     }
 
-    protected void updateUI(Position source, Position destination) {};
+    protected void updateUI(Position source, Position destination) {
+    }
 }
