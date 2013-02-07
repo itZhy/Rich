@@ -11,10 +11,6 @@ public class Pixel {
     }
 
     public void display() {
-        if (elements.isEmpty()) {
-            throw new Exception("There isn't any element to display in one pixel.");
-        }
-
         elements.get(elements.size() - 1).display();
     }
 
@@ -23,9 +19,7 @@ public class Pixel {
     }
 
     public void remove(Element element) {
-        if (!elements.remove(element)) {
-            throw new Exception("Failed to remove specific element in one pixel.");
-        }
+        elements.remove(element);
     }
 
     public boolean equals(Object object) {

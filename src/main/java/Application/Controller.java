@@ -13,15 +13,15 @@ import java.util.List;
 
 public class Controller {
     private final int PLAYER_TYPE_NUMBER = 4;
+    public List<Player> ordered_players = new ArrayList<Player>();
+    private Map map = new Map();
+    private Invoker invoker = new Invoker();
     public List<Player> players = new ArrayList<Player>(PLAYER_TYPE_NUMBER) {{
         add(new MadameChyan(new Position(0), map));
         add(new UncleTuu(new Position(0), map));
         add(new SunHsiaoMei(new Position(0), map));
         add(new BabyKin(new Position(0), map));
     }};
-    public List<Player> ordered_players = new ArrayList<Player>();
-    private Map map = new Map();
-    private Invoker invoker = new Invoker();
 
     public Controller(String player_ids) {
         initializePlayerList(player_ids);
