@@ -13,7 +13,7 @@ public class Player {
     }
 
     public boolean equals(Object object) {
-        return Player.class == object.getClass()&&
+        return getClass() == object.getClass() &&
                 currentPosition.equals(((Player) object).currentPosition);
     }
 

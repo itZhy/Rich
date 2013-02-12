@@ -15,4 +15,5 @@ public class MadameChyan extends Player {
     protected void updateUI(Position source, Position destination) {
         observer.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
     }
+
 }

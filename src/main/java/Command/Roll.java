@@ -1,12 +1,16 @@
 package Command;
 
-import Player.Die;
 import Player.Player;
+import Player.Dice;
 
 public class Roll implements Command {
-    private final Die die = new Die();
+    private final Dice dice = new Dice();
 
     public void execute(Player player) {
-        player.forward(die.roll());
+        player.forward(dice.roll());
+    }
+
+    public boolean equals(Object object){
+        return Roll.class == object.getClass();
     }
 }
