@@ -11,6 +11,6 @@ public class Roll implements Command {
     }
 
     public boolean equals(Object object){
-        return Roll.class == object.getClass();
+        return getClass() == object.getClass();
     }
 }

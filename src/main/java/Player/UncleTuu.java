@@ -5,14 +5,18 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class UncleTuu extends Player {
-    private Observer observer;
+    private Observer ui;
 
-    public UncleTuu(Position initialPosition, Observer observer) {
+    public UncleTuu(Position initialPosition, Observer ui) {
         super(initialPosition);
-        this.observer = observer;
+        this.ui = ui;
+    }
+
+    public boolean equals(Object object)    {
+        return super.equals(object) && ui.equals(((UncleTuu)object).ui);
     }
 
     protected void updateUI(Position source, Position destination) {
-        observer.move(source, destination, new Element('A', Ansi.Color.GREEN));
+        ui.move(source, destination, new Element('A', Ansi.Color.GREEN));
     }
 }

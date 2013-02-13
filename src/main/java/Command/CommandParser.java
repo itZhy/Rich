@@ -1,6 +1,5 @@
 package Command;
 
-
 import Interaction.Exception;
 
 import java.util.HashMap;

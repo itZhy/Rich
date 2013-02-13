@@ -5,15 +5,19 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Player {
-    private Observer observer;
+    private Observer ui;
 
-    public MadameChyan(Position initialPosition, Observer observer) {
+    public MadameChyan(Position initialPosition, Observer ui) {
         super(initialPosition);
-        this.observer = observer;
+        this.ui = ui;
+    }
+
+    public boolean equals(Object object)    {
+        return super.equals(object) && ui.equals(((MadameChyan)object).ui);
     }
 
     protected void updateUI(Position source, Position destination) {
-        observer.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
+        ui.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
     }
 
 }

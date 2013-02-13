@@ -5,14 +5,18 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Player {
-    private Observer observer;
+    private Observer ui;
 
-    public SunHsiaoMei(Position initialPosition, Observer observer) {
+    public SunHsiaoMei(Position initialPosition, Observer ui) {
         super(initialPosition);
-        this.observer = observer;
+        this.ui = ui;
+    }
+
+    public boolean equals(Object object)    {
+        return super.equals(object) && ui.equals(((SunHsiaoMei)object).ui);
     }
 
     protected void updateUI(Position source, Position destination) {
-        observer.move(source, destination, new Element('S', Ansi.Color.YELLOW));
+        ui.move(source, destination, new Element('S', Ansi.Color.YELLOW));
     }
 }
