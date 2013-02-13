@@ -11,17 +11,13 @@ public class Rounder {
 
     public Rounder(String players, Observer observer) {
         PlayerParser parser = new PlayerParser(observer);
-
-        for (int index = 0; index != players.length(); ++index){
+        for (int index = 0; index != players.length(); ++index) {
             orderedPlayers.add(parser.get(players.charAt(index)));
         }
     }
 
-
     public Player next() {
-        if(currentIndex == orderedPlayers.size()){
-            currentIndex = 0;
-        }
+        currentIndex %= orderedPlayers.size();
         return orderedPlayers.get(currentIndex++);
     }
 }
