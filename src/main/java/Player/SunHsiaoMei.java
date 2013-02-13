@@ -16,6 +16,10 @@ public class SunHsiaoMei extends Player {
         return super.equals(object) && ui.equals(((SunHsiaoMei)object).ui);
     }
 
+    public void showPromptMessage() {
+        System.out.print("孙美美>");
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('S', Ansi.Color.YELLOW));
     }

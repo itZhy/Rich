@@ -1,6 +1,6 @@
 package Player;
 
-public class Player {
+public abstract class Player {
     public Position currentPosition;
 
     public Player(Position initialPosition) {
@@ -17,6 +17,6 @@ public class Player {
                 currentPosition.equals(((Player) object).currentPosition);
     }
 
-    protected void updateUI(Position source, Position destination) {
-    }
+    public abstract void showPromptMessage();
+    protected abstract void updateUI(Position source, Position destination);
 }

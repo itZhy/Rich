@@ -29,6 +29,9 @@
         <module name="Rich" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Rich" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

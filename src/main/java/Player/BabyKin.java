@@ -16,9 +16,11 @@ public class BabyKin extends Player {
         return super.equals(object) && ui.equals(((BabyKin)object).ui);
     }
 
+    public void showPromptMessage() {
+        System.out.print("金贝贝>");
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('J', Ansi.Color.BLUE));
     }
-
-
 }

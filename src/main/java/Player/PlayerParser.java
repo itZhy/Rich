@@ -18,7 +18,7 @@ public class PlayerParser {
 
     public Player get(Character number) {
         if (!stringToPlayers.containsKey(number)) {
-            throw new Exception("Player number input error, please re-enter.");
+            throw new Exception("输入的角色不存在，请重新输入。");
         }
         return stringToPlayers.get(number);
     }

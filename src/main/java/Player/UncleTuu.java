@@ -16,6 +16,10 @@ public class UncleTuu extends Player {
         return super.equals(object) && ui.equals(((UncleTuu)object).ui);
     }
 
+    public void showPromptMessage() {
+        System.out.print("阿土伯>");
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('A', Ansi.Color.GREEN));
     }

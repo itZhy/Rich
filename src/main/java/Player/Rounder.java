@@ -16,8 +16,12 @@ public class Rounder {
         }
     }
 
-    public Player next() {
+    public Player getCurrentPlayer() {
+        return orderedPlayers.get(currentIndex);
+    }
+
+    public void next() {
+        ++currentIndex;
         currentIndex %= orderedPlayers.size();
-        return orderedPlayers.get(currentIndex++);
     }
 }
