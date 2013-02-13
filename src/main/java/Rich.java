@@ -1,5 +1,3 @@
-package Application;
-
 import Interaction.Interaction;
 
 public class Rich {

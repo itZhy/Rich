@@ -40,7 +40,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>Application.Rich</mainClass>
+                            <mainClass>Rich</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
