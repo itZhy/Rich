@@ -14,7 +14,7 @@ public class CommandParser {
 
     public Command get(String name) {
         if (null == stringToCommands.get(name)) {
-            throw new Exception("Command input error, please re-enter.");
+            throw new Exception("无法识别您所输入指令，请重新输入。");
         }
         return stringToCommands.get(name);
     }
