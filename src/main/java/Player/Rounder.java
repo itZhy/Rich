@@ -9,12 +9,12 @@ public class Rounder {
     private final List<Player> orderedPlayers = new ArrayList<Player>();
     private int currentIndex = 0;
 
-    public Rounder(String players, Observer observer) {
-        PlayerParser parser = new PlayerParser(observer);
-        for (int index = 0; index != players.length(); ++index) {
-            orderedPlayers.add(parser.get(players.charAt(index)));
-        }
-    }
+//    public Rounder(String players, Observer observer) {
+//        PlayerParser parser = new PlayerParser(observer);
+//        for (int index = 0; index != players.length(); ++index) {
+//            orderedPlayers.add(parser.get(players.charAt(index)));
+//        }
+//    }
 
     public Player getCurrentPlayer() {
         return orderedPlayers.get(currentIndex);
@@ -23,5 +23,9 @@ public class Rounder {
     public void next() {
         ++currentIndex;
         currentIndex %= orderedPlayers.size();
+    }
+
+    public void add(Player player){
+        orderedPlayers.add(player);
     }
 }

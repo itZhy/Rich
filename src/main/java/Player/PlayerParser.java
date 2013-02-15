@@ -6,7 +6,7 @@ import UI.Observer;
 import java.util.HashMap;
 import java.util.Map;
 
-class PlayerParser {
+public class PlayerParser {
     private final Map<Character, Player> stringToPlayers = new HashMap<Character, Player>();
 
     public PlayerParser(Observer ui) {
