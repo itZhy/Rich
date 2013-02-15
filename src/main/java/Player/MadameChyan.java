@@ -5,7 +5,7 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Player {
-    private Observer ui;
+    private final Observer ui;
 
     public MadameChyan(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -16,8 +16,8 @@ public class MadameChyan extends Player {
         return super.equals(object) && ui.equals(((MadameChyan)object).ui);
     }
 
-    public void showPromptMessage() {
-        System.out.print("钱夫人>");
+    public String getPromptMessage() {
+        return "钱夫人>";
     }
 
     protected void updateUI(Position source, Position destination) {

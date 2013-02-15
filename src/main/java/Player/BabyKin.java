@@ -5,7 +5,7 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class BabyKin extends Player {
-    private Observer ui;
+    private final Observer ui;
 
     public BabyKin(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -16,8 +16,8 @@ public class BabyKin extends Player {
         return super.equals(object) && ui.equals(((BabyKin)object).ui);
     }
 
-    public void showPromptMessage() {
-        System.out.print("金贝贝>");
+    public String getPromptMessage() {
+        return "金贝贝>";
     }
 
     protected void updateUI(Position source, Position destination) {

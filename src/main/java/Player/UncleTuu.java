@@ -5,7 +5,7 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class UncleTuu extends Player {
-    private Observer ui;
+    private final Observer ui;
 
     public UncleTuu(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -16,8 +16,8 @@ public class UncleTuu extends Player {
         return super.equals(object) && ui.equals(((UncleTuu)object).ui);
     }
 
-    public void showPromptMessage() {
-        System.out.print("阿土伯>");
+    public String getPromptMessage() {
+        return "阿土伯>";
     }
 
     protected void updateUI(Position source, Position destination) {

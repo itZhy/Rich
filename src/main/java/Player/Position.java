@@ -1,8 +1,8 @@
 package Player;
 
 public class Position {
-    private final int MAX_INDEX = 69;
-    private int index;
+    private static final int MAX_INDEX = 69;
+    private final int index;
 
     public Position(int index) {
         this.index = index;

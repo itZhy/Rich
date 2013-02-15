@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rounder {
-    private List<Player> orderedPlayers = new ArrayList<Player>();
+    private final List<Player> orderedPlayers = new ArrayList<Player>();
     private int currentIndex = 0;
 
     public Rounder(String players, Observer observer) {

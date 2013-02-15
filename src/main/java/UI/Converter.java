@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Converter {
+class Converter {
     private final String CONFIG_FILE_PATH = "position_to_surface_index";
-    private Map<Position, Integer> positionToSurfaceIndex = new HashMap<Position, Integer>();
+    private final Map<Position, Integer> positionToSurfaceIndex = new HashMap<Position, Integer>();
 
     public Converter() {
         initializePositionToSurfaceIndex();

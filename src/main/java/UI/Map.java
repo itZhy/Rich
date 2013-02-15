@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Map implements Observer {
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
-    private final String DEFAULT_MAP_PATH = "default_map";
+    private static final String DEFAULT_MAP_PATH = "default_map";
 
     public Map() {
         initializeDefaultMap();

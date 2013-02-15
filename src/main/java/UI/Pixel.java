@@ -3,7 +3,7 @@ package UI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pixel {
+class Pixel {
     private final List<Element> elements = new ArrayList<Element>();
 
     public Pixel(Element element) {

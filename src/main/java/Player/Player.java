@@ -1,9 +1,9 @@
 package Player;
 
 public abstract class Player {
-    public Position currentPosition;
+    private Position currentPosition;
 
-    public Player(Position initialPosition) {
+    Player(Position initialPosition) {
         currentPosition = initialPosition;
     }
 
@@ -17,6 +17,6 @@ public abstract class Player {
                 currentPosition.equals(((Player) object).currentPosition);
     }
 
-    public abstract void showPromptMessage();
+    public abstract String getPromptMessage();
     protected abstract void updateUI(Position source, Position destination);
 }

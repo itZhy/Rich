@@ -5,7 +5,7 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Player {
-    private Observer ui;
+    private final Observer ui;
 
     public SunHsiaoMei(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -16,8 +16,8 @@ public class SunHsiaoMei extends Player {
         return super.equals(object) && ui.equals(((SunHsiaoMei)object).ui);
     }
 
-    public void showPromptMessage() {
-        System.out.print("孙美美>");
+    public String getPromptMessage() {
+        return "孙美美>";
     }
 
     protected void updateUI(Position source, Position destination) {

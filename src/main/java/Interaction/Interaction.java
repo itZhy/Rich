@@ -1,48 +1,44 @@
 package Interaction;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import UI.CommandLine;
 
 public class Interaction {
-
-    private Controller controller;
+    private final CommandLine commandLine = new CommandLine();
+    private Controller controller = null;
 
     public void run() {
-        initializePlayers();
-        handleCommand();
+        initializeControllerUntilSucceed();
+        handleCommandUntilQuit();
     }
 
-    private void initializePlayers() {
+    private void initializeControllerUntilSucceed() {
+        while (null == controller) {
+            initializeController();
+        }
+    }
+
+    private void initializeController() {
         try {
-            showPromptMessage("请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):");
-            controller = new Controller(waitForInput());
+            commandLine.showPromptMessageInNewline(
+                    "请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):");
+            controller = new Controller(commandLine.waitForInput());
         } catch (Exception e) {
-            showPromptMessage(e.toString());
+            commandLine.showPromptMessageInNewline(e.toString());
+        }
+    }
+
+    private void handleCommandUntilQuit() {
+        while (true) {
+            handleCommand();
         }
     }
 
     private void handleCommand() {
-        while (true) {
-            try {
-                controller.showPromptMessageForCurrentPlayer();
-                controller.handle(waitForInput());
-            } catch (Exception e) {
-                showPromptMessage(e.toString());
-            }
-        }
-    }
-
-    private String waitForInput() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            return reader.readLine();
-        } catch (IOException e) {
-            throw new Exception("读取输入失败，请重新输入。");
+            commandLine.showPromptMessage(controller.getPromptMessageForCurrentPlayer());
+            controller.handleCommand(commandLine.waitForInput());
+        } catch (Exception e) {
+            commandLine.showPromptMessageInNewline(e.toString());
         }
-    }
-
-    private void showPromptMessage(String message) {
-        System.out.println(message);
     }
 }

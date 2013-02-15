@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.fusesource.jansi.Ansi.ansi;
 
-public class Surface {
+class Surface {
     private final int ROW_COUNT = 8;
     private final int COLUMNS_COUNT = 29;
     private final List<Pixel> pixels = new ArrayList<Pixel>(ROW_COUNT * COLUMNS_COUNT);

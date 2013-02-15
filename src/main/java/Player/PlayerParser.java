@@ -1,13 +1,13 @@
 package Player;
 
-import Interaction.Exception;
+import UI.Exception;
 import UI.Observer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlayerParser {
-    private Map<Character, Player> stringToPlayers = new HashMap<Character, Player>();
+class PlayerParser {
+    private final Map<Character, Player> stringToPlayers = new HashMap<Character, Player>();
 
     public PlayerParser(Observer ui) {
         stringToPlayers.put('1', new MadameChyan(new Position(0), ui));

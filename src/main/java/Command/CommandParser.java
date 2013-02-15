@@ -1,12 +1,12 @@
 package Command;
 
-import Interaction.Exception;
+import UI.Exception;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandParser {
-    private Map<String, Command> stringToCommands = new HashMap<String, Command>();
+    private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
 
     public CommandParser() {
         stringToCommands.put("roll", new Roll());
