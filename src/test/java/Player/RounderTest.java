@@ -15,7 +15,13 @@ public class RounderTest {
     @Before
     public void setUp() {
         ui = new Map();
-        rounder = new Rounder("4213", ui);
+        rounder = new Rounder();
+        PlayerParser parser = new PlayerParser(ui);
+        String players = "4213";
+        for (int index = 0; index != players.length(); ++index) {
+            Player player = parser.get(players.charAt(index));
+            rounder.add(player);
+        }
     }
 
     @Test
