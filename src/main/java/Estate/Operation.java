@@ -1,9 +1,9 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 
 public class Operation {
-    public void run(Player player){
+    public void run(Role role){
 
     }
 

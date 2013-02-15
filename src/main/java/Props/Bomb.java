@@ -1,9 +1,9 @@
 package Props;
 
-import Player.Player;
+import Player.Role;
 
 public class Bomb implements Prop {
-    public void handle(Player player) {
+    public void handle(Role role) {
     }
 
     public boolean equals(Object object) {

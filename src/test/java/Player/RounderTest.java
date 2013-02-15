@@ -19,18 +19,18 @@ public class RounderTest {
         PlayerParser parser = new PlayerParser(ui);
         String players = "4213";
         for (int index = 0; index != players.length(); ++index) {
-            Player player = parser.get(players.charAt(index));
-            rounder.add(player);
+            Role role = parser.get(players.charAt(index));
+            rounder.add(role);
         }
     }
 
     @Test
     public void it_should_get_first_player() {
         //when
-        Player currentPlayer = rounder.getCurrentPlayer();
+        Role currentRole = rounder.current();
         //then
-        Player exceptedPlayer = new BabyKin(new Position(0), ui);
-        assertThat(currentPlayer, is(exceptedPlayer));
+        Role exceptedRole = new BabyKin(new Position(0), ui);
+        assertThat(currentRole, is(exceptedRole));
     }
 
     @Test
@@ -38,10 +38,10 @@ public class RounderTest {
         //when
         rounder.next();
         rounder.next();
-        Player currentPlayer = rounder.getCurrentPlayer();
+        Role currentRole = rounder.current();
         //then
-        Player exceptedPlayer = new MadameChyan(new Position(0), ui);
-        assertThat(currentPlayer, is(exceptedPlayer));
+        Role exceptedRole = new MadameChyan(new Position(0), ui);
+        assertThat(currentRole, is(exceptedRole));
     }
 
     @Test
@@ -51,9 +51,9 @@ public class RounderTest {
         rounder.next();
         rounder.next();
         rounder.next();
-        Player currentPlayer = rounder.getCurrentPlayer();
+        Role currentRole = rounder.current();
         //then
-        Player exceptedPlayer = new BabyKin(new Position(0), ui);
-        assertThat(currentPlayer, is(exceptedPlayer));
+        Role exceptedRole = new BabyKin(new Position(0), ui);
+        assertThat(currentRole, is(exceptedRole));
     }
 }

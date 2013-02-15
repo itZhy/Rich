@@ -4,7 +4,7 @@ import UI.Element;
 import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
-public class UncleTuu extends Player {
+public class UncleTuu extends Role {
     private final Observer ui;
 
     public UncleTuu(Position initialPosition, Observer ui) {

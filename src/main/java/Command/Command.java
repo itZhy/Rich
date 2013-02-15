@@ -1,7 +1,7 @@
 package Command;
 
-import Player.Player;
+import Player.Role;
 
 public interface Command {
-    public void execute(Player player);
+    public void execute(Role role);
 }
