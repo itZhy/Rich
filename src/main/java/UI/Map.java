@@ -42,7 +42,7 @@ public class Map implements Observer {
         try {
             readDefaultMap();
         } catch (FileNotFoundException e) {
-            throw new Exception(e.toString());
+            throw new UIException(e.toString());
         }
     }
 

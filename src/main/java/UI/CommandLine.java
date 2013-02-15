@@ -18,7 +18,7 @@ public class CommandLine {
         try {
             return reader.readLine();
         } catch (IOException e) {
-            throw new Exception("读取输入失败，请重新输入。");
+            throw new UIException("读取输入失败，请重新输入。");
         }
     }
 }

@@ -1,6 +1,6 @@
 package Player;
 
-import UI.Exception;
+import UI.UIException;
 import UI.Observer;
 
 import java.util.HashMap;
@@ -18,7 +18,7 @@ class PlayerParser {
 
     public Player get(Character number) {
         if (!stringToPlayers.containsKey(number)) {
-            throw new Exception("输入的角色不存在，请重新输入。");
+            throw new UIException("输入的角色不存在，请重新输入。");
         }
         return stringToPlayers.get(number);
     }

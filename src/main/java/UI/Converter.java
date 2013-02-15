@@ -18,7 +18,7 @@ class Converter {
 
     public int convert(Position position) {
         if (null == positionToSurfaceIndex.get(position)) {
-            throw new Exception("The content in " + CONFIG_FILE_PATH + " is not correct.");
+            throw new UIException("The content in " + CONFIG_FILE_PATH + " is not correct.");
         }
 
         return positionToSurfaceIndex.get(position);
@@ -28,7 +28,7 @@ class Converter {
         try {
             readConfigFile();
         } catch (FileNotFoundException e) {
-            throw new Exception(e.toString());
+            throw new UIException(e.toString());
         }
     }
 
