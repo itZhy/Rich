@@ -46,4 +46,3 @@ class Surface {
         AnsiConsole.out().print('\n');
     }
 }
-
