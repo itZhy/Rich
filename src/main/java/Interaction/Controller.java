@@ -14,14 +14,17 @@ class Controller {
     private final CommandParser parser = new CommandParser();
 
     public Controller(String players) {
+        initializeRounderAndBank(players);
+        map.display();
+    }
+
+    public void initializeRounderAndBank(String players){
         PlayerParser parser = new PlayerParser(map);
         for (int index = 0; index != players.length(); ++index) {
             Player player = parser.get(players.charAt(index));
             rounder.add(player);
             bank.add(player.getClass().toString());
         }
-
-        map.display();
     }
 
     public void handleCommand(String input) {

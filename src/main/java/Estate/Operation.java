@@ -3,7 +3,7 @@ package Estate;
 import Player.Player;
 
 public class Operation {
-    public void run(Player player){
+    public void play(Player player){
 
     }
 
