@@ -3,11 +3,14 @@ package Estate;
 import Player.Role;
 import UI.Observer;
 
-public class Vacancy {
-    private final Observer ui;
+public class Vacancy extends Building {
 
-    public Vacancy(Observer ui){
-        this.ui = ui;
+    public Vacancy(Role role, Observer ui){
+        super(role, ui);
+    }
+
+    public Building update(){
+        return null;
     }
 
     public Building update(Role owner){

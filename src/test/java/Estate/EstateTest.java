@@ -18,10 +18,10 @@ public class EstateTest {
 
     @Before
     public void setUP() {
-        estate = new Estate();
+        ui = new Map();
+        estate = new Estate(ui);
         estate.add(MadameChyan.class.toString());
         estate.add(UncleTuu.class.toString());
-        ui = new Map();
     }
 
     @Test

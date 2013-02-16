@@ -10,7 +10,7 @@ import UI.Map;
 class Controller {
     private final Map map = new Map();
     private final Rounder rounder = new Rounder();
-    private final Estate estate = new Estate();
+    private final Estate estate = new Estate(map);
     private final CommandParser parser = new CommandParser();
 
     public Controller(String players) {
