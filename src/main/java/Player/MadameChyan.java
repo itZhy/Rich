@@ -6,6 +6,7 @@ import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Role {
     private final Observer ui;
+    private final Ansi.Color color = Ansi.Color.MAGENTA;
 
     public MadameChyan(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -22,11 +23,11 @@ public class MadameChyan extends Role {
 
 
     public Element getElement(char symbol) {
-        return new Element(symbol, Ansi.Color.MAGENTA);
+        return new Element(symbol, color);
     }
 
     protected void updateUI(Position source, Position destination) {
-        ui.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
+        ui.move(source, destination, new Element('Q', color));
     }
 
 }

@@ -1,7 +1,6 @@
 package Player;
 
 import UI.Element;
-import org.fusesource.jansi.Ansi;
 
 public abstract class Role {
     private Position currentPosition;
