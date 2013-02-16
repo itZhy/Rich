@@ -12,8 +12,9 @@ public class VacancyTest {
     public void it_should_operate_player_to_buy_house() {
         //given
         Map ui = new Map();
+        Estate estate = new Estate(ui);
         Vacancy vacancy = new Vacancy(null, ui);
-        SunHsiaoMei owner = new SunHsiaoMei(new Position(0), ui);
+        SunHsiaoMei owner = new SunHsiaoMei(new Position(0), ui, estate);
         //when
         Building nextBuilding = vacancy.update(owner);
         //then

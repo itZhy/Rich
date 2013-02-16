@@ -1,5 +1,6 @@
 package Player;
 
+import Estate.BuildingObserver;
 import UI.UIException;
 import UI.Observer;
 
@@ -9,11 +10,11 @@ import java.util.Map;
 public class PlayerParser {
     private final Map<Character, Role> stringToPlayers = new HashMap<Character, Role>();
 
-    public PlayerParser(Observer ui) {
-        stringToPlayers.put('1', new MadameChyan(new Position(0), ui));
-        stringToPlayers.put('2', new UncleTuu(new Position(0), ui));
-        stringToPlayers.put('3', new SunHsiaoMei(new Position(0), ui));
-        stringToPlayers.put('4', new BabyKin(new Position(0), ui));
+    public PlayerParser(Observer ui, BuildingObserver building) {
+        stringToPlayers.put('1', new MadameChyan(new Position(0), ui, building));
+        stringToPlayers.put('2', new UncleTuu(new Position(0), ui, building));
+        stringToPlayers.put('3', new SunHsiaoMei(new Position(0), ui, building));
+        stringToPlayers.put('4', new BabyKin(new Position(0), ui, building));
     }
 
     public Role get(Character number) {

@@ -1,5 +1,7 @@
 package Player;
 
+import Estate.BuildingObserver;
+import Estate.Estate;
 import UI.Map;
 import UI.Observer;
 import org.junit.Before;
@@ -11,12 +13,14 @@ import static org.junit.Assert.assertThat;
 public class RounderTest {
     private Observer ui;
     private Rounder rounder;
+    private BuildingObserver building;
 
     @Before
     public void setUp() {
         ui = new Map();
+        building = new Estate(ui);
         rounder = new Rounder();
-        PlayerParser parser = new PlayerParser(ui);
+        PlayerParser parser = new PlayerParser(ui, building);
         String players = "4213";
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
@@ -29,7 +33,7 @@ public class RounderTest {
         //when
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(new Position(0), ui);
+        Role exceptedRole = new BabyKin(new Position(0), ui, building);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -40,7 +44,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new MadameChyan(new Position(0), ui);
+        Role exceptedRole = new MadameChyan(new Position(0), ui, building);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -53,7 +57,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(new Position(0), ui);
+        Role exceptedRole = new BabyKin(new Position(0), ui, building);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -67,7 +71,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new UncleTuu(new Position(0), ui);
+        Role exceptedRole = new UncleTuu(new Position(0), ui, building);
         assertThat(currentRole, is(exceptedRole));
     }
 }

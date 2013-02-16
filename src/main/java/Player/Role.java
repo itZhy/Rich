@@ -1,5 +1,6 @@
 package Player;
 
+import Estate.BuildingObserver;
 import UI.Element;
 
 public abstract class Role {
@@ -9,6 +10,7 @@ public abstract class Role {
 
     Role(Position initialPosition) {
         currentPosition = initialPosition;
+
     }
 
     public String name() {
@@ -48,5 +50,7 @@ public abstract class Role {
     public abstract Element getElement(char symbol);
 
     protected abstract void updateUI(Position source, Position destination);
+
+    protected abstract void handleEstate();
 
 }

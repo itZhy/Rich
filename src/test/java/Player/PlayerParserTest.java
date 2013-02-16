@@ -1,5 +1,6 @@
 package Player;
 
+import Estate.Estate;
 import UI.Map;
 import UI.Observer;
 import org.junit.Test;
@@ -12,11 +13,12 @@ public class PlayerParserTest {
     public void it_should_translate_string_to_player() {
         //given
         Observer ui = new Map();
-        PlayerParser parser = new PlayerParser(new Map());
+        Estate estate = new Estate(ui);
+        PlayerParser parser = new PlayerParser(ui, estate);
         //when
         Role role = parser.get('1');
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui);
+        Role expectedRole = new MadameChyan(new Position(0), ui, estate);
         assertThat(role, is(expectedRole));
     }
 }

@@ -19,7 +19,7 @@ class Controller {
     }
 
     public void initializeRounderAndBank(String players){
-        PlayerParser parser = new PlayerParser(map);
+        PlayerParser parser = new PlayerParser(map, estate);
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);

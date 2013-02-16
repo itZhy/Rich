@@ -1,15 +1,18 @@
 package Player;
 
+import Estate.BuildingObserver;
 import UI.Element;
 import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class UncleTuu extends Role {
     private final Observer ui;
+    private final BuildingObserver building;
     private final Ansi.Color color = Ansi.Color.YELLOW;
 
-    public UncleTuu(Position initialPosition, Observer ui) {
+    public UncleTuu(Position initialPosition, Observer ui, BuildingObserver building) {
         super(initialPosition);
+        this.building = building;
         this.ui = ui;
     }
 
@@ -27,5 +30,9 @@ public class UncleTuu extends Role {
 
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('A', color));
+    }
+
+    protected void handleEstate(){
+        building.handle(this);
     }
 }

@@ -22,7 +22,6 @@ public class Operation {
     }
 
     public void handle(Role role) {
-
     }
 
     private void initializeDefaultBuilding(Observer ui) {

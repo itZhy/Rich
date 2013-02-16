@@ -1,5 +1,6 @@
 package Command;
 
+import Estate.Estate;
 import Player.MadameChyan;
 import Player.Role;
 import Player.Position;
@@ -15,12 +16,13 @@ public class RollTest {
     public void it_should_execute_roll_command_and_let_player_forward_1_steps() {
         //given
         Observer ui = new Map();
-        Role role = new MadameChyan(new Position(0), ui);
+        Estate estate = new Estate(ui);
+        Role role = new MadameChyan(new Position(0), ui, estate);
         Command rollCommand = new Roll();
         //when
         rollCommand.execute(role);
         //then
-        Role exceptedRole = new MadameChyan(new Position(1), ui);
+        Role exceptedRole = new MadameChyan(new Position(1), ui, estate);
         assertThat(role, is(exceptedRole));
     }
 }

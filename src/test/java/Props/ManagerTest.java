@@ -1,5 +1,6 @@
 package Props;
 
+import Estate.Estate;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
@@ -14,7 +15,9 @@ public class ManagerTest {
     public void uncle_tuu_should_has_barricade()   {
         //given
         Manager manager = new Manager();
-        Role uncleTuu = new UncleTuu(new Position(0), new Map());
+        Map ui = new Map();
+        Estate estate = new Estate(ui);
+        Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
         //when
         manager.add(uncleTuu, 50);
         manager.buy(uncleTuu, new Barricade());

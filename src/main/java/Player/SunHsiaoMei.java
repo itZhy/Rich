@@ -1,15 +1,18 @@
 package Player;
 
+import Estate.BuildingObserver;
 import UI.Element;
 import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Role {
     private final Observer ui;
+    private final BuildingObserver building;
     private final Ansi.Color color = Ansi.Color.YELLOW;
 
-    public SunHsiaoMei(Position initialPosition, Observer ui) {
+    public SunHsiaoMei(Position initialPosition, Observer ui, BuildingObserver building) {
         super(initialPosition);
+        this.building = building;
         this.ui = ui;
     }
 
@@ -27,5 +30,9 @@ public class SunHsiaoMei extends Role {
 
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('S', color));
+    }
+
+    protected void handleEstate(){
+        building.handle(this);
     }
 }
