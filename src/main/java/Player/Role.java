@@ -49,7 +49,9 @@ public abstract class Role {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                currentPosition.equals(((Role) object).currentPosition);
+                currentPosition.equals(((Role) object).currentPosition) &&
+                        building.equals(((Role) object).building) &&
+                                ui.equals(((Role) object).ui);
     }
 
     public abstract String getPromptMessage();
@@ -61,7 +63,7 @@ public abstract class Role {
     protected abstract Ansi.Color getEstateColor();
 
     private void handleEstate() {
-       building.handle(currentPosition, getClass().toString(), getEstateColor());
+        building.handle(currentPosition, getClass().toString(), getEstateColor());
     }
 
 }

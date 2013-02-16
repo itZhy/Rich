@@ -29,7 +29,6 @@ public class EstateTest {
         //given
         Role role = new MadameChyan(new Position(3), ui, estate);
         //when
-        estate.handle(role);
     }
 
 }
