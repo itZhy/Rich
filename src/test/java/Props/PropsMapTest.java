@@ -1,5 +1,6 @@
 package Props;
 
+import Estate.Estate;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
@@ -20,7 +21,7 @@ public class PropsMapTest {
     public void setUp() {
         propsMap = new PropsMap();
         ui = new Map();
-        uncleTuu = new UncleTuu(new Position(0), ui);
+        uncleTuu = new UncleTuu(new Position(0), ui, new Estate(ui));
     }
 
     @Test

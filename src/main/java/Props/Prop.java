@@ -30,5 +30,5 @@ public abstract class Prop {
         return getClass() == object.getClass();
     }
 
-    public abstract void handle(Role role);
+    public abstract void handle(Position position, Role role);
 }

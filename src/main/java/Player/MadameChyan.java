@@ -6,7 +6,6 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Role {
-
     private final Ansi.Color color = Ansi.Color.MAGENTA;
 
     public MadameChyan(Position initialPosition, Observer ui, BuildingObserver building) {
@@ -21,7 +20,6 @@ public class MadameChyan extends Role {
         return "钱夫人>";
     }
 
-
     public Element getElement(char symbol) {
         return new Element(symbol, color);
     }
@@ -33,5 +31,4 @@ public class MadameChyan extends Role {
     protected Ansi.Color getEstateColor() {
         return color;
     }
-
 }

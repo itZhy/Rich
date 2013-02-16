@@ -1,5 +1,6 @@
 package Props;
 
+import Player.Position;
 import Player.Role;
 import UI.Observer;
 
@@ -10,7 +11,7 @@ public class Barricade extends Prop {
         price = 50;
     }
 
-    public void handle(Role role)   {
+    public void handle(Position position, Role role)   {
         role.block();
     }
 }

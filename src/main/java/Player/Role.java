@@ -25,17 +25,15 @@ public abstract class Role {
     }
 
     public void forward(int step) {
-        updateUI(currentPosition, currentPosition.move(step));
-        currentPosition = currentPosition.move(step);
-        handleEstate();
         for (int count = 1; count <= step; ++count) {
-            updateUI(currentPosition, currentPosition.move(count));
-            currentPosition = currentPosition.move(count);
+            updateUI(currentPosition, currentPosition.move(1));
+            currentPosition = currentPosition.move(1);
             if (isBlocked) {
                 isBlocked = false;
                 break;
             }
         }
+        handleEstate();
     }
 
     public void stay(int times) {

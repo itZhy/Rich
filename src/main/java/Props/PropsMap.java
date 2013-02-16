@@ -34,7 +34,7 @@ public class PropsMap {
     }
 
     private void useProp(Position position, Role role) {
-        props.get(position).handle(role);
+        props.get(position).handle(position, role);
         removeProp(position);
     }
 

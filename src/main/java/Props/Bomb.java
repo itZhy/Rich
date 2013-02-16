@@ -11,7 +11,7 @@ public class Bomb extends Prop {
         price = 50;
     }
 
-    public void handle(Role role) {
+    public void handle(Position position, Role role) {
         role.moveToHospital();
     }
 }

@@ -5,12 +5,15 @@ import Player.Role;
 import UI.Observer;
 
 public class MachineDoll extends Prop {
-    public MachineDoll(Role role, Observer ui) {
+    private final PropsMap propsMap;
+    public MachineDoll(Observer ui, PropsMap propsMap) {
         super(ui);
+        this.propsMap = propsMap;
         price = 30;
     }
 
-    public void handle(Role role) {
+    public void handle(Position position, Role role) {
+        propsMap.cleanTheFront(position);
     }
 
     public void addToUI(Position position) {

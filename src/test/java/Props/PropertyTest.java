@@ -1,5 +1,6 @@
 package Props;
 
+import Estate.Estate;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
@@ -20,7 +21,7 @@ public class PropertyTest {
     public void setUp() {
         property = new Property();
         ui = new Map();
-        uncleTuu = new UncleTuu(new Position(0), ui);
+        uncleTuu = new UncleTuu(new Position(0), ui, new Estate(ui));
     }
 
     @Test
@@ -37,9 +38,9 @@ public class PropertyTest {
     public void it_should_has_machine_doll() {
         //given
         property.add(30);
-        property.buy(new MachineDoll(uncleTuu, ui));
+        property.buy(new MachineDoll(ui, new PropsMap()));
         //when
-        boolean isSuccessful = property.consume(new MachineDoll(uncleTuu, ui));
+        boolean isSuccessful = property.consume(new MachineDoll(ui, new PropsMap()));
         //then
         assertThat(isSuccessful, is(true));
     }

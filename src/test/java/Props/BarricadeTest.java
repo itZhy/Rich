@@ -1,5 +1,6 @@
 package Props;
 
+import Estate.Estate;
 import Player.BabyKin;
 import Player.MadameChyan;
 import Player.Position;
@@ -16,13 +17,13 @@ public class BarricadeTest {
     public void the_role_should_be_blocked_when_forwarding()    {
         //given
         Observer ui = new Map();
-        Role owner = new MadameChyan(new Position(0), ui);
+        Role owner = new MadameChyan(new Position(0), ui, new Estate(ui));
         Prop barricade = new Barricade(owner, ui);
         //when
-        BabyKin babyKin = new BabyKin(new Position(0), ui);
-        barricade.handle(babyKin);
+        BabyKin babyKin = new BabyKin(new Position(0), ui, new Estate(ui));
+        barricade.handle(new Position(1), babyKin);
         babyKin.forward(10);
         //then
-        assertThat(babyKin, is(new BabyKin(new Position(1), ui)));
+        assertThat(babyKin, is(new BabyKin(new Position(1), ui, new Estate(ui))));
     }
 }

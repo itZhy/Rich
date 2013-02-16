@@ -5,7 +5,6 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import UI.Map;
-import UI.Observer;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
