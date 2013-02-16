@@ -2,7 +2,7 @@ package Player;
 
 import Estate.Estate;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -12,7 +12,7 @@ public class PlayerParserTest {
     @Test
     public void it_should_translate_string_to_player() {
         //given
-        Observer ui = new Map();
+        UIObserver ui = new Map();
         Estate estate = new Estate(ui);
         PlayerParser parser = new PlayerParser(ui, estate);
         //when

@@ -2,13 +2,13 @@ package Player;
 
 import Estate.BuildingObserver;
 import UI.Element;
-import UI.Observer;
+import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Role {
     private final Ansi.Color color = Ansi.Color.YELLOW;
 
-    public SunHsiaoMei(Position initialPosition, Observer ui, BuildingObserver building) {
+    public SunHsiaoMei(Position initialPosition, UIObserver ui, BuildingObserver building) {
         super(initialPosition, ui, building);
     }
 

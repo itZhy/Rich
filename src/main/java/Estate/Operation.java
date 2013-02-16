@@ -1,24 +1,21 @@
 package Estate;
 
-import Player.Role;
 import Player.Position;
-import UI.Observer;
+import UI.UIObserver;
 import UI.UIException;
 import Util.MapParser;
 import org.fusesource.jansi.Ansi;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Operation {
 
     private final Map<Position, Building> buildings = new HashMap<Position, Building>();
 
-    public Operation(Observer ui) {
+    public Operation(UIObserver ui) {
         initializeDefaultBuilding(ui);
     }
 
@@ -42,7 +39,7 @@ public class Operation {
         return true;
     }
 
-    private void initializeDefaultBuilding(Observer ui) {
+    private void initializeDefaultBuilding(UIObserver ui) {
         try {
             readDefaultBuilding(ui);
         } catch (FileNotFoundException e) {
@@ -50,7 +47,7 @@ public class Operation {
         }
     }
 
-    private void readDefaultBuilding(Observer ui) throws FileNotFoundException {
+    private void readDefaultBuilding(UIObserver ui) throws FileNotFoundException {
         List<Position> positions = new MapParser().readDefaultBuilding();
         for (int index = 0; index != positions.size(); ++index) {
             buildings.put(positions.get(index), new Vacancy(null, ui));

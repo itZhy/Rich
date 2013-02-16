@@ -3,7 +3,7 @@ package Player;
 import Estate.BuildingObserver;
 import Estate.Estate;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class RoleTest {
-    private Observer ui;
+    private UIObserver ui;
     private BuildingObserver building;
     @Before
     public void setUP() {

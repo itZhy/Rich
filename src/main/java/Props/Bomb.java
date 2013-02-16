@@ -2,10 +2,10 @@ package Props;
 
 import Player.Position;
 import Player.Role;
-import UI.Observer;
+import UI.UIObserver;
 
 public class Bomb extends Prop {
-    public Bomb(Role role, Observer ui) {
+    public Bomb(Role role, UIObserver ui) {
         super(ui);
         element = role.getElement('@');
         price = 50;

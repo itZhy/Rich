@@ -5,7 +5,7 @@ import Player.Role;
 import Player.Position;
 import Player.UncleTuu;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 
 public class EstateTest {
     private Estate estate;
-    private Observer ui;
+    private UIObserver ui;
 
     @Before
     public void setUP() {

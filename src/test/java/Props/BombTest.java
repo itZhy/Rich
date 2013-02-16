@@ -6,7 +6,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -16,7 +16,7 @@ public class BombTest {
     @Test
     public void the_role_should_be_moved_to_hospital() {
         //given
-        Observer ui = new Map();
+        UIObserver ui = new Map();
         Role owner = new UncleTuu(new Position(0), ui, new Estate(ui));
         Prop bomb = new Bomb(owner, ui);
         //when

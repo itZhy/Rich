@@ -2,10 +2,10 @@ package Props;
 
 import Player.Position;
 import Player.Role;
-import UI.Observer;
+import UI.UIObserver;
 
 public class Barricade extends Prop {
-    public Barricade(Role role, Observer ui) {
+    public Barricade(Role role, UIObserver ui) {
         super(ui);
         element = role.getElement('#');
         price = 50;

@@ -5,7 +5,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 
 public class PropsMapTest {
     PropsMap propsMap;
-    Observer ui;
+    UIObserver ui;
     Role uncleTuu;
 
     @Before

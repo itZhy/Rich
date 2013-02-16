@@ -1,15 +1,14 @@
 package Estate;
 
 import Player.Position;
-import Player.Role;
-import UI.Observer;
+import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Estate implements BuildingObserver {
     private final Bank bank = new Bank();
     private final Operation operation;
 
-    public Estate(Observer ui) {
+    public Estate(UIObserver ui) {
         operation = new Operation(ui);
     }
 

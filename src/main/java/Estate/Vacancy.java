@@ -1,11 +1,11 @@
 package Estate;
 
 import Player.Role;
-import UI.Observer;
+import UI.UIObserver;
 
 public class Vacancy extends Building {
 
-    public Vacancy(Role role, Observer ui){
+    public Vacancy(Role role, UIObserver ui){
         super(role, ui);
     }
 

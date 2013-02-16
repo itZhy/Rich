@@ -6,7 +6,7 @@ import Player.MadameChyan;
 import Player.Position;
 import Player.Role;
 import UI.Map;
-import UI.Observer;
+import UI.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -16,7 +16,7 @@ public class BarricadeTest {
     @Test
     public void the_role_should_be_blocked_when_forwarding()    {
         //given
-        Observer ui = new Map();
+        UIObserver ui = new Map();
         Role owner = new MadameChyan(new Position(0), ui, new Estate(ui));
         Prop barricade = new Barricade(owner, ui);
         //when

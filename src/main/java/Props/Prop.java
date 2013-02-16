@@ -3,14 +3,14 @@ package Props;
 import Player.Position;
 import Player.Role;
 import UI.Element;
-import UI.Observer;
+import UI.UIObserver;
 
 public abstract class Prop {
-    private final Observer ui;
+    private final UIObserver ui;
     protected int price;
     protected Element element;
 
-    public Prop(Observer ui) {
+    public Prop(UIObserver ui) {
         this.ui = ui;
     }
 
