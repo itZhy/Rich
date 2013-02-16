@@ -1,16 +1,16 @@
 package Props;
 
 import Player.Role;
+import UI.Observer;
 
-public class Barricade implements Prop {
-    public int price()  {
-        return 50;
+public class Barricade extends Prop {
+    public Barricade(Role role, Observer ui) {
+        super(ui);
+        element = role.getElement('#');
+        price = 50;
     }
 
     public void handle(Role role)   {
-    }
-
-    public boolean equals(Object object)    {
-        return getClass() == object.getClass();
+        role.block();
     }
 }

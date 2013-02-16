@@ -23,6 +23,23 @@ public class Operation {
     }
 
     public void handle(Position position, String name, Ansi.Color color) {
+        Building house = buildings.get(position);
+
+        if (house == null) {
+            return;
+        }
+//        if(checkSoldStatus(house) == false){
+//            buyNewBuilding(house, name, color);
+//        }
+
+
+    }
+
+    public boolean checkSoldStatus(Building house) {
+        if (house.getClass() == Vacancy.class) {
+            return false;
+        }
+        return true;
     }
 
     private void initializeDefaultBuilding(Observer ui) {

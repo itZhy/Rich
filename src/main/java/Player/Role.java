@@ -11,6 +11,7 @@ public abstract class Role {
     private int remainTimes = 0;
     private final BuildingObserver building;
     protected final Observer ui;
+    private boolean isBlocked = false;
 
 
     Role(Position initialPosition, Observer ui, BuildingObserver building) {
@@ -27,6 +28,14 @@ public abstract class Role {
         updateUI(currentPosition, currentPosition.move(step));
         currentPosition = currentPosition.move(step);
         handleEstate();
+        for (int count = 1; count <= step; ++count) {
+            updateUI(currentPosition, currentPosition.move(count));
+            currentPosition = currentPosition.move(count);
+            if (isBlocked) {
+                isBlocked = false;
+                break;
+            }
+        }
     }
 
     public void stay(int times) {
@@ -47,11 +56,17 @@ public abstract class Role {
         stay(3);
     }
 
+    public void block() {
+        isBlocked = true;
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 currentPosition.equals(((Role) object).currentPosition) &&
-                        building.equals(((Role) object).building) &&
-                                ui.equals(((Role) object).ui);
+                building.equals(((Role) object).building) &&
+                ui.equals(((Role) object).ui) &&
+                remainTimes == ((Role) object).remainTimes &&
+                isBlocked == ((Role) object).isBlocked;
     }
 
     public abstract String getPromptMessage();

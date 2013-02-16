@@ -1,17 +1,21 @@
 package Props;
 
+import Player.Position;
 import Player.Role;
+import UI.Observer;
 
-public class MachineDoll implements Prop {
-    public int price()  {
-        return 30;
+public class MachineDoll extends Prop {
+    public MachineDoll(Role role, Observer ui) {
+        super(ui);
+        price = 30;
     }
 
-    public void handle(Role role)   {
-
+    public void handle(Role role) {
     }
 
-    public boolean equals(Object object)    {
-        return getClass() == object.getClass();
+    public void addToUI(Position position) {
+    }
+
+    public void removeFromUI(Position position) {
     }
 }
