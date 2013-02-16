@@ -11,4 +11,10 @@ public class Hovel extends Building {
     public Building update() {
         return null;
     }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                owner.equals(((Hovel) object).owner) &&
+                ui.equals(((Hovel) object).ui);
+    }
 }

@@ -14,5 +14,8 @@ public class Vacancy {
        return (Building)new SoldVacancy(owner, ui);
     }
 
-
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                ui.equals(((Vacancy) object).ui);
+    }
 }

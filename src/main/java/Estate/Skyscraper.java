@@ -12,4 +12,10 @@ public class Skyscraper extends Building {
     public Building update() {
         return null;
     }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                owner.equals(((Skyscraper) object).owner) &&
+                ui.equals(((Skyscraper) object).ui);
+    }
 }
