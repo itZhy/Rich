@@ -20,7 +20,7 @@ public class RollTest {
         Role role = new MadameChyan(new Position(0), ui, estate);
         Command rollCommand = new Roll();
         //when
-        rollCommand.execute(role);
+        rollCommand.execute(role, 0);
         //then
         Role exceptedRole = new MadameChyan(new Position(1), ui, estate);
         assertThat(role, is(exceptedRole));

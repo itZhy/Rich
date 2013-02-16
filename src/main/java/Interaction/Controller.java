@@ -6,6 +6,7 @@ import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
 import UI.Map;
+import Util.CommandSplitter;
 
 class Controller {
     private final Map map = new Map();
@@ -18,7 +19,7 @@ class Controller {
         map.display();
     }
 
-    public void initializeRounderAndBank(String players){
+    public void initializeRounderAndBank(String players) {
         PlayerParser parser = new PlayerParser(map, estate);
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
@@ -28,7 +29,8 @@ class Controller {
     }
 
     public void handleCommand(String input) {
-        parser.get(input).execute(rounder.current());
+        CommandSplitter splitter = new CommandSplitter(input);
+        parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         rounder.next();
         map.display();
     }
