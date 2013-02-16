@@ -56,4 +56,18 @@ public class RounderTest {
         Role exceptedRole = new BabyKin(new Position(0), ui);
         assertThat(currentRole, is(exceptedRole));
     }
+
+    @Test
+    public void it_should_get_second_player_when_the_first_player_is_stayed()   {
+        //when
+        rounder.current().stay(1);
+        rounder.next();
+        rounder.next();
+        rounder.next();
+        rounder.next();
+        Role currentRole = rounder.current();
+        //then
+        Role exceptedRole = new UncleTuu(new Position(0), ui);
+        assertThat(currentRole, is(exceptedRole));
+    }
 }

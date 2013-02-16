@@ -1,6 +1,7 @@
 package Props;
 
 import Player.Position;
+import Player.Role;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,12 @@ public class PropsMap {
 
     public void put(Position position, Prop prop) {
         props.put(position, prop);
+    }
+
+    public void handle(Position position, Role role)    {
+        if (props.containsKey(position))    {
+            props.get(position).handle(role);
+        }
     }
 
     public void cleanTheFront(Position position) {

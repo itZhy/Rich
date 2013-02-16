@@ -8,6 +8,7 @@ public class Bomb implements Prop {
     }
 
     public void handle(Role role) {
+        role.moveToHospital();
     }
 
     public boolean equals(Object object) {
