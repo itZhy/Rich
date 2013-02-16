@@ -33,6 +33,10 @@ public class Map implements Observer {
         add(destination, element);
     }
 
+    public void replace(Position position, Element element){
+        move(position, position, element);
+    }
+
     public boolean equals(Object object) {
         return Map.class == object.getClass() &&
                 surface.equals(((Map) object).surface);

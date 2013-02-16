@@ -20,6 +20,10 @@ public class BabyKin extends Player {
         return "金贝贝>";
     }
 
+    public Element getElement(char symbol) {
+        return new Element(symbol, Ansi.Color.BLUE);
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('J', Ansi.Color.BLUE));
     }

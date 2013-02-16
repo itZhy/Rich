@@ -17,4 +17,10 @@ public class Bank {
     public void add(String player){
         funds.put(player, new Fund(initialFund));
     }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                funds.equals(((Bank) object).funds);
+    }
+
 }

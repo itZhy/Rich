@@ -20,6 +20,10 @@ public class SunHsiaoMei extends Player {
         return "孙美美>";
     }
 
+    public Element getElement(char symbol) {
+        return new Element(symbol, Ansi.Color.YELLOW);
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('S', Ansi.Color.YELLOW));
     }

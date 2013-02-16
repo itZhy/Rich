@@ -20,6 +20,11 @@ public class MadameChyan extends Player {
         return "钱夫人>";
     }
 
+
+    public Element getElement(char symbol) {
+        return new Element(symbol, Ansi.Color.MAGENTA);
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('Q', Ansi.Color.MAGENTA));
     }

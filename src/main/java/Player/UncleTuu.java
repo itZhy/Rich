@@ -20,6 +20,10 @@ public class UncleTuu extends Player {
         return "阿土伯>";
     }
 
+    public Element getElement(char symbol) {
+        return new Element(symbol, Ansi.Color.GREEN);
+    }
+
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('A', Ansi.Color.GREEN));
     }

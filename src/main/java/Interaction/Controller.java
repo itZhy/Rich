@@ -1,7 +1,7 @@
 package Interaction;
 
 import Command.CommandParser;
-import Estate.Bank;
+import Estate.Estate;
 import Player.PlayerParser;
 import Player.Player;
 import Player.Rounder;
@@ -10,7 +10,7 @@ import UI.Map;
 class Controller {
     private final Map map = new Map();
     private final Rounder rounder = new Rounder();
-    private final Bank bank = new Bank();
+    private final Estate estate = new Estate();
     private final CommandParser parser = new CommandParser();
 
     public Controller(String players) {
@@ -23,7 +23,7 @@ class Controller {
         for (int index = 0; index != players.length(); ++index) {
             Player player = parser.get(players.charAt(index));
             rounder.add(player);
-            bank.add(player.getClass().toString());
+            estate.add(player.getClass().toString());
         }
     }
 

@@ -1,5 +1,8 @@
 package Player;
 
+import UI.Element;
+import org.fusesource.jansi.Ansi;
+
 public abstract class Player {
     private Position currentPosition;
 
@@ -18,5 +21,7 @@ public abstract class Player {
     }
 
     public abstract String getPromptMessage();
+    public abstract Element getElement(char symbol);
     protected abstract void updateUI(Position source, Position destination);
+
 }

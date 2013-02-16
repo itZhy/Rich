@@ -19,4 +19,9 @@ public class Fund {
     public int get(){
         return money;
     }
+
+    public boolean equals(Object object) {
+        return Fund.class == object.getClass() &&
+                ((Fund) object).money == money;
+    }
 }
