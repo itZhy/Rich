@@ -9,7 +9,7 @@ public class Position {
     }
 
     public Position move(int step) {
-        return new Position((index + step) % (MAX_INDEX + 1));
+        return new Position((MAX_INDEX + 1+ index + step) % (MAX_INDEX + 1));
     }
 
     public boolean equals(Object position) {
