@@ -40,7 +40,8 @@ public abstract class Role {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                currentPosition.equals(((Role) object).currentPosition);
+                currentPosition.equals(((Role) object).currentPosition) &&
+                remainTimes == ((Role) object).remainTimes;
     }
 
     public abstract String getPromptMessage();
@@ -48,5 +49,4 @@ public abstract class Role {
     public abstract Element getElement(char symbol);
 
     protected abstract void updateUI(Position source, Position destination);
-
 }
