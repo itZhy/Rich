@@ -5,6 +5,7 @@ import Player.Position;
 import UI.Observer;
 import UI.UIException;
 import Util.MapParser;
+import org.fusesource.jansi.Ansi;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,7 +22,7 @@ public class Operation {
         initializeDefaultBuilding(ui);
     }
 
-    public void handle(Role role) {
+    public void handle(Position position, String name, Ansi.Color color) {
     }
 
     private void initializeDefaultBuilding(Observer ui) {

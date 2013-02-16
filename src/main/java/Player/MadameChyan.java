@@ -6,18 +6,15 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Role {
-    private final Observer ui;
-    private final BuildingObserver building;
+
     private final Ansi.Color color = Ansi.Color.MAGENTA;
 
     public MadameChyan(Position initialPosition, Observer ui, BuildingObserver building) {
-        super(initialPosition);
-        this.ui = ui;
-        this.building = building;
+        super(initialPosition, ui, building);
     }
 
-    public boolean equals(Object object)    {
-        return super.equals(object) && ui.equals(((MadameChyan)object).ui);
+    public boolean equals(Object object) {
+        return super.equals(object) && ui.equals(((MadameChyan) object).ui);
     }
 
     public String getPromptMessage() {
@@ -33,8 +30,8 @@ public class MadameChyan extends Role {
         ui.move(source, destination, new Element('Q', color));
     }
 
-    protected void handleEstate(){
-        building.handle(this);
+    protected Ansi.Color getEstateColor() {
+        return color;
     }
 
 }

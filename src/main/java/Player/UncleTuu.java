@@ -6,14 +6,10 @@ import UI.Observer;
 import org.fusesource.jansi.Ansi;
 
 public class UncleTuu extends Role {
-    private final Observer ui;
-    private final BuildingObserver building;
     private final Ansi.Color color = Ansi.Color.YELLOW;
 
     public UncleTuu(Position initialPosition, Observer ui, BuildingObserver building) {
-        super(initialPosition);
-        this.building = building;
-        this.ui = ui;
+        super(initialPosition, ui, building);
     }
 
     public boolean equals(Object object) {
@@ -32,7 +28,7 @@ public class UncleTuu extends Role {
         ui.move(source, destination, new Element('A', color));
     }
 
-    protected void handleEstate(){
-        building.handle(this);
+    protected Ansi.Color getEstateColor() {
+        return color;
     }
 }

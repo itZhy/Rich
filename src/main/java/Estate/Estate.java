@@ -1,7 +1,9 @@
 package Estate;
 
+import Player.Position;
 import Player.Role;
 import UI.Observer;
+import org.fusesource.jansi.Ansi;
 
 public class Estate implements BuildingObserver {
     private final Bank bank = new Bank();
@@ -11,8 +13,8 @@ public class Estate implements BuildingObserver {
         operation = new Operation(ui);
     }
 
-    public void handle(Role role) {
-        operation.handle(role);
+    public void handle(Position position, String name, Ansi.Color color){
+        operation.handle(position, name, color);
     }
 
     public void add(String player) {

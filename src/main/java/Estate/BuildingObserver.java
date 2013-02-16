@@ -1,7 +1,8 @@
 package Estate;
 
-import Player.Role;
+import Player.Position;
+import org.fusesource.jansi.Ansi;
 
 public interface BuildingObserver {
-    public void handle(Role role);
+    public void handle(Position position, String name, Ansi.Color color);
 }
