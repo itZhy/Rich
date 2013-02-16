@@ -2,12 +2,13 @@ package Props;
 
 import Player.Role;
 
-public class Barricade implements Prop {
+public class MachineDoll implements Prop {
     public int price()  {
-        return 50;
+        return 30;
     }
 
     public void handle(Role role)   {
+
     }
 
     public boolean equals(Object object)    {

@@ -4,19 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rounder {
-    private final List<Player> orderedPlayers = new ArrayList<Player>();
+    private final List<Role> orderedRoles = new ArrayList<Role>();
     private int currentIndex = 0;
-
-    public Player getCurrentPlayer() {
-        return orderedPlayers.get(currentIndex);
+    public Role current() {
+        return orderedRoles.get(currentIndex);
     }
 
     public void next() {
         ++currentIndex;
-        currentIndex %= orderedPlayers.size();
+        currentIndex %= orderedRoles.size();
     }
 
-    public void add(Player player){
-        orderedPlayers.add(player);
+    public void add(Role role) {
+        orderedRoles.add(role);
     }
 }

@@ -1,10 +1,7 @@
 package Estate;
 
-import Player.Position;
-import Player.Player;
-import UI.Element;
+import Player.Role;
 import UI.Observer;
-import org.fusesource.jansi.Ansi;
 
 public class Vacancy {
     private final Observer ui;
@@ -13,7 +10,7 @@ public class Vacancy {
         this.ui = ui;
     }
 
-    public Building update(Player owner){
+    public Building update(Role owner){
        return (Building)new SoldVacancy(owner, ui);
     }
 

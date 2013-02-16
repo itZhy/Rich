@@ -1,7 +1,8 @@
 package Props;
 
-import Player.Player;
+import Player.Role;
 
 public interface Prop {
-    public void handle(Player player);
+    public int price();
+    public void handle(Role role);
 }

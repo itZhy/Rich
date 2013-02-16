@@ -1,7 +1,7 @@
 package Estate;
 
 import Player.Position;
-import Player.Player;
+import Player.Role;
 import UI.Element;
 import UI.Observer;
 import org.fusesource.jansi.Ansi;
@@ -9,8 +9,8 @@ import org.fusesource.jansi.Ansi;
 public class SoldVacancy extends Building {
 
 
-    public SoldVacancy(Player player, Observer ui){
-        super(player, ui);
+    public SoldVacancy(Role role, Observer ui){
+        super(role, ui);
     }
 
     public Building update(){

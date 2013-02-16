@@ -1,15 +1,15 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 import UI.Observer;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(Player player, Observer ui){
-        super(player, ui);
+    public Skyscraper(Role role, Observer ui) {
+        super(role, ui);
     }
 
-    public void update() {
-
+    public Building update() {
+        return null;
     }
 }

@@ -1,14 +1,14 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 import UI.Observer;
 
 public class Hovel extends Building {
-    public Hovel(Player player, Observer ui){
-        super(player, ui);
+    public Hovel(Role role, Observer ui) {
+        super(role, ui);
     }
 
-    public void update() {
-
+    public Building update() {
+        return null;
     }
 }

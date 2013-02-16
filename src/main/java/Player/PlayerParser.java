@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerParser {
-    private final Map<Character, Player> stringToPlayers = new HashMap<Character, Player>();
+    private final Map<Character, Role> stringToPlayers = new HashMap<Character, Role>();
 
     public PlayerParser(Observer ui) {
         stringToPlayers.put('1', new MadameChyan(new Position(0), ui));
@@ -16,7 +16,7 @@ public class PlayerParser {
         stringToPlayers.put('4', new BabyKin(new Position(0), ui));
     }
 
-    public Player get(Character number) {
+    public Role get(Character number) {
         if (!stringToPlayers.containsKey(number)) {
             throw new UIException("输入的角色不存在，请重新输入。");
         }

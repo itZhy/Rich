@@ -3,11 +3,15 @@ package Player;
 import UI.Element;
 import org.fusesource.jansi.Ansi;
 
-public abstract class Player {
+public abstract class Role {
     private Position currentPosition;
 
-    Player(Position initialPosition) {
+    Role(Position initialPosition) {
         currentPosition = initialPosition;
+    }
+
+    public String name()    {
+        return getClass().toString();
     }
 
     public void forward(int step) {
@@ -17,7 +21,7 @@ public abstract class Player {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                currentPosition.equals(((Player) object).currentPosition);
+                currentPosition.equals(((Role) object).currentPosition);
     }
 
     public abstract String getPromptMessage();

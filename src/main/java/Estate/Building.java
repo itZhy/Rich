@@ -1,14 +1,14 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 import UI.Observer;
 
 public abstract class Building {
-    protected Player owner;
+    protected Role owner;
     protected final Observer ui;
 
-    public Building(Player player, Observer ui){
-        owner = player;
+    public Building(Role role, Observer ui){
+        owner = role;
         this.ui = ui;
     }
 

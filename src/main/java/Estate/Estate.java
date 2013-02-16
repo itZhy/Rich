@@ -1,6 +1,6 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 import UI.CommandLine;
 
 public class Estate {
@@ -9,8 +9,8 @@ public class Estate {
     private final Operation operation = new Operation();
 
 
-    public void handle(Player player){
-        operation.handle(player);
+    public void handle(Role role){
+        operation.handle(role);
     }
 
     public void add(String player){

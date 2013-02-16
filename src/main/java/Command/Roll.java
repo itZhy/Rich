@@ -1,13 +1,13 @@
 package Command;
 
-import Player.Player;
+import Player.Role;
 import Player.Dice;
 
 public class Roll implements Command {
     private final Dice dice = new Dice();
 
-    public void execute(Player player) {
-        player.forward(dice.roll());
+    public void execute(Role role) {
+        role.forward(dice.roll());
     }
 
     public boolean equals(Object object){

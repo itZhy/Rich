@@ -1,7 +1,7 @@
 package Estate;
 
 import Player.MadameChyan;
-import Player.Player;
+import Player.Role;
 import Player.Position;
 import Player.UncleTuu;
 import UI.Map;
@@ -27,9 +27,9 @@ public class EstateTest {
     @Test
     public void it_should_operate_player_to_buy_house() {
         //given
-        Player player = new MadameChyan(new Position(3), ui);
+        Role role = new MadameChyan(new Position(3), ui);
         //when
-        estate.handle(player);
+        estate.handle(role);
     }
 
 }

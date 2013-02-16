@@ -3,7 +3,7 @@ package Interaction;
 import Command.CommandParser;
 import Estate.Estate;
 import Player.PlayerParser;
-import Player.Player;
+import Player.Role;
 import Player.Rounder;
 import UI.Map;
 
@@ -21,19 +21,19 @@ class Controller {
     public void initializeRounderAndBank(String players){
         PlayerParser parser = new PlayerParser(map);
         for (int index = 0; index != players.length(); ++index) {
-            Player player = parser.get(players.charAt(index));
-            rounder.add(player);
-            estate.add(player.getClass().toString());
+            Role role = parser.get(players.charAt(index));
+            rounder.add(role);
+            estate.add(role.getClass().toString());
         }
     }
 
     public void handleCommand(String input) {
-        parser.get(input).execute(rounder.getCurrentPlayer());
+        parser.get(input).execute(rounder.current());
         rounder.next();
         map.display();
     }
 
     public String getPromptMessageForCurrentPlayer() {
-        return rounder.getCurrentPlayer().getPromptMessage();
+        return rounder.current().getPromptMessage();
     }
 }

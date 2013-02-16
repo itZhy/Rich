@@ -1,9 +1,13 @@
 package Props;
 
-import Player.Player;
+import Player.Role;
 
 public class Bomb implements Prop {
-    public void handle(Player player) {
+    public int price() {
+        return 50;
+    }
+
+    public void handle(Role role) {
     }
 
     public boolean equals(Object object) {

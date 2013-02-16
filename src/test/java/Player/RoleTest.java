@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class PlayerTest {
+public class RoleTest {
     private Observer ui;
     @Before
     public void setUP() {
@@ -19,23 +19,23 @@ public class PlayerTest {
     public void its_position_should_be_3_after_forward() {
         //given
         Position initialPosition = new Position(0);
-        Player player = new MadameChyan(initialPosition, ui);
+        Role role = new MadameChyan(initialPosition, ui);
         //when
-        player.forward(3);
+        role.forward(3);
         //then
-        Player exceptedPlayer = new MadameChyan(new Position(3), ui);
-        assertThat(player, is(exceptedPlayer));
+        Role exceptedRole = new MadameChyan(new Position(3), ui);
+        assertThat(role, is(exceptedRole));
     }
 
     @Test
     public void its_position_should_be_1_after_forward_more_than_a_lap() {
         //given
         Position initialPosition = new Position(67);
-        Player player = new MadameChyan(initialPosition, ui);
+        Role role = new MadameChyan(initialPosition, ui);
         //when
-        player.forward(4);
+        role.forward(4);
         //then
-        Player exceptedPlayer = new MadameChyan(new Position(1), ui);
-        assertThat(player, is(exceptedPlayer));
+        Role exceptedRole = new MadameChyan(new Position(1), ui);
+        assertThat(role, is(exceptedRole));
     }
 }

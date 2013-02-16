@@ -1,11 +1,11 @@
 package Estate;
 
-import Player.Player;
+import Player.Role;
 import UI.Observer;
 
 public class Villa extends Building {
-    public Villa(Player player, Observer ui){
-        super(player, ui);
+    public Villa(Role role, Observer ui){
+        super(role, ui);
     }
 
     public Building update() {
