@@ -20,4 +20,10 @@ public class SoldVacancy extends Building {
     public void updateUI(Position position) {
         ui.replace(position, owner.getElement('0'));
     }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                owner.equals(((SoldVacancy) object).owner) &&
+                ui.equals(((SoldVacancy) object).ui);
+    }
 }
