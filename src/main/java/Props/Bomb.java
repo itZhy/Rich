@@ -1,5 +1,6 @@
 package Props;
 
+import Player.Position;
 import Player.Role;
 import UI.Observer;
 

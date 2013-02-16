@@ -13,11 +13,9 @@ public class MachineDoll extends Prop {
     public void handle(Role role) {
     }
 
-    @Override
     public void addToUI(Position position) {
     }
 
-    @Override
     public void removeFromUI(Position position) {
     }
 }

@@ -6,6 +6,7 @@ public abstract class Role {
     private static final Position HOSPITAL = new Position(14);
     private Position currentPosition;
     private int remainTimes = 0;
+    private boolean isBlocked = false;
 
     Role(Position initialPosition) {
         currentPosition = initialPosition;
@@ -16,8 +17,14 @@ public abstract class Role {
     }
 
     public void forward(int step) {
-        updateUI(currentPosition, currentPosition.move(step));
-        currentPosition = currentPosition.move(step);
+        for (int count = 1; count <= step; ++count) {
+            updateUI(currentPosition, currentPosition.move(count));
+            currentPosition = currentPosition.move(count);
+            if (isBlocked) {
+                isBlocked = false;
+                break;
+            }
+        }
     }
 
     public void stay(int times) {
@@ -38,10 +45,15 @@ public abstract class Role {
         stay(3);
     }
 
+    public void block() {
+        isBlocked = true;
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 currentPosition.equals(((Role) object).currentPosition) &&
-                remainTimes == ((Role) object).remainTimes;
+                remainTimes == ((Role) object).remainTimes &&
+                isBlocked == ((Role) object).isBlocked;
     }
 
     public abstract String getPromptMessage();

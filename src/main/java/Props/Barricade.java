@@ -11,5 +11,6 @@ public class Barricade extends Prop {
     }
 
     public void handle(Role role)   {
+        role.block();
     }
 }
