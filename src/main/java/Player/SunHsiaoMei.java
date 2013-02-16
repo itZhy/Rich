@@ -6,6 +6,7 @@ import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Role {
     private final Observer ui;
+    private final Ansi.Color color = Ansi.Color.YELLOW;
 
     public SunHsiaoMei(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -21,10 +22,10 @@ public class SunHsiaoMei extends Role {
     }
 
     public Element getElement(char symbol) {
-        return new Element(symbol, Ansi.Color.YELLOW);
+        return new Element(symbol, color);
     }
 
     protected void updateUI(Position source, Position destination) {
-        ui.move(source, destination, new Element('S', Ansi.Color.YELLOW));
+        ui.move(source, destination, new Element('S',color));
     }
 }

@@ -6,6 +6,7 @@ import org.fusesource.jansi.Ansi;
 
 public class BabyKin extends Role {
     private final Observer ui;
+    private final Ansi.Color color = Ansi.Color.BLUE;
 
     public BabyKin(Position initialPosition, Observer ui) {
         super(initialPosition);
@@ -21,10 +22,10 @@ public class BabyKin extends Role {
     }
 
     public Element getElement(char symbol) {
-        return new Element(symbol, Ansi.Color.BLUE);
+        return new Element(symbol, color);
     }
 
     protected void updateUI(Position source, Position destination) {
-        ui.move(source, destination, new Element('J', Ansi.Color.BLUE));
+        ui.move(source, destination, new Element('J', color));
     }
 }
