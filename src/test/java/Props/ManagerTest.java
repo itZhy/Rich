@@ -1,7 +1,6 @@
 package Props;
 
 import Player.UncleTuu;
-import UI.Map;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

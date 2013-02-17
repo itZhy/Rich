@@ -3,6 +3,7 @@ package Command;
 import Estate.Estate;
 import Player.*;
 import Props.Barricade;
+import Props.Manager;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
@@ -20,10 +21,13 @@ public class RobotTest {
         Callback callback = new Callback();
         Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
         propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
-        Command robot = new Robot(propsMap);
+        Manager propsManager = new Manager();
+        propsManager.add(uncleTuu.name(), 30);
+        propsManager.buy(uncleTuu.name(), new Props.Robot());
+        Command robot = new Robot(propsMap, propsManager);
         //when
         robot.execute(uncleTuu, 10);
         //then
-        assertThat(propsMap, is( new PropsMap(ui)));
+        assertThat(propsMap, is(new PropsMap(ui)));
     }
 }
