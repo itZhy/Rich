@@ -1,6 +1,5 @@
 package Player;
 
-import UI.Element;
 import UI.UIObserver;
 
 public abstract class Role {
