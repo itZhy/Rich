@@ -21,15 +21,22 @@ public class Estate implements Observer {
         if (house == null) {
             return;
         }
-        if (checkSoldStatus(house) == false) {
+        if (controller.checkSoldStatus(house) == false) {
             buy(movement.currentPosition(), role);
-        }else{
+            return;
+        }
+        if (controller.checkOwner(role, house) == false) {
+            payRent();
+        } else {
             update(movement.currentPosition(), role);
         }
     }
 
-    public boolean checkSoldStatus(Building house){
-        return controller.checkSoldStatus(house);
+    private void payRent() {
+    }
+
+    public boolean checkPurchasingPower(String role, Building house) {
+        return controller.checkPurchasingPower(role, house);
     }
 
     public void update(Position position, String name) {
@@ -42,10 +49,6 @@ public class Estate implements Observer {
         if ("Y".equals(commandLine.waitForInput())) {
             controller.buy(position, name);
         }
-    }
-
-    public void add(String player) {
-        controller.add(player);
     }
 
 }
