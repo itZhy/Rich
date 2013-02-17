@@ -1,8 +1,6 @@
 package Estate;
 
 import Player.Position;
-import Player.Role;
-import Player.RoleColor;
 import UI.UIObserver;
 
 public class Vacancy extends Building {

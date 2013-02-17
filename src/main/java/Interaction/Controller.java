@@ -1,10 +1,7 @@
 package Interaction;
 
 import Command.CommandParser;
-import Player.Callback;
-import Player.PlayerParser;
-import Player.Role;
-import Player.Rounder;
+import Player.*;
 import Props.Ownership;
 import Props.PropsMap;
 import Estate.Estate;
@@ -16,15 +13,14 @@ class Controller {
     private final PropsMap propsMap = new PropsMap(ui);
     private final Ownership ownership = new Ownership();
     private final Rounder rounder = new Rounder();
-    private final Estate estate = new Estate(ui);
     private final CommandParser parser = new CommandParser(propsMap, ownership);
 
     public Controller(String players) {
-        initializeRounderAndBank(players);
+        initializeRounder(players);
         ui.refresh();
     }
 
-    public void initializeRounderAndBank(String players) {
+    public void initializeRounder(String players) {
         PlayerParser parser = new PlayerParser(getObservers());
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
@@ -45,7 +41,8 @@ class Controller {
 
     private Callback getObservers(){
         Callback callback = new Callback();
-        callback.attachForwardedObservers(estate);
+        callback.attachForwardedObservers(new Estate(ui));
+        callback.attachForwardingObservers(new Monitor(ui));
         return callback;
     }
 }

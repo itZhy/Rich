@@ -1,8 +1,7 @@
 package Estate;
 
+import Player.Feature;
 import Player.Position;
-import Player.Role;
-import Player.RoleColor;
 import UI.UIObserver;
 
 public class Hovel extends Building {
@@ -16,7 +15,7 @@ public class Hovel extends Building {
     }
 
     public void updateUI(Position position) {
-        ui.replace(position,new RoleColor().dye(owner, '0'), new RoleColor().dye(owner, '1'));
+        ui.replace(position,new Feature().dye(owner, '0'), new Feature().dye(owner, '1'));
     }
 
     public boolean equals(Object object) {
