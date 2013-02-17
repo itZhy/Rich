@@ -19,12 +19,18 @@ public class Property {
         return false;
     }
 
+    public boolean consume(Prop prop) {
+        return props.remove(prop);
+    }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                points == ((Property) object).points &&
+                props.equals(((Property) object).props);
+    }
+
     private void exchange(Prop prop) {
         props.add(prop);
         points -= prop.price();
-    }
-
-    public boolean consume(Prop prop) {
-        return props.remove(prop);
     }
 }

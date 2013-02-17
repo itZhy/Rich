@@ -5,8 +5,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import Props.Barricade;
-import Props.Ownership;
-import Props.PropsMap;
+import Props.PropsManager;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -19,16 +18,18 @@ public class RobotTest {
     public void it_should_clean_the_props_in_front() {
         //given
         UIObserver ui = new Map();
-        PropsMap propsMap = new PropsMap(ui);
+        PropsManager propsManager = new PropsManager(ui);
         Role uncleTuu = new UncleTuu(new Callback());
-        propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
-        Ownership ownership = new Ownership();
-        ownership.add(uncleTuu.name(), 30);
-        ownership.buy(uncleTuu.name(), new Props.Robot());
-        Command robot = new Robot(propsMap, ownership);
+        propsManager.add(uncleTuu.name(), 80);
+        propsManager.buy(uncleTuu.name(), new Props.Robot());
+        propsManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
+        propsManager.put(uncleTuu.name(), new Barricade(uncleTuu.name()), new Position(1));
+        Command robot = new Robot(propsManager);
         //when
-        robot.execute(uncleTuu, 10);
+        robot.execute(uncleTuu, 0);
         //then
-        assertThat(propsMap, is(new PropsMap(ui)));
+        PropsManager expectedManager = new PropsManager(ui);
+        expectedManager.add(uncleTuu.name(), 0);
+        assertThat(propsManager, is(expectedManager));
     }
 }

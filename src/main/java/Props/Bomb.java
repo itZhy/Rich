@@ -1,8 +1,7 @@
 package Props;
 
 import Player.Feature;
-import Player.Position;
-import Player.Role;
+import Player.Movement;
 
 public class Bomb extends Prop {
     public Bomb(String owner) {
@@ -10,7 +9,7 @@ public class Bomb extends Prop {
         price = 50;
     }
 
-    public void handle(Position position, Role role) {
-        role.moveToHospital();
+    public void handle(Movement movement) {
+        movement.jumpToHospital();
     }
 }

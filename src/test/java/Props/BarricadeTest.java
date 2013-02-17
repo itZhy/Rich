@@ -1,9 +1,6 @@
 package Props;
 
-import Player.BabyKin;
-import Player.Callback;
-import Player.MadameChyan;
-import Player.Position;
+import Player.*;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -16,12 +13,10 @@ public class BarricadeTest {
         String owner = MadameChyan.class.toString();
         Prop barricade = new Barricade(owner);
         //when
-        BabyKin babyKin = new BabyKin(new Callback());
-        barricade.handle(new Position(1), babyKin);
-        babyKin.forward(10);
+        Movement movement = new Movement();
+        barricade.handle(movement);
+        movement.walk();
         //then
-        BabyKin expectedRole = new BabyKin(new Callback());
-        expectedRole.forward(1);
-        assertThat(babyKin, is(expectedRole));
+        assertThat(movement, is(new Movement()));
     }
 }
