@@ -4,15 +4,14 @@ import UI.UIObserver;
 
 public abstract class Role {
     private static final Position HOSPITAL = new Position(14);
-    private Position currentPosition;
+    private Movement movement = new Movement();
     private int remainTimes = 0;
     private final Callback callback;
     protected final UIObserver ui;
     private boolean isBlocked = false;
 
 
-    Role(Position initialPosition, UIObserver ui, Callback callback) {
-        currentPosition = initialPosition;
+    Role(UIObserver ui, Callback callback) {
         this.ui = ui;
         this.callback = callback;
     }
@@ -23,15 +22,15 @@ public abstract class Role {
 
     public void forward(int step) {
         for (int count = 1; count <= step; ++count) {
-            updateUI(currentPosition, currentPosition.move(1));
-            currentPosition = currentPosition.move(1);
+            updateUI(movement.currentPosition(), movement.currentPosition().move(1));
+            movement.walk();
             if (isBlocked) {
                 isBlocked = false;
                 break;
             }
         }
 
-        callback.notify(currentPosition, name());
+        callback.notify(movement.currentPosition(), name());
     }
 
     public void stay(int times) {
@@ -47,8 +46,8 @@ public abstract class Role {
     }
 
     public void moveToHospital() {
-        updateUI(currentPosition, HOSPITAL);
-        currentPosition = HOSPITAL;
+        updateUI(movement.currentPosition(), HOSPITAL);
+        movement.jumpToHospital();
         stay(3);
     }
 
@@ -57,11 +56,11 @@ public abstract class Role {
     }
 
     public Position offset(int step)    {
-        return currentPosition.move(step);
+        return movement.currentPosition().move(step);
     }
 
     public boolean equals(Object object) {
-        return getClass() == object.getClass() && currentPosition.equals(((Role) object).currentPosition) &&
+        return getClass() == object.getClass() && movement.equals(((Role) object).movement) &&
                 remainTimes == ((Role) object).remainTimes && isBlocked == ((Role) object).isBlocked;
     }
 

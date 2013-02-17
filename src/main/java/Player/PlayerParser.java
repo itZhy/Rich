@@ -10,10 +10,10 @@ public class PlayerParser {
     private final Map<Character, Role> stringToPlayers = new HashMap<Character, Role>();
 
     public PlayerParser(UIObserver ui, Callback callback) {
-        stringToPlayers.put('1', new MadameChyan(new Position(0), ui, callback));
-        stringToPlayers.put('2', new UncleTuu(new Position(0), ui, callback));
-        stringToPlayers.put('3', new SunHsiaoMei(new Position(0), ui, callback));
-        stringToPlayers.put('4', new BabyKin(new Position(0), ui, callback));
+        stringToPlayers.put('1', new MadameChyan(ui, callback));
+        stringToPlayers.put('2', new UncleTuu(ui, callback));
+        stringToPlayers.put('3', new SunHsiaoMei(ui, callback));
+        stringToPlayers.put('4', new BabyKin(ui, callback));
     }
 
     public Role get(Character number) {

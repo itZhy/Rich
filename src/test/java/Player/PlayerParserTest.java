@@ -1,6 +1,5 @@
 package Player;
 
-import Estate.Estate;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -18,7 +17,7 @@ public class PlayerParserTest {
         //when
         Role role = parser.get('1');
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui, callback);
+        Role expectedRole = new MadameChyan(ui, callback);
         assertThat(role, is(expectedRole));
     }
 }

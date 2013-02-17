@@ -18,7 +18,7 @@ public class BlockTest {
         //given
         UIObserver ui = new Map();
         Observer estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, new Callback());
+        Role uncleTuu = new UncleTuu(ui, new Callback());
         PropsMap propsMap = new PropsMap(ui);
         Ownership ownership = new Ownership();
         ownership.add(uncleTuu.name(), 50);

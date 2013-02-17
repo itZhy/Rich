@@ -1,6 +1,5 @@
 package Props;
 
-import Estate.Estate;
 import Player.*;
 import UI.Map;
 import UI.UIObserver;
@@ -17,10 +16,10 @@ public class BombTest {
         String owner = UncleTuu.class.toString();
         Prop bomb = new Bomb(owner);
         //when
-        Role role = new MadameChyan(new Position(0), ui, new Callback());
+        Role role = new MadameChyan(ui, new Callback());
         bomb.handle(new Position(0), role);
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui, new Callback());
+        Role expectedRole = new MadameChyan(ui, new Callback());
         expectedRole.moveToHospital();
         assertThat(role, is(expectedRole));
     }
