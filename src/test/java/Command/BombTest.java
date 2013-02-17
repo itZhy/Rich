@@ -1,6 +1,6 @@
 package Command;
 
-import Estate.EstateObserver;
+import Player.Observer;
 import Estate.Estate;
 import Player.Position;
 import Player.Role;
@@ -15,7 +15,7 @@ public class BombTest {
         //given
         Command bomb = new Bomb();
         UIObserver ui = new Map();
-        EstateObserver estate = new Estate(ui);
+        Observer estate = new Estate(ui);
         Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
         //when
         bomb.execute(uncleTuu, -10);

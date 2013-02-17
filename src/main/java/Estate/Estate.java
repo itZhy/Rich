@@ -1,10 +1,11 @@
 package Estate;
 
+import Player.Observer;
 import Player.Position;
 import UI.UIObserver;
 
 
-public class Estate implements EstateObserver {
+public class Estate implements Observer {
     private final Bank bank = new Bank();
     private final Operation operation;
 

@@ -1,57 +1,45 @@
 package Estate;
 
 import Player.Position;
+import UI.CommandLine;
 import UI.UIObserver;
-import UI.UIException;
-import Util.MapParser;
-
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Operation {
+    private final CommandLine commandLine = new CommandLine();
+    private final EstateController controller = new EstateController();
 
-    private final Map<Position, Building> buildings = new HashMap<Position, Building>();
+
 
     public Operation(UIObserver ui) {
-        initializeDefaultBuilding(ui);
+        controller.initializeDefaultBuilding(ui);
     }
 
     public void handle(Position position, String name) {
-        Building house = buildings.get(position);
+        Building house = controller.get(position);
 
         if (house == null) {
             return;
         }
         if (checkSoldStatus(house) == false) {
-            buy(house, name);
+            buy(position, name);
+        }else{
+            update(position, name);
         }
     }
 
-    private Building buy(Building house, String name) {
-        return house.update(name);
+    public boolean checkSoldStatus(Building house){
+        return controller.checkSoldStatus(house);
     }
 
-    public boolean checkSoldStatus(Building house) {
-        if (house.getClass() == Vacancy.class) {
-            return false;
-        }
-        return true;
+    public void update(Position position, String name) {
     }
 
-    private void initializeDefaultBuilding(UIObserver ui) {
-        try {
-            readDefaultBuilding(ui);
-        } catch (FileNotFoundException e) {
-            throw new UIException(e.toString());
-        }
+    public void buy(Position position, String name) {
+//        commandLine.showPromptMessageInNewline(
+//                "是否花费" + controller.get(position).price + "元购买该地产？");
+//        if (commandLine.waitForInput() == "Y") {
+//            controller.buy(position, name);
+//        }
     }
 
-    private void readDefaultBuilding(UIObserver ui) throws FileNotFoundException {
-        List<Position> positions = new MapParser().readDefaultBuilding();
-        for (int index = 0; index != positions.size(); ++index) {
-            buildings.put(positions.get(index), new Vacancy(null, ui));
-        }
-    }
 }

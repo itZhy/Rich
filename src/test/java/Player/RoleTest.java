@@ -1,7 +1,6 @@
 package Player;
 
 import Estate.Estate;
-import Estate.EstateObserver;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -12,7 +11,7 @@ import static org.junit.Assert.assertThat;
 
 public class RoleTest {
     private UIObserver ui;
-    private EstateObserver building;
+    private Observer building;
 
     @Before
     public void setUP() {

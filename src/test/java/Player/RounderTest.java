@@ -1,7 +1,6 @@
 package Player;
 
 import Estate.Estate;
-import Estate.EstateObserver;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class RounderTest {
     private UIObserver ui;
     private Rounder rounder;
-    private EstateObserver building;
+    private Observer building;
 
     @Before
     public void setUp() {

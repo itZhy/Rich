@@ -3,7 +3,7 @@ package Estate;
 
 
 public class Fund {
-    private int money;
+    private Integer money;
     public Fund(int initialMoney) {
         money = initialMoney;
     }
