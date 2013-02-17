@@ -4,7 +4,7 @@ import Player.Position;
 import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
-public class Estate implements BuildingObserver {
+public class Estate implements EstateObserver {
     private final Bank bank = new Bank();
     private final Operation operation;
 

@@ -1,7 +1,7 @@
 package Player;
 
-import Estate.BuildingObserver;
 import Estate.Estate;
+import Estate.EstateObserver;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class RounderTest {
     private UIObserver ui;
     private Rounder rounder;
-    private BuildingObserver building;
+    private EstateObserver building;
 
     @Before
     public void setUp() {
@@ -62,7 +62,7 @@ public class RounderTest {
     }
 
     @Test
-    public void it_should_get_second_player_when_the_first_player_is_stayed()   {
+    public void it_should_get_second_player_when_the_first_player_is_stayed() {
         //when
         rounder.current().stay(1);
         rounder.next();

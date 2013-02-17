@@ -1,6 +1,6 @@
 package Player;
 
-import Estate.BuildingObserver;
+import Estate.EstateObserver;
 import UI.Element;
 import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
@@ -8,7 +8,7 @@ import org.fusesource.jansi.Ansi;
 public class BabyKin extends Role {
     private final Ansi.Color color = Ansi.Color.BLUE;
 
-    public BabyKin(Position initialPosition, UIObserver ui, BuildingObserver building) {
+    public BabyKin(Position initialPosition, UIObserver ui, EstateObserver building) {
         super(initialPosition, ui, building);
     }
 

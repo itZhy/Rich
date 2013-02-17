@@ -1,6 +1,6 @@
 package Player;
 
-import Estate.BuildingObserver;
+import Estate.EstateObserver;
 import UI.Element;
 import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
@@ -9,12 +9,12 @@ public abstract class Role {
     private static final Position HOSPITAL = new Position(14);
     private Position currentPosition;
     private int remainTimes = 0;
-    private final BuildingObserver building;
+    private final EstateObserver building;
     protected final UIObserver ui;
     private boolean isBlocked = false;
 
 
-    Role(Position initialPosition, UIObserver ui, BuildingObserver building) {
+    Role(Position initialPosition, UIObserver ui, EstateObserver building) {
         currentPosition = initialPosition;
         this.ui = ui;
         this.building = building;

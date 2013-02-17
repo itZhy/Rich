@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 
 public class PositionTest {
     @Test
-    public void it_should_return_new_position_at_4_after_moved()    {
+    public void it_should_return_new_position_at_4_after_moved() {
         //given
         Position source = new Position(1);
         //when
@@ -17,7 +17,7 @@ public class PositionTest {
     }
 
     @Test
-    public void it_should_return_new_position_at_69_after_moved_back()  {
+    public void it_should_return_new_position_at_69_after_moved_back() {
         //given
         Position source = new Position(1);
         //when
