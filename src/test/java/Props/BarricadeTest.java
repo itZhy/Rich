@@ -1,6 +1,5 @@
 package Props;
 
-import Estate.Estate;
 import Player.BabyKin;
 import Player.Callback;
 import Player.MadameChyan;

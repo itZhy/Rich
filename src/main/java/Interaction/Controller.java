@@ -1,13 +1,13 @@
 package Interaction;
 
 import Command.CommandParser;
-import Estate.Estate;
 import Player.Callback;
 import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
 import Props.Ownership;
 import Props.PropsMap;
+import Estate.Estate;
 import UI.Map;
 import Util.CommandSplitter;
 

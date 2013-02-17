@@ -1,6 +1,5 @@
 package Props;
 
-import Estate.Estate;
 import Player.*;
 import UI.Map;
 import UI.UIObserver;

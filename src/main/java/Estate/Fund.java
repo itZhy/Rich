@@ -4,16 +4,16 @@ package Estate;
 
 public class Fund {
     private Integer money;
-    public Fund(int initialMoney) {
+    public Fund(Integer initialMoney) {
         money = initialMoney;
     }
 
-    public void add(int addMoney){
+    public void add(Integer addMoney){
         money += addMoney;
     }
 
-    public void reduce(int reduceMoney){
-        money += reduceMoney;
+    public void reduce(Integer reduceMoney){
+        money -= reduceMoney;
     }
 
     public int get(){

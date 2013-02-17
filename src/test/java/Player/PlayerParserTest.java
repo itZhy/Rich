@@ -1,6 +1,5 @@
 package Player;
 
-import Estate.Estate;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
