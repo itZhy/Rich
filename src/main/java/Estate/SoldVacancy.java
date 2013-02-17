@@ -7,7 +7,7 @@ import UI.UIObserver;
 public class SoldVacancy extends Building {
 
 
-    public SoldVacancy(Role role, UIObserver ui){
+    public SoldVacancy(String role, UIObserver ui){
         super(role, ui);
     }
 
@@ -16,7 +16,7 @@ public class SoldVacancy extends Building {
     }
 
     public void updateUI(Position position) {
-        ui.replace(position, owner.getElement('0'));
+//        ui.replace(position, owner.getElement('0'));
     }
 
     public boolean equals(Object object) {

@@ -30,7 +30,7 @@ public class OperationTest {
         Estate estate = new Estate(ui);
         Operation operation = new Operation(ui);
         Role babyKin = new BabyKin(new Position(0), ui, estate);
-        Building skyscraper = new Skyscraper(babyKin, ui);
+        Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);
         //then

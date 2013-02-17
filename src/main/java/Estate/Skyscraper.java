@@ -5,7 +5,7 @@ import UI.UIObserver;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(Role role, UIObserver ui) {
+    public Skyscraper(String role, UIObserver ui) {
         super(role, ui);
     }
 

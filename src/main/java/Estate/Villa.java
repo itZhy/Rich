@@ -4,7 +4,7 @@ import Player.Role;
 import UI.UIObserver;
 
 public class Villa extends Building {
-    public Villa(Role role, UIObserver ui){
+    public Villa(String role, UIObserver ui){
         super(role, ui);
     }
 

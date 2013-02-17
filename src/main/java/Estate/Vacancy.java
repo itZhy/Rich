@@ -5,7 +5,7 @@ import UI.UIObserver;
 
 public class Vacancy extends Building {
 
-    public Vacancy(Role role, UIObserver ui){
+    public Vacancy(String role, UIObserver ui){
         super(role, ui);
     }
 
@@ -13,7 +13,7 @@ public class Vacancy extends Building {
         return null;
     }
 
-    public Building update(Role owner){
+    public Building update(String owner){
        return (Building)new SoldVacancy(owner, ui);
     }
 

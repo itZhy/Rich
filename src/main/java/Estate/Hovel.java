@@ -4,7 +4,7 @@ import Player.Role;
 import UI.UIObserver;
 
 public class Hovel extends Building {
-    public Hovel(Role role, UIObserver ui) {
+    public Hovel(String role, UIObserver ui) {
         super(role, ui);
     }
 

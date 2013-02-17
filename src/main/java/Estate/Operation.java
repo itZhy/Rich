@@ -25,10 +25,12 @@ public class Operation {
         if (house == null) {
             return;
         }
-//        if(checkSoldStatus(house) == false){
-//            buyNewBuilding(house, name, color);
-//        }
+        if(checkSoldStatus(house) == false){
+            buy(house, name, color);
+        }
+    }
 
+    private void buy(Building house, String name, Ansi.Color color) {
 
     }
 
