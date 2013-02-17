@@ -1,5 +1,6 @@
 package Estate;
 
+import Player.Movement;
 import Player.Observer;
 import Player.Position;
 import UI.CommandLine;
@@ -15,15 +16,15 @@ public class Estate implements Observer {
         this.ui = ui;
     }
 
-    public void handle(Position position, String name) {
-        Building house = controller.get(position);
+    public void handle(String role, Movement movement) {
+        Building house = controller.get(movement.currentPosition());
         if (house == null) {
             return;
         }
         if (checkSoldStatus(house) == false) {
-            buy(position, name);
+            buy(movement.currentPosition(), role);
         }else{
-            update(position, name);
+            update(movement.currentPosition(), role);
         }
     }
 
