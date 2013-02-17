@@ -27,9 +27,8 @@ public class OperationTest {
     public void it_should_check_field_is_not_vacant() {
         //given
         UIObserver ui = new Map();
-        Callback callback = new Callback();
         Estate operation = new Estate(ui);
-        Role babyKin = new BabyKin(callback, callback);
+        Role babyKin = new BabyKin(new Callback());
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui, 0);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);

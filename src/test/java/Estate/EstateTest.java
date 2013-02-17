@@ -25,9 +25,8 @@ public class EstateTest {
     public void it_should_check_field_is_not_vacant() {
         //given
         UIObserver ui = new Map();
-        Callback callback = new Callback();
         Estate estate = new Estate(ui);
-        Role role = new MadameChyan(callback, callback);
+        Role role = new MadameChyan(new Callback());
         Building skyscraper = new Skyscraper(role.getClass().toString(), ui, 0);
         //when
         boolean result = estate.checkSoldStatus(skyscraper);

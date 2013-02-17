@@ -1,8 +1,8 @@
 package Player;
 
 public class MadameChyan extends Role {
-    public MadameChyan(Callback forwarding, Callback forwarded) {
-        super(forwarding, forwarded);
+    public MadameChyan(Callback callback) {
+        super(callback);
     }
 
     public String getPromptMessage() {

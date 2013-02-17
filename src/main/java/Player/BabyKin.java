@@ -1,8 +1,8 @@
 package Player;
 
 public class BabyKin extends Role {
-    public BabyKin(Callback forwarding, Callback forwarded)    {
-        super(forwarding, forwarded);
+    public BabyKin(Callback callback)    {
+        super(callback);
     }
 
     public String getPromptMessage() {

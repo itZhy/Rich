@@ -16,10 +16,10 @@ public class BombTest {
         String owner = UncleTuu.class.toString();
         Prop bomb = new Bomb(owner);
         //when
-        Role role = new MadameChyan(new Callback(), new Callback());
+        Role role = new MadameChyan(new Callback());
         bomb.handle(new Position(0), role);
         //then
-        Role expectedRole = new MadameChyan(new Callback(), new Callback());
+        Role expectedRole = new MadameChyan(new Callback());
         expectedRole.moveToHospital();
         assertThat(role, is(expectedRole));
     }

@@ -8,11 +8,11 @@ import java.util.Map;
 public class PlayerParser {
     private final Map<Character, Role> stringToPlayers = new HashMap<Character, Role>();
 
-    public PlayerParser(Callback forwarding, Callback forwarded) {
-        stringToPlayers.put('1', new MadameChyan(forwarding, forwarded));
-        stringToPlayers.put('2', new UncleTuu(forwarding, forwarded));
-        stringToPlayers.put('3', new SunHsiaoMei(forwarding, forwarded));
-        stringToPlayers.put('4', new BabyKin(forwarding, forwarded));
+    public PlayerParser(Callback callback) {
+        stringToPlayers.put('1', new MadameChyan(callback));
+        stringToPlayers.put('2', new UncleTuu(callback));
+        stringToPlayers.put('3', new SunHsiaoMei(callback));
+        stringToPlayers.put('4', new BabyKin(callback));
     }
 
     public Role get(Character number) {

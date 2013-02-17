@@ -1,15 +1,13 @@
 package Player;
 
 public abstract class Role {
-    private final Callback forwarded;
-    private final Callback forwarding;
+    private final Callback callback;
     private Movement movement = new Movement();
     private int remainTimes = 0;
     private boolean isBlocked = false;
 
-    Role(Callback forwarding, Callback forwarded) {
-        this.forwarding = forwarding;
-        this.forwarded = forwarded;
+    Role(Callback callback) {
+        this.callback = callback;
     }
 
     public String name() {
@@ -19,14 +17,14 @@ public abstract class Role {
     public void forward(int step) {
         for (int count = 1; count <= step; ++count) {
             movement.walk();
-            forwarding.notify(name(), movement);
+            callback.notifyWhileForwarding(name(), movement);
             if (isBlocked) {
                 isBlocked = false;
                 break;
             }
         }
 
-        forwarded.notify(name(), movement);
+        callback.notifyAfterForwarded(name(), movement);
     }
 
     public void stay(int times) {
@@ -44,7 +42,7 @@ public abstract class Role {
     public void moveToHospital() {
         movement.jumpToHospital();
         stay(3);
-        forwarding.notify(name(), movement);
+        callback.notifyWhileForwarding(name(), movement);
     }
 
     public void block() {

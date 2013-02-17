@@ -1,8 +1,8 @@
 package Player;
 
 public class SunHsiaoMei extends Role {
-    public SunHsiaoMei(Callback forwarding, Callback forwarded) {
-        super(forwarding, forwarded);
+    public SunHsiaoMei(Callback callback) {
+        super(callback);
     }
 
     public String getPromptMessage() {

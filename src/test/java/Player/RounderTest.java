@@ -8,13 +8,11 @@ import static org.junit.Assert.assertThat;
 
 public class RounderTest {
     private Rounder rounder;
-    private Callback callback;
 
     @Before
     public void setUp() {
-        callback = new Callback();
         rounder = new Rounder();
-        PlayerParser parser = new PlayerParser(callback, callback);
+        PlayerParser parser = new PlayerParser(new Callback());
         String players = "4213";
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
@@ -27,7 +25,7 @@ public class RounderTest {
         //when
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(callback, callback);
+        Role exceptedRole = new BabyKin(new Callback());
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -38,7 +36,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new MadameChyan(callback, callback);
+        Role exceptedRole = new MadameChyan(new Callback());
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -51,7 +49,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(callback, callback);
+        Role exceptedRole = new BabyKin(new Callback());
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -65,7 +63,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new UncleTuu(callback, callback);
+        Role exceptedRole = new UncleTuu(new Callback());
         assertThat(currentRole, is(exceptedRole));
     }
 }

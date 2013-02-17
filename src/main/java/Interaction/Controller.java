@@ -25,7 +25,7 @@ class Controller {
     }
 
     public void initializeRounderAndBank(String players) {
-        PlayerParser parser = new PlayerParser(getForwardingObservers(), getForwardedObservers());
+        PlayerParser parser = new PlayerParser(getObservers());
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);
@@ -44,15 +44,9 @@ class Controller {
         return rounder.current().getPromptMessage();
     }
 
-    private Callback getForwardedObservers(){
+    private Callback getObservers(){
         Callback callback = new Callback();
-        callback.attach(estate);
-        return callback;
-    }
-
-    private Callback getForwardingObservers()    {
-        Callback callback = new Callback();
-        callback.attach(estate);
+        callback.attachForwardedObservers(estate);
         return callback;
     }
 }
