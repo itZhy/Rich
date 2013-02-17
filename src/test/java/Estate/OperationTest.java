@@ -30,7 +30,7 @@ public class OperationTest {
         Callback callback = new Callback();
         Estate operation = new Estate(ui);
         Role babyKin = new BabyKin(ui, callback);
-        Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
+        Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui, 0);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);
         //then

@@ -6,8 +6,9 @@ import Player.RoleColor;
 import UI.UIObserver;
 
 public class Hovel extends Building {
-    public Hovel(String role, UIObserver ui) {
+    public Hovel(String role, UIObserver ui, Integer price){
         super(role, ui);
+        this.price = price;
     }
 
     public Building update(String owner) {

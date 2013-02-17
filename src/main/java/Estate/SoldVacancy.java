@@ -9,8 +9,9 @@ import org.fusesource.jansi.Ansi;
 public class SoldVacancy extends Building {
 
 
-    public SoldVacancy(String role, UIObserver ui){
+    public SoldVacancy(String role, UIObserver ui, Integer price){
         super(role, ui);
+        this.price = price;
     }
 
     public Building update(String owner){

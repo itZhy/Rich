@@ -16,7 +16,7 @@ public class Vacancy extends Building {
     }
 
     public Building update(String owner){
-       return (Building)new SoldVacancy(owner, ui);
+       return (Building)new SoldVacancy(owner, ui, price);
     }
 
     public void updateUI(Position position) {

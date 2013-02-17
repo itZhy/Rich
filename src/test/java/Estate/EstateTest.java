@@ -28,7 +28,7 @@ public class EstateTest {
         Callback callback = new Callback();
         Estate estate = new Estate(ui);
         Role role = new MadameChyan(ui, callback);
-        Building skyscraper = new Skyscraper(role.getClass().toString(), ui);
+        Building skyscraper = new Skyscraper(role.getClass().toString(), ui, 0);
         //when
         boolean result = estate.checkSoldStatus(skyscraper);
         //then
