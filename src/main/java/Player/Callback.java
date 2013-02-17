@@ -10,9 +10,9 @@ public class Callback {
         observers.add(observer);
     }
 
-    public void notify(Position position, String name) {
+    public void notify(String role, Movement movement) {
         for (Observer observer : observers) {
-            observer.handle(position, name);
+            observer.handle(role, movement);
         }
     }
 }

@@ -30,7 +30,7 @@ public abstract class Role {
             }
         }
 
-        callback.notify(movement.currentPosition(), name());
+        callback.notify(name(), movement);
     }
 
     public void stay(int times) {

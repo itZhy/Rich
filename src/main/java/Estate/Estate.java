@@ -1,7 +1,7 @@
 package Estate;
 
+import Player.Movement;
 import Player.Observer;
-import Player.Position;
 import UI.UIObserver;
 
 
@@ -13,8 +13,8 @@ public class Estate implements Observer {
         operation = new Operation(ui);
     }
 
-    public void handle(Position position, String name){
-        operation.handle(position, name);
+    public void handle(String role, Movement movement){
+        operation.handle(movement.currentPosition(), role);
     }
 
     public void add(String player) {
