@@ -1,7 +1,7 @@
 package Command;
 
 import Estate.Estate;
-import Estate.EstateObserver;
+import Player.Observer;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
@@ -21,7 +21,7 @@ public class BlockTest {
         UIObserver ui = new Map();
         PropsMap propsMap = new PropsMap(ui);
         Command block = new Block(propsMap);
-        EstateObserver estate = new Estate(ui);
+        Observer estate = new Estate(ui);
         Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
         //when
         block.execute(uncleTuu, 10);

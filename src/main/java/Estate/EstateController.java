@@ -3,7 +3,7 @@ package Estate;
 import Player.Position;
 import UI.UIException;
 import UI.UIObserver;
-import Util.MapParser;
+import UI.MapParser;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
