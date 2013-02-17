@@ -28,14 +28,14 @@ public class EstateController {
     }
 
     public boolean checkOwner(String player, Building house) {
-        if (house.owner == player) {
+        if (house.owner.equals(player)) {
             return true;
         }
         return false;
     }
 
-    public boolean checkPurchasingPower(Building house) {
-        return true;
+    public boolean checkPurchasingPower(String role, Building house) {
+        return bank.checkPurchasingPower(role, house.price);
     }
 
     public void update(Building house, Position position, String name) {

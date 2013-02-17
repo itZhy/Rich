@@ -20,7 +20,6 @@ public class Bank {
     private void initializeWhenNotExist(String account) {
         if (!funds.containsKey(account)) {
             funds.put(account, new Fund(initialFund));
-
         }
     }
 
@@ -29,4 +28,8 @@ public class Bank {
                 funds.equals(((Bank) object).funds);
     }
 
+    public boolean checkPurchasingPower(String account, Integer price) {
+        initializeWhenNotExist(account);
+        return funds.get(account).compare(price);
+    }
 }
