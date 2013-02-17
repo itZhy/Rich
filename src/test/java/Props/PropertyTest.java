@@ -1,8 +1,5 @@
 package Props;
 
-import Estate.Estate;
-import Player.Position;
-import Player.Role;
 import Player.UncleTuu;
 import UI.Map;
 import UI.UIObserver;
@@ -14,14 +11,14 @@ import static org.junit.Assert.assertThat;
 
 public class PropertyTest {
     private Property property;
-    UIObserver ui;
-    Role uncleTuu;
+    private UIObserver ui;
+    private String owner;
 
     @Before
     public void setUp() {
         property = new Property();
         ui = new Map();
-        uncleTuu = new UncleTuu(new Position(0), ui, new Estate(ui));
+        owner = UncleTuu.class.toString();
     }
 
     @Test
@@ -29,7 +26,7 @@ public class PropertyTest {
         //given
         property.add(50);
         //when
-        boolean isSuccessful = property.buy(new Barricade(uncleTuu, ui));
+        boolean isSuccessful = property.buy(new Barricade(owner, ui));
         //then
         assertThat(isSuccessful, is(true));
     }
@@ -46,12 +43,12 @@ public class PropertyTest {
     }
 
     @Test
-    public void it_should_not_has_bomb()    {
+    public void it_should_not_has_bomb() {
         //given
         property.add(49);
-        property.buy(new Bomb(uncleTuu, ui));
+        property.buy(new Bomb(owner, ui));
         //when
-        boolean isSuccessful = property.consume(new Bomb(uncleTuu, ui));
+        boolean isSuccessful = property.consume(new Bomb(owner, ui));
         //then
         assertThat(isSuccessful, is(false));
     }

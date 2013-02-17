@@ -1,32 +1,30 @@
 package Props;
 
-import Player.Role;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class Manager {
     private Map<String, Property> properties = new HashMap<String, Property>();
 
-    public void add(Role role, int point) {
-        initializeWhenNotExist(role);
-        properties.get(role.name()).add(point);
+    public void add(String owner, int point) {
+        initializeWhenNotExist(owner);
+        properties.get(owner).add(point);
     }
 
-    private void initializeWhenNotExist(Role role)  {
-        if (!properties.containsKey(role.name()))    {
-             properties.put(role.name(), new Property());
+    private void initializeWhenNotExist(String owner)  {
+        if (!properties.containsKey(owner))    {
+             properties.put(owner, new Property());
         }
     }
 
-    public void buy(Role role, Prop prop) {
-        initializeWhenNotExist(role);
-        properties.get(role.name()).buy(prop);
+    public void buy(String owner, Prop prop) {
+        initializeWhenNotExist(owner);
+        properties.get(owner).buy(prop);
     }
 
-    public boolean consume(Role role, Prop prop) {
-        initializeWhenNotExist(role);
-        return properties.get(role.name()).consume(prop);
+    public boolean consume(String owner, Prop prop) {
+        initializeWhenNotExist(owner);
+        return properties.get(owner).consume(prop);
     }
 }
 

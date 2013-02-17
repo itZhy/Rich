@@ -3,11 +3,12 @@ package Props;
 import Player.Position;
 import Player.Role;
 import UI.UIObserver;
+import Util.RoleColor;
 
 public class Barricade extends Prop {
-    public Barricade(Role role, UIObserver ui) {
+    public Barricade(String owner, UIObserver ui) {
         super(ui);
-        element = role.getElement('#');
+        element = new RoleColor().dye(owner, '#');
         price = 50;
     }
 

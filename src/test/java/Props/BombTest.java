@@ -17,7 +17,7 @@ public class BombTest {
     public void the_role_should_be_moved_to_hospital() {
         //given
         UIObserver ui = new Map();
-        Role owner = new UncleTuu(new Position(0), ui, new Estate(ui));
+        String owner = UncleTuu.class.toString();
         Prop bomb = new Bomb(owner, ui);
         //when
         Role role = new MadameChyan(new Position(0), ui, new Estate(ui));

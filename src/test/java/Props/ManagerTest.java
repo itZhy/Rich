@@ -1,8 +1,5 @@
 package Props;
 
-import Estate.Estate;
-import Player.Position;
-import Player.Role;
 import Player.UncleTuu;
 import UI.Map;
 import org.junit.Test;
@@ -12,16 +9,15 @@ import static org.junit.Assert.assertThat;
 
 public class ManagerTest {
     @Test
-    public void uncle_tuu_should_has_barricade()   {
+    public void uncle_tuu_should_has_barricade() {
         //given
         Manager manager = new Manager();
         Map ui = new Map();
-        Estate estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        String owner = UncleTuu.class.toString();
         //when
-        manager.add(uncleTuu, 50);
-        manager.buy(uncleTuu, new Barricade(uncleTuu, ui));
-        boolean isSuccessful = manager.consume(uncleTuu, new Barricade(uncleTuu, new Map()));
+        manager.add(owner, 50);
+        manager.buy(owner, new Barricade(owner, ui));
+        boolean isSuccessful = manager.consume(owner, new Barricade(owner, new Map()));
         //then
         assertThat(isSuccessful, is(true));
     }
