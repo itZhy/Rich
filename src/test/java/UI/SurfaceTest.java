@@ -16,9 +16,8 @@ public class SurfaceTest {
         surface.remove(3, new Element('A', Ansi.Color.YELLOW));
         surface.add(4, new Element('A', Ansi.Color.YELLOW));
         //then
-        Surface exceptedSurface= new Surface();
+        Surface exceptedSurface = new Surface();
         exceptedSurface.add(4, new Element('A', Ansi.Color.YELLOW));
         assertThat(surface, is(exceptedSurface));
     }
-
 }
