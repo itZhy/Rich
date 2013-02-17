@@ -1,10 +1,11 @@
 package Command;
 
-import Player.Observer;
 import Estate.Estate;
+import Player.Observer;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
+import Props.Manager;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
@@ -19,9 +20,12 @@ public class BombTest {
         //given
         UIObserver ui = new Map();
         Observer estate = new Estate(ui);
-        PropsMap propsMap = new PropsMap(ui);
-        Command bomb = new Bomb(propsMap);
         Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        PropsMap propsMap = new PropsMap(ui);
+        Manager propsManager = new Manager();
+        propsManager.add(uncleTuu.name(), 50);
+        propsManager.buy(uncleTuu.name(), new Props.Bomb(uncleTuu.name()));
+        Command bomb = new Bomb(propsMap, propsManager);
         //when
         bomb.execute(uncleTuu, -10);
         //then

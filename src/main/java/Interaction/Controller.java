@@ -5,22 +5,26 @@ import Estate.Estate;
 import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
+import Props.Manager;
+import Props.PropsMap;
 import UI.Map;
 import Util.CommandSplitter;
 
 class Controller {
-    private final Map map = new Map();
+    private final Map ui = new Map();
+    private final PropsMap propsMap = new PropsMap(ui);
+    private final Manager propsManager = new Manager();
     private final Rounder rounder = new Rounder();
-    private final Estate estate = new Estate(map);
-    private final CommandParser parser = new CommandParser();
+    private final Estate estate = new Estate(ui);
+    private final CommandParser parser = new CommandParser(propsMap, propsManager);
 
     public Controller(String players) {
         initializeRounderAndBank(players);
-        map.display();
+        ui.display();
     }
 
     public void initializeRounderAndBank(String players) {
-        PlayerParser parser = new PlayerParser(map, estate);
+        PlayerParser parser = new PlayerParser(ui, estate);
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);
@@ -32,7 +36,7 @@ class Controller {
         CommandSplitter splitter = new CommandSplitter(input);
         parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         rounder.next();
-        map.display();
+        ui.display();
     }
 
     public String getPromptMessageForCurrentPlayer() {

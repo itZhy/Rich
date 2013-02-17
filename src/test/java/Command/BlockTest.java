@@ -6,6 +6,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import Props.Barricade;
+import Props.Manager;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
@@ -19,10 +20,13 @@ public class BlockTest {
     public void it_should_put_a_barricade_at_the_position_of_10() {
         //given
         UIObserver ui = new Map();
-        PropsMap propsMap = new PropsMap(ui);
-        Command block = new Block(propsMap);
         Observer estate = new Estate(ui);
         Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        PropsMap propsMap = new PropsMap(ui);
+        Manager propsManager = new Manager();
+        propsManager.add(uncleTuu.name(), 50);
+        propsManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
+        Command block = new Block(propsMap, propsManager);
         //when
         block.execute(uncleTuu, 10);
         //then
