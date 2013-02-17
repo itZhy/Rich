@@ -12,7 +12,7 @@ public class CommandParser {
     public CommandParser() {
         stringToCommands.put("roll", new Roll());
         stringToCommands.put("quit", new Quit());
-        stringToCommands.put("bomb", new Bomb());
+        //stringToCommands.put("bomb", new Bomb());
     }
 
     public Command get(String name) {

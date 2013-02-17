@@ -1,6 +1,7 @@
-package Util;
+package UI;
 
 import Player.Position;
+import UI.MapParser;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

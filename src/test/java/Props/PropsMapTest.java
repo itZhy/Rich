@@ -17,32 +17,32 @@ public class PropsMapTest {
 
     @Before
     public void setUp() {
-        propsMap = new PropsMap();
         ui = new Map();
+        propsMap = new PropsMap(ui);
         owner = UncleTuu.class.toString();
     }
 
     @Test
     public void it_should_be_empty_map_after_cleaned() {
         //given
-        propsMap.put(new Position(1), new Barricade(owner, ui));
-        propsMap.put(new Position(10), new Bomb(owner, ui));
+        propsMap.put(new Position(1), new Barricade(owner));
+        propsMap.put(new Position(10), new Bomb(owner));
         //when
         propsMap.cleanTheFront(new Position(0));
         //then
-        assertThat(propsMap, is(new PropsMap()));
+        assertThat(propsMap, is(new PropsMap(ui)));
     }
 
     @Test
     public void it_should_has_only_prop_after_cleaned() {
         //given
-        propsMap.put(new Position(2), new Barricade(owner, ui));
-        propsMap.put(new Position(11), new Bomb(owner, ui));
+        propsMap.put(new Position(2), new Barricade(owner));
+        propsMap.put(new Position(11), new Bomb(owner));
         //when
         propsMap.cleanTheFront(new Position(0));
         //then
-        PropsMap expectedPropsMap = new PropsMap();
-        expectedPropsMap.put(new Position(11), new Bomb(owner, ui));
+        PropsMap expectedPropsMap = new PropsMap(ui);
+        expectedPropsMap.put(new Position(11), new Bomb(owner));
         assertThat(propsMap, is(expectedPropsMap));
     }
 }

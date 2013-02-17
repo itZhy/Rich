@@ -1,9 +1,5 @@
-package Util;
+package Player;
 
-import Player.BabyKin;
-import Player.MadameChyan;
-import Player.SunHsiaoMei;
-import Player.UncleTuu;
 import UI.Element;
 import org.fusesource.jansi.Ansi;
 

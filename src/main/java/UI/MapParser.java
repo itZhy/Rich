@@ -1,4 +1,4 @@
-package Util;
+package UI;
 
 import Player.Position;
 

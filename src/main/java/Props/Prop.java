@@ -6,23 +6,22 @@ import UI.Element;
 import UI.UIObserver;
 
 public abstract class Prop {
-    private final UIObserver ui;
     protected int price;
     protected Element element;
 
-    public Prop(UIObserver ui) {
-        this.ui = ui;
+    public String name()    {
+        return getClass().toString();
     }
 
     public int price() {
         return price;
     }
 
-    public void addToUI(Position position) {
+    public void addToUI(UIObserver ui, Position position) {
         ui.add(position, element);
     }
 
-    public void removeFromUI(Position position) {
+    public void removeFromUI(UIObserver ui, Position position) {
         ui.delete(position, element);
     }
 

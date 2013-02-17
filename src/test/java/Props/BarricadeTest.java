@@ -17,7 +17,7 @@ public class BarricadeTest {
         //given
         UIObserver ui = new Map();
         String owner = MadameChyan.class.toString();
-        Prop barricade = new Barricade(owner, ui);
+        Prop barricade = new Barricade(owner);
         //when
         BabyKin babyKin = new BabyKin(new Position(0), ui, new Estate(ui));
         barricade.handle(new Position(1), babyKin);

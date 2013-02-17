@@ -11,12 +11,6 @@ public class Manager {
         properties.get(owner).add(point);
     }
 
-    private void initializeWhenNotExist(String owner)  {
-        if (!properties.containsKey(owner))    {
-             properties.put(owner, new Property());
-        }
-    }
-
     public void buy(String owner, Prop prop) {
         initializeWhenNotExist(owner);
         properties.get(owner).buy(prop);
@@ -26,5 +20,10 @@ public class Manager {
         initializeWhenNotExist(owner);
         return properties.get(owner).consume(prop);
     }
-}
 
+    private void initializeWhenNotExist(String owner) {
+        if (!properties.containsKey(owner)) {
+            properties.put(owner, new Property());
+        }
+    }
+}

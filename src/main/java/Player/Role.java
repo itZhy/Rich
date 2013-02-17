@@ -31,7 +31,8 @@ public abstract class Role {
                 break;
             }
         }
-        handleEstate();
+
+        building.handle(currentPosition, name());
     }
 
     public void stay(int times) {
@@ -56,23 +57,16 @@ public abstract class Role {
         isBlocked = true;
     }
 
+    public Position offset(int step)    {
+        return currentPosition.move(step);
+    }
+
     public boolean equals(Object object) {
-        return getClass() == object.getClass() &&
-                currentPosition.equals(((Role) object).currentPosition) &&
-                building.equals(((Role) object).building) &&
-                ui.equals(((Role) object).ui) &&
-                remainTimes == ((Role) object).remainTimes &&
-                isBlocked == ((Role) object).isBlocked;
+        return getClass() == object.getClass() && currentPosition.equals(((Role) object).currentPosition) &&
+                remainTimes == ((Role) object).remainTimes && isBlocked == ((Role) object).isBlocked;
     }
 
     public abstract String getPromptMessage();
 
-    public abstract Element getElement(char symbol);
-
     protected abstract void updateUI(Position source, Position destination);
-
-    private void handleEstate() {
-        building.handle(currentPosition, getClass().toString());
-    }
-
 }
