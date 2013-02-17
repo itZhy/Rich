@@ -1,9 +1,9 @@
 package Estate;
 
 import Player.Position;
+import UI.PositionExtractor;
 import UI.UIException;
 import UI.UIObserver;
-import UI.MapParser;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class EstateController {
     }
 
     private void readDefaultBuilding(UIObserver ui) throws FileNotFoundException {
-        List<Position> positions = new MapParser().readDefaultBuilding();
+        List<Position> positions = new PositionExtractor().getBuildings();
         for (int index = 0; index != positions.size(); ++index) {
             buildings.put(positions.get(index), new Vacancy(null, ui));
         }
