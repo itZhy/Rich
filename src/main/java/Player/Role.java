@@ -1,16 +1,14 @@
 package Player;
 
 import Estate.EstateObserver;
-import UI.Element;
 import UI.UIObserver;
-import org.fusesource.jansi.Ansi;
 
 public abstract class Role {
     private static final Position HOSPITAL = new Position(14);
+    protected final UIObserver ui;
+    private final EstateObserver building;
     private Position currentPosition;
     private int remainTimes = 0;
-    private final EstateObserver building;
-    protected final UIObserver ui;
     private boolean isBlocked = false;
 
 
@@ -33,7 +31,8 @@ public abstract class Role {
                 break;
             }
         }
-        handleEstate();
+
+        building.handle(currentPosition, name());
     }
 
     public void stay(int times) {
@@ -59,22 +58,10 @@ public abstract class Role {
     }
 
     public boolean equals(Object object) {
-        return getClass() == object.getClass() &&
-                currentPosition.equals(((Role) object).currentPosition) &&
-                building.equals(((Role) object).building) &&
-                ui.equals(((Role) object).ui) &&
-                remainTimes == ((Role) object).remainTimes &&
-                isBlocked == ((Role) object).isBlocked;
+        return getClass() == object.getClass() && currentPosition.equals(((Role) object).currentPosition) &&
+                remainTimes == ((Role) object).remainTimes && isBlocked == ((Role) object).isBlocked;
     }
 
     public abstract String getPromptMessage();
-
-    public abstract Element getElement(char symbol);
-
     protected abstract void updateUI(Position source, Position destination);
-
-    private void handleEstate() {
-        building.handle(currentPosition, getClass().toString());
-    }
-
 }
