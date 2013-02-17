@@ -1,13 +1,10 @@
 package Player;
 
 import UI.UIObserver;
-import org.fusesource.jansi.Ansi;
 
 public class SunHsiaoMei extends Role {
-    private final Ansi.Color color = Ansi.Color.YELLOW;
-
-    public SunHsiaoMei(Position initialPosition, UIObserver ui, Callback callback) {
-        super(initialPosition, ui, callback);
+    public SunHsiaoMei(UIObserver ui, Callback callback) {
+        super(ui, callback);
     }
 
     public String getPromptMessage() {

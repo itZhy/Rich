@@ -18,7 +18,7 @@ public class BombTest {
         UIObserver ui = new Map();
         Callback callback = new Callback();
         Observer estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
+        Role uncleTuu = new UncleTuu(ui, callback);
         PropsMap propsMap = new PropsMap(ui);
         Ownership ownership = new Ownership();
         ownership.add(uncleTuu.name(), 50);

@@ -1,6 +1,13 @@
 package Command;
 
+<<<<<<< HEAD
 import Player.*;
+=======
+import Player.Callback;
+import Player.Position;
+import Player.Role;
+import Player.UncleTuu;
+>>>>>>> 45c0a768468c71c21ef9e943598ed17304449f9f
 import Props.Barricade;
 import Props.Ownership;
 import Props.PropsMap;
@@ -18,7 +25,7 @@ public class RobotTest {
         UIObserver ui = new Map();
         PropsMap propsMap = new PropsMap(ui);
         Callback callback = new Callback();
-        Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
+        Role uncleTuu = new UncleTuu(ui, callback);
         propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
         Ownership ownership = new Ownership();
         ownership.add(uncleTuu.name(), 30);

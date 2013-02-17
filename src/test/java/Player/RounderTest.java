@@ -31,7 +31,7 @@ public class RounderTest {
         //when
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(new Position(0), ui, callback);
+        Role exceptedRole = new BabyKin(ui, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -42,7 +42,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new MadameChyan(new Position(0), ui, callback);
+        Role exceptedRole = new MadameChyan(ui, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -55,7 +55,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(new Position(0), ui, callback);
+        Role exceptedRole = new BabyKin(ui, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -69,7 +69,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new UncleTuu(new Position(0), ui, callback);
+        Role exceptedRole = new UncleTuu(ui, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 }

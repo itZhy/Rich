@@ -1,6 +1,5 @@
 package Estate;
 import Player.Callback;
-import Player.Position;
 import Player.SunHsiaoMei;
 import UI.Map;
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class VacancyTest {
         Map ui = new Map();
         Callback callback = new Callback();
         Vacancy vacancy = new Vacancy(null, ui);
-        SunHsiaoMei owner = new SunHsiaoMei(new Position(0), ui, callback);
+        SunHsiaoMei owner = new SunHsiaoMei(ui, callback);
         //when
         Building nextBuilding = vacancy.update(owner.getClass().toString());
         //then

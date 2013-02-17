@@ -2,7 +2,6 @@ package Estate;
 
 import Player.BabyKin;
 import Player.Callback;
-import Player.Position;
 import Player.Role;
 import UI.Map;
 import UI.UIObserver;
@@ -30,7 +29,7 @@ public class OperationTest {
         UIObserver ui = new Map();
         Callback callback = new Callback();
         Operation operation = new Operation(ui);
-        Role babyKin = new BabyKin(new Position(0), ui, callback);
+        Role babyKin = new BabyKin(ui, callback);
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);

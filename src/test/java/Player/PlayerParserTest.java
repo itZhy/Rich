@@ -17,7 +17,7 @@ public class PlayerParserTest {
         //when
         Role role = parser.get('1');
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui, callback);
+        Role expectedRole = new MadameChyan(ui, callback);
         assertThat(role, is(expectedRole));
     }
 }

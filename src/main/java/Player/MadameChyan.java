@@ -4,10 +4,8 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class MadameChyan extends Role {
-    private final Ansi.Color color = Ansi.Color.MAGENTA;
-
-    public MadameChyan(Position initialPosition, UIObserver ui, Callback callback) {
-        super(initialPosition, ui, callback);
+    public MadameChyan(UIObserver ui, Callback callback) {
+        super(ui, callback);
     }
 
     public String getPromptMessage() {

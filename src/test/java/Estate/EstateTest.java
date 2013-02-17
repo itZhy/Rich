@@ -1,15 +1,12 @@
 package Estate;
 
-import Player.BabyKin;
-import Player.Callback;
-import Player.Position;
-import Player.Role;
+import Player.*;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class EstateTest {
     @Test
@@ -30,8 +27,8 @@ public class EstateTest {
         UIObserver ui = new Map();
         Callback callback = new Callback();
         Estate estate = new Estate(ui);
-        Role babyKin = new BabyKin(new Position(0), ui, callback);
-        Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
+        Role role = new MadameChyan(ui, callback);
+        Building skyscraper = new Skyscraper(role.getClass().toString(), ui);
         //when
         boolean result = estate.checkSoldStatus(skyscraper);
         //then
