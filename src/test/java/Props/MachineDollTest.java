@@ -16,12 +16,12 @@ public class MachineDollTest {
         //given
         UIObserver ui = new Map();
         String owner = MadameChyan.class.toString();
-        PropsMap map = new PropsMap();
-        map.put(new Position(10), new Barricade(owner, ui));
-        MachineDoll machineDoll = new MachineDoll(ui, map);
+        PropsMap propsMap = new PropsMap(ui);
+        propsMap.put(new Position(10), new Barricade(owner));
+        MachineDoll machineDoll = new MachineDoll(propsMap);
         //when
         machineDoll.handle(new Position(0), new MadameChyan(new Position(0), ui, new Estate(ui)));
         //then
-        assertThat(map, is(new PropsMap()));
+        assertThat(propsMap, is(new PropsMap(ui)));
     }
 }

@@ -57,11 +57,16 @@ public abstract class Role {
         isBlocked = true;
     }
 
+    public Position offset(int step)    {
+        return currentPosition.move(step);
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() && currentPosition.equals(((Role) object).currentPosition) &&
                 remainTimes == ((Role) object).remainTimes && isBlocked == ((Role) object).isBlocked;
     }
 
     public abstract String getPromptMessage();
+
     protected abstract void updateUI(Position source, Position destination);
 }

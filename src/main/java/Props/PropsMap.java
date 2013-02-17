@@ -2,18 +2,24 @@ package Props;
 
 import Player.Position;
 import Player.Role;
+import UI.UIObserver;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PropsMap {
     private final Map<Position, Prop> props = new HashMap<Position, Prop>();
+    private final UIObserver ui;
     private static final int CLEAN_RANGE = 10;
+
+    public PropsMap(UIObserver ui)   {
+        this.ui = ui;
+    }
 
 
     public void put(Position position, Prop prop) {
         props.put(position, prop);
-        prop.addToUI(position);
+        prop.addToUI(ui, position);
     }
 
     public void cleanTheFront(Position position) {
@@ -40,7 +46,7 @@ public class PropsMap {
 
     private void removeProp(Position position) {
         if (props.containsKey(position))    {
-            props.get(position).removeFromUI(position);
+            props.get(position).removeFromUI(ui, position);
             props.remove(position);
         }
     }

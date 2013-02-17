@@ -2,12 +2,10 @@ package Props;
 
 import Player.Position;
 import Player.Role;
-import UI.UIObserver;
 import Player.RoleColor;
 
 public class Bomb extends Prop {
-    public Bomb(String owner, UIObserver ui) {
-        super(ui);
+    public Bomb(String owner) {
         element = new RoleColor().dye(owner, '@');
         price = 50;
     }

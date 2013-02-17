@@ -12,12 +12,11 @@ public class ManagerTest {
     public void uncle_tuu_should_has_barricade() {
         //given
         Manager manager = new Manager();
-        Map ui = new Map();
         String owner = UncleTuu.class.toString();
         //when
         manager.add(owner, 50);
-        manager.buy(owner, new Barricade(owner, ui));
-        boolean isSuccessful = manager.consume(owner, new Barricade(owner, new Map()));
+        manager.buy(owner, new Barricade(owner));
+        boolean isSuccessful = manager.consume(owner, new Barricade(owner));
         //then
         assertThat(isSuccessful, is(true));
     }

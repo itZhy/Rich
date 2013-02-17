@@ -6,8 +6,8 @@ import UI.UIObserver;
 
 public class MachineDoll extends Prop {
     private final PropsMap propsMap;
-    public MachineDoll(UIObserver ui, PropsMap propsMap) {
-        super(ui);
+
+    public MachineDoll(PropsMap propsMap) {
         this.propsMap = propsMap;
         price = 30;
     }
@@ -16,9 +16,9 @@ public class MachineDoll extends Prop {
         propsMap.cleanTheFront(position);
     }
 
-    public void addToUI(Position position) {
+    public void addToUI(UIObserver ui, Position position) {
     }
 
-    public void removeFromUI(Position position) {
+    public void removeFromUI(UIObserver ui, Position position) {
     }
 }

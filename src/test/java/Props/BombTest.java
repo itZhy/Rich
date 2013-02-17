@@ -18,7 +18,7 @@ public class BombTest {
         //given
         UIObserver ui = new Map();
         String owner = UncleTuu.class.toString();
-        Prop bomb = new Bomb(owner, ui);
+        Prop bomb = new Bomb(owner);
         //when
         Role role = new MadameChyan(new Position(0), ui, new Estate(ui));
         bomb.handle(new Position(0), role);

@@ -26,7 +26,7 @@ public class PropertyTest {
         //given
         property.add(50);
         //when
-        boolean isSuccessful = property.buy(new Barricade(owner, ui));
+        boolean isSuccessful = property.buy(new Barricade(owner));
         //then
         assertThat(isSuccessful, is(true));
     }
@@ -35,9 +35,9 @@ public class PropertyTest {
     public void it_should_has_machine_doll() {
         //given
         property.add(30);
-        property.buy(new MachineDoll(ui, new PropsMap()));
+        property.buy(new MachineDoll(new PropsMap(ui)));
         //when
-        boolean isSuccessful = property.consume(new MachineDoll(ui, new PropsMap()));
+        boolean isSuccessful = property.consume(new MachineDoll(new PropsMap(ui)));
         //then
         assertThat(isSuccessful, is(true));
     }
@@ -46,9 +46,9 @@ public class PropertyTest {
     public void it_should_not_has_bomb() {
         //given
         property.add(49);
-        property.buy(new Bomb(owner, ui));
+        property.buy(new Bomb(owner));
         //when
-        boolean isSuccessful = property.consume(new Bomb(owner, ui));
+        boolean isSuccessful = property.consume(new Bomb(owner));
         //then
         assertThat(isSuccessful, is(false));
     }
