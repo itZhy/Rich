@@ -15,10 +15,10 @@ public class OperationTest {
     public void it_should_check_field_is_vacant() {
         //given
         UIObserver ui = new Map();
-        Operation operation = new Operation(ui);
+        Estate estate = new Estate(ui);
         Building vacancy = new Vacancy(null, ui);
         //when
-        boolean result = operation.checkSoldStatus(vacancy);
+        boolean result = estate.checkSoldStatus(vacancy);
         //then
         assertThat(result, is(false));
     }
@@ -28,7 +28,7 @@ public class OperationTest {
         //given
         UIObserver ui = new Map();
         Callback callback = new Callback();
-        Operation operation = new Operation(ui);
+        Estate operation = new Estate(ui);
         Role babyKin = new BabyKin(ui, callback);
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
         //when

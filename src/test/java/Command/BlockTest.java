@@ -17,13 +17,8 @@ public class BlockTest {
     public void it_should_put_a_barricade_at_the_position_of_10() {
         //given
         UIObserver ui = new Map();
-<<<<<<< HEAD
         Estate estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, new Callback());
-=======
-        Observer estate = new Estate(ui);
         Role uncleTuu = new UncleTuu(ui, new Callback());
->>>>>>> 45c0a768468c71c21ef9e943598ed17304449f9f
         PropsMap propsMap = new PropsMap(ui);
         Ownership ownership = new Ownership();
         ownership.add(uncleTuu.name(), 50);

@@ -1,13 +1,9 @@
 package Command;
 
-<<<<<<< HEAD
-import Player.*;
-=======
 import Player.Callback;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
->>>>>>> 45c0a768468c71c21ef9e943598ed17304449f9f
 import Props.Barricade;
 import Props.Ownership;
 import Props.PropsMap;
