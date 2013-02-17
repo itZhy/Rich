@@ -11,7 +11,7 @@ public class SoldVacancy extends Building {
         super(role, ui);
     }
 
-    public Building update(){
+    public Building update(String owner){
        return null;
     }
 

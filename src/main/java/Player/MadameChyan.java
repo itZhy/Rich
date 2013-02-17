@@ -28,7 +28,4 @@ public class MadameChyan extends Role {
         ui.move(source, destination, new Element('Q', color));
     }
 
-    protected Ansi.Color getEstateColor() {
-        return color;
-    }
 }

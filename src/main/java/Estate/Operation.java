@@ -4,7 +4,6 @@ import Player.Position;
 import UI.UIObserver;
 import UI.UIException;
 import Util.MapParser;
-import org.fusesource.jansi.Ansi;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -19,19 +18,19 @@ public class Operation {
         initializeDefaultBuilding(ui);
     }
 
-    public void handle(Position position, String name, Ansi.Color color) {
+    public void handle(Position position, String name) {
         Building house = buildings.get(position);
 
         if (house == null) {
             return;
         }
-        if(checkSoldStatus(house) == false){
-            buy(house, name, color);
+        if (checkSoldStatus(house) == false) {
+            buy(house, name);
         }
     }
 
-    private void buy(Building house, String name, Ansi.Color color) {
-
+    private Building buy(Building house, String name) {
+        return house.update(name);
     }
 
     public boolean checkSoldStatus(Building house) {

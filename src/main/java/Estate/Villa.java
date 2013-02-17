@@ -8,7 +8,7 @@ public class Villa extends Building {
         super(role, ui);
     }
 
-    public Building update() {
+    public Building update(String owner) {
       return null;
     }
 

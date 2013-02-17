@@ -2,7 +2,7 @@ package Estate;
 
 import Player.Position;
 import UI.UIObserver;
-import org.fusesource.jansi.Ansi;
+
 
 public class Estate implements EstateObserver {
     private final Bank bank = new Bank();
@@ -12,8 +12,8 @@ public class Estate implements EstateObserver {
         operation = new Operation(ui);
     }
 
-    public void handle(Position position, String name, Ansi.Color color){
-        operation.handle(position, name, color);
+    public void handle(Position position, String name){
+        operation.handle(position, name);
     }
 
     public void add(String player) {

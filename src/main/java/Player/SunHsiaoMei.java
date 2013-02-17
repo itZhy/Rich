@@ -27,8 +27,4 @@ public class SunHsiaoMei extends Role {
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('S', color));
     }
-
-    protected Ansi.Color getEstateColor() {
-        return color;
-    }
 }

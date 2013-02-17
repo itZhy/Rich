@@ -27,8 +27,4 @@ public class UncleTuu extends Role {
     protected void updateUI(Position source, Position destination) {
         ui.move(source, destination, new Element('A', color));
     }
-
-    protected Ansi.Color getEstateColor() {
-        return color;
-    }
 }

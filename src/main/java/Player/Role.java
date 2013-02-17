@@ -73,10 +73,8 @@ public abstract class Role {
 
     protected abstract void updateUI(Position source, Position destination);
 
-    protected abstract Ansi.Color getEstateColor();
-
     private void handleEstate() {
-        building.handle(currentPosition, getClass().toString(), getEstateColor());
+        building.handle(currentPosition, getClass().toString());
     }
 
 }

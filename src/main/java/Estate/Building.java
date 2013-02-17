@@ -12,5 +12,5 @@ public abstract class Building {
         this.ui = ui;
     }
 
-    public abstract Building update();
+    public abstract Building update(String owner);
 }
