@@ -2,7 +2,6 @@ package Command;
 
 import Player.Role;
 import Props.PropsMap;
-import UI.UIObserver;
 
 public class Bomb implements Command{
     private final PropsMap propsMap;
