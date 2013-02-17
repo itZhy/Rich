@@ -2,16 +2,14 @@ package Interaction;
 
 import Command.CommandParser;
 import Estate.Estate;
-import Player.PlayerParser;
-import Player.Role;
-import Player.Rounder;
+import Player.*;
 import UI.Map;
 import Util.CommandSplitter;
 
 class Controller {
     private final Map map = new Map();
-    private final Rounder rounder = new Rounder();
     private final Estate estate = new Estate(map);
+    private final Rounder rounder = new Rounder();
     private final CommandParser parser = new CommandParser();
 
     public Controller(String players) {
@@ -20,7 +18,7 @@ class Controller {
     }
 
     public void initializeRounderAndBank(String players) {
-        PlayerParser parser = new PlayerParser(map, estate);
+        PlayerParser parser = new PlayerParser(map, setObservers());
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);
@@ -37,5 +35,11 @@ class Controller {
 
     public String getPromptMessageForCurrentPlayer() {
         return rounder.current().getPromptMessage();
+    }
+
+    private Callback setObservers(){
+        Callback callback = new Callback();
+        callback.attach(estate);
+        return callback;
     }
 }

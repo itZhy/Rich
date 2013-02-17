@@ -7,15 +7,15 @@ public abstract class Role {
     private static final Position HOSPITAL = new Position(14);
     private Position currentPosition;
     private int remainTimes = 0;
-    private final Observer building;
+    private final Callback callback;
     protected final UIObserver ui;
     private boolean isBlocked = false;
 
 
-    Role(Position initialPosition, UIObserver ui, Observer building) {
+    Role(Position initialPosition, UIObserver ui, Callback callback) {
         currentPosition = initialPosition;
         this.ui = ui;
-        this.building = building;
+        this.callback = callback;
     }
 
     public String name() {
@@ -32,7 +32,7 @@ public abstract class Role {
             }
         }
 
-        building.handle(currentPosition, name());
+        callback.notify(currentPosition, name());
     }
 
     public void stay(int times) {

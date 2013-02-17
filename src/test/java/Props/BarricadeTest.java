@@ -2,6 +2,7 @@ package Props;
 
 import Estate.Estate;
 import Player.BabyKin;
+import Player.Callback;
 import Player.MadameChyan;
 import Player.Position;
 import UI.Map;
@@ -19,10 +20,10 @@ public class BarricadeTest {
         String owner = MadameChyan.class.toString();
         Prop barricade = new Barricade(owner);
         //when
-        BabyKin babyKin = new BabyKin(new Position(0), ui, new Estate(ui));
+        BabyKin babyKin = new BabyKin(new Position(0), ui, new Callback());
         barricade.handle(new Position(1), babyKin);
         babyKin.forward(10);
         //then
-        assertThat(babyKin, is(new BabyKin(new Position(1), ui, new Estate(ui))));
+        assertThat(babyKin, is(new BabyKin(new Position(1), ui, new Callback())));
     }
 }

@@ -1,10 +1,7 @@
 package Command;
 
 import Estate.Estate;
-import Player.Observer;
-import Player.Position;
-import Player.Role;
-import Player.UncleTuu;
+import Player.*;
 import Props.Barricade;
 import Props.PropsMap;
 import UI.Map;
@@ -20,8 +17,8 @@ public class RobotTest {
         //given
         UIObserver ui = new Map();
         PropsMap propsMap = new PropsMap(ui);
-        Observer estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        Callback callback = new Callback();
+        Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
         propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
         Command robot = new Robot(propsMap);
         //when

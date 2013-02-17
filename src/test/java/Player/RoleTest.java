@@ -11,23 +11,23 @@ import static org.junit.Assert.assertThat;
 
 public class RoleTest {
     private UIObserver ui;
-    private Observer building;
+    private Callback callback;
 
     @Before
     public void setUP() {
         ui = new Map();
-        building = new Estate(ui);
+        callback = new Callback();
     }
 
     @Test
     public void its_position_should_be_3_after_forward() {
         //given
         Position initialPosition = new Position(0);
-        Role role = new MadameChyan(initialPosition, ui, building);
+        Role role = new MadameChyan(initialPosition, ui, callback);
         //when
         role.forward(3);
         //then
-        Role exceptedRole = new MadameChyan(new Position(3), ui, building);
+        Role exceptedRole = new MadameChyan(new Position(3), ui, callback);
         assertThat(role, is(exceptedRole));
     }
 
@@ -35,11 +35,11 @@ public class RoleTest {
     public void its_position_should_be_1_after_forward_more_than_a_lap() {
         //given
         Position initialPosition = new Position(67);
-        Role role = new MadameChyan(initialPosition, ui, building);
+        Role role = new MadameChyan(initialPosition, ui, callback);
         //when
         role.forward(4);
         //then
-        Role exceptedRole = new MadameChyan(new Position(1), ui, building);
+        Role exceptedRole = new MadameChyan(new Position(1), ui, callback);
         assertThat(role, is(exceptedRole));
     }
 }

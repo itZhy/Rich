@@ -32,9 +32,6 @@ public class EstateController {
         return true;
     }
 
-
-
-
     public void initializeDefaultBuilding(UIObserver ui) {
         try {
             readDefaultBuilding(ui);

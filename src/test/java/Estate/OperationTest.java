@@ -1,6 +1,7 @@
 package Estate;
 
 import Player.BabyKin;
+import Player.Callback;
 import Player.Position;
 import Player.Role;
 import UI.Map;
@@ -27,9 +28,9 @@ public class OperationTest {
     public void it_should_check_field_is_not_vacant() {
         //given
         UIObserver ui = new Map();
-        Estate estate = new Estate(ui);
+        Callback callback = new Callback();
         Operation operation = new Operation(ui);
-        Role babyKin = new BabyKin(new Position(0), ui, estate);
+        Role babyKin = new BabyKin(new Position(0), ui, callback);
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);

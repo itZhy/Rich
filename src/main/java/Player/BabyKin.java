@@ -6,8 +6,8 @@ import org.fusesource.jansi.Ansi;
 public class BabyKin extends Role {
     private final Ansi.Color color = Ansi.Color.BLUE;
 
-    public BabyKin(Position initialPosition, UIObserver ui, Observer building) {
-        super(initialPosition, ui, building);
+    public BabyKin(Position initialPosition, UIObserver ui, Callback callback) {
+        super(initialPosition, ui, callback);
     }
 
     public String getPromptMessage() {

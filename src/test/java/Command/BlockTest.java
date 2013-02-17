@@ -1,10 +1,7 @@
 package Command;
 
 import Estate.Estate;
-import Player.Observer;
-import Player.Position;
-import Player.Role;
-import Player.UncleTuu;
+import Player.*;
 import Props.Barricade;
 import Props.PropsMap;
 import UI.Map;
@@ -21,8 +18,8 @@ public class BlockTest {
         UIObserver ui = new Map();
         PropsMap propsMap = new PropsMap(ui);
         Command block = new Block(propsMap);
-        Observer estate = new Estate(ui);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        Callback callback = new Callback();
+        Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
         //when
         block.execute(uncleTuu, 10);
         //then

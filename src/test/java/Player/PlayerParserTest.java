@@ -13,12 +13,12 @@ public class PlayerParserTest {
     public void it_should_translate_string_to_player() {
         //given
         UIObserver ui = new Map();
-        Estate estate = new Estate(ui);
-        PlayerParser parser = new PlayerParser(ui, estate);
+        Callback callback = new Callback();
+        PlayerParser parser = new PlayerParser(ui, callback);
         //when
         Role role = parser.get('1');
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui, estate);
+        Role expectedRole = new MadameChyan(new Position(0), ui, callback);
         assertThat(role, is(expectedRole));
     }
 }

@@ -1,10 +1,7 @@
 package Props;
 
 import Estate.Estate;
-import Player.MadameChyan;
-import Player.Position;
-import Player.Role;
-import Player.UncleTuu;
+import Player.*;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -20,10 +17,10 @@ public class BombTest {
         String owner = UncleTuu.class.toString();
         Prop bomb = new Bomb(owner);
         //when
-        Role role = new MadameChyan(new Position(0), ui, new Estate(ui));
+        Role role = new MadameChyan(new Position(0), ui, new Callback());
         bomb.handle(new Position(0), role);
         //then
-        Role expectedRole = new MadameChyan(new Position(0), ui, new Estate(ui));
+        Role expectedRole = new MadameChyan(new Position(0), ui, new Callback());
         expectedRole.moveToHospital();
         assertThat(role, is(expectedRole));
     }

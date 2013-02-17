@@ -1,10 +1,7 @@
 package Command;
 
-import Player.Observer;
+import Player.*;
 import Estate.Estate;
-import Player.Position;
-import Player.Role;
-import Player.UncleTuu;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
@@ -18,10 +15,10 @@ public class BombTest {
     public void it_should_put_a_bomb_at_the_position_of_60() {
         //given
         UIObserver ui = new Map();
-        Observer estate = new Estate(ui);
+        Callback callback = new Callback();
         PropsMap propsMap = new PropsMap(ui);
         Command bomb = new Bomb(propsMap);
-        Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
+        Role uncleTuu = new UncleTuu(new Position(0), ui, callback);
         //when
         bomb.execute(uncleTuu, -10);
         //then

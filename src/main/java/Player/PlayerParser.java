@@ -9,11 +9,11 @@ import java.util.Map;
 public class PlayerParser {
     private final Map<Character, Role> stringToPlayers = new HashMap<Character, Role>();
 
-    public PlayerParser(UIObserver ui, Observer building) {
-        stringToPlayers.put('1', new MadameChyan(new Position(0), ui, building));
-        stringToPlayers.put('2', new UncleTuu(new Position(0), ui, building));
-        stringToPlayers.put('3', new SunHsiaoMei(new Position(0), ui, building));
-        stringToPlayers.put('4', new BabyKin(new Position(0), ui, building));
+    public PlayerParser(UIObserver ui, Callback callback) {
+        stringToPlayers.put('1', new MadameChyan(new Position(0), ui, callback));
+        stringToPlayers.put('2', new UncleTuu(new Position(0), ui, callback));
+        stringToPlayers.put('3', new SunHsiaoMei(new Position(0), ui, callback));
+        stringToPlayers.put('4', new BabyKin(new Position(0), ui, callback));
     }
 
     public Role get(Character number) {
