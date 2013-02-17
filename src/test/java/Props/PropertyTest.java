@@ -35,9 +35,9 @@ public class PropertyTest {
     public void it_should_has_machine_doll() {
         //given
         property.add(30);
-        property.buy(new MachineDoll(new PropsMap(ui)));
+        property.buy(new Robot());
         //when
-        boolean isSuccessful = property.consume(new MachineDoll(new PropsMap(ui)));
+        boolean isSuccessful = property.consume(new Robot());
         //then
         assertThat(isSuccessful, is(true));
     }

@@ -9,6 +9,10 @@ public abstract class Prop {
     protected int price;
     protected Element element;
 
+    public String name()    {
+        return getClass().toString();
+    }
+
     public int price() {
         return price;
     }
