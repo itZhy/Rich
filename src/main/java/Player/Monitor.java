@@ -2,10 +2,10 @@ package Player;
 
 import UI.UIObserver;
 
-public class RoleMonitor implements Observer {
+public class Monitor implements Observer {
     private final UIObserver ui;
 
-    public RoleMonitor(UIObserver ui) {
+    public Monitor(UIObserver ui) {
         this.ui = ui;
     }
 
