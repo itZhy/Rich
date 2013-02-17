@@ -19,11 +19,12 @@ public class EstateMap {
         return buildings.get(position);
     }
 
-    public void update(Building house, Position position, String name) {
+    public void update(Position position, String role) {
+        buy(position,role);
     }
 
-    public void buy(Position position, String name) {
-        buildings.put(position, get(position).update(name));
+    public void buy(Position position, String role) {
+        buildings.put(position, get(position).update(role));
         get(position).updateUI(position);
     }
 

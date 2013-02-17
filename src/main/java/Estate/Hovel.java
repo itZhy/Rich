@@ -11,7 +11,7 @@ public class Hovel extends Building {
     }
 
     public Building update(String owner) {
-        return null;
+        return (Building)new Villa(this.owner, ui, price);
     }
 
     public void updateUI(Position position) {

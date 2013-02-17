@@ -15,8 +15,8 @@ public class EstateController {
         return estateMap.get(position);
     }
 
-    public void buy(Position position, String name) {
-        estateMap.buy(position, name);
+    public void buy(Position position, String role) {
+        estateMap.buy(position, role);
         bank.withdrawMoney(get(position).owner, get(position).price);
     }
 
@@ -38,7 +38,9 @@ public class EstateController {
         return bank.checkPurchasingPower(role, house.price);
     }
 
-    public void update(Building house, Position position, String name) {
+    public void update(Position position, String role) {
+        estateMap.update(position, role);
+        bank.withdrawMoney(get(position).owner, get(position).price);
     }
 
     public boolean equals(Object object) {
@@ -47,5 +49,7 @@ public class EstateController {
     }
 
 
-
+    public boolean checkEnableUpdate(Position position) {
+        return get(position).getClass() == Skyscraper.class;
+    }
 }

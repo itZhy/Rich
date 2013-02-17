@@ -32,22 +32,35 @@ public class Estate implements Observer {
         }
     }
 
-    private void payRent() {
-    }
-
-    public boolean checkPurchasingPower(String role, Building house) {
+    private boolean checkPurchasingPower(String role, Building house) {
         return controller.checkPurchasingPower(role, house);
     }
 
-    public void update(Position position, String name) {
+    private boolean checkEnableUpdate(Position position){
+        return controller.checkEnableUpdate(position);
     }
 
-    public void buy(Position position, String name) {
+    private void payRent() {
+    }
+
+    public void update(Position position, String role) {
+        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
+            commandLine.showPromptMessageInNewline(
+                    "是否花费" + controller.get(position).price + "元升级该地产？");
+            if ("Y".equals(commandLine.waitForInput())) {
+                controller.update(position, role);
+            }
+        }
+    }
+
+    public void buy(Position position, String role) {
         ui.refresh();
-        commandLine.showPromptMessageInNewline(
-                "是否花费" + controller.get(position).price + "元购买该地产？");
-        if ("Y".equals(commandLine.waitForInput())) {
-            controller.buy(position, name);
+        if (checkPurchasingPower(role, controller.get(position))) {
+            commandLine.showPromptMessageInNewline(
+                    "是否花费" + controller.get(position).price + "元购买该地产？");
+            if ("Y".equals(commandLine.waitForInput())) {
+                controller.buy(position, role);
+            }
         }
     }
 
