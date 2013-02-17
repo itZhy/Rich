@@ -1,13 +1,13 @@
 package Interaction;
 
 import Command.CommandParser;
-import Estate.Estate;
 import Player.Callback;
 import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
 import Props.Ownership;
 import Props.PropsMap;
+import Estate.Estate;
 import UI.Map;
 import Util.CommandSplitter;
 
@@ -21,7 +21,7 @@ class Controller {
 
     public Controller(String players) {
         initializeRounderAndBank(players);
-        ui.display();
+        ui.refresh();
     }
 
     public void initializeRounderAndBank(String players) {
@@ -37,7 +37,7 @@ class Controller {
         CommandSplitter splitter = new CommandSplitter(input);
         parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         rounder.next();
-        ui.display();
+        ui.refresh();
     }
 
     public String getPromptMessageForCurrentPlayer() {

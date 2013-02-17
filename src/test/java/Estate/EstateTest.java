@@ -1,24 +1,37 @@
 package Estate;
 
-import Player.Callback;
-import Player.MadameChyan;
-import Player.Role;
-import org.junit.Before;
+import Player.*;
+import UI.Map;
+import UI.UIObserver;
 import org.junit.Test;
 
-public class EstateTest {
-    private Callback callback;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
-    @Before
-    public void setUP() {
-        callback = new Callback();
+public class EstateTest {
+    @Test
+    public void it_should_check_field_is_vacant() {
+        //given
+        UIObserver ui = new Map();
+        Estate estate = new Estate(ui);
+        Building vacancy = new Vacancy(null, ui);
+        //when
+        boolean result = estate.checkSoldStatus(vacancy);
+        //then
+        assertThat(result, is(false));
     }
 
     @Test
-    public void it_should_operate_player_to_buy_house() {
+    public void it_should_check_field_is_not_vacant() {
         //given
+        UIObserver ui = new Map();
+        Callback callback = new Callback();
+        Estate estate = new Estate(ui);
         Role role = new MadameChyan(callback, callback);
+        Building skyscraper = new Skyscraper(role.getClass().toString(), ui, 0);
         //when
+        boolean result = estate.checkSoldStatus(skyscraper);
+        //then
+        assertThat(result, is(true));
     }
-
 }

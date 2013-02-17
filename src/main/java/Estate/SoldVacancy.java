@@ -1,14 +1,17 @@
 package Estate;
 
 import Player.Position;
+import UI.Element;
 import UI.UIObserver;
 import Player.RoleColor;
+import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
 
 
-    public SoldVacancy(String role, UIObserver ui){
+    public SoldVacancy(String role, UIObserver ui, Integer price){
         super(role, ui);
+        this.price = price;
     }
 
     public Building update(String owner){
@@ -16,7 +19,7 @@ public class SoldVacancy extends Building {
     }
 
     public void updateUI(Position position) {
-        ui.replace(position, new RoleColor().dye(owner, '0'));
+        ui.replace(position, new Element('0', Ansi.Color.WHITE), new RoleColor().dye(owner, '0'));
     }
 
     public boolean equals(Object object) {

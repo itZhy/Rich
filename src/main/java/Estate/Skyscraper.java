@@ -1,16 +1,23 @@
 package Estate;
 
+import Player.Position;
 import Player.Role;
+import Player.RoleColor;
 import UI.UIObserver;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(String role, UIObserver ui) {
+    public Skyscraper(String role, UIObserver ui, Integer price){
         super(role, ui);
+        this.price = price;
     }
 
     public Building update(String owner) {
         return null;
+    }
+
+    public void updateUI(Position position) {
+        ui.replace(position,new RoleColor().dye(owner, '2'), new RoleColor().dye(owner, '3'));
     }
 
     public boolean equals(Object object) {

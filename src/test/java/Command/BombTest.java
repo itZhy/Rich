@@ -1,11 +1,11 @@
 package Command;
 
-import Estate.Estate;
 import Player.*;
 import Props.Ownership;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
+import Estate.Estate;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

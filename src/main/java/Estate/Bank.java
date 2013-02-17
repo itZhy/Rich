@@ -12,8 +12,12 @@ public class Bank {
         initialFund = fund;
     }
 
-    public void add(String player){
-        funds.put(player, new Fund(initialFund));
+    public void add(String account){
+        funds.put(account, new Fund(initialFund));
+    }
+
+    public void withdrawMoney(String account, Integer money){
+       funds.get(account).reduce(money);
     }
 
     public boolean equals(Object object) {

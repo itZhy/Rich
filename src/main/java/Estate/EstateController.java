@@ -1,28 +1,23 @@
 package Estate;
 
 import Player.Position;
-import UI.PositionExtractor;
-import UI.UIException;
 import UI.UIObserver;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class EstateController {
-    private final Map<Position, Building> buildings = new HashMap<Position, Building>();
+    private final EstateMap estateMap = new EstateMap();
+    private final Bank bank = new Bank();
 
-    public Building get(Position position) {
-        return buildings.get(position);
+    public EstateController(UIObserver ui){
+        estateMap.initializeDefaultBuilding(ui);
     }
 
-    public void update(Building house, Position position, String name) {
+    public Building get(Position position) {
+        return estateMap.get(position);
     }
 
     public void buy(Position position, String name) {
-        buildings.put(position, get(position).update(name));
+        estateMap.buy(position, name);
+        bank.withdrawMoney(get(position).owner, get(position).price);
     }
 
     public boolean checkSoldStatus(Building house) {
@@ -32,34 +27,16 @@ public class EstateController {
         return true;
     }
 
-    public void initializeDefaultBuilding(UIObserver ui) {
-        try {
-            readDefaultBuilding(ui);
-        } catch (FileNotFoundException e) {
-            throw new UIException(e.toString());
-        }
+    public void update(Building house, Position position, String name) {
     }
 
-    private void readDefaultBuilding(UIObserver ui) throws FileNotFoundException {
-        List<Position> positions = new PositionExtractor().getBuildings();
-        for (int index = 0; index != positions.size(); ++index) {
-            buildings.put(positions.get(index), new Vacancy(null, ui));
-        }
-        markDefaultPrice(positions);
+    public void add(String player) {
+        bank.add(player);
     }
 
-    private void markDefaultPrice(List<Position> positions) {
-        List<Integer> prices = new ArrayList<Integer>() {{
-            add(200);
-            add(500);
-            add(300);
-        }};
-        for (int i = 0; i != prices.size(); ++i) {
-            int counter = (i == 1) ? 6 : 26;
-            for (int index = 0; index != counter; ++index) {
-                buildings.get(positions.get(index)).markPrice(prices.get(i));
-            }
-        }
+    public boolean equals(Object object) {
+        return Estate.class == object.getClass() &&
+                bank.equals(((EstateController) object).bank);
     }
 
 

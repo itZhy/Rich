@@ -1,5 +1,6 @@
 package Estate;
 
+import Player.Position;
 import UI.UIObserver;
 
 public abstract class Building {
@@ -17,4 +18,6 @@ public abstract class Building {
     }
 
     public abstract Building update(String owner);
+
+    public abstract void updateUI(Position position);
 }
