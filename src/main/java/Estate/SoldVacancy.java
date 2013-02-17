@@ -1,8 +1,8 @@
 package Estate;
 
 import Player.Position;
-import Player.Role;
 import UI.UIObserver;
+import Util.RoleColor;
 
 public class SoldVacancy extends Building {
 
@@ -16,7 +16,7 @@ public class SoldVacancy extends Building {
     }
 
     public void updateUI(Position position) {
-//        ui.replace(position, owner.getElement('0'));
+        ui.replace(position, new RoleColor().dye(owner, '0'));
     }
 
     public boolean equals(Object object) {
