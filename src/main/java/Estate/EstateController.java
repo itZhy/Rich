@@ -7,7 +7,7 @@ public class EstateController {
     private final EstateMap estateMap = new EstateMap();
     private final Bank bank = new Bank();
 
-    public EstateController(UIObserver ui){
+    public EstateController(UIObserver ui) {
         estateMap.initializeDefaultBuilding(ui);
     }
 
@@ -28,10 +28,7 @@ public class EstateController {
     }
 
     public boolean checkOwner(String player, Building house) {
-        if (house.owner.equals(player)) {
-            return true;
-        }
-        return false;
+        return house.owner.equals(player);
     }
 
     public boolean checkPurchasingPower(String role, Building house) {
@@ -50,6 +47,6 @@ public class EstateController {
 
 
     public boolean checkEnableUpdate(Position position) {
-        return get(position).getClass() == Skyscraper.class;
+        return (get(position).getClass() == Skyscraper.class) ? false : true;
     }
 }

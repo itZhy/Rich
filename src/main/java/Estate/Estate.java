@@ -44,7 +44,8 @@ public class Estate implements Observer {
     }
 
     public void update(Position position, String role) {
-        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
+        ui.refresh();
+        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)){
             commandLine.showPromptMessageInNewline(
                     "是否花费" + controller.get(position).price + "元升级该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
