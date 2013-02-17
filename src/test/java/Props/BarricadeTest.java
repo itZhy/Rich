@@ -15,15 +15,14 @@ public class BarricadeTest {
     @Test
     public void the_role_should_be_blocked_when_forwarding() {
         //given
-        UIObserver ui = new Map();
         String owner = MadameChyan.class.toString();
         Prop barricade = new Barricade(owner);
         //when
-        BabyKin babyKin = new BabyKin(ui, new Callback());
+        BabyKin babyKin = new BabyKin(new Callback(), new Callback());
         barricade.handle(new Position(1), babyKin);
         babyKin.forward(10);
         //then
-        BabyKin expectedRole = new BabyKin(ui, new Callback());
+        BabyKin expectedRole = new BabyKin(new Callback(), new Callback());
         expectedRole.forward(1);
         assertThat(babyKin, is(expectedRole));
     }

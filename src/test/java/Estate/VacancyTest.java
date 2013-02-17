@@ -14,7 +14,7 @@ public class VacancyTest {
         Map ui = new Map();
         Callback callback = new Callback();
         Vacancy vacancy = new Vacancy(null, ui);
-        SunHsiaoMei owner = new SunHsiaoMei(ui, callback);
+        SunHsiaoMei owner = new SunHsiaoMei(callback, callback);
         //when
         Building nextBuilding = vacancy.update(owner.getClass().toString());
         //then

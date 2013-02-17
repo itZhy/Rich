@@ -18,6 +18,6 @@ public class Robot implements Command {
         if (!ownership.consume(role.name(), new Props.Robot()))   {
              throw new UIException("您尚无机器娃娃道具，请重新输入。");
         }
-        propsMap.cleanTheFront(role.offset(0));
+        propsMap.cleanTheFront(role.currentPosition());
     }
 }

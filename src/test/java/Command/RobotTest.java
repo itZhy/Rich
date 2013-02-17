@@ -21,7 +21,7 @@ public class RobotTest {
         UIObserver ui = new Map();
         PropsMap propsMap = new PropsMap(ui);
         Callback callback = new Callback();
-        Role uncleTuu = new UncleTuu(ui, callback);
+        Role uncleTuu = new UncleTuu(callback, callback);
         propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
         Ownership ownership = new Ownership();
         ownership.add(uncleTuu.name(), 30);

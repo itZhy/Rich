@@ -18,6 +18,6 @@ public class Bomb implements Command{
         if (!ownership.consume(role.name(), new Props.Bomb(role.name())))    {
             throw new UIException("您尚无炸弹道具，请重新输入。");
         }
-        propsMap.put(role.offset(argument), new Props.Bomb(role.name()));
+        propsMap.put(role.currentPosition().move(argument), new Props.Bomb(role.name()));
     }
 }

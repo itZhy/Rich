@@ -29,7 +29,7 @@ public class OperationTest {
         UIObserver ui = new Map();
         Callback callback = new Callback();
         Operation operation = new Operation(ui);
-        Role babyKin = new BabyKin(ui, callback);
+        Role babyKin = new BabyKin(callback, callback);
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui);
         //when
         boolean result = operation.checkSoldStatus(skyscraper);

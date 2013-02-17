@@ -1,7 +1,5 @@
 package Player;
 
-import UI.Map;
-import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,16 +7,14 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class RounderTest {
-    private UIObserver ui;
     private Rounder rounder;
     private Callback callback;
 
     @Before
     public void setUp() {
-        ui = new Map();
         callback = new Callback();
         rounder = new Rounder();
-        PlayerParser parser = new PlayerParser(ui, callback);
+        PlayerParser parser = new PlayerParser(callback, callback);
         String players = "4213";
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
@@ -31,7 +27,7 @@ public class RounderTest {
         //when
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(ui, callback);
+        Role exceptedRole = new BabyKin(callback, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -42,7 +38,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new MadameChyan(ui, callback);
+        Role exceptedRole = new MadameChyan(callback, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -55,7 +51,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new BabyKin(ui, callback);
+        Role exceptedRole = new BabyKin(callback, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 
@@ -69,7 +65,7 @@ public class RounderTest {
         rounder.next();
         Role currentRole = rounder.current();
         //then
-        Role exceptedRole = new UncleTuu(ui, callback);
+        Role exceptedRole = new UncleTuu(callback, callback);
         assertThat(currentRole, is(exceptedRole));
     }
 }
