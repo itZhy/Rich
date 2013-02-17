@@ -15,7 +15,7 @@ public class Rounder {
         do {
             ++currentIndex;
             currentIndex %= orderedRoles.size();
-        } while (orderedRoles.get(currentIndex).skip());
+        } while (current().skip());
     }
 
     public void add(Role role) {

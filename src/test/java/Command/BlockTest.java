@@ -5,8 +5,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import Props.Barricade;
-import Props.Ownership;
-import Props.PropsMap;
+import Props.PropsManager;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -20,16 +19,17 @@ public class BlockTest {
         //given
         UIObserver ui = new Map();
         Role uncleTuu = new UncleTuu(new Callback());
-        PropsMap propsMap = new PropsMap(ui);
-        Ownership ownership = new Ownership();
-        ownership.add(uncleTuu.name(), 50);
-        ownership.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
-        Command block = new Block(propsMap, ownership);
+        PropsManager propsManager = new PropsManager(ui);
+        propsManager.add(uncleTuu.name(), 50);
+        propsManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
+        Command block = new Block(propsManager);
         //when
         block.execute(uncleTuu, 10);
         //then
-        PropsMap expectedMap = new PropsMap(ui);
-        expectedMap.put(new Position(10), new Barricade(uncleTuu.name()));
-        assertThat(propsMap, is(expectedMap));
+        PropsManager expectedManager = new PropsManager(ui);
+        expectedManager.add(uncleTuu.name(), 50);
+        expectedManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
+        expectedManager.put(uncleTuu.name(), new Barricade(uncleTuu.name()), new Position(10));
+        assertThat(propsManager, is(expectedManager));
     }
 }

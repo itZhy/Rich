@@ -1,23 +1,19 @@
 package Command;
 
 import Player.Role;
-import Props.Ownership;
-import Props.PropsMap;
+import Props.PropsManager;
 import UI.UIException;
 
 public class Robot implements Command {
-    private final PropsMap propsMap;
-    private final Ownership ownership;
+    private final PropsManager propsManager;
 
-    public Robot(PropsMap propsMap, Ownership ownership)   {
-        this.propsMap = propsMap;
-        this.ownership = ownership;
+    public Robot(PropsManager propsManager) {
+        this.propsManager = propsManager;
     }
 
-    public void execute(Role role, int argument)    {
-        if (!ownership.consume(role.name(), new Props.Robot()))   {
-             throw new UIException("您尚无机器娃娃道具，请重新输入。");
+    public void execute(Role role, int argument) {
+        if (!propsManager.clean(role.name(), role.currentPosition())) {
+            throw new UIException("您尚无机器娃娃道具，请重新输入。");
         }
-        propsMap.cleanTheFront(role.currentPosition());
     }
 }

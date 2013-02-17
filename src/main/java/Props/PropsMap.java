@@ -1,7 +1,7 @@
 package Props;
 
 import Player.Position;
-import Player.Role;
+import Player.Movement;
 import UI.UIObserver;
 
 import java.util.HashMap;
@@ -16,7 +16,6 @@ public class PropsMap {
         this.ui = ui;
     }
 
-
     public void put(Position position, Prop prop) {
         props.put(position, prop);
         prop.addToUI(ui, position);
@@ -24,14 +23,13 @@ public class PropsMap {
 
     public void cleanTheFront(Position position) {
         for (int step = 1; step <= CLEAN_RANGE; ++step) {
-            Position positionInFront = position.move(step);
-            removeProp(positionInFront);
+            removeProp(position.move(step));
         }
     }
 
-    public void handle(Position position, Role role)    {
-        if (props.containsKey(position))    {
-            useProp(position, role);
+    public void trigger(Movement movement)    {
+        if (props.containsKey(movement.currentPosition()))    {
+            useProp(movement);
         }
     }
 
@@ -39,9 +37,9 @@ public class PropsMap {
         return getClass() == object.getClass() && props.equals(((PropsMap)object).props);
     }
 
-    private void useProp(Position position, Role role) {
-        props.get(position).handle(position, role);
-        removeProp(position);
+    private void useProp(Movement movement) {
+        props.get(movement.currentPosition()).handle(movement);
+        removeProp(movement.currentPosition());
     }
 
     private void removeProp(Position position) {

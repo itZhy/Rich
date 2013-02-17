@@ -2,23 +2,19 @@ package Command;
 
 import Player.Role;
 import Props.Barricade;
-import Props.Ownership;
-import Props.PropsMap;
+import Props.PropsManager;
 import UI.UIException;
 
 public class Block implements Command {
-    private final PropsMap propsMap;
-    private final Ownership ownership;
+    private final PropsManager propsManager;
 
-    public Block(PropsMap propsMap, Ownership ownership) {
-        this.propsMap = propsMap;
-        this.ownership = ownership;
+    public Block(PropsManager propsManager) {
+        this.propsManager = propsManager;
     }
 
     public void execute(Role role, int argument) {
-        if (!ownership.consume(role.name(), new Barricade(role.name()))) {
+        if (!propsManager.put(role.name(), new Barricade(role.name()), role.currentPosition().move(argument))) {
             throw new UIException("您尚无路障道具，请重新输入。");
         }
-        propsMap.put(role.currentPosition().move(argument), new Barricade(role.name()));
     }
 }

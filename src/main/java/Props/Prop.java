@@ -1,7 +1,7 @@
 package Props;
 
+import Player.Movement;
 import Player.Position;
-import Player.Role;
 import UI.Element;
 import UI.UIObserver;
 
@@ -29,5 +29,5 @@ public abstract class Prop {
         return getClass() == object.getClass();
     }
 
-    public abstract void handle(Position position, Role role);
+    public abstract void handle(Movement movement);
 }

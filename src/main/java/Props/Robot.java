@@ -1,7 +1,7 @@
 package Props;
 
+import Player.Movement;
 import Player.Position;
-import Player.Role;
 import UI.UIObserver;
 
 public class Robot extends Prop {
@@ -9,7 +9,7 @@ public class Robot extends Prop {
         price = 30;
     }
 
-    public void handle(Position position, Role role) {
+    public void handle(Movement movement) {
     }
 
     public void addToUI(UIObserver ui, Position position) {
