@@ -29,7 +29,6 @@ class Controller {
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);
-            estate.add(role.getClass().toString());
         }
     }
 

@@ -27,17 +27,25 @@ public class EstateController {
         return true;
     }
 
-    public void update(Building house, Position position, String name) {
+    public boolean checkOwner(String player, Building house) {
+        if (house.owner == player) {
+            return true;
+        }
+        return false;
     }
 
-    public void add(String player) {
-        bank.add(player);
+    public boolean checkPurchasingPower(Building house) {
+        return true;
+    }
+
+    public void update(Building house, Position position, String name) {
     }
 
     public boolean equals(Object object) {
         return Estate.class == object.getClass() &&
                 bank.equals(((EstateController) object).bank);
     }
+
 
 
 }

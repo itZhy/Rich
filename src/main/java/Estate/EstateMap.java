@@ -27,12 +27,6 @@ public class EstateMap {
         get(position).updateUI(position);
     }
 
-    public boolean checkSoldStatus(Building house) {
-        if (house.getClass() == Vacancy.class) {
-            return false;
-        }
-        return true;
-    }
 
     public void initializeDefaultBuilding(UIObserver ui) {
         try {

@@ -8,16 +8,20 @@ public class Bank {
     private final Map<String, Fund> funds = new HashMap<String, Fund>();
     private int initialFund = 10000;
 
-    public void reset(int fund){
+    public void reset(int fund) {
         initialFund = fund;
     }
 
-    public void add(String account){
-        funds.put(account, new Fund(initialFund));
+    public void withdrawMoney(String account, Integer money) {
+        initializeWhenNotExist(account);
+        funds.get(account).reduce(money);
     }
 
-    public void withdrawMoney(String account, Integer money){
-       funds.get(account).reduce(money);
+    private void initializeWhenNotExist(String account) {
+        if (!funds.containsKey(account)) {
+            funds.put(account, new Fund(initialFund));
+
+        }
     }
 
     public boolean equals(Object object) {
