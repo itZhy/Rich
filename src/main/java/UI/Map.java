@@ -16,7 +16,7 @@ public class Map implements UIObserver {
         initializeDefaultMap();
     }
 
-    public void display() {
+    public void refresh() {
         surface.display();
     }
 
@@ -33,8 +33,9 @@ public class Map implements UIObserver {
         add(destination, element);
     }
 
-    public void replace(Position position, Element element){
-        move(position, position, element);
+    public void replace(Position position, Element oldElement, Element newElement){
+        delete(position, oldElement);
+        add(position, newElement);
     }
 
     public boolean equals(Object object) {

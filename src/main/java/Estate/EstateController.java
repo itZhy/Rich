@@ -23,6 +23,7 @@ public class EstateController {
 
     public void buy(Position position, String name) {
         buildings.put(position, get(position).update(name));
+        get(position).updateUI(position);
     }
 
     public boolean checkSoldStatus(Building house) {
@@ -54,10 +55,11 @@ public class EstateController {
             add(500);
             add(300);
         }};
+        int counter = 0;
         for (int i = 0; i != prices.size(); ++i) {
-            int counter = (i == 1) ? 6 : 26;
-            for (int index = 0; index != counter; ++index) {
-                buildings.get(positions.get(index)).markPrice(prices.get(i));
+            int size = (i == 1) ? 6 : 26;
+            for (int index = 0; index != size; ++index) {
+                buildings.get(positions.get(counter++)).markPrice(prices.get(i));
             }
         }
     }

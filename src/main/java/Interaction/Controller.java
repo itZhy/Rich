@@ -21,7 +21,7 @@ class Controller {
 
     public Controller(String players) {
         initializeRounderAndBank(players);
-        ui.display();
+        ui.refresh();
     }
 
     public void initializeRounderAndBank(String players) {
@@ -37,7 +37,7 @@ class Controller {
         CommandSplitter splitter = new CommandSplitter(input);
         parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         rounder.next();
-        ui.display();
+        ui.refresh();
     }
 
     public String getPromptMessageForCurrentPlayer() {

@@ -1,6 +1,8 @@
 package Estate;
 
+import Player.Position;
 import Player.Role;
+import Player.RoleColor;
 import UI.UIObserver;
 
 public class Villa extends Building {
@@ -10,6 +12,10 @@ public class Villa extends Building {
 
     public Building update(String owner) {
       return null;
+    }
+
+    public void updateUI(Position position) {
+        ui.replace(position, new RoleColor().dye(owner, '1'), new RoleColor().dye(owner, '2'));
     }
 
     public boolean equals(Object object) {
