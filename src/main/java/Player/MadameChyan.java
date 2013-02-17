@@ -2,7 +2,6 @@ package Player;
 
 import Estate.EstateObserver;
 import UI.UIObserver;
-import Util.RoleColor;
 
 public class MadameChyan extends Role {
     public MadameChyan(Position initialPosition, UIObserver ui, EstateObserver building) {

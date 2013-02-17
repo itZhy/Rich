@@ -2,7 +2,7 @@ package Estate;
 
 import Player.Position;
 import UI.UIObserver;
-import Util.RoleColor;
+import Player.RoleColor;
 
 public class SoldVacancy extends Building {
 

@@ -3,7 +3,7 @@ package Props;
 import Player.Position;
 import Player.Role;
 import UI.UIObserver;
-import Util.RoleColor;
+import Player.RoleColor;
 
 public class Barricade extends Prop {
     public Barricade(String owner, UIObserver ui) {

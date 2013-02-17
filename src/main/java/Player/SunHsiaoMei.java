@@ -2,7 +2,6 @@ package Player;
 
 import Estate.EstateObserver;
 import UI.UIObserver;
-import Util.RoleColor;
 
 public class SunHsiaoMei extends Role {
     public SunHsiaoMei(Position initialPosition, UIObserver ui, EstateObserver building) {

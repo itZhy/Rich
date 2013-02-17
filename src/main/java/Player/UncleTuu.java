@@ -2,7 +2,6 @@ package Player;
 
 import Estate.EstateObserver;
 import UI.UIObserver;
-import Util.RoleColor;
 
 public class UncleTuu extends Role {
     public UncleTuu(Position initialPosition, UIObserver ui, EstateObserver building) {

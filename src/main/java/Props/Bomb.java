@@ -3,7 +3,7 @@ package Props;
 import Player.Position;
 import Player.Role;
 import UI.UIObserver;
-import Util.RoleColor;
+import Player.RoleColor;
 
 public class Bomb extends Prop {
     public Bomb(String owner, UIObserver ui) {

@@ -1,4 +1,4 @@
-package Util;
+package Player;
 
 import Player.BabyKin;
 import Player.MadameChyan;
