@@ -1,6 +1,6 @@
 package Command;
 
-import Props.Manager;
+import Props.Ownership;
 import Props.PropsMap;
 import UI.Map;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class CommandParserTest {
     @Test
     public void it_should_translate_string_to_command() {
         //given
-        CommandParser parser = new CommandParser(new PropsMap(new Map()), new Manager());
+        CommandParser parser = new CommandParser(new PropsMap(new Map()), new Ownership());
         //when
         Command command = parser.get("roll");
         //then

@@ -6,7 +6,7 @@ import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
 import Props.Barricade;
-import Props.Manager;
+import Props.Ownership;
 import Props.PropsMap;
 import UI.Map;
 import UI.UIObserver;
@@ -24,10 +24,10 @@ public class RobotTest {
         Observer estate = new Estate(ui);
         Role uncleTuu = new UncleTuu(new Position(0), ui, estate);
         propsMap.put(new Position(10), new Barricade(uncleTuu.name()));
-        Manager propsManager = new Manager();
-        propsManager.add(uncleTuu.name(), 30);
-        propsManager.buy(uncleTuu.name(), new Props.Robot());
-        Command robot = new Robot(propsMap, propsManager);
+        Ownership ownership = new Ownership();
+        ownership.add(uncleTuu.name(), 30);
+        ownership.buy(uncleTuu.name(), new Props.Robot());
+        Command robot = new Robot(propsMap, ownership);
         //when
         robot.execute(uncleTuu, 10);
         //then

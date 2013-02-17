@@ -5,7 +5,7 @@ import Estate.Estate;
 import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
-import Props.Manager;
+import Props.Ownership;
 import Props.PropsMap;
 import UI.Map;
 import Util.CommandSplitter;
@@ -13,10 +13,10 @@ import Util.CommandSplitter;
 class Controller {
     private final Map ui = new Map();
     private final PropsMap propsMap = new PropsMap(ui);
-    private final Manager propsManager = new Manager();
+    private final Ownership ownership = new Ownership();
     private final Rounder rounder = new Rounder();
     private final Estate estate = new Estate(ui);
-    private final CommandParser parser = new CommandParser(propsMap, propsManager);
+    private final CommandParser parser = new CommandParser(propsMap, ownership);
 
     public Controller(String players) {
         initializeRounderAndBank(players);
