@@ -1,10 +1,12 @@
 package Command;
 
-import Player.*;
+import Player.Callback;
+import Player.Position;
+import Player.Role;
+import Player.UncleTuu;
 import Props.Barricade;
 import Props.Ownership;
 import Props.PropsMap;
-import Estate.Estate;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
