@@ -18,6 +18,10 @@ public class Element {
         AnsiConsole.out.print(ansi().bg(Ansi.Color.BLACK).fg(color).a(symbol).reset());
     }
 
+    public Element dye(char symbol)    {
+        return new Element(symbol, color);
+    }
+
     public boolean equals(Object object)    {
         return Element.class == object.getClass()&&
                 symbol == ((Element) object).symbol &&

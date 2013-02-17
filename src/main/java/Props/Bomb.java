@@ -1,12 +1,12 @@
 package Props;
 
+import Player.Feature;
 import Player.Position;
 import Player.Role;
-import Player.RoleColor;
 
 public class Bomb extends Prop {
     public Bomb(String owner) {
-        element = new RoleColor().dye(owner, '@');
+        element = new Feature().dye(owner, '@');
         price = 50;
     }
 
