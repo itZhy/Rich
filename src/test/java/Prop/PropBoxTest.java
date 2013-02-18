@@ -1,5 +1,6 @@
 package Prop;
 
+import Player.UncleTuu;
 import UI.UIException;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ public class PropBoxTest {
         PropBox box = new PropBox();
         //when
         for (int count = 0; count != 11; ++count) {
-            box.add(new Barricade(""));
+            box.add(new Barricade(UncleTuu.class.toString()));
         }
     }
 }
