@@ -11,21 +11,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SceneManager implements Observer {
-    private final PropManager propManager;
-    private final Estate estate;
     private Map<Position, Scene> scenes = new HashMap<Position, Scene>();
 
     public SceneManager(PropManager propManager, Estate estate) {
-        this.propManager = propManager;
-        this.estate = estate;
-        initializeScenes(propManager);
+        initializeScenes(propManager, estate);
     }
 
-    private void initializeScenes(PropManager propManager) {
+    private void initializeScenes(PropManager propManager, Estate estate) {
         scenes.putAll(new PointPoolFactory(propManager).get());
         scenes.put(new PositionExtractor().getMagicHouse(), new MagicHouse());
-        scenes.put(new PositionExtractor().getGiftHouse(), new GiftHouse());
-        scenes.put(new PositionExtractor().getPropHouse(), new PropHouse());
+        scenes.put(new PositionExtractor().getGiftHouse(), new GiftHouse(propManager, estate));
+        scenes.put(new PositionExtractor().getPropHouse(), new PropHouse(propManager));
         scenes.put(new PositionExtractor().getPrison(), new Prison());
     }
 
@@ -34,6 +30,4 @@ public class SceneManager implements Observer {
             scenes.get(movement.currentPosition()).handle(roleName, movement);
         }
     }
-
-
 }

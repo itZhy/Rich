@@ -1,9 +1,17 @@
 package AssistedScene;
 
 import Player.Movement;
+import Prop.PropManager;
 
 public class PropHouse implements Scene {
-    public void handle(String roleName, Movement movement)  {
+    private final PropManager propManager;
+
+    public PropHouse(PropManager propManager) {
+        this.propManager = propManager;
+    }
+
+    public void handle(String roleName, Movement movement) {
+
 
     }
 }
