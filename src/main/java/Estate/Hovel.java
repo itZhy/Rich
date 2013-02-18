@@ -8,6 +8,7 @@ public class Hovel extends Building {
     public Hovel(String role, UIObserver ui, Integer price){
         super(role, ui);
         this.price = price;
+        degree = 1;
     }
 
     public Building update(String owner) {

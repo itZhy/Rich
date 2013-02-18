@@ -12,7 +12,8 @@ class Controller {
     private final UIObserver ui = new Map();
     private final PropManager propManager = new PropManager(ui);
     private final Rounder rounder = new Rounder();
-    private final CommandParser parser = new CommandParser(propManager);
+    private final Estate estate = new Estate(ui);
+    private final CommandParser parser = new CommandParser(propManager, estate);
 
     public Controller(String players) {
         initializeRounder(players);
@@ -40,7 +41,7 @@ class Controller {
 
     private Callback getObservers(){
         Callback callback = new Callback();
-        callback.attachForwardedObservers(new Estate(ui));
+        callback.attachForwardedObservers(estate);
         callback.attachForwardingObservers(new Monitor(ui));
         callback.attachForwardingObservers(propManager);
         return callback;

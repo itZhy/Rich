@@ -1,5 +1,6 @@
 package Command;
 
+import Estate.Estate;
 import Prop.PropManager;
 import UI.UIException;
 
@@ -10,12 +11,13 @@ import java.util.Map;
 public class CommandParser {
     private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
 
-    public CommandParser(PropManager propManager) {
+    public CommandParser(PropManager propManager, Estate estate) {
         stringToCommands.put("roll", new Roll());
         stringToCommands.put("quit", new Quit());
         stringToCommands.put("bomb", new Bomb(propManager));
         stringToCommands.put("block", new Block(propManager));
         stringToCommands.put("robot", new Robot(propManager));
+        stringToCommands.put("sell", new Sell(estate));
     }
 
     public Command get(String name) {

@@ -8,6 +8,7 @@ public class Villa extends Building {
     public Villa(String role, UIObserver ui, Integer price){
         super(role, ui);
         this.price = price;
+        degree = 2;
     }
 
     public Building update(String owner) {

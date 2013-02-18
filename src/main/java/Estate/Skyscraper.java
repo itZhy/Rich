@@ -9,6 +9,7 @@ public class Skyscraper extends Building {
     public Skyscraper(String role, UIObserver ui, Integer price){
         super(role, ui);
         this.price = price;
+        degree = 3;
     }
 
     public Building update(String owner) {

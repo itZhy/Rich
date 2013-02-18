@@ -2,7 +2,6 @@ package Estate;
 
 import Player.Position;
 import UI.PositionExtractor;
-import UI.PositionExtractor;
 import UI.UIException;
 import UI.UIObserver;
 
@@ -14,6 +13,12 @@ import java.util.Map;
 
 public class EstateMap {
     private final Map<Position, Building> buildings = new HashMap<Position, Building>();
+    private final UIObserver ui;
+
+    public EstateMap(UIObserver ui) {
+        initializeDefaultBuilding(ui);
+        this.ui = ui;
+    }
 
     public Building get(Position position) {
         return buildings.get(position);
@@ -28,7 +33,18 @@ public class EstateMap {
         get(position).updateUI(position);
     }
 
-    public void initializeDefaultBuilding(UIObserver ui) {
+    public void clearBuilding(Position position) {
+        Integer price = get(position).price;
+        buildings.put(position, new Vacancy(null, ui));
+        buildings.get(position).markPrice(price);
+    }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                buildings.equals(((EstateMap) object).buildings);
+    }
+
+    private void initializeDefaultBuilding(UIObserver ui) {
         try {
             readDefaultBuilding(ui);
         } catch (FileNotFoundException e) {

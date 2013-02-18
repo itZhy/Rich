@@ -4,6 +4,7 @@ import Player.Movement;
 import Player.Observer;
 import Player.Position;
 import UI.CommandLine;
+import UI.UIException;
 import UI.UIObserver;
 
 public class Estate implements Observer {
@@ -21,11 +22,11 @@ public class Estate implements Observer {
         if (house == null) {
             return;
         }
-        if (controller.checkSoldStatus(house) == false) {
+        if (!controller.checkSoldStatus(house)) {
             buy(movement.currentPosition(), role);
             return;
         }
-        if (controller.checkOwner(role, house) == false) {
+        if (!controller.checkOwner(role, house)) {
             payRent(movement.currentPosition(), role);
         } else {
             update(movement.currentPosition(), role);
@@ -44,6 +45,13 @@ public class Estate implements Observer {
         ui.refresh();
         commandLine.showPromptMessageInNewline("路过他人地产，留下买路钱(>_<)");
         controller.payRent(position, role);
+    }
+
+    public void sell(Position position, String role){
+        if (!controller.checkOwner(role, controller.get(position))) {
+            throw new UIException("您尚未购买该地产，请重新输入。");
+        }
+        controller.sell(position, role);
     }
 
     public void update(Position position, String role) {

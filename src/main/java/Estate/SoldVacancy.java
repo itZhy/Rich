@@ -7,11 +7,10 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
-
-
     public SoldVacancy(String role, UIObserver ui, Integer price){
         super(role, ui);
         this.price = price;
+        degree = 0;
     }
 
     public Building update(String owner){

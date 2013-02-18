@@ -15,9 +15,9 @@ public class VacancyTest {
         Vacancy vacancy = new Vacancy(null, ui);
         SunHsiaoMei owner = new SunHsiaoMei(new Callback());
         //when
-        Building nextBuilding = vacancy.update(owner.getClass().toString());
+        Building soldBuilding = vacancy.update(owner.getClass().toString());
         //then
         Building exceptedBuilding = new SoldVacancy(owner.getClass().toString(), ui, 0);
-        assertThat(nextBuilding, is(exceptedBuilding));
+        assertThat(soldBuilding, is(exceptedBuilding));
     }
 }

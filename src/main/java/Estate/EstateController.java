@@ -4,11 +4,11 @@ import Player.Position;
 import UI.UIObserver;
 
 public class EstateController {
-    private final EstateMap estateMap = new EstateMap();
+    private final EstateMap estateMap;
     private final Bank bank = new Bank();
 
     public EstateController(UIObserver ui) {
-        estateMap.initializeDefaultBuilding(ui);
+        estateMap = new EstateMap(ui);
     }
 
     public Building get(Position position) {
@@ -49,5 +49,10 @@ public class EstateController {
     public void payRent(Position position, String role) {
         bank.withdrawMoney(role, get(position).toll());
         bank.earnMoney(get(position).owner, get(position).toll());
+    }
+
+    public void sell(Position position, String role) {
+        estateMap.clearBuilding(position);
+        bank.earnMoney(role, get(position).sellingPrice());
     }
 }
