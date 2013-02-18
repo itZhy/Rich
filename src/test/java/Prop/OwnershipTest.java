@@ -3,9 +3,6 @@ package Prop;
 import Player.UncleTuu;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
 public class OwnershipTest {
     @Test
     public void uncle_tuu_should_has_barricade() {
@@ -15,8 +12,6 @@ public class OwnershipTest {
         //when
         ownership.add(owner, 50);
         ownership.buy(owner, new Barricade(owner));
-        boolean isSuccessful = ownership.consume(owner, new Barricade(owner));
-        //then
-        assertThat(isSuccessful, is(true));
+        ownership.consume(owner, new Barricade(owner));
     }
 }

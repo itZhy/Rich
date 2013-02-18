@@ -11,7 +11,7 @@ public class PropBox {
 
     public void add(Prop prop) {
         if (CAPACITY == props.size()) {
-            throw new UIException("您的道具背包已满，不能再购买道具。");
+            throw new UIException("您的道具背包已满，不能再购买道具。", UIException.NEED_NOT_RETRY);
         }
         props.add(prop);
     }

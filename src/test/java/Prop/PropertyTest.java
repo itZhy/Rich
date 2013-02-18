@@ -2,12 +2,10 @@ package Prop;
 
 import Player.UncleTuu;
 import UI.Map;
+import UI.UIException;
 import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class PropertyTest {
     private Property property;
@@ -26,9 +24,7 @@ public class PropertyTest {
         //given
         property.add(50);
         //when
-        boolean isSuccessful = property.buy(new Barricade(owner));
-        //then
-        assertThat(isSuccessful, is(true));
+        property.buy(new Barricade(owner));
     }
 
     @Test
@@ -37,19 +33,15 @@ public class PropertyTest {
         property.add(30);
         property.buy(new Robot());
         //when
-        boolean isSuccessful = property.consume(new Robot());
-        //then
-        assertThat(isSuccessful, is(true));
+        property.consume(new Robot());
     }
 
-    @Test
+    @Test (expected = UIException.class)
     public void it_should_not_has_bomb() {
         //given
         property.add(49);
         property.buy(new Bomb(owner));
         //when
-        boolean isSuccessful = property.consume(new Bomb(owner));
-        //then
-        assertThat(isSuccessful, is(false));
+        property.consume(new Bomb(owner));
     }
 }

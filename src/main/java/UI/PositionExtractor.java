@@ -45,7 +45,7 @@ public class PositionExtractor {
             return extract(defaultMapStr, symbol);
 
         } catch (FileNotFoundException e) {
-            throw new UIException(DEFAULT_MAP_PATH + "不存在。", UIException.NEED_QUIT);
+            throw new UIException(DEFAULT_MAP_PATH + "不存在。", UIException.NEED_NOT_RETRY);
         }
     }
 

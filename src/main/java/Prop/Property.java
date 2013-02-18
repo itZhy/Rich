@@ -1,5 +1,7 @@
 package Prop;
 
+import UI.UIException;
+
 public class Property {
     private int points = 0;
     private PropBox box = new PropBox();
@@ -8,16 +10,17 @@ public class Property {
         points += point;
     }
 
-    public boolean buy(Prop prop) {
-        if (prop.price() <= points) {
-            exchange(prop);
-            return true;
+    public void buy(Prop prop) {
+        if (prop.price() > points) {
+            throw new UIException("您的点数不足，不能购买此道具。", UIException.NEED_NOT_RETRY);
         }
-        return false;
+        exchange(prop);
     }
 
-    public boolean consume(Prop prop) {
-        return box.remove(prop);
+    public void consume(Prop prop) {
+        if (!box.remove(prop))  {
+            throw new UIException("您没有此道具，请重新输入。");
+        }
     }
 
     public boolean equals(Object object) {
