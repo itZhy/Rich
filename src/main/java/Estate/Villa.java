@@ -14,6 +14,10 @@ public class Villa extends Building {
         return (Building)new Skyscraper(this.owner, ui, price);
     }
 
+    public Integer toll(){
+        return price * 2;
+    }
+
     public void updateUI(Position position) {
         ui.replace(position, new Feature().dye(owner, '1'), new Feature().dye(owner, '2'));
     }

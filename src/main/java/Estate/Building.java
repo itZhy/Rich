@@ -17,6 +17,8 @@ public abstract class Building {
         this.price = price;
     }
 
+    public abstract Integer toll();
+
     public abstract Building update(String owner);
 
     public abstract void updateUI(Position position);

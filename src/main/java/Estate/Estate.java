@@ -26,7 +26,7 @@ public class Estate implements Observer {
             return;
         }
         if (controller.checkOwner(role, house) == false) {
-            payRent();
+            payRent(movement.currentPosition(), role);
         } else {
             update(movement.currentPosition(), role);
         }
@@ -36,16 +36,19 @@ public class Estate implements Observer {
         return controller.checkPurchasingPower(role, house);
     }
 
-    private boolean checkEnableUpdate(Position position){
+    private boolean checkEnableUpdate(Position position) {
         return controller.checkEnableUpdate(position);
     }
 
-    private void payRent() {
+    private void payRent(Position position, String role) {
+        ui.refresh();
+        commandLine.showPromptMessageInNewline("路过他人地产，留下买路钱(>_<)");
+        controller.payRent(position, role);
     }
 
     public void update(Position position, String role) {
         ui.refresh();
-        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)){
+        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
             commandLine.showPromptMessageInNewline(
                     "是否花费" + controller.get(position).price + "元升级该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
@@ -63,6 +66,10 @@ public class Estate implements Observer {
                 controller.buy(position, role);
             }
         }
+    }
+
+    public void setMascot() {
+
     }
 
 }

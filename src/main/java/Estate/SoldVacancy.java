@@ -18,6 +18,10 @@ public class SoldVacancy extends Building {
         return (Building)new Hovel(this.owner, ui, price);
     }
 
+    public Integer toll(){
+        return (price/2);
+    }
+
     public void updateUI(Position position) {
         ui.replace(position, new Element('0', Ansi.Color.WHITE), new Feature().dye(owner, '0'));
     }

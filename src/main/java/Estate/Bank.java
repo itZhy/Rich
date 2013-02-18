@@ -17,6 +17,11 @@ public class Bank {
         funds.get(account).reduce(money);
     }
 
+    public void earnMoney(String account, Integer money) {
+        initializeWhenNotExist(account);
+        funds.get(account).add(money);
+    }
+
     private void initializeWhenNotExist(String account) {
         if (!funds.containsKey(account)) {
             funds.put(account, new Fund(initialFund));

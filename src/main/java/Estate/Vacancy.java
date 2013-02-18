@@ -13,6 +13,10 @@ public class Vacancy extends Building {
         return null;
     }
 
+    public Integer toll(){
+        return 0;
+    }
+
     public Building update(String owner){
        return (Building)new SoldVacancy(owner, ui, price);
     }
