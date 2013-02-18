@@ -24,7 +24,7 @@ public class Interaction {
             return true;
         } catch (UIException e) {
             commandLine.showMessageInNewline(e.toString());
-            return !e.isNeedRetry();
+            return e.isNeedRetry();
         }
     }
 
@@ -39,7 +39,7 @@ public class Interaction {
             return true;
         } catch (UIException e) {
             commandLine.showMessageInNewline(e.toString());
-            return !e.isNeedRetry();
+            return e.isNeedRetry();
         }
     }
 }

@@ -3,6 +3,7 @@ package AssistedScene;
 import Player.Movement;
 import Prop.PropManager;
 import UI.CommandLine;
+import UI.UIException;
 
 public class PropHouse implements Scene {
     private final PropSelectorFactory factory;
@@ -14,8 +15,19 @@ public class PropHouse implements Scene {
 
     public void handle(String roleName, Movement movement) {
         showPromptMessage();
-        while (true)    {
+        handleInputUntilQuit(roleName);
+    }
+
+    private void handleInputUntilQuit(String roleName) {
+        while (handleInput(roleName));
+    }
+
+    private boolean handleInput(String roleName) {
+        try {
             factory.get(commandLine.waitForInput()).select(roleName);
+            return true;
+        } catch (UIException e) {
+            return e.isNeedRetry();
         }
     }
 
