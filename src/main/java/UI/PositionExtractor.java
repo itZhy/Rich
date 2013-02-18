@@ -19,6 +19,10 @@ public class PositionExtractor {
         return readDefaultMapBySymbol('H').get(0);
     }
 
+    public List<Position> getPointsPools()  {
+        return readDefaultMapBySymbol('$');
+    }
+
     private List<Position> readDefaultMapBySymbol(char symbol) {
         try {
             String defaultMapStr = new Scanner(new File(DEFAULT_MAP_PATH)).nextLine();
