@@ -24,7 +24,7 @@ public class PointPool implements Scene {
     }
 
     private void showPromptMessage() {
-        new CommandLine().showMessageInNewline(getPromptMessage());
+        new CommandLine().outputInNewline(getPromptMessage());
     }
 
     private String getPromptMessage() {

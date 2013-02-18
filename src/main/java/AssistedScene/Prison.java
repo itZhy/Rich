@@ -10,6 +10,6 @@ public class Prison implements Scene {
     }
 
     private void showPromptMessage() {
-        new CommandLine().showMessageInNewline("您被抓进监狱，停留2回合。");
+        new CommandLine().outputInNewline("您被抓进监狱，停留2回合。");
     }
 }

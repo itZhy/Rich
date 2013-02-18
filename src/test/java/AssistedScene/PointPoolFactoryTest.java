@@ -2,6 +2,7 @@ package AssistedScene;
 
 import Player.Position;
 import Prop.PropManager;
+import UI.CommandLine;
 import org.junit.Test;
 
 import java.util.Map;
