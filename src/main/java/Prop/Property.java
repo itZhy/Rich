@@ -1,11 +1,8 @@
 package Prop;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Property {
     private int points = 0;
-    private List<Prop> props = new ArrayList<Prop>();
+    private PropBox box = new PropBox();
 
     public void add(int point) {
         points += point;
@@ -20,17 +17,17 @@ public class Property {
     }
 
     public boolean consume(Prop prop) {
-        return props.remove(prop);
+        return box.remove(prop);
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 points == ((Property) object).points &&
-                props.equals(((Property) object).props);
+                box.equals(((Property) object).box);
     }
 
     private void exchange(Prop prop) {
-        props.add(prop);
+        box.add(prop);
         points -= prop.price();
     }
 }
