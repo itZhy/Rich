@@ -25,7 +25,7 @@ public class Fund {
     }
 
     public boolean equals(Object object) {
-        return Fund.class == object.getClass() &&
-                ((Fund) object).money == money;
+        return getClass() == object.getClass() &&
+                ((Fund) object).money.equals(money);
     }
 }

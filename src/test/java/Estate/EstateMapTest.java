@@ -21,5 +21,4 @@ public class EstateMapTest {
         //then
         assertThat(map, is(new EstateMap(ui)));
     }
-
 }
