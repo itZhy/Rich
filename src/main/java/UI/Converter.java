@@ -18,7 +18,7 @@ class Converter {
 
     public int convert(Position position) {
         if (null == positionToSurfaceIndex.get(position)) {
-            throw new UIException(CONFIG_FILE_PATH + "的内容不正确。", UIException.NEED_QUIT);
+            throw new UIException(CONFIG_FILE_PATH + "的内容不正确。", UIException.NEED_NOT_RETRY);
         }
 
         return positionToSurfaceIndex.get(position);

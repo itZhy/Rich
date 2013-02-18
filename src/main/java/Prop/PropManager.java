@@ -25,20 +25,14 @@ public class PropManager implements Observer {
         ownership.buy(roleName, prop);
     }
 
-    public boolean put(String roleName, Prop prop, Position position) {
-        if (!ownership.consume(roleName, prop)) {
-            return false;
-        }
+    public void put(String roleName, Prop prop, Position position) {
+        ownership.consume(roleName, prop);
         propMap.put(position, prop);
-        return true;
     }
 
-    public boolean clean(String roleName, Position position) {
-        if (!ownership.consume(roleName, new Robot())) {
-            return false;
-        }
+    public void clean(String roleName, Position position) {
+        ownership.consume(roleName, new Robot());
         propMap.cleanTheFront(position);
-        return true;
     }
 
     public boolean equals(Object object) {

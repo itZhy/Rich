@@ -16,9 +16,9 @@ public class Ownership {
         properties.get(owner).buy(prop);
     }
 
-    public boolean consume(String owner, Prop prop) {
+    public void consume(String owner, Prop prop) {
         initializeWhenNotExist(owner);
-        return properties.get(owner).consume(prop);
+        properties.get(owner).consume(prop);
     }
 
     public boolean equals(Object object)    {

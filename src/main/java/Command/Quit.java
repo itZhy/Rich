@@ -5,6 +5,6 @@ import UI.UIException;
 
 public class Quit implements Command {
     public void execute(Role role, int argument) {
-        throw new UIException("游戏被中止，正在退出...", UIException.NEED_QUIT);
+        throw new UIException("游戏被中止，正在退出...", UIException.NEED_NOT_RETRY);
     }
 }
