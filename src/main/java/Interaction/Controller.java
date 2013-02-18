@@ -5,10 +5,11 @@ import Estate.Estate;
 import Player.*;
 import Props.PropsManager;
 import UI.Map;
+import UI.UIObserver;
 import Util.CommandSplitter;
 
 class Controller {
-    private final Map ui = new Map();
+    private final UIObserver ui = new Map();
     private final PropsManager propsManager = new PropsManager(ui);
     private final Rounder rounder = new Rounder();
     private final CommandParser parser = new CommandParser(propsManager);
