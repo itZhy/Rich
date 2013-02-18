@@ -1,7 +1,7 @@
 package AssistedScene;
 
 import Player.Movement;
-import Props.PropManager;
+import Prop.PropManager;
 
 public class PointPool implements Scene {
     private final int point;

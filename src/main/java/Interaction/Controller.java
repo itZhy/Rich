@@ -3,7 +3,7 @@ package Interaction;
 import Command.CommandParser;
 import Estate.Estate;
 import Player.*;
-import Props.PropManager;
+import Prop.PropManager;
 import UI.Map;
 import UI.UIObserver;
 import Util.CommandSplitter;

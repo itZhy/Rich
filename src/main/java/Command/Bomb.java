@@ -1,7 +1,7 @@
 package Command;
 
 import Player.Role;
-import Props.PropManager;
+import Prop.PropManager;
 import UI.UIException;
 
 public class Bomb implements Command {
@@ -12,7 +12,7 @@ public class Bomb implements Command {
     }
 
     public void execute(Role role, int argument) {
-        if (!propManager.put(role.name(), new Props.Bomb(role.name()), role.currentPosition().move(argument))) {
+        if (!propManager.put(role.name(), new Prop.Bomb(role.name()), role.currentPosition().move(argument))) {
             throw new UIException("您尚无炸弹道具，请重新输入。");
         }
     }

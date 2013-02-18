@@ -1,8 +1,8 @@
 package Command;
 
 import Player.Role;
-import Props.Barricade;
-import Props.PropManager;
+import Prop.Barricade;
+import Prop.PropManager;
 import UI.UIException;
 
 public class Block implements Command {

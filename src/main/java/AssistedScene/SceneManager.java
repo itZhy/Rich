@@ -4,7 +4,7 @@ import Estate.Estate;
 import Player.Movement;
 import Player.Observer;
 import Player.Position;
-import Props.PropManager;
+import Prop.PropManager;
 import UI.PositionExtractor;
 
 import java.util.HashMap;

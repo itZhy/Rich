@@ -1,6 +1,6 @@
 package Command;
 
-import Props.PropManager;
+import Prop.PropManager;
 import UI.Map;
 import org.junit.Test;
 

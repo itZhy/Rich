@@ -4,7 +4,7 @@ import Player.Callback;
 import Player.Position;
 import Player.Role;
 import Player.UncleTuu;
-import Props.PropManager;
+import Prop.PropManager;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -20,15 +20,15 @@ public class BombTest {
         Role uncleTuu = new UncleTuu(new Callback());
         PropManager propManager = new PropManager(ui);
         propManager.add(uncleTuu.name(), 50);
-        propManager.buy(uncleTuu.name(), new Props.Bomb(uncleTuu.name()));
+        propManager.buy(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()));
         Command bomb = new Bomb(propManager);
         //when
         bomb.execute(uncleTuu, -10);
         //then
         PropManager expectedManager = new PropManager(ui);
         expectedManager.add(uncleTuu.name(), 50);
-        expectedManager.buy(uncleTuu.name(), new Props.Bomb(uncleTuu.name()));
-        expectedManager.put(uncleTuu.name(), new Props.Bomb(uncleTuu.name()), new Position(60));
+        expectedManager.buy(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()));
+        expectedManager.put(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()), new Position(60));
         assertThat(propManager, is(expectedManager));
     }
 

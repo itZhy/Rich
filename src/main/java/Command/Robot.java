@@ -1,7 +1,7 @@
 package Command;
 
 import Player.Role;
-import Props.PropManager;
+import Prop.PropManager;
 import UI.UIException;
 
 public class Robot implements Command {
