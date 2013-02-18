@@ -18,6 +18,10 @@ public class SceneManager implements Observer {
     public SceneManager(PropManager propManager, Estate estate) {
         this.propManager = propManager;
         this.estate = estate;
+        initializeScenes(propManager);
+    }
+
+    private void initializeScenes(PropManager propManager) {
         scenes.putAll(new PointPoolFactory(propManager).get());
         scenes.put(new PositionExtractor().getMagicHouse(), new MagicHouse());
         scenes.put(new PositionExtractor().getGiftHouse(), new GiftHouse());
