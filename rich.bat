@@ -1,0 +1,1 @@
+java -jar target/Rich-1.0-SNAPSHOT.jar
