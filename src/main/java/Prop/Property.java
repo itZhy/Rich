@@ -1,5 +1,6 @@
 package Prop;
 
+import UI.CommandLine;
 import UI.UIException;
 
 public class Property {
@@ -34,6 +35,11 @@ public class Property {
     private void exchange(Prop prop) {
         box.add(prop);
         point -= prop.price();
+        showPromptMessage(prop);
+    }
+
+    private void showPromptMessage(Prop prop) {
+        new CommandLine().output("您已成功购买" + prop.name() + "道具。");
     }
 
     private void checkPurchasingPower() {
