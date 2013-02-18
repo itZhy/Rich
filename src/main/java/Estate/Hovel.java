@@ -14,6 +14,10 @@ public class Hovel extends Building {
         return (Building)new Villa(this.owner, ui, price);
     }
 
+    public Integer toll(){
+        return price;
+    }
+
     public void updateUI(Position position) {
         ui.replace(position,new Feature().dye(owner, '0'), new Feature().dye(owner, '1'));
     }

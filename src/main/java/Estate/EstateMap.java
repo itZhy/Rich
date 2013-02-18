@@ -28,7 +28,6 @@ public class EstateMap {
         get(position).updateUI(position);
     }
 
-
     public void initializeDefaultBuilding(UIObserver ui) {
         try {
             readDefaultBuilding(ui);

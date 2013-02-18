@@ -15,6 +15,10 @@ public class Skyscraper extends Building {
         return null;
     }
 
+    public Integer toll(){
+        return price * 4;
+    }
+
     public void updateUI(Position position) {
         ui.replace(position,new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
     }

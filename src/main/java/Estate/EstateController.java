@@ -17,14 +17,11 @@ public class EstateController {
 
     public void buy(Position position, String role) {
         estateMap.buy(position, role);
-        bank.withdrawMoney(get(position).owner, get(position).price);
+        bank.withdrawMoney(role, get(position).price);
     }
 
     public boolean checkSoldStatus(Building house) {
-        if (house.getClass() == Vacancy.class) {
-            return false;
-        }
-        return true;
+        return (house.getClass() == Vacancy.class)?false:true;
     }
 
     public boolean checkOwner(String player, Building house) {
@@ -45,8 +42,12 @@ public class EstateController {
                 bank.equals(((EstateController) object).bank);
     }
 
-
     public boolean checkEnableUpdate(Position position) {
         return (get(position).getClass() == Skyscraper.class) ? false : true;
+    }
+
+    public void payRent(Position position, String role) {
+        bank.withdrawMoney(role, get(position).toll());
+        bank.earnMoney(get(position).owner, get(position).toll());
     }
 }
