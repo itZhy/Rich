@@ -1,6 +1,7 @@
 package Prop;
 
-import Player.*;
+import Player.Feature;
+import Player.Movement;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -10,8 +11,7 @@ public class BarricadeTest {
     @Test
     public void the_role_should_be_blocked_when_forwarding() {
         //given
-        String owner = MadameChyan.class.toString();
-        Prop barricade = new Barricade(owner);
+        Prop barricade = new Barricade(Feature.MADAME_CHYAN);
         //when
         Movement movement = new Movement();
         barricade.handle(movement);

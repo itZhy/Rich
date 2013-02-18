@@ -1,9 +1,9 @@
 package Command;
 
 import Player.Callback;
+import Player.Feature;
 import Player.Position;
 import Player.Role;
-import Player.UncleTuu;
 import Prop.Barricade;
 import Prop.PropManager;
 import UI.Map;
@@ -19,7 +19,7 @@ public class RobotTest {
         //given
         UIObserver ui = new Map();
         PropManager propManager = new PropManager(ui);
-        Role uncleTuu = new UncleTuu(new Callback());
+        Role uncleTuu = new Role(Feature.UNCLE_TUU, new Callback());
         propManager.add(uncleTuu.name(), 80);
         propManager.buy(uncleTuu.name(), new Prop.Robot());
         propManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));

@@ -13,7 +13,7 @@ public class PlayerParserTest {
         //when
         Role role = parser.get('1');
         //then
-        Role expectedRole = new MadameChyan(new Callback());
+        Role expectedRole = new Role(Feature.MADAME_CHYAN, new Callback());
         assertThat(role, is(expectedRole));
     }
 }

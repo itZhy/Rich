@@ -1,22 +1,18 @@
 package Prop;
 
-import Player.UncleTuu;
-import UI.Map;
+import Player.Feature;
 import UI.UIException;
-import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
 public class PropertyTest {
     private Property property;
-    private UIObserver ui;
     private String owner;
 
     @Before
     public void setUp() {
         property = new Property();
-        ui = new Map();
-        owner = UncleTuu.class.toString();
+        owner = Feature.UNCLE_TUU;
     }
 
     @Test
@@ -36,7 +32,7 @@ public class PropertyTest {
         property.consume(new Robot());
     }
 
-    @Test (expected = UIException.class)
+    @Test(expected = UIException.class)
     public void it_should_not_has_bomb() {
         //given
         property.add(49);

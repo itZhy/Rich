@@ -13,7 +13,7 @@ public class FeatureTest {
         //given
         Feature feature = new Feature();
         //when
-        Element element = feature.get(BabyKin.class.toString());
+        Element element = feature.get(Feature.BABY_KIN);
         //then
         assertThat(element, is(new Element('B', Ansi.Color.BLUE)));
     }
@@ -23,7 +23,7 @@ public class FeatureTest {
         //given
         Feature feature = new Feature();
         //when
-        Element element = feature.dye(SunHsiaoMei.class.toString(), 'S');
+        Element element = feature.dye(Feature.SUN_HSIAO_MEI, 'S');
         //then
         assertThat(element, is(new Element('S', Ansi.Color.RED)));
     }

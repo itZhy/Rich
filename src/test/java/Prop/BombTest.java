@@ -1,6 +1,7 @@
 package Prop;
 
-import Player.*;
+import Player.Feature;
+import Player.Movement;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Test;
@@ -13,8 +14,7 @@ public class BombTest {
     public void the_role_should_be_moved_to_hospital() {
         //given
         UIObserver ui = new Map();
-        String owner = UncleTuu.class.toString();
-        Prop bomb = new Bomb(owner);
+        Prop bomb = new Bomb(Feature.UNCLE_TUU);
         //when
         Movement movement = new Movement();
         bomb.handle(movement);

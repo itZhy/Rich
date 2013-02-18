@@ -1,6 +1,6 @@
 package AssistedScene;
 
-import Player.UncleTuu;
+import Player.Feature;
 import Prop.Barricade;
 import Prop.PropManager;
 import UI.Map;
@@ -20,7 +20,7 @@ public class PropSelectorFactoryTest {
     public void setUp() {
         propManager = new PropManager(new Map());
         factory = new PropSelectorFactory(propManager);
-        owner = UncleTuu.class.toString();
+        owner = Feature.UNCLE_TUU;
     }
 
     @Test(expected = UIException.class)

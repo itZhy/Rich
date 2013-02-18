@@ -1,7 +1,7 @@
 package Prop;
 
+import Player.Feature;
 import Player.Position;
-import Player.UncleTuu;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -19,7 +19,7 @@ public class PropMapTest {
     public void setUp() {
         ui = new Map();
         propMap = new PropMap(ui);
-        owner = UncleTuu.class.toString();
+        owner = Feature.UNCLE_TUU;
     }
 
     @Test

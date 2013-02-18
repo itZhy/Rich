@@ -1,6 +1,9 @@
 package Estate;
 
-import Player.*;
+import Player.Callback;
+import Player.Feature;
+import Player.Position;
+import Player.Role;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -31,7 +34,7 @@ public class EstateControllerTest {
     @Test
     public void it_should_check_field_is_not_vacant() {
         //given
-        Role babyKin = new BabyKin(new Callback());
+        Role babyKin = new Role(Feature.BABY_KIN, new Callback());
         Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui, 0);
         //when
         boolean result = controller.checkSoldStatus(skyscraper);
@@ -45,30 +48,30 @@ public class EstateControllerTest {
         Building vacancy = new Vacancy(null, ui);
         vacancy.markPrice(200);
         //when
-        controller.buy(new Position(3), BabyKin.class.toString());
+        controller.buy(new Position(3), Feature.BABY_KIN);
         //then
-        assertThat(controller.checkPurchasingPower(BabyKin.class.toString(), vacancy), is(true));
+        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
     }
 
     @Test
     public void it_should_cost_200_to_buy_vacancy() {
         //when
-        controller.buy(new Position(3), BabyKin.class.toString());
+        controller.buy(new Position(3), Feature.BABY_KIN);
         //then
         Integer exceptedMoney = 10000 - 200;
         Building vacancy = new Vacancy(null, ui);
         vacancy.markPrice(exceptedMoney);
-        assertThat(controller.checkPurchasingPower(BabyKin.class.toString(), vacancy), is(true));
+        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
         vacancy.markPrice(exceptedMoney + 1);
-        assertThat(controller.checkPurchasingPower(BabyKin.class.toString(), vacancy), is(false));
+        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(false));
     }
 
     @Test
     public void it_should_check_building_is_owned_to_player_or_not() {
         //given
-        Building soldVacancy = new SoldVacancy(BabyKin.class.toString(), ui, 300);
+        Building soldVacancy = new SoldVacancy(Feature.BABY_KIN, ui, 300);
         //then
-        assertThat(controller.checkOwner(BabyKin.class.toString(), soldVacancy), is(true));
-        assertThat(controller.checkOwner(SunHsiaoMei.class.toString(), soldVacancy), is(false));
+        assertThat(controller.checkOwner(Feature.BABY_KIN, soldVacancy), is(true));
+        assertThat(controller.checkOwner(Feature.SUN_HSIAO_MEI, soldVacancy), is(false));
     }
 }
