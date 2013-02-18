@@ -42,37 +42,38 @@ public class Estate implements Observer {
     }
 
     private void payRent(Position position, String role) {
-        commandLine.showMessageInNewline("路过他人地产，留下买路钱(>_<)");
+        commandLine.outputInNewline("路过他人地产，留下买路钱(>_<)");
         controller.payRent(position, role);
     }
 
-    public void sell(Position position, String role){
+    public void sell(Position position, String role) {
         if (!controller.checkOwner(role, controller.get(position))) {
             throw new UIException("您尚未购买该地产，请重新输入。");
         }
         controller.sell(position, role);
+        ui.refresh();
     }
 
     public void update(Position position, String role) {
-        ui.refresh();
         if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
-            commandLine.showMessageInNewline(
+            commandLine.outputInNewline(
                     "是否花费" + controller.get(position).price + "元升级该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
                 controller.update(position, role);
             }
         }
+        ui.refresh();
     }
 
     public void buy(Position position, String role) {
-        ui.refresh();
         if (checkPurchasingPower(role, controller.get(position))) {
-            commandLine.showMessageInNewline(
+            commandLine.outputInNewline(
                     "是否花费" + controller.get(position).price + "元购买该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
                 controller.buy(position, role);
             }
         }
+        ui.refresh();
     }
 
     public void setMascot() {

@@ -9,6 +9,6 @@ public class MagicHouse implements Scene {
     }
 
     private void showPromptMessage() {
-        new CommandLine().showMessageInNewline("您到达了魔法屋，什么都没有发生。");
+        new CommandLine().outputInNewline("您到达了魔法屋，什么都没有发生。");
     }
 }

@@ -18,12 +18,12 @@ public class Interaction {
 
     private boolean initializeController() {
         try {
-            commandLine.showMessageInNewline(
+            commandLine.outputInNewline(
                     "请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):");
             controller = new Controller(commandLine.waitForInput());
             return true;
         } catch (UIException e) {
-            commandLine.showMessageInNewline(e.toString());
+            commandLine.outputInNewline(e.toString());
             return e.isNeedRetry();
         }
     }
@@ -34,11 +34,11 @@ public class Interaction {
 
     private boolean handleCommand() {
         try {
-            commandLine.showMessage(controller.getPromptMessageForCurrentPlayer());
+            commandLine.output(controller.getPromptMessageForCurrentPlayer());
             controller.handleCommand(commandLine.waitForInput());
             return true;
         } catch (UIException e) {
-            commandLine.showMessageInNewline(e.toString());
+            commandLine.outputInNewline(e.toString());
             return e.isNeedRetry();
         }
     }

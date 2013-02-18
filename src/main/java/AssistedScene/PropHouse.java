@@ -27,13 +27,14 @@ public class PropHouse implements Scene {
             factory.get(commandLine.waitForInput()).select(roleName);
             return true;
         } catch (UIException e) {
+            commandLine.output(e.getMessage());
             return e.isNeedRetry();
         }
     }
 
     private void showPromptMessage() {
         CommandLine commandLine = new CommandLine();
-        commandLine.showMessageInNewline("欢迎光临道具屋，请选择您所需要的道具：");
-        commandLine.showMessageInNewline("道具\t编号\t价值（点数）\n路障\t1\t50\n机器娃娃\t2\t30\n炸弹\t3\t50");
+        commandLine.outputInNewline("欢迎光临道具屋，请选择您所需要的道具：");
+        commandLine.outputInNewline("道具\t\t编号\t价值（点数）\n路障\t\t1\t\t50\n机器娃娃\t2\t\t30\n炸弹\t\t3\t\t50");
     }
 }

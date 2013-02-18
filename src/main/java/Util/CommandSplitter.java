@@ -13,7 +13,7 @@ public class CommandSplitter {
 
     public String name() {
         if (scanner.hasNext()) {
-            return scanner.next();
+            return scanner.next().toLowerCase();
         }
         return "";
     }

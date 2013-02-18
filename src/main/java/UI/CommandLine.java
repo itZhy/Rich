@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CommandLine {
-    public void showMessage(String message) {
+    public void output(String message) {
         System.out.print(message);
     }
 
-    public void showMessageInNewline(String message) {
+    public void outputInNewline(String message) {
         System.out.println(message);
     }
 
