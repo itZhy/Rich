@@ -6,6 +6,7 @@ import UI.UIObserver;
 
 public class Robot extends Prop {
     public Robot() {
+        name = "机器娃娃";
         price = 30;
     }
 

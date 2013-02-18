@@ -1,5 +1,6 @@
 package Interaction;
 
+import AssistedScene.SceneManager;
 import Command.CommandParser;
 import Estate.Estate;
 import Player.*;
@@ -10,9 +11,10 @@ import Util.CommandSplitter;
 
 class Controller {
     private final UIObserver ui = new Map();
-    private final PropManager propManager = new PropManager(ui);
     private final Rounder rounder = new Rounder();
+    private final PropManager propManager = new PropManager(ui);
     private final Estate estate = new Estate(ui);
+    private final SceneManager sceneManager = new SceneManager(propManager, estate);
     private final CommandParser parser = new CommandParser(propManager, estate);
 
     public Controller(String players) {
@@ -44,6 +46,7 @@ class Controller {
         callback.attachForwardedObservers(estate);
         callback.attachForwardingObservers(new Monitor(ui));
         callback.attachForwardingObservers(propManager);
+        callback.attachForwardedObservers(sceneManager);
         return callback;
     }
 }

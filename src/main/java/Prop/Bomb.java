@@ -5,8 +5,9 @@ import Player.Movement;
 
 public class Bomb extends Prop {
     public Bomb(String owner) {
-        element = new Feature().dye(owner, '@');
+        name = "炸弹";
         price = 50;
+        element = new Feature().dye(owner, '@');
     }
 
     public void handle(Movement movement) {

@@ -4,6 +4,7 @@ import Prop.Barricade;
 import Prop.Bomb;
 import Prop.PropManager;
 import Prop.Robot;
+import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +18,13 @@ public class PropSelectorFactory {
         selectors.put("1", new BlockSelector());
         selectors.put("2", new RobotSelector());
         selectors.put("3", new BombSelector());
+        selectors.put("F", new Quit());
     }
 
     public Selector get(String input) {
+        if (!selectors.containsKey(input))  {
+            throw new UIException("您所选择的道具不存在，请重新输入1，2或3。");
+        }
         return selectors.get(input);
     }
 
@@ -38,6 +43,12 @@ public class PropSelectorFactory {
     private class BombSelector implements Selector {
         public void select(String roleName) {
             propManager.buy(roleName, new Bomb(roleName));
+        }
+    }
+
+    private class Quit implements Selector  {
+        public void select(String roleName) {
+            throw new UIException("欢迎下次光临。", UIException.NEED_NOT_RETRY);
         }
     }
 }

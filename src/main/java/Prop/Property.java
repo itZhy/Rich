@@ -3,34 +3,46 @@ package Prop;
 import UI.UIException;
 
 public class Property {
-    private int points = 0;
+    private static final int MIN_PRICE = 30;
+    private Integer point = 0;
     private PropBox box = new PropBox();
 
     public void add(int point) {
-        points += point;
+        this.point += point;
     }
 
     public void buy(Prop prop) {
-        if (prop.price() > points) {
-            throw new UIException("您的点数不足，不能购买此道具。", UIException.NEED_NOT_RETRY);
+        checkPurchasingPower();
+        if (prop.price() > point) {
+            throw new UIException(currentPoint() + "不足以购买" + prop.name() + "道具。");
         }
         exchange(prop);
     }
 
     public void consume(Prop prop) {
-        if (!box.remove(prop))  {
+        if (!box.remove(prop)) {
             throw new UIException("您没有此道具，请重新输入。");
         }
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                points == ((Property) object).points &&
+                point == ((Property) object).point &&
                 box.equals(((Property) object).box);
     }
 
     private void exchange(Prop prop) {
         box.add(prop);
-        points -= prop.price();
+        point -= prop.price();
+    }
+
+    private void checkPurchasingPower() {
+        if (point < MIN_PRICE) {
+            throw new UIException(currentPoint() + "不足以购买任何道具。", UIException.NEED_NOT_RETRY);
+        }
+    }
+
+    private String currentPoint() {
+        return "你当前剩余点数为" + point.toString();
     }
 }

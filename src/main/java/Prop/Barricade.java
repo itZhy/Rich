@@ -5,8 +5,9 @@ import Player.Movement;
 
 public class Barricade extends Prop {
     public Barricade(String owner) {
-        element = new Feature().dye(owner, '#');
+        name = "路障";
         price = 50;
+        element = new Feature().dye(owner, '#');
     }
 
     public void handle(Movement movement)   {
