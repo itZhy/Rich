@@ -35,6 +35,7 @@ public class EstateMap {
 
     public void clearBuilding(Position position) {
         Integer price = get(position).price;
+        get(position).clear(position);
         buildings.put(position, new Vacancy(null, ui));
         buildings.get(position).markPrice(price);
     }

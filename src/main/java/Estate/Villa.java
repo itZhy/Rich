@@ -2,7 +2,9 @@ package Estate;
 
 import Player.Feature;
 import Player.Position;
+import UI.Element;
 import UI.UIObserver;
+import org.fusesource.jansi.Ansi;
 
 public class Villa extends Building {
     public Villa(String role, UIObserver ui, Integer price){
@@ -21,6 +23,10 @@ public class Villa extends Building {
 
     public void updateUI(Position position) {
         ui.replace(position, new Feature().dye(owner, '1'), new Feature().dye(owner, '2'));
+    }
+
+    public void clear(Position position) {
+        ui.replace(position, new Feature().dye(owner, '2'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {

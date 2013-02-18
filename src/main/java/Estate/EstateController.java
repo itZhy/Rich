@@ -52,7 +52,11 @@ public class EstateController {
     }
 
     public void sell(Position position, String role) {
-        estateMap.clearBuilding(position);
         bank.earnMoney(role, get(position).sellingPrice());
+        estateMap.clearBuilding(position);
+    }
+
+    public Integer inquiry(String role){
+        return bank.inquiryAccount(role);
     }
 }

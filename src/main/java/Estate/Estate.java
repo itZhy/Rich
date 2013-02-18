@@ -42,7 +42,6 @@ public class Estate implements Observer {
     }
 
     private void payRent(Position position, String role) {
-        ui.refresh();
         commandLine.showMessageInNewline("路过他人地产，留下买路钱(>_<)");
         controller.payRent(position, role);
     }

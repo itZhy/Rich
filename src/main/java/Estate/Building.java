@@ -27,4 +27,6 @@ public abstract class Building {
     public abstract Building update(String owner);
 
     public abstract void updateUI(Position position);
+
+    public abstract void clear(Position position);
 }

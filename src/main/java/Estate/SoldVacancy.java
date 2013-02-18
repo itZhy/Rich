@@ -25,6 +25,10 @@ public class SoldVacancy extends Building {
         ui.replace(position, new Element('0', Ansi.Color.WHITE), new Feature().dye(owner, '0'));
     }
 
+    public void clear(Position position) {
+        ui.replace(position, new Feature().dye(owner, '0'), new Element('0', Ansi.Color.WHITE));
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 owner.equals(((SoldVacancy) object).owner) &&

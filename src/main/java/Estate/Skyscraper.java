@@ -2,7 +2,9 @@ package Estate;
 
 import Player.Feature;
 import Player.Position;
+import UI.Element;
 import UI.UIObserver;
+import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
@@ -22,6 +24,10 @@ public class Skyscraper extends Building {
 
     public void updateUI(Position position) {
         ui.replace(position,new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
+    }
+
+    public void clear(Position position) {
+        ui.replace(position, new Feature().dye(owner, '3'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {

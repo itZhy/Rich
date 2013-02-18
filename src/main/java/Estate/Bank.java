@@ -12,6 +12,11 @@ public class Bank {
         initialFund = fund;
     }
 
+    public Integer inquiryAccount(String account){
+        initializeWhenNotExist(account);
+        return funds.get(account).get();
+    }
+
     public void withdrawMoney(String account, Integer money) {
         initializeWhenNotExist(account);
         funds.get(account).reduce(money);
