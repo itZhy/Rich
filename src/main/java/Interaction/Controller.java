@@ -17,8 +17,9 @@ class Controller {
     private final SceneManager sceneManager = new SceneManager(propManager, estate);
     private final CommandParser parser = new CommandParser(propManager, estate);
 
-    public Controller(String players) {
+    public Controller(Integer initialFund, String players) {
         initializeRounder(players);
+        estate.setInitialFund(initialFund);
         ui.refresh();
     }
 

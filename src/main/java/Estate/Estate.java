@@ -80,4 +80,7 @@ public class Estate implements Observer {
 
     }
 
+    public void setInitialFund(Integer initialFund) {
+        controller.setInitialFund(initialFund);
+    }
 }

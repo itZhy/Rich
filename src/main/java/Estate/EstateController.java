@@ -59,4 +59,8 @@ public class EstateController {
     public Integer inquiry(String role){
         return bank.inquiryAccount(role);
     }
+
+    public void setInitialFund(Integer initialFund) {
+        bank.reset(initialFund);
+    }
 }

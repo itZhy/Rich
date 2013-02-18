@@ -1,6 +1,8 @@
 package Estate;
 
 
+import UI.UIException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +10,10 @@ public class Bank {
     private final Map<String, Fund> funds = new HashMap<String, Fund>();
     private int initialFund = 10000;
 
-    public void reset(int fund) {
+    public void reset(Integer fund) {
+        if (fund < 1000 || fund > 50000) {
+            throw new UIException("输入金额有误");
+        }
         initialFund = fund;
     }
 
