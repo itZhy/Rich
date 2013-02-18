@@ -27,6 +27,7 @@ public class PropHouse implements Scene {
             factory.get(commandLine.waitForInput()).select(roleName);
             return true;
         } catch (UIException e) {
+            commandLine.showMessage(e.getMessage());
             return e.isNeedRetry();
         }
     }

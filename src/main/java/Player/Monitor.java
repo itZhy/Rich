@@ -11,5 +11,6 @@ public class Monitor implements Observer {
 
     public void handle(String roleName, Movement movement) {
         ui.move(movement.previousPosition(), movement.currentPosition(), new Feature().get(roleName));
+        ui.refresh();
     }
 }

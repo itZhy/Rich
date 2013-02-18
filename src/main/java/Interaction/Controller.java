@@ -34,7 +34,6 @@ class Controller {
         CommandSplitter splitter = new CommandSplitter(input);
         parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         rounder.next();
-        ui.refresh();
     }
 
     public String getPromptMessageForCurrentPlayer() {
