@@ -7,12 +7,12 @@ import UI.UIObserver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PropsMap {
+public class PropMap {
     private final Map<Position, Prop> props = new HashMap<Position, Prop>();
     private final UIObserver ui;
     private static final int CLEAN_RANGE = 10;
 
-    public PropsMap(UIObserver ui)   {
+    public PropMap(UIObserver ui)   {
         this.ui = ui;
     }
 
@@ -34,7 +34,7 @@ public class PropsMap {
     }
 
     public boolean equals(Object object)    {
-        return getClass() == object.getClass() && props.equals(((PropsMap)object).props);
+        return getClass() == object.getClass() && props.equals(((PropMap)object).props);
     }
 
     private void useProp(Movement movement) {

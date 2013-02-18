@@ -15,12 +15,28 @@ public class PositionExtractor {
         return readDefaultMapBySymbol('0');
     }
 
+    public List<Position> getPointsPools() {
+        return readDefaultMapBySymbol('$');
+    }
+
     public Position getHospital() {
         return readDefaultMapBySymbol('H').get(0);
     }
 
-    public List<Position> getPointsPools()  {
-        return readDefaultMapBySymbol('$');
+    public Position getPrison() {
+        return readDefaultMapBySymbol('P').get(0);
+    }
+
+    public Position getMagicHouse() {
+        return readDefaultMapBySymbol('M').get(0);
+    }
+
+    public Position getPropHouse() {
+        return readDefaultMapBySymbol('T').get(0);
+    }
+
+    public Position getGiftHouse() {
+        return readDefaultMapBySymbol('G').get(0);
     }
 
     private List<Position> readDefaultMapBySymbol(char symbol) {

@@ -3,16 +3,16 @@ package Interaction;
 import Command.CommandParser;
 import Estate.Estate;
 import Player.*;
-import Props.PropsManager;
+import Props.PropManager;
 import UI.Map;
 import UI.UIObserver;
 import Util.CommandSplitter;
 
 class Controller {
     private final UIObserver ui = new Map();
-    private final PropsManager propsManager = new PropsManager(ui);
+    private final PropManager propManager = new PropManager(ui);
     private final Rounder rounder = new Rounder();
-    private final CommandParser parser = new CommandParser(propsManager);
+    private final CommandParser parser = new CommandParser(propManager);
 
     public Controller(String players) {
         initializeRounder(players);
@@ -42,7 +42,7 @@ class Controller {
         Callback callback = new Callback();
         callback.attachForwardedObservers(new Estate(ui));
         callback.attachForwardingObservers(new Monitor(ui));
-        callback.attachForwardingObservers(propsManager);
+        callback.attachForwardingObservers(propManager);
         return callback;
     }
 }

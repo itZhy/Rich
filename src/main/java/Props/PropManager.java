@@ -5,16 +5,16 @@ import Player.Observer;
 import Player.Position;
 import UI.UIObserver;
 
-public class PropsManager implements Observer {
+public class PropManager implements Observer {
     private final Ownership ownership = new Ownership();
-    private final PropsMap propsMap;
+    private final PropMap propMap;
 
-    public PropsManager(UIObserver ui) {
-        propsMap = new PropsMap(ui);
+    public PropManager(UIObserver ui) {
+        propMap = new PropMap(ui);
     }
 
     public void handle(String roleName, Movement movement) {
-        propsMap.trigger(movement);
+        propMap.trigger(movement);
     }
 
     public void add(String roleName, int point) {
@@ -29,7 +29,7 @@ public class PropsManager implements Observer {
         if (!ownership.consume(roleName, prop)) {
             return false;
         }
-        propsMap.put(position, prop);
+        propMap.put(position, prop);
         return true;
     }
 
@@ -37,13 +37,13 @@ public class PropsManager implements Observer {
         if (!ownership.consume(roleName, new Robot())) {
             return false;
         }
-        propsMap.cleanTheFront(position);
+        propMap.cleanTheFront(position);
         return true;
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                ownership.equals(((PropsManager) object).ownership) &&
-                propsMap.equals(((PropsManager) object).propsMap);
+                ownership.equals(((PropManager) object).ownership) &&
+                propMap.equals(((PropManager) object).propMap);
     }
 }

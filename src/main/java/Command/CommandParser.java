@@ -1,8 +1,6 @@
 package Command;
 
-import Props.Ownership;
-import Props.PropsManager;
-import Props.PropsMap;
+import Props.PropManager;
 import UI.UIException;
 
 import java.util.HashMap;
@@ -12,12 +10,12 @@ import java.util.Map;
 public class CommandParser {
     private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
 
-    public CommandParser(PropsManager propsManager) {
+    public CommandParser(PropManager propManager) {
         stringToCommands.put("roll", new Roll());
         stringToCommands.put("quit", new Quit());
-        stringToCommands.put("bomb", new Bomb(propsManager));
-        stringToCommands.put("block", new Block(propsManager));
-        stringToCommands.put("robot", new Robot(propsManager));
+        stringToCommands.put("bomb", new Bomb(propManager));
+        stringToCommands.put("block", new Block(propManager));
+        stringToCommands.put("robot", new Robot(propManager));
     }
 
     public Command get(String name) {
