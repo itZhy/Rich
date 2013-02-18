@@ -38,7 +38,7 @@ class Controller {
     }
 
     public String getPromptMessageForCurrentPlayer() {
-        return rounder.current().getPromptMessage();
+        return rounder.current().name() + ">";
     }
 
     private Callback getObservers(){

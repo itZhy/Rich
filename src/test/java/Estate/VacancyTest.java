@@ -1,6 +1,8 @@
 package Estate;
+
 import Player.Callback;
-import Player.SunHsiaoMei;
+import Player.Feature;
+import Player.Role;
 import UI.Map;
 import org.junit.Test;
 
@@ -13,7 +15,7 @@ public class VacancyTest {
         //given
         Map ui = new Map();
         Vacancy vacancy = new Vacancy(null, ui);
-        SunHsiaoMei owner = new SunHsiaoMei(new Callback());
+        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         //when
         Building soldBuilding = vacancy.update(owner.getClass().toString());
         //then

@@ -1,9 +1,9 @@
 package Command;
 
 import Player.Callback;
+import Player.Feature;
 import Player.Position;
 import Player.Role;
-import Player.UncleTuu;
 import Prop.Barricade;
 import Prop.PropManager;
 import UI.Map;
@@ -18,7 +18,7 @@ public class BlockTest {
     public void it_should_put_a_barricade_at_the_position_of_10() {
         //given
         UIObserver ui = new Map();
-        Role uncleTuu = new UncleTuu(new Callback());
+        Role uncleTuu = new Role(Feature.UNCLE_TUU, new Callback());
         PropManager propManager = new PropManager(ui);
         propManager.add(uncleTuu.name(), 50);
         propManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));

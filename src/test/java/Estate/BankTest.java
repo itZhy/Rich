@@ -1,7 +1,6 @@
 package Estate;
 
-import Player.MadameChyan;
-import Player.UncleTuu;
+import Player.Feature;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,7 +11,7 @@ public class BankTest {
     public void it_should_add_account_money_earn_money(){
         //given
         Bank bank = new Bank();
-        String role = MadameChyan.class.toString();
+        String role = Feature.MADAME_CHYAN;
         //when
         bank.earnMoney(role, 200);
         //then
@@ -26,12 +25,12 @@ public class BankTest {
     public void it_should_get_account_information(){
         //given
         Bank bank = new Bank();
-        String role = MadameChyan.class.toString();
+        String role = Feature.MADAME_CHYAN;
         //when
         bank.earnMoney(role, 200);
         //then
         assertThat(bank.inquiryAccount(role), is(10200));
-        assertThat(bank.inquiryAccount(UncleTuu.class.toString()), is(10000));
+        assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(10000));
     }
 
 }

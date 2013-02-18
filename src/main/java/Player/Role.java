@@ -1,15 +1,17 @@
 package Player;
 
-public abstract class Role {
+public class Role {
     private final Callback callback;
+    private String name;
     private Movement movement = new Movement();
 
-    Role(Callback callback) {
+    public Role(String name, Callback callback) {
+        this.name = name;
         this.callback = callback;
     }
 
     public String name() {
-        return getClass().toString();
+        return name;
     }
 
     public void forward(int step) {
@@ -33,6 +35,4 @@ public abstract class Role {
     public boolean equals(Object object) {
         return getClass() == object.getClass() && movement.equals(((Role) object).movement);
     }
-
-    public abstract String getPromptMessage();
 }

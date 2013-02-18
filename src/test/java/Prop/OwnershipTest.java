@@ -1,6 +1,6 @@
 package Prop;
 
-import Player.UncleTuu;
+import Player.Feature;
 import org.junit.Test;
 
 public class OwnershipTest {
@@ -8,7 +8,7 @@ public class OwnershipTest {
     public void uncle_tuu_should_has_barricade() {
         //given
         Ownership ownership = new Ownership();
-        String owner = UncleTuu.class.toString();
+        String owner = Feature.UNCLE_TUU;
         //when
         ownership.add(owner, 50);
         ownership.buy(owner, new Barricade(owner));

@@ -1,7 +1,8 @@
 package Estate;
 
 import Player.Callback;
-import Player.SunHsiaoMei;
+import Player.Feature;
+import Player.Role;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -11,15 +12,15 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class HovelTest {
+    private static final int COST = 200;
     private UIObserver ui = new Map();
     private Hovel hovel;
     private String role;
-    private final Integer COST = 200;
 
     @Before
     public void setUp() {
-        SunHsiaoMei owner = new SunHsiaoMei(new Callback());
-        role = owner.getClass().toString();
+        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
+        role = owner.name();
         hovel = new Hovel(role, ui, COST);
     }
 
@@ -28,7 +29,7 @@ public class HovelTest {
         //when
         Building updatedBuilding = hovel.update(role);
         //then
-        Building villa= new Villa(role, ui, COST);
+        Building villa = new Villa(role, ui, COST);
         assertThat(updatedBuilding, is(villa));
     }
 

@@ -14,7 +14,7 @@ public class PointPool implements Scene {
     }
 
     public void handle(String roleName, Movement movement) {
-        showPromptMessage();
+        showPromptMessage(roleName);
         propManager.add(roleName, point);
     }
 
@@ -23,11 +23,11 @@ public class PointPool implements Scene {
                 point.equals(((PointPool) object).point);
     }
 
-    private void showPromptMessage() {
-        new CommandLine().outputInNewline(getPromptMessage());
+    private void showPromptMessage(String roleName) {
+        new CommandLine().outputInNewline(getPromptMessage(roleName));
     }
 
-    private String getPromptMessage() {
-        return "您获得了" + point.toString() + "道具点数。";
+    private String getPromptMessage(String roleName) {
+        return roleName + "获得了" + point.toString() + "道具点数。";
     }
 }
