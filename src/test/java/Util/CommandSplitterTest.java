@@ -22,11 +22,11 @@ public class CommandSplitterTest {
     @Test(expected = UIException.class)
     public void it_should_throw_exception_when_the_argument_is_not_correct() {
         //given
-        CommandSplitter splitter = new CommandSplitter("bomb xx");
+        CommandSplitter splitter = new CommandSplitter("Bomb xx");
         //when
         String name = splitter.name();
-        int argument = splitter.argument();
         //then
         assertThat(name, is("bomb"));
+        splitter.argument();
     }
 }
