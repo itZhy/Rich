@@ -24,21 +24,18 @@ public class Estate implements Observer {
         }
         if (!controller.checkSoldStatus(house)) {
             buy(movement.currentPosition(), role);
-            return;
-        }
-        if (!controller.checkOwner(role, house)) {
-            payRent(movement.currentPosition(), role);
         } else {
-            update(movement.currentPosition(), role);
+            handleBusiness(movement.currentPosition(), role);
         }
+        ui.refresh();
     }
 
-    private boolean checkPurchasingPower(String role, Building house) {
-        return controller.checkPurchasingPower(role, house);
-    }
-
-    private boolean checkEnableUpdate(Position position) {
-        return controller.checkEnableUpdate(position);
+    private void handleBusiness(Position position, String role) {
+        if (!controller.checkOwner(role, controller.get(position))) {
+            payRent(position, role);
+        } else {
+            update(position, role);
+        }
     }
 
     private void payRent(Position position, String role) {
@@ -47,7 +44,7 @@ public class Estate implements Observer {
     }
 
     public void sell(Position position, String role) {
-        if (!controller.checkOwner(role, controller.get(position))) {
+        if (controller.get(position) == null || !controller.checkOwner(role, controller.get(position))) {
             throw new UIException("您尚未购买该地产，请重新输入。");
         }
         controller.sell(position, role);
@@ -55,25 +52,23 @@ public class Estate implements Observer {
     }
 
     public void update(Position position, String role) {
-        if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
+        if (controller.checkPurchasingPower(role, controller.get(position)) && controller.checkEnableUpdate(position)) {
             commandLine.outputInNewline(
                     "是否花费" + controller.get(position).price + "元升级该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
                 controller.update(position, role);
             }
         }
-        ui.refresh();
     }
 
     public void buy(Position position, String role) {
-        if (checkPurchasingPower(role, controller.get(position))) {
+        if (controller.checkPurchasingPower(role, controller.get(position))) {
             commandLine.outputInNewline(
                     "是否花费" + controller.get(position).price + "元购买该地产？");
             if ("Y".equals(commandLine.waitForInput())) {
                 controller.buy(position, role);
             }
         }
-        ui.refresh();
     }
 
     public void setVip(String role) {

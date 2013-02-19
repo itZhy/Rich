@@ -12,7 +12,7 @@ public class Sell implements Command {
     }
 
     public void execute(Role role, int argument) {
-       estate.sell(new Position(argument), role.getClass().toString());
+       estate.sell(new Position(argument), role.name());
     }
 
     public boolean equals(Object object){

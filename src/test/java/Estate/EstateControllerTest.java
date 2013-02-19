@@ -74,4 +74,13 @@ public class EstateControllerTest {
         assertThat(controller.checkOwner(Feature.BABY_KIN, soldVacancy), is(true));
         assertThat(controller.checkOwner(Feature.SUN_HSIAO_MEI, soldVacancy), is(false));
     }
+
+    @Test
+    public void it_should_get_twice_money_after_sell_building(){
+        //when
+        controller.buy(new Position(3), Feature.BABY_KIN);
+        controller.sell(new Position(3), Feature.BABY_KIN);
+        //then
+        assertThat(controller.inquiry(Feature.BABY_KIN), is(10200));
+    }
 }
