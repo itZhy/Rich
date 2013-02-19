@@ -63,4 +63,8 @@ public class EstateController {
     public void setInitialFund(Integer initialFund) {
         bank.reset(initialFund);
     }
+
+    public void setVip(String role) {
+        bank.setVip(role);
+    }
 }

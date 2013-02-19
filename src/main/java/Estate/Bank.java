@@ -2,6 +2,7 @@ package Estate;
 
 
 import UI.UIException;
+import com.sun.javafx.tk.quantum.ViewPainter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 public class Bank {
     private final Map<String, Fund> funds = new HashMap<String, Fund>();
     private int initialFund = 10000;
+    private VipManager vipManager = new VipManager();
 
     public void reset(Integer fund) {
         if (fund < 1000 || fund > 50000) {
@@ -17,14 +19,16 @@ public class Bank {
         initialFund = fund;
     }
 
-    public Integer inquiryAccount(String account){
+    public Integer inquiryAccount(String account) {
         initializeWhenNotExist(account);
         return funds.get(account).get();
     }
 
     public void withdrawMoney(String account, Integer money) {
         initializeWhenNotExist(account);
-        funds.get(account).reduce(money);
+        if (!vipManager.vipStatus(account)) {
+            funds.get(account).reduce(money);
+        }
     }
 
     public void earnMoney(String account, Integer money) {
@@ -46,5 +50,9 @@ public class Bank {
     public boolean checkPurchasingPower(String account, Integer price) {
         initializeWhenNotExist(account);
         return funds.get(account).compare(price);
+    }
+
+    public void setVip(String role) {
+        vipManager.setVip(role);
     }
 }

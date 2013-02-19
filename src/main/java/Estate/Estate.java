@@ -76,8 +76,8 @@ public class Estate implements Observer {
         ui.refresh();
     }
 
-    public void setMascot() {
-
+    public void setVip(String role) {
+        controller.setVip(role);
     }
 
     public void setInitialFund(Integer initialFund) {

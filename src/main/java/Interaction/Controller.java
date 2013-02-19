@@ -20,7 +20,6 @@ class Controller {
 
     public Controller(String players) {
         initializeRounder(players);
-//        ui.refresh();
     }
 
     public void initializeRounder(String players) {
