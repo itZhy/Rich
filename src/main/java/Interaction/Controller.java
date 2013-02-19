@@ -6,6 +6,7 @@ import Estate.Estate;
 import Player.*;
 import Prop.PropManager;
 import UI.Map;
+import UI.UIException;
 import UI.UIObserver;
 import Util.CommandSplitter;
 
@@ -17,10 +18,9 @@ class Controller {
     private final SceneManager sceneManager = new SceneManager(propManager, estate);
     private final CommandParser parser = new CommandParser(propManager, estate);
 
-    public Controller(Integer initialFund, String players) {
+    public Controller(String players) {
         initializeRounder(players);
-        estate.setInitialFund(initialFund);
-        ui.refresh();
+//        ui.refresh();
     }
 
     public void initializeRounder(String players) {
@@ -28,6 +28,15 @@ class Controller {
         for (int index = 0; index != players.length(); ++index) {
             Role role = parser.get(players.charAt(index));
             rounder.add(role);
+        }
+    }
+
+    public void initialFund(String fund){
+        try {
+            estate.setInitialFund(Integer.parseInt(fund));
+            ui.refresh();
+        } catch (java.lang.NumberFormatException e) {
+            throw new UIException("输入金额有误。");
         }
     }
 

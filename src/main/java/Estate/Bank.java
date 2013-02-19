@@ -12,7 +12,7 @@ public class Bank {
 
     public void reset(Integer fund) {
         if (fund < 1000 || fund > 50000) {
-            throw new UIException("输入金额有误");
+            throw new UIException("输入金额有误。");
         }
         initialFund = fund;
     }

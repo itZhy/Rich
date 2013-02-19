@@ -14,16 +14,14 @@ public class Interaction {
 
     private void initializeControllerUntilSucceed() {
         while (null == controller && initializeController()) ;
+        while (!initializeFund()) ;
     }
 
     private boolean initializeController() {
         try {
             commandLine.outputInNewline(
-                    "请输入玩家初始资金，范围1000～50000（默认10000）");
-            Integer initialFund = inputToFund(commandLine.waitForInput());
-            commandLine.outputInNewline(
                     "请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):");
-            controller = new Controller(initialFund, commandLine.waitForInput());
+            controller = new Controller(commandLine.waitForInput());
             return true;
         } catch (UIException e) {
             commandLine.outputInNewline(e.toString());
@@ -31,11 +29,14 @@ public class Interaction {
         }
     }
 
-    private Integer inputToFund(String input) {
+    private boolean initializeFund() {
         try {
-            return Integer.parseInt(input);
-        } catch (java.lang.NumberFormatException e) {
-            throw new UIException("输入金额有误");
+            commandLine.outputInNewline("请输入玩家初始资金，范围1000～50000（默认10000）");
+            controller.initialFund(commandLine.waitForInput());
+            return true;
+        } catch (UIException e) {
+            commandLine.outputInNewline(e.toString());
+            return !e.isNeedRetry();
         }
     }
 
