@@ -1,4 +1,4 @@
-package Interaction;
+package Application;
 
 import UI.CommandLine;
 import UI.UIException;

@@ -1,4 +1,4 @@
-import Interaction.Interaction;
+import Application.Interaction;
 
 public class Rich {
     public static void main(String args[]) {
