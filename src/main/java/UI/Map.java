@@ -24,7 +24,7 @@ public class Map implements UIObserver {
         surface.add(converter.convert(position), element);
     }
 
-    public void delete(Position position, Element element)  {
+    public void delete(Position position, Element element) {
         surface.remove(converter.convert(position), element);
     }
 
@@ -33,7 +33,7 @@ public class Map implements UIObserver {
         add(destination, element);
     }
 
-    public void replace(Position position, Element oldElement, Element newElement){
+    public void replace(Position position, Element oldElement, Element newElement) {
         delete(position, oldElement);
         add(position, newElement);
     }

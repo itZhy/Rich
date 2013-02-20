@@ -52,4 +52,19 @@ public class RounderTest {
         Role exceptedRole = new Role(Feature.BABY_KIN, new Callback());
         assertThat(currentRole, is(exceptedRole));
     }
+
+    @Test
+    public void it_should_delete_corresponding_player_when_player_encounter_bankrupt(){
+        //when
+        rounder.delete(Feature.BABY_KIN);
+        //then
+        Rounder exceptedRounder = new Rounder();
+        PlayerParser parser = new PlayerParser(new Callback());
+        String players = "213";
+        for (int index = 0; index != players.length(); ++index) {
+            Role role = parser.get(players.charAt(index));
+            exceptedRounder.add(role);
+        }
+        assertThat(rounder, is(exceptedRounder));
+    }
 }

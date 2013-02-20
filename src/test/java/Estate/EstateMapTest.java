@@ -11,14 +11,29 @@ import static org.junit.Assert.assertThat;
 
 public class EstateMapTest {
     private UIObserver ui = new Map();
+    private EstateMap map = new EstateMap(ui);
+
     @Test
     public void it_should_clear_associated_building() {
-        //given
-        EstateMap map = new EstateMap(ui);
         //when
         map.buy(new Position(10), Feature.MADAME_CHYAN);
         map.clearBuilding(new Position(10));
         //then
         assertThat(map, is(new EstateMap(ui)));
+    }
+
+    @Test
+    public void it_should_clear_all_buildings_of_player_after_insolvency() {
+        //given
+        EstateMap map = new EstateMap(ui);
+        //when
+        map.buy(new Position(10), Feature.MADAME_CHYAN);
+        map.buy(new Position(24), Feature.MADAME_CHYAN);
+        map.buy(new Position(25), Feature.BABY_KIN);
+        map.clearBuildings(Feature.MADAME_CHYAN);
+        //then
+        EstateMap exceptedMap = new EstateMap(ui);
+        exceptedMap.buy(new Position(25), Feature.BABY_KIN);
+        assertThat(map, is(exceptedMap));
     }
 }

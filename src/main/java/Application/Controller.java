@@ -1,6 +1,7 @@
 package Application;
 
 import Command.CommandParser;
+import Estate.InsolvencyNotify;
 import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
@@ -28,17 +29,27 @@ class Controller {
     }
 
     public void handleCommand(String input) {
-        CommandSplitter splitter = new CommandSplitter(input);
-        String command = splitter.name();
-        parser.get(command).execute(rounder.current(), splitter.argument());
-        if ("roll".equals(command)) {
-            rounder.next();
+        try {
+            CommandSplitter splitter = new CommandSplitter(input);
+            String command = splitter.name();
+            parser.get(command).execute(rounder.current(), splitter.argument());
+            if ("roll".equals(command)) {
+                rounder.next();
+            }
+        } catch (InsolvencyNotify e) {
+            goBankrupt(e.toString());
+//            rounder.next();
         }
     }
 
     public String getPromptMessageForCurrentPlayer() {
         ui.refresh();
         return rounder.current().name() + ">";
+    }
+
+    private void  goBankrupt(String role){
+        subSystem.goBankrupt(role);
+        throw new UIException(role + "破产！", (rounder.delete(role)));
     }
 
     private void initializeRounder(String players) {

@@ -27,7 +27,7 @@ public class EstateManager implements Observer {
         } else {
             handleBusiness(movement.currentPosition(), role);
         }
-        ui.refresh();
+//        ui.refresh();
     }
 
     private void handleBusiness(Position position, String role) {
@@ -39,7 +39,7 @@ public class EstateManager implements Observer {
     }
 
     private void payRent(Position position, String role) {
-        commandLine.outputInNewline("路过他人地产，留下买路钱(>_<)");
+        commandLine.waitForInput("路过他人地产，留下买路钱(>_<)");
         controller.payRent(position, role);
     }
 
@@ -73,5 +73,9 @@ public class EstateManager implements Observer {
 
     public void setInitialFund(Integer initialFund) {
         controller.setInitialFund(initialFund);
+    }
+
+    public void goBankrupt(String role) {
+        controller.clearBuildings(role);
     }
 }

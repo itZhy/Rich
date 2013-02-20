@@ -67,4 +67,8 @@ public class EstateController {
     public void setVip(String role) {
         bank.setVip(role);
     }
+
+    public void clearBuildings(String role) {
+        estateMap.clearBuildings(role);
+    }
 }

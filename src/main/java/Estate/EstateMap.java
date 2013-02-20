@@ -25,7 +25,7 @@ public class EstateMap {
     }
 
     public void update(Position position, String role) {
-        buy(position,role);
+        buy(position, role);
     }
 
     public void buy(Position position, String role) {
@@ -38,6 +38,14 @@ public class EstateMap {
         get(position).clear(position);
         buildings.put(position, new Vacancy(null, ui));
         buildings.get(position).markPrice(price);
+    }
+
+    public void clearBuildings(String role) {
+        for (Map.Entry<Position, Building> house : buildings.entrySet()) {
+            if (role.equals(house.getValue().owner)) {
+                clearBuilding(house.getKey());
+            }
+        }
     }
 
     public boolean equals(Object object) {

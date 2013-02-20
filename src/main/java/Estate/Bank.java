@@ -28,6 +28,13 @@ public class Bank {
         initializeWhenNotExist(account);
         if (!vipManager.vipStatus(account)) {
             funds.get(account).reduce(money);
+            checkBreakAccount(account);
+        }
+    }
+
+    public void checkBreakAccount(String account){
+        if(inquiryAccount(account) <= 0){
+            throw new InsolvencyNotify(account);
         }
     }
 
