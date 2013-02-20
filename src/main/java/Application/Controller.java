@@ -29,8 +29,11 @@ class Controller {
 
     public void handleCommand(String input) {
         CommandSplitter splitter = new CommandSplitter(input);
-        parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
-        rounder.next();
+        String command = splitter.name();
+        parser.get(command).execute(rounder.current(), splitter.argument());
+        if ("roll".equals(command)) {
+            rounder.next();
+        }
     }
 
     public String getPromptMessageForCurrentPlayer() {

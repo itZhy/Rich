@@ -21,7 +21,7 @@ public class EstateController {
     }
 
     public boolean checkSoldStatus(Building house) {
-        return (house.getClass() == Vacancy.class)?false:true;
+        return (house.getClass() == Vacancy.class) ? false : true;
     }
 
     public boolean checkOwner(String player, Building house) {
@@ -56,7 +56,7 @@ public class EstateController {
         estateMap.clearBuilding(position);
     }
 
-    public Integer inquiry(String role){
+    public Integer inquiry(String role) {
         return bank.inquiryAccount(role);
     }
 
