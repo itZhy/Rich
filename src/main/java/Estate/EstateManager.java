@@ -7,12 +7,12 @@ import UI.CommandLine;
 import UI.UIException;
 import UI.UIObserver;
 
-public class Estate implements Observer {
+public class EstateManager implements Observer {
     private final CommandLine commandLine = new CommandLine();
     private final EstateController controller;
     private final UIObserver ui;
 
-    public Estate(UIObserver ui) {
+    public EstateManager(UIObserver ui) {
         controller = new EstateController(ui);
         this.ui = ui;
     }

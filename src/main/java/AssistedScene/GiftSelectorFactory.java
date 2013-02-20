@@ -1,6 +1,6 @@
 package AssistedScene;
 
-import Estate.Estate;
+import Estate.EstateManager;
 import Prop.PropManager;
 import UI.UIException;
 
@@ -10,11 +10,11 @@ import java.util.Map;
 public class GiftSelectorFactory {
     private final Map<String, Selector> selectors = new HashMap<String, Selector>();
     private final PropManager propManager;
-    private final Estate estate;
+    private final EstateManager estateManager;
 
-    public GiftSelectorFactory(PropManager propManager, Estate estate) {
+    public GiftSelectorFactory(PropManager propManager, EstateManager estateManager) {
         this.propManager = propManager;
-        this.estate = estate;
+        this.estateManager = estateManager;
         selectors.put("1", new BonusSelector());
         selectors.put("2", new PointSelector());
         selectors.put("3", new MascotSelector());
@@ -42,7 +42,7 @@ public class GiftSelectorFactory {
 
     private class MascotSelector implements Selector {
         public void select(String roleName) {
-            estate.setVip(roleName);
+            estateManager.setVip(roleName);
         }
     }
 }

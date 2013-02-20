@@ -2,7 +2,7 @@ package Interaction;
 
 import AssistedScene.SceneManager;
 import Command.CommandParser;
-import Estate.Estate;
+import Estate.EstateManager;
 import Player.*;
 import Prop.PropManager;
 import UI.Map;
@@ -14,9 +14,9 @@ class Controller {
     private final UIObserver ui = new Map();
     private final Rounder rounder = new Rounder();
     private final PropManager propManager = new PropManager(ui);
-    private final Estate estate = new Estate(ui);
-    private final SceneManager sceneManager = new SceneManager(propManager, estate);
-    private final CommandParser parser = new CommandParser(propManager, estate);
+    private final EstateManager estateManager = new EstateManager(ui);
+    private final SceneManager sceneManager = new SceneManager(propManager, estateManager);
+    private final CommandParser parser = new CommandParser(propManager, estateManager);
 
     public Controller(String players) {
         initializeRounder(players);
@@ -32,7 +32,7 @@ class Controller {
 
     public void initialFund(String fund){
         try {
-            estate.setInitialFund(Integer.parseInt(fund));
+            estateManager.setInitialFund(Integer.parseInt(fund));
             ui.refresh();
         } catch (java.lang.NumberFormatException e) {
             throw new UIException("输入金额有误。");
@@ -51,7 +51,7 @@ class Controller {
 
     private Callback getObservers(){
         Callback callback = new Callback();
-        callback.attachForwardedObservers(estate);
+        callback.attachForwardedObservers(estateManager);
         callback.attachForwardingObservers(new Monitor(ui));
         callback.attachForwardingObservers(propManager);
         callback.attachForwardedObservers(sceneManager);
