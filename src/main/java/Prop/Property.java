@@ -28,7 +28,7 @@ public class Property {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                point == ((Property) object).point &&
+                point.equals(((Property) object).point) &&
                 box.equals(((Property) object).box);
     }
 
