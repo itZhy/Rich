@@ -17,7 +17,6 @@ class Controller {
 
     public Controller(String players) {
         initializeRounder(players);
-        ui.refresh();
     }
 
     public void initialFund(String fund) {
@@ -35,6 +34,7 @@ class Controller {
     }
 
     public String getPromptMessageForCurrentPlayer() {
+        ui.refresh();
         return rounder.current().name() + ">";
     }
 

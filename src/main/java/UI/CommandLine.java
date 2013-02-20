@@ -13,8 +13,16 @@ public class CommandLine {
         System.out.println(message);
     }
 
+    public String waitForInput() {
+        return getInput();
+    }
+
     public String waitForInput(String promptMessage) {
         outputInNewline(promptMessage);
+        return getInput();
+    }
+
+    private String getInput() {
         try {
             return new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
