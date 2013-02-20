@@ -1,9 +1,7 @@
 package Command;
 
-import Prop.PropManager;
+import Application.SubSystem;
 import UI.Map;
-import UI.UIObserver;
-import Estate.Estate;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,8 +11,7 @@ public class CommandParserTest {
     @Test
     public void it_should_translate_string_to_command() {
         //given
-        UIObserver ui = new Map();
-        CommandParser parser = new CommandParser(new PropManager(ui), new Estate(ui));
+        CommandParser parser = new CommandParser(new SubSystem(new Map()));
         //when
         Command command = parser.get("roll");
         //then

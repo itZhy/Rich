@@ -7,12 +7,12 @@ import UI.CommandLine;
 import UI.UIException;
 import UI.UIObserver;
 
-public class Estate implements Observer {
+public class EstateManager implements Observer {
     private final CommandLine commandLine = new CommandLine();
     private final EstateController controller;
     private final UIObserver ui;
 
-    public Estate(UIObserver ui) {
+    public EstateManager(UIObserver ui) {
         controller = new EstateController(ui);
         this.ui = ui;
     }
@@ -53,9 +53,7 @@ public class Estate implements Observer {
 
     public void update(Position position, String role) {
         if (controller.checkPurchasingPower(role, controller.get(position)) && controller.checkEnableUpdate(position)) {
-            commandLine.outputInNewline(
-                    "是否花费" + controller.get(position).price + "元升级该地产？");
-            if ("Y".equals(commandLine.waitForInput())) {
+            if ("Y".equals(commandLine.waitForInput("是否花费" + controller.get(position).price + "元升级该地产？"))) {
                 controller.update(position, role);
             }
         }
@@ -63,9 +61,7 @@ public class Estate implements Observer {
 
     public void buy(Position position, String role) {
         if (controller.checkPurchasingPower(role, controller.get(position))) {
-            commandLine.outputInNewline(
-                    "是否花费" + controller.get(position).price + "元购买该地产？");
-            if ("Y".equals(commandLine.waitForInput())) {
+            if ("Y".equals(commandLine.waitForInput("是否花费" + controller.get(position).price + "元购买该地产？"))) {
                 controller.buy(position, role);
             }
         }

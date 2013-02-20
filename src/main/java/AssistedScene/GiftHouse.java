@@ -1,16 +1,16 @@
 package AssistedScene;
 
-import Estate.Estate;
+import Estate.EstateManager;
 import Player.Movement;
 import Prop.PropManager;
 
 public class GiftHouse implements Scene {
-    private final Estate estate;
+    private final EstateManager estateManager;
     private final PropManager pro;
 
-    public GiftHouse(PropManager propManager, Estate estate) {
+    public GiftHouse(PropManager propManager, EstateManager estateManager) {
         this.pro = propManager;
-        this.estate = estate;
+        this.estateManager = estateManager;
     }
 
     public void handle(String roleName, Movement movement) {

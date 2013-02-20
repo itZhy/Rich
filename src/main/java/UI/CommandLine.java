@@ -14,9 +14,17 @@ public class CommandLine {
     }
 
     public String waitForInput() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        return getInput();
+    }
+
+    public String waitForInput(String promptMessage) {
+        outputInNewline(promptMessage);
+        return getInput();
+    }
+
+    private String getInput() {
         try {
-            return reader.readLine();
+            return new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
             throw new UIException("读取输入失败，请重新输入。");
         }

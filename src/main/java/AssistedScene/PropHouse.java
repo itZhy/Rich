@@ -24,7 +24,7 @@ public class PropHouse implements Scene {
 
     private boolean handleInput(String roleName) {
         try {
-            factory.get(commandLine.waitForInput()).select(roleName);
+            factory.get(commandLine.waitForInput("请输入您要购买的道具编号：")).select(roleName);
             return true;
         } catch (UIException e) {
             commandLine.output(e.getMessage());

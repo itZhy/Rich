@@ -2,7 +2,7 @@ package Estate;
 
 public class Vip {
     private Integer deadline = 0;
-    private Integer LIMITATION = 5;
+    private static final Integer LIMITATION = 5;
 
     public void set() {
         deadline = LIMITATION;
