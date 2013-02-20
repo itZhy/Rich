@@ -56,9 +56,7 @@ public class EstateManager implements Observer {
 
     public void update(Position position, String role) {
         if (checkPurchasingPower(role, controller.get(position)) && checkEnableUpdate(position)) {
-            commandLine.outputInNewline(
-                    "是否花费" + controller.get(position).price + "元升级该地产？");
-            if ("Y".equals(commandLine.waitForInput())) {
+            if ("Y".equals(commandLine.waitForInput("是否花费" + controller.get(position).price + "元升级该地产？"))) {
                 controller.update(position, role);
             }
         }
@@ -67,9 +65,7 @@ public class EstateManager implements Observer {
 
     public void buy(Position position, String role) {
         if (checkPurchasingPower(role, controller.get(position))) {
-            commandLine.outputInNewline(
-                    "是否花费" + controller.get(position).price + "元购买该地产？");
-            if ("Y".equals(commandLine.waitForInput())) {
+            if ("Y".equals(commandLine.waitForInput("是否花费" + controller.get(position).price + "元购买该地产？"))) {
                 controller.buy(position, role);
             }
         }

@@ -13,7 +13,7 @@ class Controller {
     private final Rounder rounder = new Rounder();
     private final UIObserver ui = new Map();
     private final SubSystem subSystem = new SubSystem(ui);
-    private final CommandParser parser = new CommandParser(subSystem.getPropManager(), subSystem.getEstateManager());
+    private final CommandParser parser = new CommandParser(subSystem);
 
     public Controller(String players) {
         initializeRounder(players);
