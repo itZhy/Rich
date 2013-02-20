@@ -13,7 +13,7 @@ public class Interaction {
     }
 
     private void initializeControllerUntilSucceed() {
-        while (null == controller && initializeController()) ;
+        while (!initializeController()) ;
         while (!initializeFund()) ;
     }
 
@@ -25,7 +25,7 @@ public class Interaction {
             return true;
         } catch (UIException e) {
             commandLine.outputInNewline(e.toString());
-            return e.isNeedRetry();
+            return !e.isNeedRetry();
         }
     }
 

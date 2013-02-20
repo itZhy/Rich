@@ -15,20 +15,12 @@ class Controller {
     private final SubSystem subSystem = new SubSystem(ui);
     private final CommandParser parser = new CommandParser(subSystem.getPropManager(), subSystem.getEstateManager());
 
-    public Controller(String players, String initialFund) {
+    public Controller(String players) {
         initializeRounder(players);
-        initialFund(initialFund);
+        ui.refresh();
     }
 
-    public void initializeRounder(String players) {
-        PlayerParser parser = new PlayerParser(subSystem.getObservers());
-        for (int index = 0; index != players.length(); ++index) {
-            Role role = parser.get(players.charAt(index));
-            rounder.add(role);
-        }
-    }
-
-    private void initialFund(String fund) {
+    public void initialFund(String fund) {
         try {
             subSystem.getEstateManager().setInitialFund(Integer.parseInt(fund));
         } catch (java.lang.NumberFormatException e) {
@@ -44,5 +36,13 @@ class Controller {
 
     public String getPromptMessageForCurrentPlayer() {
         return rounder.current().name() + ">";
+    }
+
+    private void initializeRounder(String players) {
+        PlayerParser parser = new PlayerParser(subSystem.getObservers());
+        for (int index = 0; index != players.length(); ++index) {
+            Role role = parser.get(players.charAt(index));
+            rounder.add(role);
+        }
     }
 }
