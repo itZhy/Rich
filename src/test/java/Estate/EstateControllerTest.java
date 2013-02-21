@@ -23,10 +23,8 @@ public class EstateControllerTest {
 
     @Test
     public void it_should_check_field_is_vacant() {
-        //given
-        Building vacancy = new Vacancy(null, ui);
         //when
-        boolean result = controller.checkSoldStatus(vacancy);
+        boolean result = controller.checkSoldStatus(new Position(3));
         //then
         assertThat(result, is(false));
     }
@@ -34,10 +32,9 @@ public class EstateControllerTest {
     @Test
     public void it_should_check_field_is_not_vacant() {
         //given
-        Role babyKin = new Role(Feature.BABY_KIN, new Callback());
-        Building skyscraper = new Skyscraper(babyKin.getClass().toString(), ui, 0);
+        controller.update(new Position(3), Feature.BABY_KIN);
         //when
-        boolean result = controller.checkSoldStatus(skyscraper);
+        boolean result = controller.checkSoldStatus(new Position(3));
         //then
         assertThat(result, is(true));
     }
