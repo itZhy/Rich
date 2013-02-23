@@ -15,7 +15,7 @@ public class Role {
     }
 
     public void forward(int step) {
-        for (int count = 1; count <= step; ++count) {
+        for (int count = 0; count != step; ++count) {
             if (!movement.walk()) {
                 break;
             }

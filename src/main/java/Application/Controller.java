@@ -18,6 +18,7 @@ class Controller {
 
     public Controller(String players) {
         initializeRounder(players);
+        ui.refresh();
     }
 
     public void initialFund(String fund) {
