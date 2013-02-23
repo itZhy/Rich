@@ -7,18 +7,18 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
-    public SoldVacancy(String role, UIObserver ui, Integer price){
+    public SoldVacancy(String role, UIObserver ui, Integer price) {
         super(role, ui);
         this.price = price;
         degree = 0;
     }
 
-    public Building update(String owner){
-        return (Building)new Hovel(this.owner, ui, price);
+    public Building update(String owner) {
+        return new Hovel(this.owner, ui, price);
     }
 
-    public Integer toll(){
-        return (price/2);
+    public Integer toll() {
+        return (price / 2);
     }
 
     public void updateUI(Position position) {

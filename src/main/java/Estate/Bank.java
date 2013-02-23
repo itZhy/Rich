@@ -1,8 +1,6 @@
 package Estate;
 
-
 import UI.UIException;
-import com.sun.javafx.tk.quantum.ViewPainter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,8 +30,8 @@ public class Bank {
         }
     }
 
-    public void checkBreakAccount(String account){
-        if(inquiryAccount(account) <= 0){
+    public void checkBreakAccount(String account) {
+        if (inquiryAccount(account) <= 0) {
             throw new InsolvencyNotify(account);
         }
     }

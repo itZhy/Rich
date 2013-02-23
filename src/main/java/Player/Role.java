@@ -1,9 +1,9 @@
 package Player;
 
 public class Role {
+    private final String name;
     private final Callback callback;
-    private String name;
-    private Movement movement = new Movement();
+    private final Movement movement = new Movement();
 
     public Role(String name, Callback callback) {
         this.name = name;

@@ -6,18 +6,18 @@ import java.util.Map;
 public class VipManager {
     private final Map<String, Vip> vips = new HashMap<String, Vip>();
 
-    public void setVip(String account){
+    public void setVip(String account) {
         initializeWhenNotExist(account);
         vips.get(account).set();
     }
 
-    public void pass(){
+    public void pass() {
         for (Vip vip : vips.values()) {
             vip.pass();
         }
     }
 
-    public boolean vipStatus(String account){
+    public boolean vipStatus(String account) {
         initializeWhenNotExist(account);
         return vips.get(account).vipStatus();
     }
