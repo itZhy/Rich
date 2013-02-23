@@ -1,6 +1,7 @@
 package Command;
 
 import Application.SubSystem;
+import Player.Rounder;
 import UI.UIException;
 
 import java.util.HashMap;
@@ -10,8 +11,8 @@ import java.util.Map;
 public class CommandParser {
     private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
 
-    public CommandParser(SubSystem subSystem) {
-        stringToCommands.put("roll", new Roll());
+    public CommandParser(Rounder rounder, SubSystem subSystem) {
+        stringToCommands.put("roll", new Roll(rounder));
         stringToCommands.put("quit", new Quit());
         stringToCommands.put("bomb", new Bomb(subSystem.getPropManager()));
         stringToCommands.put("block", new Block(subSystem.getPropManager()));

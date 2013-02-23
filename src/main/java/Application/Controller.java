@@ -14,7 +14,7 @@ class Controller {
     private final Rounder rounder = new Rounder();
     private final UIObserver ui = new Map();
     private final SubSystem subSystem = new SubSystem(ui);
-    private final CommandParser parser = new CommandParser(subSystem);
+    private final CommandParser parser = new CommandParser(rounder, subSystem);
 
     public Controller(String players) {
         initializeRounder(players);
@@ -31,23 +31,18 @@ class Controller {
     public void handleCommand(String input) {
         try {
             CommandSplitter splitter = new CommandSplitter(input);
-            String command = splitter.name();
-            parser.get(command).execute(rounder.current(), splitter.argument());
-            if ("roll".equals(command)) {
-                rounder.next();
-            }
+            parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         } catch (InsolvencyNotify e) {
             goBankrupt(e.toString());
         }
     }
 
     public String getPrompt() {
-        ui.refresh();
         return rounder.current().name() + ">";
     }
 
-    private void  goBankrupt(String role){
-        subSystem.goBankrupt(role);
+    private void goBankrupt(String role) {
+        subSystem.getEstateManager().goBankrupt(role);
         throw new UIException(role + "破产！", (rounder.delete(role)));
     }
 

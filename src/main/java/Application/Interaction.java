@@ -52,7 +52,7 @@ public class Interaction {
             controller.handleCommand(commandLine.waitForInput());
             return true;
         } catch (UIException e) {
-            commandLine.waitForInput(e.toString());
+            commandLine.outputInNewline(e.toString());
             return e.isNeedRetry();
         }
     }
