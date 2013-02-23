@@ -21,6 +21,10 @@ public class PropManager implements Observer {
         ownership.add(roleName, point);
     }
 
+    public void sell(String owner, Prop prop) {
+        ownership.sell(owner, prop);
+    }
+
     public void buy(String roleName, Prop prop) {
         ownership.buy(roleName, prop);
     }

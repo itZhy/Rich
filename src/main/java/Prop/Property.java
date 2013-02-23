@@ -20,6 +20,11 @@ public class Property {
         exchange(prop);
     }
 
+    public void sell(Prop prop) {
+        consume(prop);
+        add(prop.price());
+    }
+
     public void consume(Prop prop) {
         if (!box.remove(prop)) {
             throw new UIException("您没有此道具，请重新输入。");

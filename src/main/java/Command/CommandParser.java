@@ -17,6 +17,7 @@ public class CommandParser {
         stringToCommands.put("block", new Block(subSystem.getPropManager()));
         stringToCommands.put("robot", new Robot(subSystem.getPropManager()));
         stringToCommands.put("sell", new Sell(subSystem.getEstateManager()));
+        stringToCommands.put("selltool", new SellTool(subSystem.getPropManager()));
     }
 
     public Command get(String name) {
