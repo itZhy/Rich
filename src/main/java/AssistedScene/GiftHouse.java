@@ -3,17 +3,32 @@ package AssistedScene;
 import Estate.EstateManager;
 import Player.Movement;
 import Prop.PropManager;
+import UI.CommandLine;
+import UI.UIException;
 
 public class GiftHouse implements Scene {
-    private final EstateManager estateManager;
-    private final PropManager pro;
+    private final GiftSelectorFactory factory;
+    private final CommandLine commandLine = new CommandLine();
 
     public GiftHouse(PropManager propManager, EstateManager estateManager) {
-        this.pro = propManager;
-        this.estateManager = estateManager;
+        factory = new GiftSelectorFactory(propManager, estateManager);
     }
 
     public void handle(String roleName, Movement movement) {
+        showPromptMessage();
+        handleInput(roleName);
+    }
 
+    private void handleInput(String roleName) {
+        try {
+            factory.get(commandLine.waitForInput("请输入您要选择的礼品编号：")).select(roleName);
+        } catch (UIException e) {
+            commandLine.output(e.getMessage());
+        }
+    }
+
+    private void showPromptMessage() {
+        commandLine.outputInNewline("欢迎光临礼品屋，请选择一件您 喜欢的礼品：");
+        commandLine.outputInNewline("礼品\t编号\n奖 金\t1\n点数卡\t2\n福 神\t3\n");
     }
 }

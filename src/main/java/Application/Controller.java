@@ -38,11 +38,10 @@ class Controller {
             }
         } catch (InsolvencyNotify e) {
             goBankrupt(e.toString());
-//            rounder.next();
         }
     }
 
-    public String getPromptMessageForCurrentPlayer() {
+    public String getPrompt() {
         ui.refresh();
         return rounder.current().name() + ">";
     }

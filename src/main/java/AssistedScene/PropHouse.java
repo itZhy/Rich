@@ -33,7 +33,6 @@ public class PropHouse implements Scene {
     }
 
     private void showPromptMessage() {
-        CommandLine commandLine = new CommandLine();
         commandLine.outputInNewline("欢迎光临道具屋，请选择您所需要的道具：");
         commandLine.outputInNewline("道具\t\t编号\t价值（点数）\n路障\t\t1\t\t50\n机器娃娃\t2\t\t30\n炸弹\t\t3\t\t50");
     }
