@@ -31,6 +31,10 @@ public class Property {
         }
     }
 
+    public String query()   {
+        return "点数： " + point.toString() + "点\n" + box.query();
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 point.equals(((Property) object).point) &&
