@@ -19,7 +19,6 @@ public class GiftSelectorFactory {
         selectors.put("1", new BonusSelector());
         selectors.put("2", new PointSelector());
         selectors.put("3", new MascotSelector());
-        selectors.put("F", new Quit());
     }
 
     public Selector get(String input) {

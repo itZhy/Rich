@@ -45,4 +45,10 @@ public class PropSelectorFactory {
             propManager.buy(roleName, new Bomb(roleName));
         }
     }
+
+    private class Quit implements Selector {
+        public void select(String roleName) {
+            throw new GameException("欢迎下次光临。", GameException.NEED_NOT_RETRY);
+        }
+    }
 }
