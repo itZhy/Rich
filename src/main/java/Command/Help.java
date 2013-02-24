@@ -1,8 +1,8 @@
 package Command;
 
+import Application.GameException;
 import Player.Role;
 import UI.CommandLine;
-import UI.UIException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +16,7 @@ public class Help implements Command {
         try {
             showHelpMessage();
         } catch (FileNotFoundException e) {
-            throw new UIException("未找到帮助文件。");
+            throw new GameException("未找到帮助文件。");
         }
     }
 

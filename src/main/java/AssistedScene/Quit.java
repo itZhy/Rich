@@ -1,9 +1,9 @@
 package AssistedScene;
 
-import UI.UIException;
+import Application.GameException;
 
 public class Quit implements Selector {
     public void select(String roleName) {
-        throw new UIException("欢迎下次光临。", UIException.NEED_NOT_RETRY);
+        throw new GameException("欢迎下次光临。", GameException.NEED_NOT_RETRY);
     }
 }

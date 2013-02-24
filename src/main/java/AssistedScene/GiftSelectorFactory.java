@@ -1,9 +1,9 @@
 package AssistedScene;
 
+import Application.GameException;
 import Estate.EstateManager;
 import Prop.PropManager;
 import UI.CommandLine;
-import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class GiftSelectorFactory {
 
     public Selector get(String input) {
         if (!selectors.containsKey(input)) {
-            throw new UIException("您所选择的礼品不存在，记得下次输入1，2或3。");
+            throw new GameException("您所选择的礼品不存在，记得下次输入1，2或3。");
         }
         return selectors.get(input);
     }

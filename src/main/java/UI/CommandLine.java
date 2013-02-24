@@ -1,5 +1,7 @@
 package UI;
 
+import Application.GameException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,7 +28,7 @@ public class CommandLine {
         try {
             return new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
-            throw new UIException("读取输入失败，请重新输入。");
+            throw new GameException("读取输入失败，请重新输入。");
         }
     }
 }

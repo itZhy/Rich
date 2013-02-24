@@ -1,7 +1,7 @@
 package Prop;
 
+import Application.GameException;
 import Player.Feature;
-import UI.UIException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class OwnershipTest {
         ownership.consume(owner, new Barricade(owner));
     }
 
-    @Test(expected = UIException.class)
+    @Test(expected = GameException.class)
     public void it_should_throw_an_exception_when_sell_a_tool_which_is_not_exist() {
         //when
         ownership.sell(owner, new Barricade(owner));

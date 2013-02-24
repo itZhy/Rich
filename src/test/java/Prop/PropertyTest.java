@@ -1,7 +1,7 @@
 package Prop;
 
+import Application.GameException;
 import Player.Feature;
-import UI.UIException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +35,7 @@ public class PropertyTest {
         property.consume(new Robot());
     }
 
-    @Test(expected = UIException.class)
+    @Test(expected = GameException.class)
     public void it_should_not_has_bomb() {
         //given
         property.add(49);

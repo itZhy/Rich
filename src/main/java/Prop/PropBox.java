@@ -1,6 +1,6 @@
 package Prop;
 
-import UI.UIException;
+import Application.GameException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class PropBox {
 
     public void add(Prop prop) {
         if (CAPACITY == props.size()) {
-            throw new UIException("您的道具背包已满，不能再购买道具。", UIException.NEED_NOT_RETRY);
+            throw new GameException("您的道具背包已满，不能再购买道具。", GameException.NEED_NOT_RETRY);
         }
         props.add(prop);
     }

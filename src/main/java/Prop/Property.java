@@ -1,7 +1,7 @@
 package Prop;
 
+import Application.GameException;
 import UI.CommandLine;
-import UI.UIException;
 
 public class Property {
     private static final int MIN_PRICE = 30;
@@ -15,7 +15,7 @@ public class Property {
     public void buy(Prop prop) {
         checkPurchasingPower();
         if (prop.price() > point) {
-            throw new UIException(currentPoint() + "不足以购买" + prop.name() + "道具。");
+            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。");
         }
         exchange(prop);
     }
@@ -27,7 +27,7 @@ public class Property {
 
     public void consume(Prop prop) {
         if (!box.remove(prop)) {
-            throw new UIException("您没有此道具，请重新输入。");
+            throw new GameException("您没有此道具，请重新输入。");
         }
     }
 
@@ -53,7 +53,7 @@ public class Property {
 
     private void checkPurchasingPower() {
         if (point < MIN_PRICE) {
-            throw new UIException(currentPoint() + "不足以购买任何道具。", UIException.NEED_NOT_RETRY);
+            throw new GameException(currentPoint() + "不足以购买任何道具。", GameException.NEED_NOT_RETRY);
         }
     }
 

@@ -1,14 +1,14 @@
 package Prop;
 
+import Application.GameException;
 import Player.Feature;
-import UI.UIException;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class PropBoxTest {
-    @Test(expected = UIException.class)
+    @Test(expected = GameException.class)
     public void it_should_not_contains_more_than_10_props_in_a_box() {
         //given
         PropBox box = new PropBox();

@@ -1,5 +1,6 @@
 package UI;
 
+import Application.GameException;
 import Player.Position;
 
 import java.io.File;
@@ -18,7 +19,7 @@ class Converter {
 
     public int convert(Position position) {
         if (null == positionToSurfaceIndex.get(position)) {
-            throw new UIException(CONFIG_FILE_PATH + "的内容不正确。", UIException.NEED_NOT_RETRY);
+            throw new GameException(CONFIG_FILE_PATH + "的内容不正确。", GameException.NEED_NOT_RETRY);
         }
 
         return positionToSurfaceIndex.get(position);
@@ -28,7 +29,7 @@ class Converter {
         try {
             readConfigFile();
         } catch (FileNotFoundException e) {
-            throw new UIException(e.toString());
+            throw new GameException(e.toString());
         }
     }
 

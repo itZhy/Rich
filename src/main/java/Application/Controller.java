@@ -6,7 +6,6 @@ import Player.PlayerParser;
 import Player.Role;
 import Player.Rounder;
 import UI.Map;
-import UI.UIException;
 import UI.UIObserver;
 import Util.CommandSplitter;
 
@@ -25,7 +24,7 @@ class Controller {
         try {
             subSystem.getEstateManager().setInitialFund(Integer.parseInt(fund));
         } catch (java.lang.NumberFormatException e) {
-            throw new UIException("输入金额有误。");
+            throw new GameException("输入金额有误。");
         }
     }
 
@@ -44,7 +43,7 @@ class Controller {
 
     private void initializeRounder(String players) {
         if (players.isEmpty())  {
-            throw new UIException("您尚未选择任何玩家，请重新输入。");
+            throw new GameException("您尚未选择任何玩家，请重新输入。");
         }
         PlayerParser parser = new PlayerParser(subSystem.getObservers());
         for (int index = 0; index != players.length(); ++index) {

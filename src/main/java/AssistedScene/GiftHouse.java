@@ -1,10 +1,10 @@
 package AssistedScene;
 
+import Application.GameException;
 import Estate.EstateManager;
 import Player.Movement;
 import Prop.PropManager;
 import UI.CommandLine;
-import UI.UIException;
 
 public class GiftHouse implements Scene {
     private final GiftSelectorFactory factory;
@@ -22,7 +22,7 @@ public class GiftHouse implements Scene {
     private void handleInput(String roleName) {
         try {
             factory.get(commandLine.waitForInput("请输入您要选择的礼品编号：")).select(roleName);
-        } catch (UIException e) {
+        } catch (GameException e) {
             commandLine.output(e.getMessage());
         }
     }

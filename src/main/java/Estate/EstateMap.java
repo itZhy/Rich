@@ -1,8 +1,8 @@
 package Estate;
 
+import Application.GameException;
 import Player.Position;
 import UI.PositionExtractor;
-import UI.UIException;
 import UI.UIObserver;
 
 import java.io.FileNotFoundException;
@@ -57,7 +57,7 @@ public class EstateMap {
         try {
             readDefaultBuilding(ui);
         } catch (FileNotFoundException e) {
-            throw new UIException(e.toString());
+            throw new GameException(e.toString());
         }
     }
 

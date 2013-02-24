@@ -1,7 +1,7 @@
 package Estate;
 
+import Application.GameException;
 import Player.Rounder;
-import UI.UIException;
 
 public class Insolvency extends RuntimeException {
     private final String roleName;
@@ -12,6 +12,6 @@ public class Insolvency extends RuntimeException {
 
     public boolean handle(EstateManager estateManager, Rounder rounder) {
         estateManager.goBankrupt(roleName);
-        throw new UIException(roleName + "破产了，已经退出游戏。", !rounder.isOnlyOneRoleAfterEliminate(roleName));
+        throw new GameException(roleName + "破产了，已经退出游戏。", !rounder.isOnlyOneRoleAfterEliminate(roleName));
     }
 }

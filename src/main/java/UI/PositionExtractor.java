@@ -1,5 +1,6 @@
 package UI;
 
+import Application.GameException;
 import Player.Position;
 
 import java.io.File;
@@ -45,7 +46,7 @@ public class PositionExtractor {
             return extract(defaultMapStr, symbol);
 
         } catch (FileNotFoundException e) {
-            throw new UIException(DEFAULT_MAP_PATH + "不存在。", UIException.NEED_NOT_RETRY);
+            throw new GameException(DEFAULT_MAP_PATH + "不存在。", GameException.NEED_NOT_RETRY);
         }
     }
 

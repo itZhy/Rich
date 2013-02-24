@@ -1,10 +1,10 @@
 package Command;
 
+import Application.GameException;
 import Player.Role;
 import Prop.*;
 import Prop.Bomb;
 import Prop.Robot;
-import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +31,7 @@ public class SellTool implements Command {
 
         public Prop get(int argument) {
             if (!props.containsKey(argument)) {
-                throw new UIException("你选择的道具编号不存在，请重新输入1，2或3。");
+                throw new GameException("你选择的道具编号不存在，请重新输入1，2或3。");
             }
             return props.get(argument);
         }

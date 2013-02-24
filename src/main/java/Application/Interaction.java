@@ -1,7 +1,6 @@
 package Application;
 
 import UI.CommandLine;
-import UI.UIException;
 
 public class Interaction {
     private final CommandLine commandLine = new CommandLine();
@@ -22,7 +21,7 @@ public class Interaction {
             controller = new Controller(commandLine.waitForInput(
                     "请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):"));
             return true;
-        } catch (UIException e) {
+        } catch (GameException e) {
             commandLine.outputInNewline(e.toString());
             return !e.isNeedRetry();
         }
@@ -36,7 +35,7 @@ public class Interaction {
             }
             controller.initialFund(input);
             return true;
-        } catch (UIException e) {
+        } catch (GameException e) {
             commandLine.outputInNewline(e.toString());
             return !e.isNeedRetry();
         }
@@ -51,7 +50,7 @@ public class Interaction {
             commandLine.output(controller.getPrompt());
             controller.handleCommand(commandLine.waitForInput());
             return true;
-        } catch (UIException e) {
+        } catch (GameException e) {
             commandLine.outputInNewline(e.toString());
             return e.isNeedRetry();
         }

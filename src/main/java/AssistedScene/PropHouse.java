@@ -1,9 +1,9 @@
 package AssistedScene;
 
+import Application.GameException;
 import Player.Movement;
 import Prop.PropManager;
 import UI.CommandLine;
-import UI.UIException;
 
 public class PropHouse implements Scene {
     private final PropSelectorFactory factory;
@@ -26,7 +26,7 @@ public class PropHouse implements Scene {
         try {
             factory.get(commandLine.waitForInput("请输入您要购买的道具编号：")).select(roleName);
             return true;
-        } catch (UIException e) {
+        } catch (GameException e) {
             commandLine.output(e.getMessage());
             return e.isNeedRetry();
         }
