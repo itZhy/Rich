@@ -25,7 +25,7 @@ public class EstateController {
     }
 
     public boolean checkOwner(String player, Building house) {
-        return house.owner.equals(player);
+        return player.equals(house.owner);
     }
 
     public boolean checkPurchasingPower(String role, Building house) {
