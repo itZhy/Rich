@@ -21,7 +21,7 @@ public class Fund {
     }
 
     public boolean compare(Integer price) {
-        return (price <= money) ? true : false;
+        return (price <= money);
     }
 
     public boolean equals(Object object) {

@@ -39,11 +39,11 @@ public class BankTest {
         Bank bank = new Bank();
         String role = Feature.MADAME_CHYAN;
         //when
-        bank.setVip(Feature.MADAME_CHYAN);
-        bank.withdrawMoney(Feature.MADAME_CHYAN, 200);
+        bank.setVip(role);
+        bank.withdrawMoney(role, 200);
         bank.withdrawMoney(Feature.UNCLE_TUU, 200);
         //then
-        assertThat(bank.inquiryAccount(Feature.MADAME_CHYAN), is(10000));
+        assertThat(bank.inquiryAccount(role), is(10000));
         assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(9800));
     }
 

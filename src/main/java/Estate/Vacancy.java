@@ -7,7 +7,6 @@ public class Vacancy extends Building {
 
     public Vacancy(String role, UIObserver ui){
         super(role, ui);
-
     }
 
     public Building update(){
@@ -19,7 +18,7 @@ public class Vacancy extends Building {
     }
 
     public Building update(String owner){
-       return (Building)new SoldVacancy(owner, ui, price);
+       return new SoldVacancy(owner, ui, price);
     }
 
     public void updateUI(Position position) {

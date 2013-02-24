@@ -31,7 +31,7 @@ public class Rounder {
                 iterator.remove();
             }
         }
-        return (orderedRoles.size() > 1) ? true : false;
+        return (orderedRoles.size() > 1);
     }
 
     public boolean equals(Object object) {

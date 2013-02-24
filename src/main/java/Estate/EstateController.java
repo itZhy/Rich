@@ -21,7 +21,7 @@ public class EstateController {
     }
 
     public boolean checkSoldStatus(Position position) {
-        return (get(position).getClass() == Vacancy.class) ? false : true;
+        return (get(position).getClass() != Vacancy.class);
     }
 
     public boolean checkOwner(String player, Building house) {
@@ -43,7 +43,7 @@ public class EstateController {
     }
 
     public boolean checkEnableUpdate(Position position) {
-        return (get(position).getClass() == Skyscraper.class) ? false : true;
+        return (get(position).getClass() != Skyscraper.class);
     }
 
     public void payRent(Position position, String role) {

@@ -29,7 +29,6 @@ public class SkyscraperTest {
         //when
         Building updatedBuilding = skyscraper.update(role);
         //then
-        Building villa = new Skyscraper(role, ui, COST);
         assertThat(updatedBuilding, is((Building) null));
     }
 }
