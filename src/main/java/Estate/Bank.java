@@ -32,7 +32,7 @@ public class Bank {
 
     public void checkBreakAccount(String account) {
         if (inquiryAccount(account) <= 0) {
-            throw new InsolvencyNotify(account);
+            throw new Insolvency(account);
         }
     }
 
