@@ -39,6 +39,10 @@ public class PropManager implements Observer {
         propMap.cleanTheFront(position);
     }
 
+    public String query(String roleName)    {
+        return ownership.query(roleName);
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 ownership.equals(((PropManager) object).ownership) &&

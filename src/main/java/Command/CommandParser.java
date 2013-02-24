@@ -19,6 +19,7 @@ public class CommandParser {
         stringToCommands.put("robot", new Robot(subSystem.getPropManager()));
         stringToCommands.put("sell", new Sell(subSystem.getEstateManager()));
         stringToCommands.put("selltool", new SellTool(subSystem.getPropManager()));
+        stringToCommands.put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager()));
     }
 
     public Command get(String name) {

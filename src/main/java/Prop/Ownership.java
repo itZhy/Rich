@@ -26,6 +26,11 @@ public class Ownership {
         properties.get(owner).consume(prop);
     }
 
+    public String query(String owner)   {
+        initializeWhenNotExist(owner);
+        return properties.get(owner).query();
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 properties.equals(((Ownership) object).properties);
