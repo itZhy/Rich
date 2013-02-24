@@ -10,7 +10,7 @@ public class Barricade extends Prop {
         element = new Feature().dye(owner, '#');
     }
 
-    public void handle(Movement movement)   {
-        movement.block(1);
+    public void handle(Movement movement) {
+        throw new BlockException();
     }
 }

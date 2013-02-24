@@ -14,8 +14,4 @@ public class Sell implements Command {
     public void execute(Role role, int argument) {
         estateManager.sell(new Position(argument), role.name());
     }
-
-    public boolean equals(Object object) {
-        return getClass() == object.getClass();
-    }
 }

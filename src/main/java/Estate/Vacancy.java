@@ -5,15 +5,15 @@ import UI.UIObserver;
 
 public class Vacancy extends Building {
 
-    public Vacancy(String role, UIObserver ui){
+    public Vacancy(String role, UIObserver ui) {
         super(role, ui);
     }
 
-    public Building update(){
+    public Building update() {
         return null;
     }
 
-    public Integer toll(){
+    public Integer toll() {
         return 0;
     }
 

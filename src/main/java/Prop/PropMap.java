@@ -1,7 +1,7 @@
 package Prop;
 
-import Player.Position;
 import Player.Movement;
+import Player.Position;
 import UI.UIObserver;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class PropMap {
     private final UIObserver ui;
     private static final int CLEAN_RANGE = 10;
 
-    public PropMap(UIObserver ui)   {
+    public PropMap(UIObserver ui) {
         this.ui = ui;
     }
 
@@ -27,14 +27,14 @@ public class PropMap {
         }
     }
 
-    public void trigger(Movement movement)    {
-        if (props.containsKey(movement.currentPosition()))    {
+    public void trigger(Movement movement) {
+        if (props.containsKey(movement.currentPosition())) {
             useProp(movement);
         }
     }
 
-    public boolean equals(Object object)    {
-        return getClass() == object.getClass() && props.equals(((PropMap)object).props);
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() && props.equals(((PropMap) object).props);
     }
 
     private void useProp(Movement movement) {
@@ -43,7 +43,7 @@ public class PropMap {
     }
 
     private void removeProp(Position position) {
-        if (props.containsKey(position))    {
+        if (props.containsKey(position)) {
             props.get(position).removeFromUI(ui, position);
             props.remove(position);
         }

@@ -33,20 +33,9 @@ public class MovementTest {
     }
 
     @Test
-    public void it_should_stop_twice()    {
-        //when
-        movement.block(2);
-        movement.walk();
-        movement.walk();
-        movement.walk();
-        //then
-        assertThat(movement.currentPosition(), is(new Position(1)));
-    }
-
-    @Test
     public void it_should_skip_only_once()  {
         //when
-        movement.block(1);
+        movement.stop(1);
         boolean firstSkipResult = movement.skip();
         boolean secondSkipResult = movement.skip();
         //then

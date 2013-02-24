@@ -23,14 +23,13 @@ public class GiftSelectorFactory {
 
     public Selector get(String input) {
         if (!selectors.containsKey(input)) {
-            throw new UIException("您所选择的礼品不存在，请重新输入1，2或3。");
+            throw new UIException("您所选择的礼品不存在，记得下次输入1，2或3。");
         }
         return selectors.get(input);
     }
 
     private class BonusSelector implements Selector {
         public void select(String roleName) {
-
         }
     }
 

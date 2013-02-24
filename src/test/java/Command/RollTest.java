@@ -3,6 +3,7 @@ package Command;
 import Player.Callback;
 import Player.Feature;
 import Player.Role;
+import Player.Rounder;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,7 +14,9 @@ public class RollTest {
     public void it_should_execute_roll_command_and_let_player_forward_1_steps() {
         //given
         Role role = new Role(Feature.MADAME_CHYAN, new Callback());
-        Command rollCommand = new Roll();
+        Rounder rounder = new Rounder();
+        rounder.add(role);
+        Command rollCommand = new Roll(rounder);
         //when
         rollCommand.execute(role, 0);
         //then

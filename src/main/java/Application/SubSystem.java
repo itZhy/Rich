@@ -36,8 +36,4 @@ public class SubSystem {
         callback.attachForwardedObservers(sceneManager);
         return callback;
     }
-
-    public void goBankrupt(String role) {
-        estateManager.goBankrupt(role);
-    }
 }

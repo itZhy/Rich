@@ -15,7 +15,7 @@ public class PropSelectorFactory {
 
     public PropSelectorFactory(PropManager propManager) {
         this.propManager = propManager;
-        selectors.put("1", new BlockSelector());
+        selectors.put("1", new BarricadeSelector());
         selectors.put("2", new RobotSelector());
         selectors.put("3", new BombSelector());
         selectors.put("F", new Quit());
@@ -28,7 +28,7 @@ public class PropSelectorFactory {
         return selectors.get(input);
     }
 
-    private class BlockSelector implements Selector {
+    private class BarricadeSelector implements Selector {
         public void select(String roleName) {
             propManager.buy(roleName, new Barricade(roleName));
         }

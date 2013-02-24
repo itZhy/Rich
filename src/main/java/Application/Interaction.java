@@ -48,11 +48,11 @@ public class Interaction {
 
     private boolean handleCommand() {
         try {
-            commandLine.output(controller.getPromptMessageForCurrentPlayer());
+            commandLine.output(controller.getPrompt());
             controller.handleCommand(commandLine.waitForInput());
             return true;
         } catch (UIException e) {
-            commandLine.waitForInput(e.toString());
+            commandLine.outputInNewline(e.toString());
             return e.isNeedRetry();
         }
     }

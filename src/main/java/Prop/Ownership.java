@@ -16,14 +16,24 @@ public class Ownership {
         properties.get(owner).buy(prop);
     }
 
+    public void sell(String owner, Prop prop) {
+        initializeWhenNotExist(owner);
+        properties.get(owner).sell(prop);
+    }
+
     public void consume(String owner, Prop prop) {
         initializeWhenNotExist(owner);
         properties.get(owner).consume(prop);
     }
 
-    public boolean equals(Object object)    {
+    public String query(String owner)   {
+        initializeWhenNotExist(owner);
+        return properties.get(owner).query();
+    }
+
+    public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                properties.equals(((Ownership)object).properties);
+                properties.equals(((Ownership) object).properties);
     }
 
     private void initializeWhenNotExist(String owner) {

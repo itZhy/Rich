@@ -1,9 +1,11 @@
 package Player;
 
+import Prop.BlockException;
+
 public class Role {
+    private final String name;
     private final Callback callback;
-    private String name;
-    private Movement movement = new Movement();
+    private final Movement movement = new Movement();
 
     public Role(String name, Callback callback) {
         this.name = name;
@@ -15,12 +17,7 @@ public class Role {
     }
 
     public void forward(int step) {
-        for (int count = 1; count <= step; ++count) {
-            if (!movement.walk()) {
-                break;
-            }
-            callback.notifyWhileForwarding(name(), movement);
-        }
+        forwardStepByStep(step);
         callback.notifyAfterForwarded(name(), movement);
     }
 
@@ -34,5 +31,20 @@ public class Role {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() && movement.equals(((Role) object).movement);
+    }
+
+    private void forwardStepByStep(int step) {
+        try {
+            walk(step);
+        } catch (BlockException e) {
+            e.showPromptMessage();
+        }
+    }
+
+    private void walk(int step) {
+        for (int count = 0; count != step; ++count) {
+            movement.walk();
+            callback.notifyWhileForwarding(name(), movement);
+        }
     }
 }

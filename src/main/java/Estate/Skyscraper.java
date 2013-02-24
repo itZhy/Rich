@@ -8,7 +8,7 @@ import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(String role, UIObserver ui, Integer price){
+    public Skyscraper(String role, UIObserver ui, Integer price) {
         super(role, ui);
         this.price = price;
         degree = 3;
@@ -18,12 +18,12 @@ public class Skyscraper extends Building {
         return null;
     }
 
-    public Integer toll(){
+    public Integer toll() {
         return price * 4;
     }
 
     public void updateUI(Position position) {
-        ui.replace(position,new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
+        ui.replace(position, new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
     }
 
     public void clear(Position position) {

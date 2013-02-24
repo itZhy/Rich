@@ -4,9 +4,9 @@ import Player.Position;
 import UI.UIObserver;
 
 public abstract class Building {
+    protected final UIObserver ui;
     protected String owner;
     protected Integer price;
-    protected final UIObserver ui;
     protected Integer degree;
 
     public Building(String role, UIObserver ui) {

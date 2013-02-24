@@ -7,7 +7,7 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Villa extends Building {
-    public Villa(String role, UIObserver ui, Integer price){
+    public Villa(String role, UIObserver ui, Integer price) {
         super(role, ui);
         this.price = price;
         degree = 2;
@@ -17,7 +17,7 @@ public class Villa extends Building {
         return new Skyscraper(this.owner, ui, price);
     }
 
-    public Integer toll(){
+    public Integer toll() {
         return price * 2;
     }
 

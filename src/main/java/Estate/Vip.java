@@ -1,8 +1,8 @@
 package Estate;
 
 public class Vip {
-    private Integer deadline = 0;
     private static final Integer LIMITATION = 5;
+    private Integer deadline = 0;
 
     public void set() {
         deadline = LIMITATION;
@@ -14,10 +14,12 @@ public class Vip {
     }
 
     public void pass() {
-        if (deadline > 0) deadline--;
+        if (deadline > 0) {
+            deadline--;
+        }
     }
 
     public boolean vipStatus() {
-        return (deadline > 0);
+        return deadline > 0;
     }
 }
