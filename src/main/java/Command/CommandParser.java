@@ -20,6 +20,7 @@ public class CommandParser {
         stringToCommands.put("sell", new Sell(subSystem.getEstateManager()));
         stringToCommands.put("selltool", new SellTool(subSystem.getPropManager()));
         stringToCommands.put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager()));
+        stringToCommands.put("help", new Help());
     }
 
     public Command get(String name) {
