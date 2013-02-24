@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SceneManager implements Observer {
-    private Map<Position, Scene> scenes = new HashMap<Position, Scene>();
+    private final Map<Position, Scene> scenes = new HashMap<Position, Scene>();
 
     public SceneManager(PropManager propManager, EstateManager estateManager) {
         initializeScenes(propManager, estateManager);

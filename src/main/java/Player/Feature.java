@@ -11,7 +11,7 @@ public class Feature {
     public static final String UNCLE_TUU = "阿土伯";
     public static final String SUN_HSIAO_MEI = "孙小美";
     public static final String BABY_KIN = "金贝贝";
-    private Map<String, Element> features = new HashMap<String, Element>();
+    private final Map<String, Element> features = new HashMap<String, Element>();
 
     public Feature() {
         features.put(MADAME_CHYAN, new Element('M', Ansi.Color.MAGENTA));

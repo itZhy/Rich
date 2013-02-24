@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PropBox {
     private static final int CAPACITY = 10;
-    private List<Prop> props = new ArrayList<Prop>();
+    private final List<Prop> props = new ArrayList<Prop>();
 
     public void add(Prop prop) {
         if (CAPACITY == props.size()) {

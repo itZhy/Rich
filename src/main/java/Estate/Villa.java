@@ -14,7 +14,7 @@ public class Villa extends Building {
     }
 
     public Building update(String owner) {
-        return (Building) new Skyscraper(this.owner, ui, price);
+        return new Skyscraper(this.owner, ui, price);
     }
 
     public Integer toll() {

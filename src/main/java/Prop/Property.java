@@ -5,8 +5,8 @@ import UI.CommandLine;
 
 public class Property {
     private static final int MIN_PRICE = 30;
+    private final PropBox box = new PropBox();
     private Integer point = 0;
-    private PropBox box = new PropBox();
 
     public void add(int point) {
         this.point += point;
@@ -31,7 +31,7 @@ public class Property {
         }
     }
 
-    public String query()   {
+    public String query() {
         return "点数： " + point.toString() + "点\n" + box.query();
     }
 

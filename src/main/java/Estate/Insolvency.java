@@ -10,7 +10,7 @@ public class Insolvency extends RuntimeException {
         this.roleName = roleName;
     }
 
-    public boolean handle(EstateManager estateManager, Rounder rounder) {
+    public void handle(EstateManager estateManager, Rounder rounder) {
         estateManager.goBankrupt(roleName);
         throw new GameException(roleName + "破产了，已经退出游戏。", !rounder.isOnlyOneRoleAfterEliminate(roleName));
     }

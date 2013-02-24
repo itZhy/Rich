@@ -37,7 +37,6 @@ public class BankTest {
     public void it_should_enjoy_privileges_after_become_vip(){
         //given
         Bank bank = new Bank();
-        String role = Feature.MADAME_CHYAN;
         //when
         bank.setVip(Feature.MADAME_CHYAN);
         bank.withdrawMoney(Feature.MADAME_CHYAN, 200);

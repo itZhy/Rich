@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Ownership {
-    private Map<String, Property> properties = new HashMap<String, Property>();
+    private final Map<String, Property> properties = new HashMap<String, Property>();
 
     public void add(String owner, int point) {
         initializeWhenNotExist(owner);
@@ -26,7 +26,7 @@ public class Ownership {
         properties.get(owner).consume(prop);
     }
 
-    public String query(String owner)   {
+    public String query(String owner) {
         initializeWhenNotExist(owner);
         return properties.get(owner).query();
     }
