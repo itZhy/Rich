@@ -2,7 +2,6 @@ package Prop;
 
 import Player.Feature;
 import Player.Movement;
-import UI.CommandLine;
 
 public class Barricade extends Prop {
     public Barricade(String owner) {
@@ -12,11 +11,6 @@ public class Barricade extends Prop {
     }
 
     public void handle(Movement movement) {
-        movement.block(1);
-        showPromptMessage();
-    }
-
-    private void showPromptMessage() {
-        new CommandLine().outputInNewline("遭遇路障，停止前进。");
+        throw new BlockException();
     }
 }

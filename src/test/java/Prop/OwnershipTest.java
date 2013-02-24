@@ -33,7 +33,7 @@ public class OwnershipTest {
     }
 
     @Test
-    public void it_should_succeed_in_selling_a_bomb()   {
+    public void it_should_succeed_in_selling_a_bomb() {
         //given
         ownership.add(owner, 50);
         ownership.buy(owner, new Bomb(owner));

@@ -45,7 +45,7 @@ public class PropertyTest {
     }
 
     @Test
-    public void it_should_return_query_message()    {
+    public void it_should_return_query_message() {
         //given
         property.add(100);
         property.buy(new Robot());

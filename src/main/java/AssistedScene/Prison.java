@@ -5,8 +5,8 @@ import UI.CommandLine;
 
 public class Prison implements Scene {
     public void handle(String roleName, Movement movement) {
+        movement.stop(2);
         showPromptMessage();
-        movement.block(2);
     }
 
     private void showPromptMessage() {

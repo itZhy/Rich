@@ -7,13 +7,8 @@ public class Movement {
     private Position previousPosition = new Position(0);
     private int stayTimes = 0;
 
-    public boolean walk() {
-        if (stayTimes > 0) {
-            --stayTimes;
-            return false;
-        }
+    public void walk() {
         forwardOneStep();
-        return true;
     }
 
     public boolean skip() {
@@ -24,14 +19,14 @@ public class Movement {
         return false;
     }
 
-    public void block(int times) {
+    public void stop(int times) {
         stayTimes = times;
     }
 
     public void jumpToHospital() {
         recordPreviousPosition();
         currentPosition = new PositionExtractor().getHospital();
-        block(3);
+        stop(3);
     }
 
     public Position currentPosition() {
