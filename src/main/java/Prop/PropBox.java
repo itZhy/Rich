@@ -16,6 +16,12 @@ public class PropBox {
         props.add(prop);
     }
 
+    public String query() {
+        return "道具：路障 " + count("路障").toString() +
+                "个；炸弹 " + count("炸弹").toString() +
+                "个；机器娃娃 " + count("机器娃娃").toString() + "个";
+    }
+
     public boolean remove(Prop prop) {
         return props.remove(prop);
     }
@@ -23,5 +29,20 @@ public class PropBox {
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 props.equals(((PropBox) object).props);
+    }
+
+    private Integer count(String name) {
+        int count = 0;
+        for (Prop prop : props) {
+            count = addedCount(count, name, prop);
+        }
+        return count;
+    }
+
+    private int addedCount(int count, String name, Prop prop) {
+        if (prop.name().equals(name)) {
+            ++count;
+        }
+        return count;
     }
 }
