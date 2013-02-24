@@ -21,7 +21,7 @@ public class Help implements Command {
     }
 
     private void showHelpMessage() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(HELP_FILE_PATH));
+        Scanner scanner = new Scanner(new File(HELP_FILE_PATH), "UTF-8");
         while (scanner.hasNext()) {
             commandLine.outputInNewline(scanner.nextLine());
         }
