@@ -2,6 +2,7 @@ package AssistedScene;
 
 import Estate.EstateManager;
 import Prop.PropManager;
+import UI.CommandLine;
 import UI.UIException;
 
 import java.util.HashMap;
@@ -28,20 +29,27 @@ public class GiftSelectorFactory {
         return selectors.get(input);
     }
 
+    private void showPromptMessage(String message) {
+        new CommandLine().outputInNewline(message);
+    }
+
     private class BonusSelector implements Selector {
         public void select(String roleName) {
+            showPromptMessage("恭喜您获得2000金钱。");
         }
     }
 
     private class PointSelector implements Selector {
         public void select(String roleName) {
             propManager.add(roleName, 200);
+            showPromptMessage("恭喜您获得200点数。");
         }
     }
 
     private class MascotSelector implements Selector {
         public void select(String roleName) {
             estateManager.setVip(roleName);
+            showPromptMessage("恭喜您获得5回合福神附体状态，福神附体期间免收过路费。");
         }
     }
 }
