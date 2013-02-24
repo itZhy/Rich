@@ -13,7 +13,7 @@ public class Interaction {
 
     private void initializeControllerUntilSucceed() {
         while (!initializeController()) ;
-        while (!setInitialFundUntilSucceed());
+        while (!setInitialFund()) ;
     }
 
     private boolean initializeController() {
@@ -27,18 +27,22 @@ public class Interaction {
         }
     }
 
-    private boolean setInitialFundUntilSucceed() {
+    private boolean setInitialFund() {
         try {
             String input = commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）");
-            if (input.isEmpty())    {
-                return true;
-            }
-            controller.initialFund(input);
-            return true;
+            return setInitialFundByInput(input);
         } catch (GameException e) {
             commandLine.outputInNewline(e.toString());
             return !e.isNeedRetry();
         }
+    }
+
+    private boolean setInitialFundByInput(String input) {
+        if (input.isEmpty()) {
+            return true;
+        }
+        controller.initialFund(input);
+        return true;
     }
 
     private void handleCommandUntilQuit() {
