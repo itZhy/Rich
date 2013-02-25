@@ -15,6 +15,6 @@ public class Query implements Command {
     }
 
     public void execute(Role role, int argument) {
-        new CommandLine().outputInNewline(propManager.query(role.name()));
+        new CommandLine().outputInNewline(propManager.query(role.name()) + estateManager.query((role.name())));
     }
 }

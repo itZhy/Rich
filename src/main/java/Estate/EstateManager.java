@@ -79,4 +79,8 @@ public class EstateManager implements Observer {
     public void goBankrupt(String role) {
         controller.clearBuildings(role);
     }
+
+    public String query(String role) {
+        return "资金： " + controller.inquiry(role) + "元\n";
+    }
 }
