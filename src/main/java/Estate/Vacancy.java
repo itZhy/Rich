@@ -7,7 +7,6 @@ public class Vacancy extends Building {
 
     public Vacancy(String role, UIObserver ui) {
         super(role, ui);
-
     }
 
     public Building update() {

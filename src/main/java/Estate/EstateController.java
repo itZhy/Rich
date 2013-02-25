@@ -16,16 +16,16 @@ public class EstateController {
     }
 
     public void buy(Position position, String role) {
-        estateMap.buy(position, role);
+        estateMap.update(position, role);
         bank.withdrawMoney(role, get(position).price);
     }
 
-    public boolean checkSoldStatus(Building house) {
-        return (house.getClass() == Vacancy.class) ? false : true;
+    public boolean checkSoldStatus(Position position) {
+        return (get(position).getClass() != Vacancy.class);
     }
 
     public boolean checkOwner(String player, Building house) {
-        return house.owner.equals(player);
+        return player.equals(house.owner);
     }
 
     public boolean checkPurchasingPower(String role, Building house) {
@@ -43,7 +43,7 @@ public class EstateController {
     }
 
     public boolean checkEnableUpdate(Position position) {
-        return (get(position).getClass() == Skyscraper.class) ? false : true;
+        return (get(position).getClass() != Skyscraper.class);
     }
 
     public void payRent(Position position, String role) {

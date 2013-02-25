@@ -25,10 +25,6 @@ public class EstateMap {
     }
 
     public void update(Position position, String role) {
-        buy(position, role);
-    }
-
-    public void buy(Position position, String role) {
         buildings.put(position, get(position).update(role));
         get(position).updateUI(position);
     }
@@ -70,17 +66,19 @@ public class EstateMap {
     }
 
     private void markDefaultPrice(List<Position> positions) {
-        List<Integer> prices = new ArrayList<Integer>() {{
+        int counter = 0;
+        for (int i = 0; i != defaultPrice().size(); ++i) {
+            for (int index = 0; index != ((i == 1) ? 6 : 26); ++index) {
+                buildings.get(positions.get(counter++)).markPrice(defaultPrice().get(i));
+            }
+        }
+    }
+
+    private List<Integer> defaultPrice() {
+        return new ArrayList<Integer>() {{
             add(200);
             add(500);
             add(300);
         }};
-        int counter = 0;
-        for (int i = 0; i != prices.size(); ++i) {
-            int size = (i == 1) ? 6 : 26;
-            for (int index = 0; index != size; ++index) {
-                buildings.get(positions.get(counter++)).markPrice(prices.get(i));
-            }
-        }
     }
 }

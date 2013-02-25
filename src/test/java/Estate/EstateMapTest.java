@@ -16,7 +16,7 @@ public class EstateMapTest {
     @Test
     public void it_should_clear_associated_building() {
         //when
-        map.buy(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Feature.MADAME_CHYAN);
         map.clearBuilding(new Position(10));
         //then
         assertThat(map, is(new EstateMap(ui)));
@@ -27,13 +27,13 @@ public class EstateMapTest {
         //given
         EstateMap map = new EstateMap(ui);
         //when
-        map.buy(new Position(10), Feature.MADAME_CHYAN);
-        map.buy(new Position(24), Feature.MADAME_CHYAN);
-        map.buy(new Position(25), Feature.BABY_KIN);
+        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(24), Feature.MADAME_CHYAN);
+        map.update(new Position(25), Feature.BABY_KIN);
         map.clearBuildings(Feature.MADAME_CHYAN);
         //then
         EstateMap exceptedMap = new EstateMap(ui);
-        exceptedMap.buy(new Position(25), Feature.BABY_KIN);
+        exceptedMap.update(new Position(25), Feature.BABY_KIN);
         assertThat(map, is(exceptedMap));
     }
 }

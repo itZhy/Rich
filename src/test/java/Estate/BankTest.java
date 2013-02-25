@@ -37,13 +37,13 @@ public class BankTest {
     public void it_should_enjoy_privileges_after_become_vip(){
         //given
         Bank bank = new Bank();
+        String role = Feature.SUN_HSIAO_MEI;
         //when
-        bank.setVip(Feature.MADAME_CHYAN);
-        bank.withdrawMoney(Feature.MADAME_CHYAN, 200);
+        bank.setVip(role);
+        bank.withdrawMoney(role, 200);
         bank.withdrawMoney(Feature.UNCLE_TUU, 200);
         //then
-        assertThat(bank.inquiryAccount(Feature.MADAME_CHYAN), is(10000));
+        assertThat(bank.inquiryAccount(role), is(10000));
         assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(9800));
     }
-
 }

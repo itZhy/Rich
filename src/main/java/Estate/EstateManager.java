@@ -18,19 +18,20 @@ public class EstateManager implements Observer {
     }
 
     public void handle(String role, Movement movement) {
-        Building house = controller.get(movement.currentPosition());
-        if (house == null) {
-            return;
-        }
-        if (!controller.checkSoldStatus(house)) {
-            buy(movement.currentPosition(), role);
-        } else {
+        if (!(controller.get(movement.currentPosition()) == null)) {
             handleBusiness(movement.currentPosition(), role);
         }
-//        ui.refresh();
     }
 
     private void handleBusiness(Position position, String role) {
+        if (!controller.checkSoldStatus(position)) {
+            buy(position, role);
+        } else {
+            handlePurchaseBusiness(position, role);
+        }
+    }
+
+    private void handlePurchaseBusiness(Position position, String role) {
         if (!controller.checkOwner(role, controller.get(position))) {
             payRent(position, role);
         } else {
