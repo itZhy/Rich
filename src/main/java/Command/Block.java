@@ -14,7 +14,7 @@ public class Block implements Command {
 
     public void execute(Role role, int argument) {
         checkArgument(argument);
-        propManager.put(role.name(), new Barricade(role.name()), role.currentPosition().move(argument));
+        propManager.put(role.name(), new Barricade(role.name()), role.currentPosition().offset(argument));
     }
 
     private void checkArgument(int argument) {

@@ -11,7 +11,7 @@ public class PositionTest {
         //given
         Position source = new Position(1);
         //when
-        Position destination = source.move(3);
+        Position destination = source.offset(3);
         //then
         assertThat(destination, is(new Position(4)));
     }
@@ -21,7 +21,7 @@ public class PositionTest {
         //given
         Position source = new Position(1);
         //when
-        Position destination = source.move(-2);
+        Position destination = source.offset(-2);
         //then
         assertThat(destination, is(new Position(69)));
     }
