@@ -7,11 +7,11 @@ public class Callback {
     private List<Observer> forwardingObservers = new ArrayList<Observer>();
     private List<Observer> forwardedObservers = new ArrayList<Observer>();
 
-    public void attachForwardingObservers(Observer observer) {
+    public void attachForwardingObserver(Observer observer) {
         forwardingObservers.add(observer);
     }
 
-    public void attachForwardedObservers(Observer observer) {
+    public void attachForwardedObserver(Observer observer) {
         forwardedObservers.add(observer);
     }
 

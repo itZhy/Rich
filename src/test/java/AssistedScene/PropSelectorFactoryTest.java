@@ -1,10 +1,10 @@
 package AssistedScene;
 
+import Application.GameException;
 import Player.Feature;
 import Prop.Barricade;
 import Prop.PropManager;
 import UI.Map;
-import UI.UIException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ public class PropSelectorFactoryTest {
         owner = Feature.UNCLE_TUU;
     }
 
-    @Test(expected = UIException.class)
+    @Test(expected = GameException.class)
     public void it_should_not_afford_any_prop() {
         //when
         factory.get("1").select(owner);
@@ -46,7 +46,7 @@ public class PropSelectorFactoryTest {
         try {
             //when
             factory.get("F").select(owner);
-        } catch (UIException e) {
+        } catch (GameException e) {
             //then
             assertThat(e.isNeedRetry(), is(false));
         }

@@ -1,10 +1,10 @@
 package Estate;
 
+import Application.GameException;
 import Player.Movement;
 import Player.Observer;
 import Player.Position;
 import UI.CommandLine;
-import UI.UIException;
 import UI.UIObserver;
 
 public class EstateManager implements Observer {
@@ -46,7 +46,7 @@ public class EstateManager implements Observer {
 
     public void sell(Position position, String role) {
         if (controller.get(position) == null || !controller.checkOwner(role, controller.get(position))) {
-            throw new UIException("您尚未购买该地产，请重新输入。");
+            throw new GameException("您尚未购买该地产，请重新输入。");
         }
         controller.sell(position, role);
         ui.refresh();

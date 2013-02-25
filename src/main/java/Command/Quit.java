@@ -1,10 +1,10 @@
 package Command;
 
+import Application.GameException;
 import Player.Role;
-import UI.UIException;
 
 public class Quit implements Command {
     public void execute(Role role, int argument) {
-        throw new UIException("正在退出游戏...", UIException.NEED_NOT_RETRY);
+        throw new GameException("正在退出游戏...", GameException.NEED_NOT_RETRY);
     }
 }

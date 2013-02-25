@@ -1,12 +1,10 @@
 package Application;
 
 import Command.CommandParser;
-import Estate.InsolvencyNotify;
+import Estate.Insolvency;
 import Player.PlayerParser;
-import Player.Role;
 import Player.Rounder;
 import UI.Map;
-import UI.UIException;
 import UI.UIObserver;
 import Util.CommandSplitter;
 
@@ -25,7 +23,7 @@ class Controller {
         try {
             subSystem.getEstateManager().setInitialFund(Integer.parseInt(fund));
         } catch (java.lang.NumberFormatException e) {
-            throw new UIException("输入金额有误。");
+            throw new GameException("输入金额有误。");
         }
     }
 
@@ -33,8 +31,8 @@ class Controller {
         try {
             CommandSplitter splitter = new CommandSplitter(input);
             parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
-        } catch (InsolvencyNotify e) {
-            goBankrupt(e.toString());
+        } catch (Insolvency e) {
+            e.handle(subSystem.getEstateManager(), rounder);
         }
     }
 
@@ -42,16 +40,17 @@ class Controller {
         return rounder.current().name() + ">";
     }
 
-    private void goBankrupt(String role) {
-        subSystem.getEstateManager().goBankrupt(role);
-        throw new UIException(role + "破产！", (rounder.delete(role)));
-    }
-
     private void initializeRounder(String players) {
+        checkInputPlayers(players);
         PlayerParser parser = new PlayerParser(subSystem.getObservers());
         for (int index = 0; index != players.length(); ++index) {
-            Role role = parser.get(players.charAt(index));
-            rounder.add(role);
+            rounder.add(parser.get(players.charAt(index)));
+        }
+    }
+
+    private void checkInputPlayers(String players) {
+        if (players.isEmpty()) {
+            throw new GameException("您尚未选择任何玩家，请重新输入。");
         }
     }
 }

@@ -30,10 +30,10 @@ public class SubSystem {
 
     public Callback getObservers(){
         Callback callback = new Callback();
-        callback.attachForwardingObservers(movementMonitor);
-        callback.attachForwardingObservers(propManager);
-        callback.attachForwardedObservers(estateManager);
-        callback.attachForwardedObservers(sceneManager);
+        callback.attachForwardingObserver(movementMonitor);
+        callback.attachForwardingObserver(propManager);
+        callback.attachForwardedObserver(estateManager);
+        callback.attachForwardedObserver(sceneManager);
         return callback;
     }
 }

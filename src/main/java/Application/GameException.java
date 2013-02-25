@@ -1,15 +1,15 @@
-package UI;
+package Application;
 
-public class UIException extends RuntimeException {
+public class GameException extends RuntimeException {
     public static final boolean NEED_NOT_RETRY = false;
     private final String message;
     private boolean isNeedRetry = true;
 
-    public UIException(String message) {
+    public GameException(String message) {
         this.message = message;
     }
 
-    public UIException(String message, boolean isNeedRetry) {
+    public GameException(String message, boolean isNeedRetry) {
         this.isNeedRetry = isNeedRetry;
         this.message = message;
     }

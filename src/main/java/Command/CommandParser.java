@@ -1,8 +1,8 @@
 package Command;
 
+import Application.GameException;
 import Application.SubSystem;
 import Player.Rounder;
-import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,11 +20,12 @@ public class CommandParser {
         stringToCommands.put("sell", new Sell(subSystem.getEstateManager()));
         stringToCommands.put("selltool", new SellTool(subSystem.getPropManager()));
         stringToCommands.put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager()));
+        stringToCommands.put("help", new Help());
     }
 
     public Command get(String name) {
         if (null == stringToCommands.get(name)) {
-            throw new UIException("无法识别您所输入指令，请重新输入。");
+            throw new GameException("无法识别您所输入指令，请重新输入。");
         }
         return stringToCommands.get(name);
     }

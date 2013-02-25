@@ -1,6 +1,6 @@
 package Util;
 
-import UI.UIException;
+import Application.GameException;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -19,7 +19,7 @@ public class CommandSplitterTest {
         assertThat(argument, is(10));
     }
 
-    @Test(expected = UIException.class)
+    @Test(expected = GameException.class)
     public void it_should_throw_exception_when_the_argument_is_not_correct() {
         //given
         CommandSplitter splitter = new CommandSplitter("Bomb xx");

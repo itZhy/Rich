@@ -1,7 +1,6 @@
 package Player;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Rounder {
@@ -23,20 +22,21 @@ public class Rounder {
         orderedRoles.add(role);
     }
 
-    public boolean delete(String account) {
-        Iterator<Role> iterator = orderedRoles.iterator();
-        while (iterator.hasNext()) {
-            Role role = iterator.next();
-            if (role.name().equals(account)) {
-                iterator.remove();
-            }
+    public boolean isOnlyOneRoleAfterEliminate(String roleName) {
+        for (Role role : orderedRoles) {
+            if (role.name().equals(roleName)) return isOnlyOneRoleAfterDelete(role);
         }
-        return (orderedRoles.size() > 1);
+        return false;
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 orderedRoles.equals(((Rounder) object).orderedRoles) &&
                 currentIndex == ((Rounder) object).currentIndex;
+    }
+
+    private boolean isOnlyOneRoleAfterDelete(Role role) {
+        orderedRoles.remove(role);
+        return 1 == orderedRoles.size();
     }
 }

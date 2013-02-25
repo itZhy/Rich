@@ -1,10 +1,10 @@
 package AssistedScene;
 
+import Application.GameException;
 import Prop.Barricade;
 import Prop.Bomb;
 import Prop.PropManager;
 import Prop.Robot;
-import UI.UIException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class PropSelectorFactory {
 
     public Selector get(String input) {
         if (!selectors.containsKey(input))  {
-            throw new UIException("您所选择的道具不存在，请重新输入1，2或3。");
+            throw new GameException("您所选择的道具不存在，请重新输入1，2或3。");
         }
         return selectors.get(input);
     }
@@ -43,6 +43,12 @@ public class PropSelectorFactory {
     private class BombSelector implements Selector {
         public void select(String roleName) {
             propManager.buy(roleName, new Bomb(roleName));
+        }
+    }
+
+    private class Quit implements Selector {
+        public void select(String roleName) {
+            throw new GameException("欢迎下次光临。", GameException.NEED_NOT_RETRY);
         }
     }
 }

@@ -1,6 +1,6 @@
 package Util;
 
-import UI.UIException;
+import Application.GameException;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class CommandSplitter {
 
     private void check() {
         if (scanner.hasNext())  {
-            throw new UIException("无法识别的命令参数，请重新输入，命令应该没有参数或者参数是整数。");
+            throw new GameException("无法识别的命令参数，请重新输入，命令应该没有参数或者参数是整数。");
         }
     }
 }

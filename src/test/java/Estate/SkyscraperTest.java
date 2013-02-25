@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 public class SkyscraperTest {
     private static final int COST = 200;
-    private UIObserver ui = new Map();
+    private final UIObserver ui = new Map();
     private Skyscraper skyscraper;
     private String role;
 
