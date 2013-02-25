@@ -1,12 +1,12 @@
 package Application;
 
 import Command.CommandParser;
+import Command.Splitter;
 import Estate.Insolvency;
 import Player.PlayerParser;
 import Player.Rounder;
 import UI.Map;
 import UI.UIObserver;
-import Util.CommandSplitter;
 
 class Controller {
     private final Rounder rounder = new Rounder();
@@ -29,7 +29,7 @@ class Controller {
 
     public void handleCommand(String input) {
         try {
-            CommandSplitter splitter = new CommandSplitter(input);
+            Splitter splitter = new Splitter(input);
             parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
         } catch (Insolvency e) {
             e.handle(subSystem.getEstateManager(), rounder);
