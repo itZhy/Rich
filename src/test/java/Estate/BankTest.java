@@ -4,7 +4,6 @@ import Player.Feature;
 import Player.Position;
 import UI.Map;
 import UI.UIObserver;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,8 +35,8 @@ public class BankTest {
         //when
         bank.earnMoney(role, 200);
         //then
-        assertThat(bank.inquiryAccount(role), is(10200));
-        assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(10000));
+        assertThat(bank.query(role), is("\n资金： 10200元\n"));
+        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
     }
 
     @Test
@@ -48,6 +47,6 @@ public class BankTest {
         bank.earnMoney(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
         estateMap.clearBuilding(new Position(3));
         //then
-        Assert.assertThat(bank.inquiryAccount(Feature.BABY_KIN), CoreMatchers.is(10200));
+        Assert.assertThat(bank.query(Feature.BABY_KIN), is("\n资金： 10200元\n"));
     }
 }

@@ -4,7 +4,6 @@ import Player.Feature;
 import Player.Position;
 import UI.Map;
 import UI.UIObserver;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -12,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PayTest {
     private UIObserver ui = new Map();
-    private EstateController controller;
+    private Judge controller;
     private EstateMap estateMap = new EstateMap(ui);
     private Bank bank = new Bank();
 
@@ -25,7 +24,7 @@ public class PayTest {
         pay.set(new Position(4), Feature.UNCLE_TUU);
         pay.handle();
         //then
-        assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(9900));
+        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 9900元\n"));
     }
 
     @Test
@@ -38,6 +37,6 @@ public class PayTest {
         pay.set(new Position(4), Feature.UNCLE_TUU);
         pay.handle();
         //then
-        assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(10000));
+        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
     }
 }

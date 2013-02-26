@@ -40,6 +40,6 @@ public class EstateManager implements Observer {
     }
 
     public String query(String role) {
-        return "\n资金： " + bank.inquiryAccount(role) + "元\n" + estateMap.inquiryAccount(role);
+        return bank.query(role) + estateMap.query(role);
     }
 }

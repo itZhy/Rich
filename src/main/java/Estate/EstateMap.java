@@ -58,7 +58,7 @@ public class EstateMap {
         }
     }
 
-    public String inquiryAccount(String role) {
+    public String query(String role) {
        return "地产：空地" + inquiryBuilding(role, SoldVacancy.class.toString()).size() + "处；茅屋" +
                inquiryBuilding(role, Hovel.class.toString()).size() + "处；洋房" +
                inquiryBuilding(role, Villa.class.toString()).size() + "处；摩天楼" +

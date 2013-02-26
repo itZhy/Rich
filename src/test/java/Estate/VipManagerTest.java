@@ -18,14 +18,37 @@ public class VipManagerTest {
         String role = owner.name();
         manager.setVip(role);
         //then
-        assertThat(manager.vipStatus(role), is(true));
+        assertThat(manager.isVip(role), is(true));
         manager.pass();
-        assertThat(manager.vipStatus(role), is(true));
+        assertThat(manager.isVip(role), is(true));
         manager.pass();
         manager.pass();
         manager.pass();
-        assertThat(manager.vipStatus(role), is(true));
+        assertThat(manager.isVip(role), is(true));
         manager.pass();
-        assertThat(manager.vipStatus(role), is(false));
+        assertThat(manager.isVip(role), is(false));
+    }
+
+    @Test
+    public void it_should_set_multiply_vips(){
+        //given
+        VipManager manager = new VipManager();
+        manager.setVip(Feature.SUN_HSIAO_MEI);
+        manager.setVip(Feature.UNCLE_TUU);
+        //when
+        manager.pass();
+        manager.setVip(Feature.BABY_KIN);
+        manager.pass();
+        manager.pass();
+        assertThat(manager.isVip(Feature.SUN_HSIAO_MEI), is(true));
+        assertThat(manager.isVip(Feature.BABY_KIN), is(true));
+        manager.pass();
+        manager.pass();
+        assertThat(manager.isVip(Feature.UNCLE_TUU), is(false));
+        assertThat(manager.isVip(Feature.SUN_HSIAO_MEI), is(false));
+        assertThat(manager.isVip(Feature.BABY_KIN), is(true));
+        manager.pass();
+        //then
+        assertThat(manager.isVip(Feature.BABY_KIN), is(false));
     }
 }

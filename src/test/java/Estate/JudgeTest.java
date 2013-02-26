@@ -1,9 +1,7 @@
 package Estate;
 
-import Player.Callback;
 import Player.Feature;
 import Player.Position;
-import Player.Role;
 import UI.Map;
 import UI.UIObserver;
 import org.junit.Before;
@@ -12,15 +10,15 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class EstateControllerTest {
+public class JudgeTest {
     private UIObserver ui = new Map();
-    private EstateController controller;
+    private Judge controller;
     private EstateMap estateMap = new EstateMap(ui);
     private Bank bank = new Bank();
 
     @Before
     public void setUp() {
-        controller = new EstateController(estateMap, bank);
+        controller = new Judge(estateMap, bank);
     }
 
     @Test

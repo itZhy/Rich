@@ -1,25 +1,20 @@
 package Estate;
 
 public class Vip {
-    private static final Integer LIMITATION = 5;
-    private Integer deadline = 0;
-
-    public void set() {
-        deadline = LIMITATION;
-    }
+    private int limitation = 5;
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                deadline.equals(((Vip) object).deadline);
+                limitation == ((Vip) object).limitation;
     }
 
     public void pass() {
-        if (deadline > 0) {
-            deadline--;
+        if (limitation > 0) {
+            limitation--;
         }
     }
 
-    public boolean vipStatus() {
-        return deadline > 0;
+    public boolean isExpired() {
+        return limitation > 0;
     }
 }

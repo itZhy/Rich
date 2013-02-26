@@ -40,8 +40,8 @@ public class DealFactoryTest {
         pay.handle();
         //then
         assertThat(pay.getClass().toString(), is(Pay.class.toString()));
-        assertThat(bank.inquiryAccount(Feature.MADAME_CHYAN), is(10100));
-        assertThat(bank.inquiryAccount(Feature.SUN_HSIAO_MEI), is(9900));
+        assertThat(bank.query(Feature.MADAME_CHYAN), is("\n资金： 10100元\n"));
+        assertThat(bank.query(Feature.SUN_HSIAO_MEI), is("\n资金： 9900元\n"));
     }
 
     @Test

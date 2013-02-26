@@ -17,9 +17,9 @@ public class Bank {
         initialFund = fund;
     }
 
-    public Integer inquiryAccount(String account) {
+    public String query(String account) {
         initializeWhenNotExist(account);
-        return funds.get(account).get();
+        return "\n资金： " + funds.get(account).toString() + "元\n";
     }
 
     public void withdraw(String account, Integer money) {
@@ -28,12 +28,12 @@ public class Bank {
         checkBreakAccount(account);
     }
 
-    public boolean vipStatus(String account){
-        return vipManager.vipStatus(account);
+    public boolean isVip(String account) {
+        return vipManager.isVip(account);
     }
 
-    public void checkBreakAccount(String account) {
-        if (inquiryAccount(account) <= 0) {
+    private void checkBreakAccount(String account) {
+        if (!funds.get(account).isGreaterOrEqualThan(0)) {
             throw new Insolvency(account);
         }
     }
@@ -56,7 +56,7 @@ public class Bank {
 
     public boolean checkPurchasingPower(String account, Integer price) {
         initializeWhenNotExist(account);
-        return funds.get(account).compare(price);
+        return funds.get(account).isGreaterOrEqualThan(price);
     }
 
     public void setVip(String role) {

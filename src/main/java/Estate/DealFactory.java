@@ -9,13 +9,13 @@ import java.util.Map;
 public class DealFactory {
     protected EstateMap estateMap;
     protected Bank bank;
-    private EstateController controller;
+    private Judge controller;
     private final Map<String, Deal> deals = new HashMap<String, Deal>();
 
     public DealFactory(EstateMap estateMap, Bank bank) {
         this.estateMap = estateMap;
         this.bank = bank;
-        controller = new EstateController(estateMap, bank);
+        controller = new Judge(estateMap, bank);
         initializeDeals();
     }
 

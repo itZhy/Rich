@@ -1,13 +1,12 @@
 package Estate;
 
 import Player.Position;
-import UI.UIObserver;
 
-public class EstateController {
+public class Judge {
     private final EstateMap estateMap;
     private final Bank bank;
 
-    public EstateController(EstateMap estateMap, Bank bank) {
+    public Judge(EstateMap estateMap, Bank bank) {
         this.estateMap = estateMap;
         this.bank = bank;
     }
@@ -26,7 +25,7 @@ public class EstateController {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                bank.equals(((EstateController) object).bank);
+                bank.equals(((Judge) object).bank);
     }
 
     public boolean checkEnableUpdate(Position position) {

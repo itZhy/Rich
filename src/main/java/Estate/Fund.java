@@ -16,11 +16,11 @@ public class Fund {
         money -= reduceMoney;
     }
 
-    public int get() {
-        return money;
+    public String toString() {
+        return money.toString();
     }
 
-    public boolean compare(Integer price) {
+    public boolean isGreaterOrEqualThan(Integer price) {
         return (price <= money);
     }
 

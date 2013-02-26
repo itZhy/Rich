@@ -1,25 +1,25 @@
 package Estate;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class VipManager {
     private final Map<String, Vip> vips = new HashMap<String, Vip>();
 
     public void setVip(String account) {
-        initializeWhenNotExist(account);
-        vips.get(account).set();
+        vips.put(account, new Vip());
     }
 
     public void pass() {
         for (Vip vip : vips.values()) {
             vip.pass();
         }
+        removeExpiredVips();
     }
 
-    public boolean vipStatus(String account) {
-        initializeWhenNotExist(account);
-        return vips.get(account).vipStatus();
+    public boolean isVip(String account) {
+        return (vips.containsKey(account));
     }
 
     public boolean equals(Object object) {
@@ -27,9 +27,16 @@ public class VipManager {
                 vips.equals(((VipManager) object).vips);
     }
 
-    private void initializeWhenNotExist(String account) {
-        if (!vips.containsKey(account)) {
-            vips.put(account, new Vip());
+    private void removeExpiredVips() {
+        Iterator<Map.Entry<String, Vip>> it = vips.entrySet().iterator();
+        while (it.hasNext()) {
+            removeExpiredVip(it);
+        }
+    }
+
+    private void removeExpiredVip(Iterator<Map.Entry<String, Vip>> it) {
+        if (!it.next().getValue().isExpired()) {
+            it.remove();
         }
     }
 }
