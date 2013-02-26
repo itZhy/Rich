@@ -40,7 +40,7 @@ public class Map implements UIObserver {
     }
 
     public boolean equals(Object object) {
-        return Map.class == object.getClass() &&
+        return getClass() == object.getClass() &&
                 surface.equals(((Map) object).surface);
     }
 

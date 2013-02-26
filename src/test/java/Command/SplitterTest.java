@@ -1,4 +1,4 @@
-package Util;
+package Command;
 
 import Application.GameException;
 import org.junit.Test;
@@ -6,11 +6,11 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class CommandSplitterTest {
+public class SplitterTest {
     @Test
     public void it_should_return_bomb_as_command_name_and_10_as_command_argument() {
         //given
-        CommandSplitter splitter = new CommandSplitter("bomb 10");
+        Splitter splitter = new Splitter("bomb 10");
         //when
         String name = splitter.name();
         int argument = splitter.argument();
@@ -22,7 +22,7 @@ public class CommandSplitterTest {
     @Test(expected = GameException.class)
     public void it_should_throw_exception_when_the_argument_is_not_correct() {
         //given
-        CommandSplitter splitter = new CommandSplitter("Bomb xx");
+        Splitter splitter = new Splitter("Bomb xx");
         //when
         String name = splitter.name();
         //then

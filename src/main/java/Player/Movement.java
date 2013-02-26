@@ -8,7 +8,8 @@ public class Movement {
     private int stayTimes = 0;
 
     public void walk() {
-        forwardOneStep();
+        previousPosition = currentPosition;
+        currentPosition = currentPosition.offset(1);
     }
 
     public boolean skip() {
@@ -24,7 +25,7 @@ public class Movement {
     }
 
     public void jumpToHospital() {
-        recordPreviousPosition();
+        previousPosition = currentPosition;
         currentPosition = new PositionExtractor().getHospital();
         stop(3);
     }
@@ -39,15 +40,7 @@ public class Movement {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
+                previousPosition.equals(((Movement) object).previousPosition) &&
                 currentPosition.equals(((Movement) object).currentPosition);
-    }
-
-    private void forwardOneStep() {
-        recordPreviousPosition();
-        currentPosition = currentPosition.move(1);
-    }
-
-    private void recordPreviousPosition() {
-        previousPosition = currentPosition;
     }
 }

@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PropMap {
+    private static final int CLEAN_RANGE = 10;
     private final Map<Position, Prop> props = new HashMap<Position, Prop>();
     private final UIObserver ui;
-    private static final int CLEAN_RANGE = 10;
 
     public PropMap(UIObserver ui) {
         this.ui = ui;
@@ -23,23 +23,19 @@ public class PropMap {
 
     public void cleanTheFront(Position position) {
         for (int step = 1; step <= CLEAN_RANGE; ++step) {
-            removeProp(position.move(step));
+            removeProp(position.offset(step));
         }
     }
 
     public void trigger(Movement movement) {
         if (props.containsKey(movement.currentPosition())) {
-            useProp(movement);
+            props.get(movement.currentPosition()).handle(movement);
+            removeProp(movement.currentPosition());
         }
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() && props.equals(((PropMap) object).props);
-    }
-
-    private void useProp(Movement movement) {
-        props.get(movement.currentPosition()).handle(movement);
-        removeProp(movement.currentPosition());
     }
 
     private void removeProp(Position position) {

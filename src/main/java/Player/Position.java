@@ -8,13 +8,13 @@ public class Position {
         this.index = index;
     }
 
-    public Position move(int step) {
-        return new Position((MAX_INDEX + 1+ index + step) % (MAX_INDEX + 1));
+    public Position offset(int step) {
+        return new Position((MAX_INDEX + 1 + index + step) % (MAX_INDEX + 1));
     }
 
-    public boolean equals(Object position) {
-        return position.getClass() == Position.class &&
-                ((Position) position).index == index;
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                index == ((Position) object).index;
     }
 
     public int hashCode() {

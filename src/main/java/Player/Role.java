@@ -21,12 +21,12 @@ public class Role {
         callback.notifyAfterForwarded(name(), movement);
     }
 
-    public Position currentPosition() {
-        return movement.currentPosition();
-    }
-
     public boolean skip() {
         return movement.skip();
+    }
+
+    public Position currentPosition() {
+        return movement.currentPosition();
     }
 
     public boolean equals(Object object) {

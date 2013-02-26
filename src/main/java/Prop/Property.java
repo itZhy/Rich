@@ -13,10 +13,7 @@ public class Property {
     }
 
     public void buy(Prop prop) {
-        checkPurchasingPower();
-        if (prop.price() > point) {
-            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。");
-        }
+        checkPurchasingPower(prop);
         exchange(prop);
     }
 
@@ -51,9 +48,13 @@ public class Property {
         new CommandLine().outputInNewline("您已成功购买" + prop.name() + "道具。");
     }
 
-    private void checkPurchasingPower() {
+    private void checkPurchasingPower(Prop prop) {
         if (point < MIN_PRICE) {
             throw new GameException(currentPoint() + "不足以购买任何道具。", GameException.NEED_NOT_RETRY);
+        }
+
+        if (prop.price() > point) {
+            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。");
         }
     }
 

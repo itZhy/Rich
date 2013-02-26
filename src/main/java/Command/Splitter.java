@@ -1,13 +1,13 @@
-package Util;
+package Command;
 
 import Application.GameException;
 
 import java.util.Scanner;
 
-public class CommandSplitter {
+public class Splitter {
     private final Scanner scanner;
 
-    public CommandSplitter(String input) {
+    public Splitter(String input) {
         scanner = new Scanner(input);
     }
 
