@@ -23,7 +23,7 @@ public class Element {
     }
 
     public boolean equals(Object object)    {
-        return Element.class == object.getClass()&&
+        return getClass() == object.getClass()&&
                 symbol == ((Element) object).symbol &&
                 color.equals(((Element) object).color);
     }

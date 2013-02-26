@@ -23,7 +23,7 @@ class Pixel {
     }
 
     public boolean equals(Object object) {
-        return object.getClass() == Pixel.class &&
+        return getClass() == object.getClass() &&
                 elements.equals(((Pixel) object).elements);
     }
 }

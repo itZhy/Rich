@@ -20,10 +20,12 @@ public abstract class Prop {
 
     public void addToUI(UIObserver ui, Position position) {
         ui.add(position, element);
+        ui.refresh();
     }
 
     public void removeFromUI(UIObserver ui, Position position) {
         ui.delete(position, element);
+        ui.refresh();
     }
 
     public boolean equals(Object object) {

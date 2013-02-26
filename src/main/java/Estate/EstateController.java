@@ -38,7 +38,7 @@ public class EstateController {
     }
 
     public boolean equals(Object object) {
-        return EstateManager.class == object.getClass() &&
+        return getClass() == object.getClass() &&
                 bank.equals(((EstateController) object).bank);
     }
 

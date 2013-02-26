@@ -28,7 +28,7 @@ class Surface {
     }
 
     public boolean equals(Object object) {
-        return Surface.class == object.getClass() &&
+        return getClass() == object.getClass() &&
                 pixels.equals(((Surface) object).pixels);
     }
 
