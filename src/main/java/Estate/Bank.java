@@ -22,12 +22,14 @@ public class Bank {
         return funds.get(account).get();
     }
 
-    public void withdrawMoney(String account, Integer money) {
+    public void withdraw(String account, Integer money) {
         initializeWhenNotExist(account);
-        if (!vipManager.vipStatus(account)) {
-            funds.get(account).reduce(money);
-            checkBreakAccount(account);
-        }
+        funds.get(account).reduce(money);
+        checkBreakAccount(account);
+    }
+
+    public boolean vipStatus(String account){
+        return vipManager.vipStatus(account);
     }
 
     public void checkBreakAccount(String account) {

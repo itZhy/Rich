@@ -1,30 +1,37 @@
 package Estate;
 
 import Player.Feature;
+import Player.Position;
+import UI.Map;
+import UI.UIObserver;
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class BankTest {
+    private UIObserver ui = new Map();
+    private EstateMap estateMap = new EstateMap(ui);
+    private Bank bank = new Bank();
+
     @Test
-    public void it_should_add_account_money_earn_money(){
+    public void it_should_add_account_money_earn_money() {
         //given
-        Bank bank = new Bank();
         String role = Feature.MADAME_CHYAN;
         //when
         bank.earnMoney(role, 200);
         //then
-        bank.withdrawMoney (role, 200);
+        bank.withdraw(role, 200);
         Bank exceptedBank = new Bank();
         exceptedBank.checkPurchasingPower(role, 200);
         assertThat(bank, is(exceptedBank));
     }
 
     @Test
-    public void it_should_get_account_information(){
+    public void it_should_get_account_information() {
         //given
-        Bank bank = new Bank();
         String role = Feature.MADAME_CHYAN;
         //when
         bank.earnMoney(role, 200);
@@ -34,16 +41,13 @@ public class BankTest {
     }
 
     @Test
-    public void it_should_enjoy_privileges_after_become_vip(){
-        //given
-        Bank bank = new Bank();
-        String role = Feature.SUN_HSIAO_MEI;
+    public void it_should_get_twice_money_after_sell_building() {
         //when
-        bank.setVip(role);
-        bank.withdrawMoney(role, 200);
-        bank.withdrawMoney(Feature.UNCLE_TUU, 200);
+        estateMap.update(new Position(3), Feature.BABY_KIN);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        bank.earnMoney(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
+        estateMap.clearBuilding(new Position(3));
         //then
-        assertThat(bank.inquiryAccount(role), is(10000));
-        assertThat(bank.inquiryAccount(Feature.UNCLE_TUU), is(9800));
+        Assert.assertThat(bank.inquiryAccount(Feature.BABY_KIN), CoreMatchers.is(10200));
     }
 }

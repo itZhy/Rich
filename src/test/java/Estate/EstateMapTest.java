@@ -14,6 +14,15 @@ public class EstateMapTest {
     private EstateMap map = new EstateMap(ui);
 
     @Test
+    public void it_should_update_building_after_payed(){
+        //when
+        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Feature.MADAME_CHYAN);
+        //then
+        assertThat(map.get(new Position(10)), is((Building)new Hovel(Feature.MADAME_CHYAN, ui, 200)));
+    }
+
+    @Test
     public void it_should_clear_associated_building() {
         //when
         map.update(new Position(10), Feature.MADAME_CHYAN);

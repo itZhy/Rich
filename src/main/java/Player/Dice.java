@@ -7,6 +7,7 @@ public class Dice {
     private static final int upperBound = 6;
 
     public int roll() {
-        return 1 + random.nextInt(upperBound);
+//        return 1 + random.nextInt(upperBound);
+        return 1;
     }
 }

@@ -15,10 +15,12 @@ import static org.junit.Assert.assertThat;
 public class EstateControllerTest {
     private UIObserver ui = new Map();
     private EstateController controller;
+    private EstateMap estateMap = new EstateMap(ui);
+    private Bank bank = new Bank();
 
     @Before
     public void setUp() {
-        controller = new EstateController(ui);
+        controller = new EstateController(estateMap, bank);
     }
 
     @Test
@@ -30,22 +32,13 @@ public class EstateControllerTest {
     }
 
     @Test
-    public void it_should_check_field_is_not_vacant() {
-        //given
-        controller.update(new Position(3), Feature.BABY_KIN);
-        //when
-        boolean result = controller.checkSoldStatus(new Position(3));
-        //then
-        assertThat(result, is(true));
-    }
-
-    @Test
     public void it_should_enable_to_buy_vacancy() {
         //given
         Building vacancy = new Vacancy(null, ui);
         vacancy.markPrice(200);
         //when
-        controller.buy(new Position(3), Feature.BABY_KIN);
+        estateMap.update(new Position(3), Feature.BABY_KIN);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //then
         assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
     }
@@ -53,7 +46,8 @@ public class EstateControllerTest {
     @Test
     public void it_should_cost_200_to_buy_vacancy() {
         //when
-        controller.buy(new Position(3), Feature.BABY_KIN);
+        estateMap.update(new Position(3), Feature.BABY_KIN);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //then
         Integer exceptedMoney = 10000 - 200;
         Building vacancy = new Vacancy(null, ui);
@@ -73,11 +67,13 @@ public class EstateControllerTest {
     }
 
     @Test
-    public void it_should_get_twice_money_after_sell_building(){
+    public void it_should_check_field_is_not_vacant() {
+        //given
+        estateMap.update(new Position(3), Feature.BABY_KIN);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //when
-        controller.buy(new Position(3), Feature.BABY_KIN);
-        controller.sell(new Position(3), Feature.BABY_KIN);
+        boolean result = controller.checkSoldStatus(new Position(3));
         //then
-        assertThat(controller.inquiry(Feature.BABY_KIN), is(10200));
+        assertThat(result, is(true));
     }
 }
