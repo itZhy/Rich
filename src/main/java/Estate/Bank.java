@@ -30,26 +30,9 @@ public class Bank {
         return vipManager.isVip(account);
     }
 
-    private void checkBankrupt(String account) {
-        if (!funds.get(account).isGreaterOrEqualThan(0)) {
-            throw new Insolvency(account);
-        }
-    }
-
     public void add(String account, Integer money) {
         initializeWhenNotExist(account);
         funds.get(account).add(money);
-    }
-
-    private void initializeWhenNotExist(String account) {
-        if (!funds.containsKey(account)) {
-            funds.put(account, new Fund(initialFund));
-        }
-    }
-
-    public boolean equals(Object object) {
-        return getClass() == object.getClass() &&
-                funds.equals(((Bank) object).funds);
     }
 
     public boolean checkPurchasingPower(String account, Integer price) {
@@ -59,5 +42,22 @@ public class Bank {
 
     public void setVip(String role) {
         vipManager.setVip(role);
+    }
+
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                funds.equals(((Bank) object).funds);
+    }
+
+    private void initializeWhenNotExist(String account) {
+        if (!funds.containsKey(account)) {
+            funds.put(account, new Fund(initialFund));
+        }
+    }
+
+    private void checkBankrupt(String account) {
+        if (!funds.get(account).isGreaterOrEqualThan(0)) {
+            throw new Insolvency(account);
+        }
     }
 }

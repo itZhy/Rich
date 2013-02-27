@@ -11,6 +11,10 @@ public abstract class Building {
         this.basePrice = basePrice;
     }
 
+    public boolean isOwner(String roleName) {
+        return roleName.equals(owner);
+    }
+
     public abstract int sellingPrice();
 
     public abstract Building update(String owner);

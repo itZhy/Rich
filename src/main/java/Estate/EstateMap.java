@@ -34,9 +34,11 @@ public class EstateMap {
         ui.refresh();
     }
 
-    public void clearBuildingsOfOwner(String role) {
+    public void clearBuildingsOfOwner(String roleName) {
         for (Map.Entry<Position, Building> house : buildings.entrySet()) {
-            if (role.equals(house.getValue().owner)) clearBuilding(house.getKey());
+            if (house.getValue().isOwner(roleName)) {
+                clearBuilding(house.getKey());
+            }
         }
     }
 

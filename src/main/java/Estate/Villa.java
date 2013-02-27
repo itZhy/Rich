@@ -7,8 +7,8 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Villa extends Building {
-    public Villa(String owner, Integer price) {
-        super(price);
+    public Villa(String owner, Integer basePrice) {
+        super(basePrice);
         this.owner = owner;
     }
 
