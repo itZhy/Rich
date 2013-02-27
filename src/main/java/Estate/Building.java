@@ -18,7 +18,7 @@ public abstract class Building {
 
     public abstract int toll();
 
-    public boolean matchOwnerAndType(String role, String type){
+    public boolean matchOwnerAndType(String role, String type) {
         return role.equals(owner) && type.equals(getClass().toString());
     }
 
