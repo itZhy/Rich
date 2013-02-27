@@ -40,16 +40,15 @@ public class EstateMap {
         }
     }
 
-    public boolean equals(Object object) {
-        return getClass() == object.getClass() &&
-                buildings.equals(((EstateMap) object).buildings);
-    }
-
     public String query(String role) {
         return "地产：空地" + inquiryBuilding(role, SoldVacancy.class.toString()).size() + "处；茅屋" +
                 inquiryBuilding(role, Hovel.class.toString()).size() + "处；洋房" +
                 inquiryBuilding(role, Villa.class.toString()).size() + "处；摩天楼" +
                 inquiryBuilding(role, Skyscraper.class.toString()).size() + "处";
+    }
+
+    public boolean hasBuilding(Position position) {
+        return buildings.containsKey(position);
     }
 
     private List<Building> inquiryBuilding(String role, String type) {
@@ -60,14 +59,15 @@ public class EstateMap {
         return selector;
     }
 
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
+                buildings.equals(((EstateMap) object).buildings);
+    }
+
     private void initializeDefaultBuilding(UIObserver ui) {
         List<Position> positions = new PositionExtractor().getBuildings();
         for (Position position : positions) {
             buildings.put(position, new Vacancy(null, new PriceExtractor().positionToPrice(position)));
         }
-    }
-
-    public boolean hasBuilding(Position position) {
-        return buildings.containsKey(position);
     }
 }
