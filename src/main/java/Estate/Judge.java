@@ -12,26 +12,26 @@ public class Judge {
     }
 
     public boolean isMetToBuy(Position position, String role) {
-        return (!checkSoldStatus(position)) && checkPurchasingPower(position, role);
+        return (!isSold(position)) && canAfford(position, role);
     }
 
     public boolean isMetToPay(Position position, String role) {
-        return (checkSoldStatus(position)) && !checkOwner(position, role);
+        return (isSold(position)) && !isOwner(position, role);
     }
 
     public boolean isMetToUpdate(Position position, String role) {
-        return (checkSoldStatus(position)) && checkPurchasingPower(position, role) && isUpdateToTop(position);
+        return (isSold(position)) && canAfford(position, role) && isUpdateToTop(position);
     }
 
-    public boolean checkOwner(Position position, String roleName) {
+    private boolean isOwner(Position position, String roleName) {
         return estateMap.get(position).isOwner(roleName);
     }
 
-    private boolean checkSoldStatus(Position position) {
+    private boolean isSold(Position position) {
         return (estateMap.get(position).getClass() != Vacancy.class);
     }
 
-    private boolean checkPurchasingPower(Position position, String role) {
+    private boolean canAfford(Position position, String role) {
         return bank.checkPurchasingPower(role, estateMap.get(position).basePrice);
     }
 
