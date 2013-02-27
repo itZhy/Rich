@@ -26,7 +26,6 @@ public class Movement {
     }
 
     public void jumpToHospital() {
-        previousPosition = currentPosition;
         currentPosition = new PositionExtractor().getHospital();
         stop(3);
     }

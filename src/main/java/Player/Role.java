@@ -1,6 +1,6 @@
 package Player;
 
-import Prop.BlockException;
+import Prop.PropException;
 
 public class Role {
     private final String name;
@@ -41,12 +41,13 @@ public class Role {
     private void forwardStepByStep(int step) {
         try {
             walk(step);
-        } catch (BlockException e) {
+        } catch (PropException e) {
             e.showPromptMessage();
         }
     }
 
     private void walk(int step) {
+        callback.notifyWhileForwarding(name(), movement);
         for (int count = 0; count != step; ++count) {
             movement.walk();
             callback.notifyWhileForwarding(name(), movement);

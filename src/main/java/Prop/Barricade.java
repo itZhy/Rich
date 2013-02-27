@@ -11,6 +11,6 @@ public class Barricade extends Prop {
     }
 
     public void handle(Movement movement) {
-        throw new BlockException();
+        throw new PropException("遭遇路障，停止前进。");
     }
 }
