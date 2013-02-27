@@ -34,7 +34,7 @@ public class Bank {
         vipManager.setVip(role);
     }
 
-    public void pass(String role){
+    public void pass(String role) {
         vipManager.pass(role);
     }
 

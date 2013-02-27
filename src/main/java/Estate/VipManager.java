@@ -12,7 +12,7 @@ public class VipManager {
     }
 
     public void pass(String account) {
-        if(vips.containsKey(account)){
+        if (vips.containsKey(account)) {
             vips.get(account).pass();
         }
         removeExpiredVips();

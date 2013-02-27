@@ -24,12 +24,7 @@ public class EstateManager implements Observer {
     }
 
     public void sell(Position position, String role) {
-        if (!estateMap.hasBuilding(position)) {
-            throw new GameException("该地不可买卖。");
-        }
-        if (!estateMap.get(position).isOwner(role)) {
-            throw new GameException("您尚未购买该地产，请重新输入。");
-        }
+        checkIsAbleToSell(position, role);
         bank.add(role, estateMap.get(position).sellingPrice());
         estateMap.clearBuilding(position);
     }
@@ -52,5 +47,14 @@ public class EstateManager implements Observer {
 
     public String query(String role) {
         return bank.query(role) + estateMap.query(role);
+    }
+
+    private void checkIsAbleToSell(Position position, String role) {
+        if (!estateMap.hasBuilding(position)) {
+            throw new GameException("该地不可买卖。");
+        }
+        if (!estateMap.get(position).isOwner(role)) {
+            throw new GameException("您尚未购买该地产，请重新输入。");
+        }
     }
 }

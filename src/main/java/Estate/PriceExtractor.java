@@ -34,13 +34,11 @@ public class PriceExtractor {
         for (int index = 26; index != 32; ++index) {
             prices.put(positions.get(index), 500);
         }
-
     }
 
     private void setPriceOfBottom(List<Position> positions) {
         for (int index = 32; index != 58; ++index) {
             prices.put(positions.get(index), 300);
         }
-
     }
 }

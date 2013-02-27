@@ -18,7 +18,7 @@ public class Pay extends Deal {
     }
 
     private void pay(Position position, String roleName) {
-        showPromptMessage("路过他人地产，留下" + estateMap.get(position).toll() + "元过路费(>_<)");
+        showPromptMessage("路过他人地产，留下" + estateMap.get(position).toll() + "元过路费。");
         bank.withdraw(roleName, estateMap.get(position).toll());
         bank.add(estateMap.get(position).owner, estateMap.get(position).toll());
     }
