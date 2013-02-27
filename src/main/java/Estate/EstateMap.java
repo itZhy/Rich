@@ -14,8 +14,8 @@ public class EstateMap {
     private final UIObserver ui;
 
     public EstateMap(UIObserver ui) {
-        initializeDefaultBuilding(ui);
         this.ui = ui;
+        initializeDefaultBuilding();
     }
 
     public Building get(Position position) {
@@ -30,7 +30,7 @@ public class EstateMap {
 
     public void clearBuilding(Position position) {
         get(position).clearUI(position, ui);
-        buildings.put(position, new Vacancy(null, new PriceExtractor().positionToPrice(position)));
+        buildings.put(position, new Vacancy(new PriceExtractor().positionToPrice(position)));
         ui.refresh();
     }
 
@@ -60,10 +60,10 @@ public class EstateMap {
         return selector;
     }
 
-    private void initializeDefaultBuilding(UIObserver ui) {
+    private void initializeDefaultBuilding() {
         List<Position> positions = new PositionExtractor().getBuildings();
         for (Position position : positions) {
-            buildings.put(position, new Vacancy(null, new PriceExtractor().positionToPrice(position)));
+            buildings.put(position, new Vacancy(new PriceExtractor().positionToPrice(position)));
         }
     }
 

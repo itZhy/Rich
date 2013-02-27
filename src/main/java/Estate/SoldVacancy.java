@@ -8,7 +8,8 @@ import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
     public SoldVacancy(String owner, Integer price) {
-        super(owner, price);
+        super(price);
+        this.owner = owner;
     }
 
     public Building update(String owner) {

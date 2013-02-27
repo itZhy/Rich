@@ -20,7 +20,7 @@ public class BankTest {
         //given
         String role = Feature.MADAME_CHYAN;
         //when
-        bank.earnMoney(role, 200);
+        bank.add(role, 200);
         //then
         bank.withdraw(role, 200);
         Bank exceptedBank = new Bank();
@@ -33,7 +33,7 @@ public class BankTest {
         //given
         String role = Feature.MADAME_CHYAN;
         //when
-        bank.earnMoney(role, 200);
+        bank.add(role, 200);
         //then
         assertThat(bank.query(role), is("\n资金： 10200元\n"));
         assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
@@ -44,7 +44,7 @@ public class BankTest {
         //when
         estateMap.update(new Position(3), Feature.BABY_KIN);
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
-        bank.earnMoney(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
+        bank.add(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
         estateMap.clearBuilding(new Position(3));
         //then
         Assert.assertThat(bank.query(Feature.BABY_KIN), is("\n资金： 10200元\n"));

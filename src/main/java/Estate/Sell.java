@@ -8,7 +8,7 @@ public class Sell extends Deal {
     }
 
     public void handle(Position position, String roleName) {
-        bank.earnMoney(roleName, estateMap.get(position).sellingPrice());
+        bank.add(roleName, estateMap.get(position).sellingPrice());
         estateMap.clearBuilding(position);
     }
 }

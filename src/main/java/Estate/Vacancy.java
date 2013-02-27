@@ -4,8 +4,8 @@ import Player.Position;
 import UI.UIObserver;
 
 public class Vacancy extends Building {
-    public Vacancy(String owner, Integer price) {
-        super(owner, price);
+    public Vacancy(int price) {
+        super(price);
     }
 
     public Building update(String owner) {

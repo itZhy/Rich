@@ -8,8 +8,9 @@ import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(String role, Integer price) {
-        super(role, price);
+    public Skyscraper(String owner, Integer price) {
+        super(price);
+        this.owner = owner;
     }
 
     public Building update(String owner) {

@@ -23,20 +23,20 @@ public class Bank {
     public void withdraw(String account, Integer money) {
         initializeWhenNotExist(account);
         funds.get(account).reduce(money);
-        checkBreakAccount(account);
+        checkBankrupt(account);
     }
 
     public boolean isVip(String account) {
         return vipManager.isVip(account);
     }
 
-    private void checkBreakAccount(String account) {
+    private void checkBankrupt(String account) {
         if (!funds.get(account).isGreaterOrEqualThan(0)) {
             throw new Insolvency(account);
         }
     }
 
-    public void earnMoney(String account, Integer money) {
+    public void add(String account, Integer money) {
         initializeWhenNotExist(account);
         funds.get(account).add(money);
     }

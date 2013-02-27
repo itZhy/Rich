@@ -15,7 +15,7 @@ public class Pay extends Deal {
         } else {
             showPromptMessage("福神附身，可免过路费");
         }
-        bank.earnMoney(estateMap.get(position).owner, estateMap.get(position).toll());
+        bank.add(estateMap.get(position).owner, estateMap.get(position).toll());
     }
 
     private void showPromptMessage(String message) {

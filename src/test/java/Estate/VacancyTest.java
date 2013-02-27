@@ -3,7 +3,6 @@ package Estate;
 import Player.Callback;
 import Player.Feature;
 import Player.Role;
-import UI.Map;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,7 +12,7 @@ public class VacancyTest {
     @Test
     public void it_should_operate_player_to_buy_house() {
         //given
-        Vacancy vacancy = new Vacancy(null, 200);
+        Vacancy vacancy = new Vacancy(200);
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         //when
         Building soldBuilding = vacancy.update(owner.getClass().toString());

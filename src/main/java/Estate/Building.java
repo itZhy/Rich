@@ -7,8 +7,7 @@ public abstract class Building {
     protected String owner;
     protected int basePrice;
 
-    public Building(String owner, int basePrice) {
-        this.owner = owner;
+    public Building(int basePrice) {
         this.basePrice = basePrice;
     }
 
