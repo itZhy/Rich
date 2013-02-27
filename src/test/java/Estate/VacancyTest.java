@@ -14,7 +14,7 @@ public class VacancyTest {
     public void it_should_operate_player_to_buy_house() {
         //given
         Map ui = new Map();
-        Vacancy vacancy = new Vacancy(null, ui);
+        Vacancy vacancy = new Vacancy(null, ui, 200);
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         //when
         Building soldBuilding = vacancy.update(owner.getClass().toString());
