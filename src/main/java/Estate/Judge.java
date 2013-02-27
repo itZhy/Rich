@@ -32,7 +32,7 @@ public class Judge {
     }
 
     private boolean checkPurchasingPower(Position position, String role) {
-        return bank.checkPurchasingPower(role, estateMap.get(position).price);
+        return bank.checkPurchasingPower(role, estateMap.get(position).basePrice);
     }
 
     private boolean checkEnableUpdate(Position position) {

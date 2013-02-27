@@ -4,29 +4,25 @@ import Player.Position;
 import UI.UIObserver;
 
 public abstract class Building {
-    protected final UIObserver ui;
     protected String owner;
-    protected Integer price;
-    protected Integer degree;
+    protected int basePrice;
 
-    public Building(String role, UIObserver ui) {
-        owner = role;
-        this.ui = ui;
+    public Building(String owner, int basePrice) {
+        this.owner = owner;
+        this.basePrice = basePrice;
     }
 
-    public Integer sellingPrice() {
-        return price * (degree + 1) * 2;
-    }
+    public abstract int sellingPrice();
+
+    public abstract Building update(String owner);
+
+    public abstract int toll();
 
     public boolean matchOwnerAndType(String role, String type){
         return role.equals(owner) && type.equals(getClass().toString());
     }
 
-    public abstract Integer toll();
+    public abstract void updateUI(Position position, UIObserver ui);
 
-    public abstract Building update(String owner);
-
-    public abstract void updateUI(Position position);
-
-    public abstract void clearUI(Position position);
+    public abstract void clearUI(Position position, UIObserver ui);
 }

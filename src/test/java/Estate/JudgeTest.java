@@ -33,7 +33,7 @@ public class JudgeTest {
     public void it_should_enable_to_update_vacancy() {
         //when
         estateMap.update(new Position(3), Feature.BABY_KIN);
-        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
         //then
         assertThat(controller.isMetToUpdate(new Position(3), Feature.BABY_KIN), is(true));
     }
@@ -51,7 +51,7 @@ public class JudgeTest {
     public void it_should_check_field_is_not_vacant() {
         //given
         estateMap.update(new Position(3), Feature.BABY_KIN);
-        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
         //when
         boolean result = controller.isMetToUpdate(new Position(3), Feature.BABY_KIN);
         //then
@@ -62,7 +62,7 @@ public class JudgeTest {
     public void it_should_pay_rent_for_owner_of_building() {
         //given
         estateMap.update(new Position(3), Feature.BABY_KIN);
-        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
         //then
         assertThat(controller.isMetToPay(new Position(3), Feature.MADAME_CHYAN), is(true));
     }

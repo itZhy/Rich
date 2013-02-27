@@ -7,31 +7,32 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Villa extends Building {
-    public Villa(String role, UIObserver ui, Integer price) {
-        super(role, ui);
-        this.price = price;
-        degree = 2;
+    public Villa(String owner, Integer price) {
+        super(owner, price);
     }
 
     public Building update(String owner) {
-        return new Skyscraper(this.owner, ui, price);
+        return new Skyscraper(this.owner, basePrice);
     }
 
-    public Integer toll() {
-        return price * 2;
+    public int toll() {
+        return basePrice * 2;
     }
 
-    public void updateUI(Position position) {
+    public int sellingPrice() {
+        return basePrice * 8;
+    }
+
+    public void updateUI(Position position, UIObserver ui) {
         ui.replace(position, new Feature().dye(owner, '1'), new Feature().dye(owner, '2'));
     }
 
-    public void clearUI(Position position) {
+    public void clearUI(Position position, UIObserver ui) {
         ui.replace(position, new Feature().dye(owner, '2'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                owner.equals(((Villa) object).owner) &&
-                ui.equals(((Villa) object).ui);
+                owner.equals(((Villa) object).owner);
     }
 }

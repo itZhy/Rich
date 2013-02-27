@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 
 public class HovelTest {
     private static final int COST = 200;
-    private UIObserver ui = new Map();
     private Hovel hovel;
     private String role;
 
@@ -21,7 +20,7 @@ public class HovelTest {
     public void setUp() {
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         role = owner.name();
-        hovel = new Hovel(role, ui, COST);
+        hovel = new Hovel(role, COST);
     }
 
     @Test
@@ -29,7 +28,7 @@ public class HovelTest {
         //when
         Building updatedBuilding = hovel.update(role);
         //then
-        Building villa = new Villa(role, ui, COST);
+        Building villa = new Villa(role, COST);
         assertThat(updatedBuilding, is(villa));
     }
 
@@ -42,5 +41,16 @@ public class HovelTest {
         Integer newToll = villa.toll();
         //then
         assertThat(newToll, is(oldToll * 2));
+    }
+
+    @Test
+    public void it_should_earn_more_money_when_selling_building() {
+        //given
+        Integer oldPrice = hovel.sellingPrice();
+        //when
+        Building villa = hovel.update(role);
+        Integer newPrice = villa.sellingPrice();
+        //then
+        assertThat(newPrice, is(oldPrice * 2));
     }
 }

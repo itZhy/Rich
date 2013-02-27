@@ -24,13 +24,13 @@ public class EstateMap {
 
     public void update(Position position, String role) {
         buildings.put(position, get(position).update(role));
-        get(position).updateUI(position);
+        get(position).updateUI(position, ui);
         ui.refresh();
     }
 
     public void clearBuilding(Position position) {
-        get(position).clearUI(position);
-        buildings.put(position, new Vacancy(null, ui, new PriceExtractor().positionToPrice(position)));
+        get(position).clearUI(position, ui);
+        buildings.put(position, new Vacancy(null, new PriceExtractor().positionToPrice(position)));
         ui.refresh();
     }
 
@@ -63,7 +63,7 @@ public class EstateMap {
     private void initializeDefaultBuilding(UIObserver ui) {
         List<Position> positions = new PositionExtractor().getBuildings();
         for (Position position : positions) {
-            buildings.put(position, new Vacancy(null, ui, new PriceExtractor().positionToPrice(position)));
+            buildings.put(position, new Vacancy(null, new PriceExtractor().positionToPrice(position)));
         }
     }
 

@@ -43,7 +43,7 @@ public class BankTest {
     public void it_should_get_twice_money_after_sell_building() {
         //when
         estateMap.update(new Position(3), Feature.BABY_KIN);
-        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
         bank.earnMoney(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
         estateMap.clearBuilding(new Position(3));
         //then

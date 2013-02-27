@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 
 public class SkyscraperTest {
     private static final int COST = 200;
-    private final UIObserver ui = new Map();
     private Skyscraper skyscraper;
     private String role;
 
@@ -21,7 +20,7 @@ public class SkyscraperTest {
     public void setUp() {
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         role = owner.getClass().toString();
-        skyscraper = new Skyscraper(role, ui, COST);
+        skyscraper = new Skyscraper(role, COST);
     }
 
     @Test

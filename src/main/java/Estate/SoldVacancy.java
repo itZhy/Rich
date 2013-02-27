@@ -7,31 +7,32 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
-    public SoldVacancy(String role, UIObserver ui, Integer price) {
-        super(role, ui);
-        this.price = price;
-        degree = 0;
+    public SoldVacancy(String owner, Integer price) {
+        super(owner, price);
     }
 
     public Building update(String owner) {
-        return new Hovel(this.owner, ui, price);
+        return new Hovel(this.owner, basePrice);
     }
 
-    public Integer toll() {
-        return (price / 2);
+    public int toll() {
+        return (basePrice / 2);
     }
 
-    public void updateUI(Position position) {
+    public int sellingPrice() {
+        return basePrice * 2;
+    }
+
+    public void updateUI(Position position, UIObserver ui) {
         ui.replace(position, new Element('0', Ansi.Color.WHITE), new Feature().dye(owner, '0'));
     }
 
-    public void clearUI(Position position) {
+    public void clearUI(Position position, UIObserver ui) {
         ui.replace(position, new Feature().dye(owner, '0'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                owner.equals(((SoldVacancy) object).owner) &&
-                ui.equals(((SoldVacancy) object).ui);
+                owner.equals(((SoldVacancy) object).owner);
     }
 }

@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 
 public class SoldVacancyTest {
     private static final int COST = 200;
-    private UIObserver ui = new Map();
     private SoldVacancy soldVacancy;
     private String role;
 
@@ -21,7 +20,7 @@ public class SoldVacancyTest {
     public void setUp() {
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         role = owner.name();
-        soldVacancy = new SoldVacancy(role, ui, COST);
+        soldVacancy = new SoldVacancy(role, COST);
     }
 
     @Test
@@ -29,7 +28,7 @@ public class SoldVacancyTest {
         //when
         Building updatedBuilding = soldVacancy.update(role);
         //then
-        Building exceptedBuilding = new Hovel(role, ui, COST);
+        Building exceptedBuilding = new Hovel(role, COST);
         assertThat(updatedBuilding, is(exceptedBuilding));
     }
 

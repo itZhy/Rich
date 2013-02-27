@@ -8,9 +8,9 @@ public class Buy extends Deal {
     }
 
     public void handle(Position position, String roleName){
-        if(isAgree("是否花费" + estateMap.get(position).price + "元购买该地产?")){
+        if(isAgree("是否花费" + estateMap.get(position).basePrice + "元购买该地产?")){
             estateMap.update(position, roleName);
-            bank.withdraw(roleName, estateMap.get(position).price);
+            bank.withdraw(roleName, estateMap.get(position).basePrice);
         }
     }
 }

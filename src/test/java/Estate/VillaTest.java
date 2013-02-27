@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 
 public class VillaTest {
     private static final int COST = 200;
-    private UIObserver ui = new Map();
     private Villa villa;
     private String role;
 
@@ -21,7 +20,7 @@ public class VillaTest {
     public void setUp() {
         Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
         role = owner.name();
-        villa = new Villa(role, ui, COST);
+        villa = new Villa(role, COST);
     }
 
     @Test
@@ -29,7 +28,7 @@ public class VillaTest {
         //when
         Building updatedBuilding = villa.update(role);
         //then
-        Building villa = new Skyscraper(role, ui, COST);
+        Building villa = new Skyscraper(role, COST);
         assertThat(updatedBuilding, is(villa));
     }
 

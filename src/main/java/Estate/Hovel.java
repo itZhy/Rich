@@ -7,31 +7,32 @@ import UI.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Hovel extends Building {
-    public Hovel(String role, UIObserver ui, Integer price) {
-        super(role, ui);
-        this.price = price;
-        degree = 1;
+    public Hovel(String owner, Integer price) {
+        super(owner, price);
     }
 
     public Building update(String owner) {
-        return new Villa(this.owner, ui, price);
+        return new Villa(owner, basePrice);
     }
 
-    public Integer toll() {
-        return price;
+    public int toll() {
+        return basePrice;
     }
 
-    public void updateUI(Position position) {
+    public int sellingPrice() {
+        return basePrice * 4;
+    }
+
+    public void updateUI(Position position, UIObserver ui) {
         ui.replace(position, new Feature().dye(owner, '0'), new Feature().dye(owner, '1'));
     }
 
-    public void clearUI(Position position) {
+    public void clearUI(Position position, UIObserver ui) {
         ui.replace(position, new Feature().dye(owner, '1'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                owner.equals(((Hovel) object).owner) &&
-                ui.equals(((Hovel) object).ui);
+                owner.equals(((Hovel) object).owner);
     }
 }
