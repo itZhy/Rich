@@ -45,7 +45,7 @@ public class PropSelectorFactoryTest {
     public void it_should_get_an_exception_which_means_need_not_retry() {
         try {
             //when
-            factory.get("F").select(owner);
+            factory.get("f").select(owner);
         } catch (GameException e) {
             //then
             assertThat(e.isNeedRetry(), is(false));
