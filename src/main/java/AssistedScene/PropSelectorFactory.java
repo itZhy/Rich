@@ -18,7 +18,7 @@ public class PropSelectorFactory {
         selectors.put("1", new BarricadeSelector());
         selectors.put("2", new RobotSelector());
         selectors.put("3", new BombSelector());
-        selectors.put("F", new Quit());
+        selectors.put("f", new Quit());
     }
 
     public Selector get(String input) {
