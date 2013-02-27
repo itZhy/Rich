@@ -1,11 +1,9 @@
 package Estate;
 
-import Application.GameException;
 import Player.Position;
 import UI.PositionExtractor;
 import UI.UIObserver;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,8 +30,7 @@ public class EstateMap {
     public void clearBuilding(Position position) {
         Integer price = get(position).price;
         get(position).clear(position);
-        buildings.put(position, new Vacancy(null, ui));
-        buildings.get(position).markPrice(price);
+        buildings.put(position, new Vacancy(null, ui, price));
         ui.refresh();
     }
 
@@ -51,18 +48,17 @@ public class EstateMap {
     }
 
     private void initializeDefaultBuilding(UIObserver ui) {
-        try {
-            readDefaultBuilding(ui);
-        } catch (FileNotFoundException e) {
-            throw new GameException(e.toString());
+        List<Position> positions = new PositionExtractor().getBuildings();
+        for (int index = 0; index != positions.size(); ++index) {
+            buildings.put(positions.get(index), new Vacancy(null, ui, new PriceExtractor().positionToPrice(positions.get(index))));
         }
     }
 
     public String query(String role) {
-       return "地产：空地" + inquiryBuilding(role, SoldVacancy.class.toString()).size() + "处；茅屋" +
-               inquiryBuilding(role, Hovel.class.toString()).size() + "处；洋房" +
-               inquiryBuilding(role, Villa.class.toString()).size() + "处；摩天楼" +
-               inquiryBuilding(role, Skyscraper.class.toString()).size() + "处";
+        return "地产：空地" + inquiryBuilding(role, SoldVacancy.class.toString()).size() + "处；茅屋" +
+                inquiryBuilding(role, Hovel.class.toString()).size() + "处；洋房" +
+                inquiryBuilding(role, Villa.class.toString()).size() + "处；摩天楼" +
+                inquiryBuilding(role, Skyscraper.class.toString()).size() + "处";
     }
 
     public List<Building> inquiryBuilding(String role, String type) {
@@ -75,28 +71,4 @@ public class EstateMap {
         return selector;
     }
 
-    private void readDefaultBuilding(UIObserver ui) throws FileNotFoundException {
-        List<Position> positions = new PositionExtractor().getBuildings();
-        for (int index = 0; index != positions.size(); ++index) {
-            buildings.put(positions.get(index), new Vacancy(null, ui));
-        }
-        markDefaultPrice(positions);
-    }
-
-    private void markDefaultPrice(List<Position> positions) {
-        int counter = 0;
-        for (int i = 0; i != defaultPrice().size(); ++i) {
-            for (int index = 0; index != ((i == 1) ? 6 : 26); ++index) {
-                buildings.get(positions.get(counter++)).markPrice(defaultPrice().get(i));
-            }
-        }
-    }
-
-    private List<Integer> defaultPrice() {
-        return new ArrayList<Integer>() {{
-            add(200);
-            add(500);
-            add(300);
-        }};
-    }
 }

@@ -32,8 +32,7 @@ public class JudgeTest {
     @Test
     public void it_should_enable_to_buy_vacancy() {
         //given
-        Building vacancy = new Vacancy(null, ui);
-        vacancy.markPrice(200);
+        Building vacancy = new Vacancy(null, ui, 200);
         //when
         estateMap.update(new Position(3), Feature.BABY_KIN);
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
@@ -48,8 +47,7 @@ public class JudgeTest {
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //then
         Integer exceptedMoney = 10000 - 200;
-        Building vacancy = new Vacancy(null, ui);
-        vacancy.markPrice(exceptedMoney);
+        Building vacancy = new Vacancy(null, ui, exceptedMoney);
         assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
         vacancy.markPrice(exceptedMoney + 1);
         assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(false));

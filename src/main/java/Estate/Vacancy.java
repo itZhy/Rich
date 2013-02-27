@@ -5,8 +5,9 @@ import UI.UIObserver;
 
 public class Vacancy extends Building {
 
-    public Vacancy(String role, UIObserver ui) {
+    public Vacancy(String role, UIObserver ui, Integer price) {
         super(role, ui);
+        this.price = price;
     }
 
     public Building update() {

@@ -1,6 +1,5 @@
 package Estate;
 
-import UI.CommandLine;
 
 public class Buy extends Deal {
     public Buy(EstateMap estateMap, Bank bank){
