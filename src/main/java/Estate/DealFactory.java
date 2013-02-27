@@ -7,41 +7,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DealFactory {
-    private Judge judge;
+    private final Judge judge;
+    private final EstateMap estateMap;
+    private final Bank bank;
     private final Map<String, Deal> deals = new HashMap<String, Deal>();
 
     public DealFactory(EstateMap estateMap, Bank bank) {
+        this.estateMap = estateMap;
+        this.bank = bank;
         judge = new Judge(estateMap, bank);
-        initializeDeals(estateMap, bank);
     }
 
     public Deal get(Position position, String role) {
-        if (judge.hasBuilding(position)) {
-            if (judge.isMetToBuy(position, role)) {
-                return deals.get("buy").set(position, role);
-            }
-            if (judge.isMetToPay(position, role)) {
-                return deals.get("pay").set(position, role);
-            }
-            if (judge.isMetToUpdate(position, role)) {
-                return deals.get("update").set(position, role);
-            }
+        if (judge.isMetToBuy(position, role)) {
+            return new Buy(estateMap, bank);
         }
-        return deals.get("null");
+        if (judge.isMetToPay(position, role)) {
+            return new Pay(estateMap, bank);
+        }
+        if (judge.isMetToUpdate(position, role)) {
+            return new Update(estateMap, bank);
+        }
+        return new DoNothing(estateMap, bank);
     }
 
     public Deal sell(Position position, String role) {
-        if (judge.hasBuilding(position) || !judge.checkOwner(position, role)) {
+        if (!judge.checkOwner(position, role)) {
             throw new GameException("您尚未购买该地产，请重新输入。");
         }
-        return deals.get("sell").set(position, role);
-    }
-
-    private void initializeDeals(EstateMap estateMap, Bank bank) {
-        deals.put("buy", new Buy(estateMap, bank));
-        deals.put("update", new Update(estateMap, bank));
-        deals.put("pay", new Pay(estateMap, bank));
-        deals.put("sell", new Sell(estateMap, bank));
-        deals.put("null", new NullDeal(estateMap, bank));
+        return new Sell(estateMap, bank);
     }
 }

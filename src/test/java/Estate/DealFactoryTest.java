@@ -37,7 +37,7 @@ public class DealFactoryTest {
         //when
         estateMap.update(new Position(5), Feature.MADAME_CHYAN);
         Deal pay = factory.get(new Position(5), Feature.SUN_HSIAO_MEI);
-        pay.handle();
+        pay.handle(new Position(5), Feature.SUN_HSIAO_MEI);;
         //then
         assertThat(pay.getClass().toString(), is(Pay.class.toString()));
         assertThat(bank.query(Feature.MADAME_CHYAN), is("\n资金： 10100元\n"));
@@ -50,6 +50,6 @@ public class DealFactoryTest {
         bank.withdraw(Feature.SUN_HSIAO_MEI, 9900);
         Deal nullDeal = factory.get(new Position(5), Feature.SUN_HSIAO_MEI);
         //then
-        assertThat(nullDeal.getClass().toString(), is(NullDeal.class.toString()));
+        assertThat(nullDeal.getClass().toString(), is(DoNothing.class.toString()));
     }
 }

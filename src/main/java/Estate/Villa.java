@@ -25,7 +25,7 @@ public class Villa extends Building {
         ui.replace(position, new Feature().dye(owner, '1'), new Feature().dye(owner, '2'));
     }
 
-    public void clear(Position position) {
+    public void clearUI(Position position) {
         ui.replace(position, new Feature().dye(owner, '2'), new Element('0', Ansi.Color.WHITE));
     }
 

@@ -21,8 +21,7 @@ public class PayTest {
         Deal pay = new Pay(estateMap, bank);
         //when
         estateMap.update(new Position(4), Feature.SUN_HSIAO_MEI);
-        pay.set(new Position(4), Feature.UNCLE_TUU);
-        pay.handle();
+        pay.handle(new Position(4), Feature.UNCLE_TUU);
         //then
         assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 9900元\n"));
     }
@@ -34,8 +33,7 @@ public class PayTest {
         bank.setVip(Feature.UNCLE_TUU);
         //when
         estateMap.update(new Position(4), Feature.SUN_HSIAO_MEI);
-        pay.set(new Position(4), Feature.UNCLE_TUU);
-        pay.handle();
+        pay.handle(new Position(4), Feature.UNCLE_TUU);
         //then
         assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
     }

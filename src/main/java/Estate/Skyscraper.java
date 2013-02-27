@@ -26,7 +26,7 @@ public class Skyscraper extends Building {
         ui.replace(position, new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
     }
 
-    public void clear(Position position) {
+    public void clearUI(Position position) {
         ui.replace(position, new Feature().dye(owner, '3'), new Element('0', Ansi.Color.WHITE));
     }
 

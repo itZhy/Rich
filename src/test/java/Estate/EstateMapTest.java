@@ -33,13 +33,11 @@ public class EstateMapTest {
 
     @Test
     public void it_should_clear_all_buildings_of_player_after_insolvency() {
-        //given
-        EstateMap map = new EstateMap(ui);
         //when
         map.update(new Position(10), Feature.MADAME_CHYAN);
         map.update(new Position(24), Feature.MADAME_CHYAN);
         map.update(new Position(25), Feature.BABY_KIN);
-        map.clearBuildings(Feature.MADAME_CHYAN);
+        map.clearBuildingsOfOwner(Feature.MADAME_CHYAN);
         //then
         EstateMap exceptedMap = new EstateMap(ui);
         exceptedMap.update(new Position(25), Feature.BABY_KIN);
@@ -48,8 +46,6 @@ public class EstateMapTest {
 
     @Test
     public void it_should_inquiry_buildings_which_match_the_role(){
-        //given
-        EstateMap map = new EstateMap(ui);
         //when
         map.update(new Position(10), Feature.MADAME_CHYAN);
         map.update(new Position(24), Feature.MADAME_CHYAN);
@@ -60,5 +56,11 @@ public class EstateMapTest {
         map.update(new Position(24), Feature.MADAME_CHYAN);
         //then
         assertThat(map.query(Feature.MADAME_CHYAN), is("地产：空地1处；茅屋1处；洋房1处；摩天楼0处"));
+    }
+
+    @Test
+    public void it_should_check_current_position_is_building_or_not() {
+        assertThat(map.hasBuilding(new Position(19)), is(true));
+        assertThat(map.hasBuilding(new Position(0)), is(false));
     }
 }

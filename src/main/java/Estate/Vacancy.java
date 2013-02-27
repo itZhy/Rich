@@ -25,7 +25,7 @@ public class Vacancy extends Building {
     public void updateUI(Position position) {
     }
 
-    public void clear(Position position) {
+    public void clearUI(Position position) {
     }
 
     public boolean equals(Object object) {

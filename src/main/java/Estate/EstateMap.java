@@ -25,16 +25,16 @@ public class EstateMap {
     public void update(Position position, String role) {
         buildings.put(position, get(position).update(role));
         get(position).updateUI(position);
-    }
-
-    public void clearBuilding(Position position) {
-        Integer price = get(position).price;
-        get(position).clear(position);
-        buildings.put(position, new Vacancy(null, ui, price));
         ui.refresh();
     }
 
-    public void clearBuildings(String role) {
+    public void clearBuilding(Position position) {
+        get(position).clearUI(position);
+        buildings.put(position, new Vacancy(null, ui, new PriceExtractor().positionToPrice(position)));
+        ui.refresh();
+    }
+
+    public void clearBuildingsOfOwner(String role) {
         for (Map.Entry<Position, Building> house : buildings.entrySet()) {
             if (role.equals(house.getValue().owner)) clearBuilding(house.getKey());
         }
@@ -62,8 +62,12 @@ public class EstateMap {
 
     private void initializeDefaultBuilding(UIObserver ui) {
         List<Position> positions = new PositionExtractor().getBuildings();
-        for(Position position: positions){
+        for (Position position : positions) {
             buildings.put(position, new Vacancy(null, ui, new PriceExtractor().positionToPrice(position)));
         }
+    }
+
+    public boolean hasBuilding(Position position) {
+        return buildings.containsKey(position);
     }
 }

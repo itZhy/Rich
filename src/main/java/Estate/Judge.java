@@ -23,10 +23,6 @@ public class Judge {
         return (checkSoldStatus(position)) && checkPurchasingPower(position, role) && checkEnableUpdate(position);
     }
 
-    public boolean hasBuilding(Position position){
-        return estateMap.get(position) != null;
-    }
-
     public boolean checkOwner(Position position, String roleName) {
         return roleName.equals(estateMap.get(position).owner);
     }

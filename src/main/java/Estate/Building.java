@@ -14,10 +14,6 @@ public abstract class Building {
         this.ui = ui;
     }
 
-    public void markPrice(Integer price) {
-        this.price = price;
-    }
-
     public Integer sellingPrice() {
         return price * (degree + 1) * 2;
     }
@@ -32,5 +28,5 @@ public abstract class Building {
 
     public abstract void updateUI(Position position);
 
-    public abstract void clear(Position position);
+    public abstract void clearUI(Position position);
 }
