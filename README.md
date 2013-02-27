@@ -4,14 +4,15 @@ Rich
 A console-based game,which rule is similar with the classical game Richman.
 
 How to use it?
-1   First, verify that you correctly installed maven.
 
-2   git clone git://github.com/itZhy/Rich.git
+1     First, verify that you correctly installed maven.
 
-3   cd rich
+2     git clone git://github.com/itZhy/Rich.git
 
-4   mvn install
+3     cd rich
 
-5   cd target
+4     mvn install
 
-6   enter rich(for windows) or sh rich(for linux)
+5     cd target
+
+6     enter rich(for windows) or sh rich(for linux)
