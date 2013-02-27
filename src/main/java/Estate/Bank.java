@@ -11,9 +11,7 @@ public class Bank {
     private VipManager vipManager = new VipManager();
 
     public void reset(Integer fund) {
-        if (fund < 1000 || fund > 50000) {
-            throw new GameException("输入金额有误。");
-        }
+        if (fund < 1000 || fund > 50000) throw new GameException("输入金额有误。");
         initialFund = fund;
     }
 

@@ -11,24 +11,35 @@ public class Judge {
         this.bank = bank;
     }
 
-    public boolean checkSoldStatus(Position position) {
+    public boolean isMetToBuy(Position position, String role) {
+        return (!checkSoldStatus(position)) && checkPurchasingPower(position, role);
+    }
+
+    public boolean isMetToPay(Position position, String role) {
+        return (checkSoldStatus(position)) && !checkOwner(position, role);
+    }
+
+    public boolean isMetToUpdate(Position position, String role) {
+        return (checkSoldStatus(position)) && checkPurchasingPower(position, role) && checkEnableUpdate(position);
+    }
+
+    public boolean hasBuilding(Position position){
+        return estateMap.get(position) != null;
+    }
+
+    public boolean checkOwner(Position position, String roleName) {
+        return roleName.equals(estateMap.get(position).owner);
+    }
+
+    private boolean checkSoldStatus(Position position) {
         return (estateMap.get(position).getClass() != Vacancy.class);
     }
 
-    public boolean checkOwner(String player, Building house) {
-        return player.equals(house.owner);
+    private boolean checkPurchasingPower(Position position, String role) {
+        return bank.checkPurchasingPower(role, estateMap.get(position).price);
     }
 
-    public boolean checkPurchasingPower(String role, Building house) {
-        return bank.checkPurchasingPower(role, house.price);
-    }
-
-    public boolean equals(Object object) {
-        return getClass() == object.getClass() &&
-                bank.equals(((Judge) object).bank);
-    }
-
-    public boolean checkEnableUpdate(Position position) {
+    private boolean checkEnableUpdate(Position position) {
         return (estateMap.get(position).getClass() != Skyscraper.class);
     }
 }

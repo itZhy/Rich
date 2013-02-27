@@ -22,6 +22,10 @@ public abstract class Building {
         return price * (degree + 1) * 2;
     }
 
+    public boolean matchOwnerAndType(String role, String type){
+        return role.equals(owner) && type.equals(getClass().toString());
+    }
+
     public abstract Integer toll();
 
     public abstract Building update(String owner);

@@ -36,22 +36,13 @@ public class EstateMap {
 
     public void clearBuildings(String role) {
         for (Map.Entry<Position, Building> house : buildings.entrySet()) {
-            if (role.equals(house.getValue().owner)) {
-                clearBuilding(house.getKey());
-            }
+            if (role.equals(house.getValue().owner)) clearBuilding(house.getKey());
         }
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 buildings.equals(((EstateMap) object).buildings);
-    }
-
-    private void initializeDefaultBuilding(UIObserver ui) {
-        List<Position> positions = new PositionExtractor().getBuildings();
-        for (int index = 0; index != positions.size(); ++index) {
-            buildings.put(positions.get(index), new Vacancy(null, ui, new PriceExtractor().positionToPrice(positions.get(index))));
-        }
     }
 
     public String query(String role) {
@@ -61,14 +52,18 @@ public class EstateMap {
                 inquiryBuilding(role, Skyscraper.class.toString()).size() + "处";
     }
 
-    public List<Building> inquiryBuilding(String role, String type) {
+    private List<Building> inquiryBuilding(String role, String type) {
         List<Building> selector = new ArrayList<Building>();
         for (Building house : buildings.values()) {
-            if (role.equals(house.owner) && type.equals(house.getClass().toString())) {
-                selector.add(house);
-            }
+            if (house.matchOwnerAndType(role, type)) selector.add(house);
         }
         return selector;
     }
 
+    private void initializeDefaultBuilding(UIObserver ui) {
+        List<Position> positions = new PositionExtractor().getBuildings();
+        for(Position position: positions){
+            buildings.put(position, new Vacancy(null, ui, new PriceExtractor().positionToPrice(position)));
+        }
+    }
 }

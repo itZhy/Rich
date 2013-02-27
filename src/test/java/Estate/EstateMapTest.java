@@ -45,4 +45,20 @@ public class EstateMapTest {
         exceptedMap.update(new Position(25), Feature.BABY_KIN);
         assertThat(map, is(exceptedMap));
     }
+
+    @Test
+    public void it_should_inquiry_buildings_which_match_the_role(){
+        //given
+        EstateMap map = new EstateMap(ui);
+        //when
+        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(24), Feature.MADAME_CHYAN);
+        map.update(new Position(25), Feature.MADAME_CHYAN);
+
+        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(24), Feature.MADAME_CHYAN);
+        map.update(new Position(24), Feature.MADAME_CHYAN);
+        //then
+        assertThat(map.query(Feature.MADAME_CHYAN), is("地产：空地1处；茅屋1处；洋房1处；摩天楼0处"));
+    }
 }

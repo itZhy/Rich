@@ -24,20 +24,18 @@ public class JudgeTest {
     @Test
     public void it_should_check_field_is_vacant() {
         //when
-        boolean result = controller.checkSoldStatus(new Position(3));
+        boolean result = controller.isMetToBuy(new Position(3), null);
         //then
-        assertThat(result, is(false));
+        assertThat(result, is(true));
     }
 
     @Test
-    public void it_should_enable_to_buy_vacancy() {
-        //given
-        Building vacancy = new Vacancy(null, ui, 200);
+    public void it_should_enable_to_update_vacancy() {
         //when
         estateMap.update(new Position(3), Feature.BABY_KIN);
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //then
-        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
+        assertThat(controller.isMetToUpdate(new Position(3), Feature.BABY_KIN), is(true));
     }
 
     @Test
@@ -47,19 +45,19 @@ public class JudgeTest {
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //then
         Integer exceptedMoney = 10000 - 200;
-        Building vacancy = new Vacancy(null, ui, exceptedMoney);
-        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(true));
-        vacancy.markPrice(exceptedMoney + 1);
-        assertThat(controller.checkPurchasingPower(Feature.BABY_KIN, vacancy), is(false));
+        estateMap.get(new Position(3)).markPrice(exceptedMoney);
+        assertThat(controller.isMetToUpdate(new Position(3), Feature.BABY_KIN), is(true));
+        estateMap.get(new Position(3)).markPrice(exceptedMoney + 1);
+        assertThat(controller.isMetToUpdate(new Position(3), Feature.BABY_KIN), is(false));
     }
 
     @Test
     public void it_should_check_building_is_owned_to_player_or_not() {
         //given
-        Building soldVacancy = new SoldVacancy(Feature.BABY_KIN, ui, 300);
+        estateMap.update(new Position(25), Feature.BABY_KIN);
         //then
-        assertThat(controller.checkOwner(Feature.BABY_KIN, soldVacancy), is(true));
-        assertThat(controller.checkOwner(Feature.SUN_HSIAO_MEI, soldVacancy), is(false));
+        assertThat(controller.checkOwner(new Position(25), Feature.BABY_KIN), is(true));
+        assertThat(controller.checkOwner(new Position(25), Feature.SUN_HSIAO_MEI), is(false));
     }
 
     @Test
@@ -68,8 +66,23 @@ public class JudgeTest {
         estateMap.update(new Position(3), Feature.BABY_KIN);
         bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
         //when
-        boolean result = controller.checkSoldStatus(new Position(3));
+        boolean result = controller.isMetToUpdate(new Position(3), Feature.BABY_KIN);
         //then
         assertThat(result, is(true));
+    }
+
+    @Test
+    public void it_should_pay_rent_for_owner_of_building() {
+        //given
+        estateMap.update(new Position(3), Feature.BABY_KIN);
+        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).price);
+        //then
+        assertThat(controller.isMetToPay(new Position(3), Feature.MADAME_CHYAN), is(true));
+    }
+
+    @Test
+    public void it_should_check_current_position_is_building_or_not() {
+        assertThat(controller.hasBuilding(new Position(19)), is(true));
+        assertThat(controller.hasBuilding(new Position(0)), is(false));
     }
 }
