@@ -33,8 +33,9 @@ public class PropMap {
 
     public void trigger(Movement movement) {
         if (props.containsKey(movement.currentPosition())) {
-            props.get(movement.currentPosition()).handle(movement);
+            Prop prop = props.get(movement.currentPosition());
             removeProp(movement.currentPosition());
+            prop.handle(movement);
         }
     }
 

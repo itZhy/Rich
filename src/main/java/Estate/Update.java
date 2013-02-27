@@ -8,7 +8,7 @@ public class Update extends Deal {
     }
 
     public void handle(Position position, String roleName) {
-        if (isAgree("是否花费" + estateMap.get(position).basePrice + "元升级该地产?")) {
+        if (isAgree("是否花费" + estateMap.get(position).basePrice + "元升级该地产？Y：是，N：否")) {
             estateMap.update(position, roleName);
             bank.withdraw(estateMap.get(position).owner, estateMap.get(position).basePrice);
         }
