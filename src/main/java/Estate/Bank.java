@@ -30,6 +30,14 @@ public class Bank {
         return vipManager.isVip(account);
     }
 
+    public void setVip(String role) {
+        vipManager.setVip(role);
+    }
+
+    public void pass(String role){
+        vipManager.pass(role);
+    }
+
     public void add(String account, Integer money) {
         initializeWhenNotExist(account);
         funds.get(account).add(money);
@@ -38,10 +46,6 @@ public class Bank {
     public boolean checkPurchasingPower(String account, Integer price) {
         initializeWhenNotExist(account);
         return funds.get(account).isGreaterOrEqualThan(price);
-    }
-
-    public void setVip(String role) {
-        vipManager.setVip(role);
     }
 
     public boolean equals(Object object) {

@@ -20,6 +20,7 @@ public class EstateManager implements Observer {
         if (estateMap.hasBuilding(movement.currentPosition())) {
             dealFactory.get(movement.currentPosition(), role).handle(movement.currentPosition(), role);
         }
+        bank.pass(role);
     }
 
     public void sell(Position position, String role) {

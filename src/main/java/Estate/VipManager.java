@@ -11,9 +11,9 @@ public class VipManager {
         vips.put(account, new Vip());
     }
 
-    public void pass() {
-        for (Vip vip : vips.values()) {
-            vip.pass();
+    public void pass(String account) {
+        if(vips.containsKey(account)){
+            vips.get(account).pass();
         }
         removeExpiredVips();
     }
