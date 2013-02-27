@@ -3,6 +3,7 @@ package Player;
 import UI.PositionExtractor;
 
 public class Movement {
+    public static final Position INVALID_POSITION = new Position(-1);
     private Position currentPosition = new Position(0);
     private Position previousPosition = new Position(0);
     private int stayTimes = 0;
@@ -36,6 +37,11 @@ public class Movement {
 
     public Position previousPosition() {
         return previousPosition;
+    }
+
+    public void leave() {
+        previousPosition = currentPosition;
+        currentPosition = INVALID_POSITION;
     }
 
     public boolean equals(Object object) {
