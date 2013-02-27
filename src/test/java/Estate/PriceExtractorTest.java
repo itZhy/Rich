@@ -12,8 +12,8 @@ public class PriceExtractorTest {
         //given
         PriceExtractor extractor = new PriceExtractor();
         //then
-        assertThat(extractor.positionToPrice(new Position(3)), is(200));
-        assertThat(extractor.positionToPrice(new Position(32)), is(500));
-        assertThat(extractor.positionToPrice(new Position(37)), is(300));
+        assertThat(extractor.priceOfPosition(new Position(3)), is(200));
+        assertThat(extractor.priceOfPosition(new Position(32)), is(500));
+        assertThat(extractor.priceOfPosition(new Position(37)), is(300));
     }
 }

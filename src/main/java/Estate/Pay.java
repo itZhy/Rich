@@ -11,6 +11,7 @@ public class Pay extends Deal {
     public void handle(Position position, String roleName) {
         if (bank.isVip(roleName)) {
             showPromptMessage("福神附身，可免过路费");
+            return;
         }
 
         pay(position, roleName);

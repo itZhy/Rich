@@ -3,7 +3,6 @@ package Estate;
 import Player.Position;
 import UI.PositionExtractor;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,28 +10,37 @@ import java.util.Map;
 public class PriceExtractor {
     Map<Position, Integer> prices = new HashMap<Position, Integer>();
 
-    public PriceExtractor(){
-        markDefaultPrice(new PositionExtractor().getBuildings());
+    public PriceExtractor() {
+        initializePrices(new PositionExtractor().getBuildings());
     }
 
-    public Integer positionToPrice(Position position) {
+    public Integer priceOfPosition(Position position) {
         return prices.get(position);
     }
 
-    private void markDefaultPrice(List<Position> positions) {
-        int counter = 0;
-        for (int i = 0; i != defaultPrice().size(); ++i) {
-            for (int index = 0; index != ((i == 1) ? 6 : 26); ++index) {
-                prices.put(positions.get(counter++), defaultPrice().get(i));
-            }
+    private void initializePrices(List<Position> positions) {
+        setPriceOfTop(positions);
+        setPriceOfLeft(positions);
+        setPriceOfBottom(positions);
+    }
+
+    private void setPriceOfTop(List<Position> positions) {
+        for (int index = 0; index != 26; ++index) {
+            prices.put(positions.get(index), 200);
         }
     }
 
-    private List<Integer> defaultPrice() {
-        return new ArrayList<Integer>() {{
-            add(200);
-            add(500);
-            add(300);
-        }};
+    private void setPriceOfLeft(List<Position> positions) {
+        for (int index = 26; index != 32; ++index) {
+            prices.put(positions.get(index), 500);
+        }
+
+    }
+
+    private void setPriceOfBottom(List<Position> positions) {
+        for (int index = 32; index != 58; ++index) {
+            prices.put(positions.get(index), 300);
+        }
+
     }
 }

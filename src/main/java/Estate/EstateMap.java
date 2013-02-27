@@ -30,7 +30,7 @@ public class EstateMap {
 
     public void clearBuilding(Position position) {
         get(position).clearUI(position, ui);
-        buildings.put(position, new Vacancy(new PriceExtractor().positionToPrice(position)));
+        buildings.put(position, new Vacancy(new PriceExtractor().priceOfPosition(position)));
         ui.refresh();
     }
 
@@ -65,7 +65,7 @@ public class EstateMap {
     private void initializeDefaultBuilding() {
         List<Position> positions = new PositionExtractor().getBuildings();
         for (Position position : positions) {
-            buildings.put(position, new Vacancy(new PriceExtractor().positionToPrice(position)));
+            buildings.put(position, new Vacancy(new PriceExtractor().priceOfPosition(position)));
         }
     }
 
