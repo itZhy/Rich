@@ -10,6 +10,6 @@ public class PropException extends RuntimeException {
     }
 
     public void showPromptMessage() {
-        new CommandLine().outputInNewline(message);
+        new CommandLine().waitForInput(message + " 按任意键继续。");
     }
 }

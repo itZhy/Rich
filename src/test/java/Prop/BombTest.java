@@ -14,7 +14,10 @@ public class BombTest {
         Prop bomb = new Bomb(Feature.UNCLE_TUU);
         //when
         Movement movement = new Movement();
-        bomb.handle(movement);
+        try {
+            bomb.handle(movement);
+        } catch (PropException e) {
+        }
         //then
         Movement exceptedMovement = new Movement();
         exceptedMovement.jumpToHospital();

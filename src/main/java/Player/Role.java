@@ -47,7 +47,6 @@ public class Role {
     }
 
     private void walk(int step) {
-        callback.notifyWhileForwarding(name(), movement);
         for (int count = 0; count != step; ++count) {
             movement.walk();
             callback.notifyWhileForwarding(name(), movement);

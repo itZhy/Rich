@@ -34,6 +34,7 @@ public class SubSystem {
         callback.attachForwardingObserver(movementMonitor);
         callback.attachForwardedObserver(estateManager);
         callback.attachForwardedObserver(sceneManager);
+        callback.attachForwardedObserver(movementMonitor);
         return callback;
     }
 }

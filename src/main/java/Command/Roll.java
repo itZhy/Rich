@@ -13,7 +13,7 @@ public class Roll implements Command {
     }
 
     public void execute(Role role, int argument) {
-        role.forward(argument);
+        role.forward(dice.roll());
         rounder.next();
     }
 
