@@ -38,6 +38,7 @@ public class Rounder {
     private boolean isOnlyOneRoleAfterDelete(Role role) {
         role.leave();
         orderedRoles.remove(role);
+        currentIndex %= orderedRoles.size();
         return 1 == orderedRoles.size();
     }
 }
