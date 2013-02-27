@@ -34,7 +34,7 @@ public class EstateManager implements Observer {
     }
 
     public void earnMoney(String account, Integer money) {
-        bank.earnMoney(account, money);
+        bank.add(account, money);
     }
 
     public void setInitialFund(Integer initialFund) {

@@ -1,33 +1,17 @@
 package Estate;
 
-import Player.Callback;
+import Application.GameException;
 import Player.Feature;
-import Player.Role;
-import UI.Map;
-import UI.UIObserver;
-import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
 public class SkyscraperTest {
-    private static final int COST = 200;
-    private Skyscraper skyscraper;
-    private String role;
 
-    @Before
-    public void setUp() {
-        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
-        role = owner.getClass().toString();
-        skyscraper = new Skyscraper(role, COST);
-    }
-
-    @Test
+    @Test(expected = GameException.class)
     public void it_should_forbid_operate_player_to_update() {
+        //given
+        String owner = Feature.SUN_HSIAO_MEI;
+        Skyscraper skyscraper = new Skyscraper(owner, 200);
         //when
-        Building updatedBuilding = skyscraper.update(role);
-        //then
-        assertThat(updatedBuilding, is((Building) null));
+        skyscraper.update(owner);
     }
 }

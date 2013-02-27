@@ -29,6 +29,11 @@ public class Role {
         return movement.currentPosition();
     }
 
+    public void leave() {
+        movement.leave();
+        callback.notifyWhileForwarding(name(), movement);
+    }
+
     public boolean equals(Object object) {
         return getClass() == object.getClass() && movement.equals(((Role) object).movement);
     }

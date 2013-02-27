@@ -3,14 +3,10 @@ package Estate;
 import Application.GameException;
 import Player.Position;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class DealFactory {
     private final Judge judge;
     private final EstateMap estateMap;
     private final Bank bank;
-    private final Map<String, Deal> deals = new HashMap<String, Deal>();
 
     public DealFactory(EstateMap estateMap, Bank bank) {
         this.estateMap = estateMap;

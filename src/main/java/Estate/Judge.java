@@ -20,11 +20,11 @@ public class Judge {
     }
 
     public boolean isMetToUpdate(Position position, String role) {
-        return (checkSoldStatus(position)) && checkPurchasingPower(position, role) && checkEnableUpdate(position);
+        return (checkSoldStatus(position)) && checkPurchasingPower(position, role) && isUpdateToTop(position);
     }
 
     public boolean checkOwner(Position position, String roleName) {
-        return roleName.equals(estateMap.get(position).owner);
+        return estateMap.get(position).isOwner(roleName);
     }
 
     private boolean checkSoldStatus(Position position) {
@@ -35,7 +35,7 @@ public class Judge {
         return bank.checkPurchasingPower(role, estateMap.get(position).basePrice);
     }
 
-    private boolean checkEnableUpdate(Position position) {
+    private boolean isUpdateToTop(Position position) {
         return (estateMap.get(position).getClass() != Skyscraper.class);
     }
 }

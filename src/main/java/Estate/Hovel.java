@@ -8,7 +8,8 @@ import org.fusesource.jansi.Ansi;
 
 public class Hovel extends Building {
     public Hovel(String owner, Integer price) {
-        super(owner, price);
+        super(price);
+        this.owner = owner;
     }
 
     public Building update(String owner) {

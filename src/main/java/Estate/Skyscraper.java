@@ -1,5 +1,6 @@
 package Estate;
 
+import Application.GameException;
 import Player.Feature;
 import Player.Position;
 import UI.Element;
@@ -8,12 +9,13 @@ import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(String role, Integer price) {
-        super(role, price);
+    public Skyscraper(String owner, Integer basePrice) {
+        super(basePrice);
+        this.owner = owner;
     }
 
     public Building update(String owner) {
-        return null;
+        throw new GameException("已经是最高级，不能再升级了。");
     }
 
     public int toll() {

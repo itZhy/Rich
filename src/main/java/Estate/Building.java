@@ -7,9 +7,12 @@ public abstract class Building {
     protected String owner;
     protected int basePrice;
 
-    public Building(String owner, int basePrice) {
-        this.owner = owner;
+    public Building(int basePrice) {
         this.basePrice = basePrice;
+    }
+
+    public boolean isOwner(String roleName) {
+        return roleName.equals(owner);
     }
 
     public abstract int sellingPrice();
@@ -18,7 +21,7 @@ public abstract class Building {
 
     public abstract int toll();
 
-    public boolean matchOwnerAndType(String role, String type){
+    public boolean matchOwnerAndType(String role, String type) {
         return role.equals(owner) && type.equals(getClass().toString());
     }
 
