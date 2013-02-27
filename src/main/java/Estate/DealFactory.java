@@ -23,6 +23,6 @@ public class DealFactory {
         if (judge.isMetToUpdate(position, role)) {
             return new Update(estateMap, bank);
         }
-        return new DoNothing(estateMap, bank);
+        return new Idle(estateMap, bank);
     }
 }
