@@ -39,15 +39,6 @@ public class JudgeTest {
     }
 
     @Test
-    public void it_should_check_building_is_owned_to_player_or_not() {
-        //given
-        estateMap.update(new Position(25), Feature.BABY_KIN);
-        //then
-        assertThat(controller.checkOwner(new Position(25), Feature.BABY_KIN), is(true));
-        assertThat(controller.checkOwner(new Position(25), Feature.SUN_HSIAO_MEI), is(false));
-    }
-
-    @Test
     public void it_should_check_field_is_not_vacant() {
         //given
         estateMap.update(new Position(3), Feature.BABY_KIN);

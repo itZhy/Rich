@@ -26,7 +26,11 @@ public class EstateManager implements Observer {
         if (!estateMap.hasBuilding(position)) {
             throw new GameException("该地不可买卖。");
         }
-        dealFactory.sell(position, role).handle(position, role);
+        if (!estateMap.get(position).isOwner(role)) {
+            throw new GameException("您尚未购买该地产，请重新输入。");
+        }
+        bank.add(role, estateMap.get(position).sellingPrice());
+        estateMap.clearBuilding(position);
     }
 
     public void setVip(String role) {

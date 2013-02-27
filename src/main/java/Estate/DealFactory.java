@@ -1,6 +1,5 @@
 package Estate;
 
-import Application.GameException;
 import Player.Position;
 
 public class DealFactory {
@@ -25,12 +24,5 @@ public class DealFactory {
             return new Update(estateMap, bank);
         }
         return new DoNothing(estateMap, bank);
-    }
-
-    public Deal sell(Position position, String role) {
-        if (!judge.checkOwner(position, role)) {
-            throw new GameException("您尚未购买该地产，请重新输入。");
-        }
-        return new Sell(estateMap, bank);
     }
 }
