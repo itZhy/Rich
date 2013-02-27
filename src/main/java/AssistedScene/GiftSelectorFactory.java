@@ -34,6 +34,7 @@ public class GiftSelectorFactory {
 
     private class BonusSelector implements Selector {
         public void select(String roleName) {
+            estateManager.earnMoney(roleName, 2000);
             showPromptMessage("恭喜您获得2000金钱。");
         }
     }
