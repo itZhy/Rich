@@ -9,12 +9,16 @@ public class Pay extends Deal {
     }
 
     public void handle(Position position, String roleName) {
-        if (!bank.isVip(roleName)) {
-            showPromptMessage("路过他人地产，留下" + estateMap.get(position).toll() + "元买路钱(>_<)");
-            bank.withdraw(roleName, estateMap.get(position).toll());
-        } else {
+        if (bank.isVip(roleName)) {
             showPromptMessage("福神附身，可免过路费");
         }
+
+        pay(position, roleName);
+    }
+
+    private void pay(Position position, String roleName) {
+        showPromptMessage("路过他人地产，留下" + estateMap.get(position).toll() + "元过路费(>_<)");
+        bank.withdraw(roleName, estateMap.get(position).toll());
         bank.add(estateMap.get(position).owner, estateMap.get(position).toll());
     }
 
