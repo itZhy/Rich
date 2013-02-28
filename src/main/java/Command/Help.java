@@ -16,7 +16,7 @@ public class Help implements Command {
         try {
             showHelpMessage();
         } catch (FileNotFoundException e) {
-            throw new GameException("未找到帮助文件。");
+            throw new GameException("未找到帮助文件。", GameException.NEED_RETRY);
         }
     }
 

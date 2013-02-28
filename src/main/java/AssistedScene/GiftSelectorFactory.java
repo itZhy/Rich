@@ -23,7 +23,7 @@ public class GiftSelectorFactory {
 
     public Selector get(String input) {
         if (!selectors.containsKey(input)) {
-            throw new GameException("您所选择的礼品不存在，记得下次输入1，2或3。");
+            throw new GameException("您所选择的礼品不存在，记得下次输入1，2或3。", GameException.NEED_RETRY);
         }
         return selectors.get(input);
     }
@@ -34,7 +34,7 @@ public class GiftSelectorFactory {
 
     private class BonusSelector implements Selector {
         public void select(String roleName) {
-            estateManager.earnMoney(roleName, 2000);
+            estateManager.bonus(roleName);
             showPromptMessage("恭喜您获得2000金钱。");
         }
     }

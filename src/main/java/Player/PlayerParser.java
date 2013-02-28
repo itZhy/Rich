@@ -17,7 +17,7 @@ public class PlayerParser {
 
     public Role get(Character number) {
         if (!stringToPlayers.containsKey(number)) {
-            throw new GameException("输入的角色不存在，请重新输入。");
+            throw new GameException("输入的角色不存在，请重新输入。", GameException.NEED_RETRY);
         }
         return stringToPlayers.get(number);
     }

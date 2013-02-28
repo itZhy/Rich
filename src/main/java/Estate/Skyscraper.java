@@ -15,7 +15,7 @@ public class Skyscraper extends Building {
     }
 
     public Building update(String owner) {
-        throw new GameException("已经是最高级，不能再升级了。");
+        throw new GameException("已经是最高级，不能再升级了。", GameException.NEED_NOT_RETRY);
     }
 
     public int toll() {

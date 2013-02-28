@@ -3,7 +3,7 @@ package Prop;
 import Application.GameException;
 import UI.CommandLine;
 
-public class Property {
+class Property {
     private static final int MIN_PRICE = 30;
     private final PropBox box = new PropBox();
     private Integer point = 0;
@@ -23,8 +23,8 @@ public class Property {
     }
 
     public void consume(Prop prop) {
-        if (!box.remove(prop)) {
-            throw new GameException("您没有此道具，请重新输入。");
+        if (box.isRemoveFailed(prop)) {
+            throw new GameException("您没有此道具，请重新输入。", GameException.NEED_RETRY);
         }
     }
 
@@ -54,7 +54,7 @@ public class Property {
         }
 
         if (prop.price() > point) {
-            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。");
+            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。", GameException.NEED_RETRY);
         }
     }
 

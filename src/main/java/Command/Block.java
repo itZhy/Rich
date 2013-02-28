@@ -19,7 +19,7 @@ public class Block implements Command {
 
     private void checkArgument(int argument) {
         if (argument > 10 || argument < -10) {
-            throw new GameException("路障只能设置在当前位置前后10步的距离，请重新输入。");
+            throw new GameException("路障只能设置在当前位置前后10步的距离，请重新输入。", GameException.NEED_RETRY);
         }
     }
 }

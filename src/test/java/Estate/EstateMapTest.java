@@ -4,22 +4,29 @@ import Player.Feature;
 import Player.Position;
 import UI.Map;
 import UI.UIObserver;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class EstateMapTest {
-    private UIObserver ui = new Map();
-    private EstateMap map = new EstateMap(ui);
+    private UIObserver ui;
+    private EstateMap map;
+
+    @Before
+    public void setUp() {
+        ui = new Map();
+        map = new EstateMap(ui);
+    }
 
     @Test
-    public void it_should_update_building_after_payed(){
+    public void it_should_update_building_after_payed() {
         //when
         map.update(new Position(10), Feature.MADAME_CHYAN);
         map.update(new Position(10), Feature.MADAME_CHYAN);
         //then
-        assertThat(map.get(new Position(10)), is((Building)new Hovel(Feature.MADAME_CHYAN, 200)));
+        assertThat(map.get(new Position(10)), is((Building) new Hovel(Feature.MADAME_CHYAN, 200)));
     }
 
     @Test
@@ -45,7 +52,7 @@ public class EstateMapTest {
     }
 
     @Test
-    public void it_should_inquiry_buildings_which_match_the_role(){
+    public void it_should_inquiry_buildings_which_match_the_role() {
         //when
         map.update(new Position(10), Feature.MADAME_CHYAN);
         map.update(new Position(24), Feature.MADAME_CHYAN);

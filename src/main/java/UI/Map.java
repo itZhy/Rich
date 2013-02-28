@@ -48,7 +48,7 @@ public class Map implements UIObserver {
         try {
             readDefaultMap();
         } catch (FileNotFoundException e) {
-            throw new GameException(e.toString());
+            throw new GameException(DEFAULT_MAP_PATH + "不存在", GameException.NEED_NOT_RETRY);
         }
     }
 

@@ -3,7 +3,7 @@ package Prop;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Ownership {
+class Ownership {
     private final Map<String, Property> properties = new HashMap<String, Property>();
 
     public void add(String owner, int point) {

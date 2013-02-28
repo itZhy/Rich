@@ -2,7 +2,7 @@ package Estate;
 
 import Player.Position;
 
-public class DealFactory {
+class DealFactory {
     private final Judge judge;
     private final EstateMap estateMap;
     private final Bank bank;

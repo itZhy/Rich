@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EstateMap {
+class EstateMap {
     private final Map<Position, Building> buildings = new HashMap<Position, Building>();
     private final UIObserver ui;
 

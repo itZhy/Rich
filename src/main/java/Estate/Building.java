@@ -3,11 +3,11 @@ package Estate;
 import Player.Position;
 import UI.UIObserver;
 
-public abstract class Building {
-    protected String owner;
-    protected int basePrice;
+abstract class Building {
+    final int basePrice;
+    String owner;
 
-    public Building(int basePrice) {
+    Building(int basePrice) {
         this.basePrice = basePrice;
     }
 

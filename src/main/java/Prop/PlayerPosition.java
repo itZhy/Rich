@@ -5,7 +5,7 @@ import Player.Position;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlayerPosition {
+class PlayerPosition {
     private final Map<String, Position> positions = new HashMap<String, Position>();
 
     public void record(String roleName, Position position) {

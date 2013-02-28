@@ -2,7 +2,7 @@ package Estate;
 
 import Player.Position;
 
-public class Judge {
+class Judge {
     private final EstateMap estateMap;
     private final Bank bank;
 
@@ -16,15 +16,15 @@ public class Judge {
     }
 
     public boolean isMetToPay(Position position, String role) {
-        return (isSold(position)) && !isOwner(position, role);
+        return (isSold(position)) && isNotOwner(position, role);
     }
 
     public boolean isMetToUpdate(Position position, String role) {
         return (isSold(position)) && canAfford(position, role) && isUpdateToTop(position);
     }
 
-    private boolean isOwner(Position position, String roleName) {
-        return estateMap.get(position).isOwner(roleName);
+    private boolean isNotOwner(Position position, String roleName) {
+        return !estateMap.get(position).isOwner(roleName);
     }
 
     private boolean isSold(Position position) {

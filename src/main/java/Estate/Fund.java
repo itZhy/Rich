@@ -1,7 +1,6 @@
 package Estate;
 
-
-public class Fund {
+class Fund {
     private Integer money;
 
     public Fund(Integer initialMoney) {

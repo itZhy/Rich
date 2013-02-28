@@ -3,17 +3,23 @@ package Estate;
 import Player.Feature;
 import Player.Position;
 import UI.Map;
-import UI.UIObserver;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class DealFactoryTest {
-    private UIObserver ui = new Map();
-    private EstateMap estateMap = new EstateMap(ui);
-    private Bank bank = new Bank();
-    private DealFactory factory = new DealFactory(estateMap, bank);
+    private EstateMap estateMap;
+    private Bank bank;
+    private DealFactory factory;
+
+    @Before
+    public void setUp() {
+        estateMap = new EstateMap(new Map());
+        bank = new Bank();
+        factory = new DealFactory(estateMap, bank);
+    }
 
     @Test
     public void it_should_check_whether_buy_it_or_not_when_building_is_vacancy() {
@@ -37,7 +43,7 @@ public class DealFactoryTest {
         //when
         estateMap.update(new Position(5), Feature.MADAME_CHYAN);
         Deal pay = factory.get(new Position(5), Feature.SUN_HSIAO_MEI);
-        pay.handle(new Position(5), Feature.SUN_HSIAO_MEI);;
+        pay.handle(new Position(5), Feature.SUN_HSIAO_MEI);
         //then
         assertThat(pay.getClass().toString(), is(Pay.class.toString()));
         assertThat(bank.query(Feature.MADAME_CHYAN), is("\n资金： 10100元\n"));

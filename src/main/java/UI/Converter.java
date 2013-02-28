@@ -29,7 +29,7 @@ class Converter {
         try {
             readConfigFile();
         } catch (FileNotFoundException e) {
-            throw new GameException(e.toString());
+            throw new GameException(CONFIG_FILE_PATH + "文件不存在。", GameException.NEED_NOT_RETRY);
         }
     }
 

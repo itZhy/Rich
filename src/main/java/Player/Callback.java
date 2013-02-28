@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Callback {
-    private List<Observer> forwardingObservers = new ArrayList<Observer>();
-    private List<Observer> forwardedObservers = new ArrayList<Observer>();
+    private final List<Observer> forwardingObservers = new ArrayList<Observer>();
+    private final List<Observer> forwardedObservers = new ArrayList<Observer>();
 
     public void attachForwardingObserver(Observer observer) {
         forwardingObservers.add(observer);

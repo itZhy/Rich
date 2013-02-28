@@ -13,14 +13,12 @@ import static org.junit.Assert.assertThat;
 public class GiftSelectorFactoryTest {
     private GiftSelectorFactory factory;
     private PropManager propManager;
-    private EstateManager estateManager;
     private String owner;
 
     @Before
     public void setUp() {
         propManager = new PropManager(new Map());
-        estateManager = new EstateManager(new Map());
-        factory = new GiftSelectorFactory(propManager, estateManager);
+        factory = new GiftSelectorFactory(propManager, new EstateManager(new Map()));
         owner = Feature.UNCLE_TUU;
     }
 

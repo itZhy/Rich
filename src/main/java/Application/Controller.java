@@ -23,7 +23,7 @@ class Controller {
         try {
             subSystem.getEstateManager().setInitialFund(Integer.parseInt(fund));
         } catch (java.lang.NumberFormatException e) {
-            throw new GameException("输入金额有误。");
+            throw new GameException("输入金额有误。", GameException.NEED_RETRY);
         }
     }
 
@@ -50,7 +50,7 @@ class Controller {
 
     private void checkInputPlayers(String players) {
         if (players.isEmpty()) {
-            throw new GameException("您尚未选择任何玩家，请重新输入。");
+            throw new GameException("您尚未选择任何玩家，请重新输入。", GameException.NEED_RETRY);
         }
     }
 }

@@ -28,7 +28,7 @@ public class CommandLine {
         try {
             return new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
-            throw new GameException("读取输入失败，请重新输入。");
+            throw new GameException("读取输入失败，请重新输入。", GameException.NEED_RETRY);
         }
     }
 }

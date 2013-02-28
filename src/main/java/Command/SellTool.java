@@ -31,7 +31,7 @@ public class SellTool implements Command {
 
         public Prop get(int argument) {
             if (!props.containsKey(argument)) {
-                throw new GameException("你选择的道具编号不存在，请重新输入1，2或3。");
+                throw new GameException("你选择的道具编号不存在，请重新输入1，2或3。", GameException.NEED_RETRY);
             }
             return props.get(argument);
         }

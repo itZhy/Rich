@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PriceExtractor {
-    Map<Position, Integer> prices = new HashMap<Position, Integer>();
+class PriceExtractor {
+    private final Map<Position, Integer> prices = new HashMap<Position, Integer>();
 
     public PriceExtractor() {
         initializePrices(new PositionExtractor().getBuildings());

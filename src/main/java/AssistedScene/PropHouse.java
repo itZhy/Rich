@@ -19,7 +19,8 @@ public class PropHouse implements Scene {
     }
 
     private void handleInputUntilQuit(String roleName) {
-        while (handleInput(roleName));
+        while (handleInput(roleName)) {
+        }
     }
 
     private boolean handleInput(String roleName) {

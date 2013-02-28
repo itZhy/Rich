@@ -3,17 +3,22 @@ package Estate;
 import Player.Feature;
 import Player.Position;
 import UI.Map;
-import UI.UIObserver;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class BankTest {
-    private UIObserver ui = new Map();
-    private EstateMap estateMap = new EstateMap(ui);
-    private Bank bank = new Bank();
+    private EstateMap estateMap;
+    private Bank bank;
+
+    @Before
+    public void setUp() {
+        estateMap = new EstateMap(new Map());
+        bank = new Bank();
+    }
 
     @Test
     public void it_should_add_account_money_earn_money() {

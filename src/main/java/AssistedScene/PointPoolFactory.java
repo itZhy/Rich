@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PointPoolFactory {
+class PointPoolFactory {
     private final PropManager propManager;
     private final List<Integer> pointsInEachPosition = new ArrayList<Integer>();
 

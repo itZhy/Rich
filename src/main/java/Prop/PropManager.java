@@ -34,7 +34,7 @@ public class PropManager implements Observer {
 
     public void put(String roleName, Prop prop, Position position) {
         if (playerPosition.hasPlayer(position)) {
-            throw new GameException("此处有玩家，不能放置道具。");
+            throw new GameException("此处有玩家，不能放置道具。", GameException.NEED_RETRY);
         }
         ownership.consume(roleName, prop);
         propMap.put(position, prop);

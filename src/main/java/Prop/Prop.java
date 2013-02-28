@@ -6,9 +6,9 @@ import UI.Element;
 import UI.UIObserver;
 
 public abstract class Prop {
-    protected String name;
-    protected int price;
-    protected Element element;
+    String name;
+    int price;
+    Element element;
 
     public String name() {
         return name;

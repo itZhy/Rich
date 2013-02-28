@@ -16,6 +16,6 @@ public class Insolvency extends RuntimeException {
             throw new GameException(roleName + "破产了，游戏结束，" +
                     rounder.current().name() + "取得了最后胜利！", GameException.NEED_NOT_RETRY);
         }
-        throw new GameException(roleName + "破产了，游戏继续。");
+        throw new GameException(roleName + "破产了，游戏继续。", GameException.NEED_RETRY);
     }
 }

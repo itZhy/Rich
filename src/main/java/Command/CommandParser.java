@@ -25,7 +25,7 @@ public class CommandParser {
 
     public Command get(String name) {
         if (null == stringToCommands.get(name)) {
-            throw new GameException("无法识别您所输入指令，请重新输入。");
+            throw new GameException("无法识别您所输入指令，请重新输入。", GameException.NEED_RETRY);
         }
         return stringToCommands.get(name);
     }

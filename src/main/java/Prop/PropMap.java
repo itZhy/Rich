@@ -8,7 +8,7 @@ import UI.UIObserver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PropMap {
+class PropMap {
     private static final int CLEAN_RANGE = 10;
     private final Map<Position, Prop> props = new HashMap<Position, Prop>();
     private final UIObserver ui;
@@ -19,7 +19,7 @@ public class PropMap {
 
     public void put(Position position, Prop prop) {
         if (props.containsKey(position)) {
-            throw new GameException("此处已有道具，不能再放置其他道具了。");
+            throw new GameException("此处已有道具，不能再放置其他道具了。", GameException.NEED_RETRY);
         }
         props.put(position, prop);
         prop.addToUI(ui, position);

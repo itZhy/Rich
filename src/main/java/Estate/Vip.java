@@ -1,6 +1,6 @@
 package Estate;
 
-public class Vip {
+class Vip {
     private int limitation = 5;
 
     public boolean equals(Object object) {
@@ -15,6 +15,6 @@ public class Vip {
     }
 
     public boolean isExpired() {
-        return limitation > 0;
+        return 0 == limitation;
     }
 }

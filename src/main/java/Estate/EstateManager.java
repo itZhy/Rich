@@ -33,8 +33,8 @@ public class EstateManager implements Observer {
         bank.setVip(role);
     }
 
-    public void earnMoney(String account, Integer money) {
-        bank.add(account, money);
+    public void bonus(String account) {
+        bank.add(account, 2000);
     }
 
     public void setInitialFund(Integer initialFund) {
@@ -51,10 +51,10 @@ public class EstateManager implements Observer {
 
     private void checkIsAbleToSell(Position position, String role) {
         if (!estateMap.hasBuilding(position)) {
-            throw new GameException("该地不可买卖。");
+            throw new GameException("该地不可买卖。", GameException.NEED_RETRY);
         }
         if (!estateMap.get(position).isOwner(role)) {
-            throw new GameException("您尚未购买该地产，请重新输入。");
+            throw new GameException("您尚未购买该地产，请重新输入。", GameException.NEED_RETRY);
         }
     }
 }

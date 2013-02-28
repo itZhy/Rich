@@ -5,7 +5,7 @@ import Application.GameException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropBox {
+class PropBox {
     private static final int CAPACITY = 10;
     private final List<Prop> props = new ArrayList<Prop>();
 
@@ -22,8 +22,8 @@ public class PropBox {
                 "个；机器娃娃 " + count("机器娃娃").toString() + "个";
     }
 
-    public boolean remove(Prop prop) {
-        return props.remove(prop);
+    public boolean isRemoveFailed(Prop prop) {
+        return !props.remove(prop);
     }
 
     public boolean equals(Object object) {

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class VipManager {
+class VipManager {
     private final Map<String, Vip> vips = new HashMap<String, Vip>();
 
     public void setVip(String account) {
@@ -35,7 +35,7 @@ public class VipManager {
     }
 
     private void removeExpiredVip(Iterator<Map.Entry<String, Vip>> it) {
-        if (!it.next().getValue().isExpired()) {
+        if (it.next().getValue().isExpired()) {
             it.remove();
         }
     }

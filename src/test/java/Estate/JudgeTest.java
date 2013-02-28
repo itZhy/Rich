@@ -3,7 +3,6 @@ package Estate;
 import Player.Feature;
 import Player.Position;
 import UI.Map;
-import UI.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,13 +10,14 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class JudgeTest {
-    private UIObserver ui = new Map();
     private Judge controller;
-    private EstateMap estateMap = new EstateMap(ui);
-    private Bank bank = new Bank();
+    private EstateMap estateMap;
+    private Bank bank;
 
     @Before
     public void setUp() {
+        estateMap = new EstateMap(new Map());
+        bank = new Bank();
         controller = new Judge(estateMap, bank);
     }
 
