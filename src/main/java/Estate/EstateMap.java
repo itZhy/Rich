@@ -4,7 +4,6 @@ import Player.Position;
 import UI.PositionExtractor;
 import UI.UIObserver;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,22 +40,24 @@ class EstateMap {
     }
 
     public String query(String role) {
-        return "地产：空地" + inquiryBuilding(role, SoldVacancy.class.toString()).size() + "处；茅屋" +
-                inquiryBuilding(role, Hovel.class.toString()).size() + "处；洋房" +
-                inquiryBuilding(role, Villa.class.toString()).size() + "处；摩天楼" +
-                inquiryBuilding(role, Skyscraper.class.toString()).size() + "处";
+        return "地产：空地" + inquiryBuilding(role, SoldVacancy.class) + "处；茅屋" +
+                inquiryBuilding(role, Hovel.class) + "处；洋房" +
+                inquiryBuilding(role, Villa.class) + "处；摩天楼" +
+                inquiryBuilding(role, Skyscraper.class) + "处";
     }
 
     public boolean hasBuilding(Position position) {
         return buildings.containsKey(position);
     }
 
-    private List<Building> inquiryBuilding(String role, String type) {
-        List<Building> selector = new ArrayList<Building>();
+    private int inquiryBuilding(String role, Class type) {
+        int count = 0;
         for (Building house : buildings.values()) {
-            if (house.matchOwnerAndType(role, type)) selector.add(house);
+            if (house.matchOwnerAndType(role, type)) {
+                ++count;
+            }
         }
-        return selector;
+        return count;
     }
 
     public boolean equals(Object object) {
