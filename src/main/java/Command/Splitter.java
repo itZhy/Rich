@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Splitter {
     private final Scanner scanner;
-    private String name;
-    private int argument;
+    private final String name;
+    private final int argument;
 
     public Splitter(String input) {
         scanner = new Scanner(input);
