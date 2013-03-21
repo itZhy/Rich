@@ -3,14 +3,12 @@ package ui;
 import application.GameException;
 import player.Position;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class PositionExtractor {
-    private static final String DEFAULT_MAP_PATH = "default_map";
+    private static final String DEFAULT_MAP_PATH = "/default_map";
 
     public List<Position> getBuildings() {
         return readDefaultMapBySymbol('0');
@@ -42,11 +40,11 @@ public class PositionExtractor {
 
     private List<Position> readDefaultMapBySymbol(char symbol) {
         try {
-            String defaultMapStr = new Scanner(new File(DEFAULT_MAP_PATH)).nextLine();
+            String defaultMapStr = new Scanner(getClass().getResourceAsStream(DEFAULT_MAP_PATH)).nextLine();
             return extract(defaultMapStr, symbol);
 
-        } catch (FileNotFoundException e) {
-            throw new GameException(DEFAULT_MAP_PATH + "不存在。", GameException.NEED_NOT_RETRY);
+        } catch (NullPointerException e) {
+            throw new GameException(DEFAULT_MAP_PATH + "不存在。", GameException.NEED_RETRY);
         }
     }
 

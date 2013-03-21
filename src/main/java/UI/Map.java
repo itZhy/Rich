@@ -1,17 +1,15 @@
 package ui;
 
 import application.GameException;
-import player.Position;
 import org.fusesource.jansi.Ansi;
+import player.Position;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Map implements UIObserver {
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
-    private static final String DEFAULT_MAP_PATH = "default_map";
+    private static final String DEFAULT_MAP_PATH = "/default_map";
 
     public Map() {
         initializeDefaultMap();
@@ -47,13 +45,13 @@ public class Map implements UIObserver {
     private void initializeDefaultMap() {
         try {
             readDefaultMap();
-        } catch (FileNotFoundException e) {
-            throw new GameException(DEFAULT_MAP_PATH + "不存在", GameException.NEED_NOT_RETRY);
+        } catch (NullPointerException e) {
+            throw new GameException(DEFAULT_MAP_PATH + "不存在", GameException.NEED_RETRY);
         }
     }
 
-    private void readDefaultMap() throws FileNotFoundException {
-        String defaultMapStr = new Scanner(new File(DEFAULT_MAP_PATH)).nextLine();
+    private void readDefaultMap() throws NullPointerException {
+        String defaultMapStr = new Scanner(getClass().getResourceAsStream(DEFAULT_MAP_PATH)).nextLine();
         for (int index = 0; index != defaultMapStr.length(); ++index) {
             add(new Position(index), new Element(defaultMapStr.charAt(index), Ansi.Color.WHITE));
         }
