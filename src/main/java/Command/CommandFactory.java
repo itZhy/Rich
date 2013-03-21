@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class CommandParser {
+public class CommandFactory {
     private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
 
-    public CommandParser(Rounder rounder, SubSystem subSystem) {
+    public CommandFactory(Rounder rounder, SubSystem subSystem) {
         stringToCommands.put("roll", new Roll(rounder));
         stringToCommands.put("quit", new Quit());
         stringToCommands.put("bomb", new Bomb(subSystem.getPropManager()));

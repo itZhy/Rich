@@ -1,6 +1,6 @@
 package application;
 
-import command.CommandParser;
+import command.CommandFactory;
 import command.Splitter;
 import estate.Insolvency;
 import player.PlayerParser;
@@ -12,7 +12,7 @@ class Controller {
     private final Rounder rounder = new Rounder();
     private final UIObserver ui = new Map();
     private final SubSystem subSystem = new SubSystem(ui);
-    private final CommandParser parser = new CommandParser(rounder, subSystem);
+    private final CommandFactory parser = new CommandFactory(rounder, subSystem);
 
     public Controller(String players) {
         initializeRounder(players);
