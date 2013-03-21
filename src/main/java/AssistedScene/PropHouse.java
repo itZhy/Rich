@@ -16,21 +16,20 @@ public class PropHouse implements Scene {
 
     public void handle(Role role, Movement movement) {
         showPromptMessage();
-        handleInputUntilQuit(role);
+        handleInput(role);
     }
 
-    private void handleInputUntilQuit(Role role) {
-        while (handleInput(role)) {
-        }
-    }
-
-    private boolean handleInput(Role role) {
-        try {
-            factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(role);
-            return true;
-        } catch (GameException e) {
-            commandLine.outputInNewline(e.toString());
-            return e.isNeedRetry();
+    private void handleInput(Role role) {
+        while (true) {
+            try {
+                factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(role);
+                return;
+            } catch (GameException e) {
+                commandLine.outputInNewline(e.toString());
+                if (!e.isNeedRetry()) {
+                    return;
+                }
+            }
         }
     }
 
