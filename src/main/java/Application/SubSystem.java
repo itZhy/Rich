@@ -1,11 +1,11 @@
-package Application;
+package application;
 
-import AssistedScene.SceneManager;
-import Estate.EstateManager;
-import Player.Callback;
-import Player.MovementMonitor;
-import Prop.PropManager;
-import UI.UIObserver;
+import assistedScene.SceneManager;
+import estate.EstateManager;
+import player.Callback;
+import player.MovementMonitor;
+import prop.PropManager;
+import ui.UIObserver;
 
 public class SubSystem {
     private final MovementMonitor movementMonitor;

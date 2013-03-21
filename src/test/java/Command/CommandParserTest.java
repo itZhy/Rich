@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Application.SubSystem;
-import Player.Rounder;
-import UI.Map;
+import application.SubSystem;
+import player.Rounder;
+import ui.Map;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

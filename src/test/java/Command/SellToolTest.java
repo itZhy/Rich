@@ -1,11 +1,11 @@
-package Command;
+package command;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Role;
-import Prop.PropManager;
-import Prop.Robot;
-import UI.Map;
+import player.Callback;
+import player.Feature;
+import player.Role;
+import prop.PropManager;
+import prop.Robot;
+import ui.Map;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

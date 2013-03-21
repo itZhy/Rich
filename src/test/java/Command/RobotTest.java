@@ -1,13 +1,13 @@
-package Command;
+package command;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Position;
-import Player.Role;
-import Prop.Barricade;
-import Prop.PropManager;
-import UI.Map;
-import UI.UIObserver;
+import player.Callback;
+import player.Feature;
+import player.Position;
+import player.Role;
+import prop.Barricade;
+import prop.PropManager;
+import ui.Map;
+import ui.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -21,7 +21,7 @@ public class RobotTest {
         PropManager propManager = new PropManager(ui);
         Role uncleTuu = new Role(Feature.UNCLE_TUU, new Callback());
         propManager.add(uncleTuu.name(), 80);
-        propManager.buy(uncleTuu.name(), new Prop.Robot());
+        propManager.buy(uncleTuu.name(), new prop.Robot());
         propManager.buy(uncleTuu.name(), new Barricade(uncleTuu.name()));
         propManager.put(uncleTuu.name(), new Barricade(uncleTuu.name()), new Position(1));
         Command robot = new Robot(propManager);

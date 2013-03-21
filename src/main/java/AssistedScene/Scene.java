@@ -1,6 +1,6 @@
-package AssistedScene;
+package assistedScene;
 
-import Player.Movement;
+import player.Movement;
 
 public interface Scene {
     public void handle(String roleName, Movement movement);

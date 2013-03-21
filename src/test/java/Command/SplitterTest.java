@@ -1,6 +1,6 @@
-package Command;
+package command;
 
-import Application.GameException;
+import application.GameException;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

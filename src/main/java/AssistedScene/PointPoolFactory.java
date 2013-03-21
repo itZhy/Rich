@@ -1,8 +1,8 @@
-package AssistedScene;
+package assistedScene;
 
-import Player.Position;
-import Prop.PropManager;
-import UI.PositionExtractor;
+import player.Position;
+import prop.PropManager;
+import ui.PositionExtractor;
 
 import java.util.ArrayList;
 import java.util.HashMap;

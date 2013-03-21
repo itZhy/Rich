@@ -1,6 +1,6 @@
-package Estate;
+package estate;
 
-import Player.Position;
+import player.Position;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

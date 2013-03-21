@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import org.fusesource.jansi.Ansi;
 import org.junit.Test;

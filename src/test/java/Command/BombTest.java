@@ -1,12 +1,12 @@
-package Command;
+package command;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Position;
-import Player.Role;
-import Prop.PropManager;
-import UI.Map;
-import UI.UIObserver;
+import player.Callback;
+import player.Feature;
+import player.Position;
+import player.Role;
+import prop.PropManager;
+import ui.Map;
+import ui.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -20,15 +20,15 @@ public class BombTest {
         Role uncleTuu = new Role(Feature.UNCLE_TUU, new Callback());
         PropManager propManager = new PropManager(ui);
         propManager.add(uncleTuu.name(), 50);
-        propManager.buy(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()));
+        propManager.buy(uncleTuu.name(), new prop.Bomb(uncleTuu.name()));
         Command bomb = new Bomb(propManager);
         //when
         bomb.execute(uncleTuu, -10);
         //then
         PropManager expectedManager = new PropManager(ui);
         expectedManager.add(uncleTuu.name(), 50);
-        expectedManager.buy(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()));
-        expectedManager.put(uncleTuu.name(), new Prop.Bomb(uncleTuu.name()), new Position(60));
+        expectedManager.buy(uncleTuu.name(), new prop.Bomb(uncleTuu.name()));
+        expectedManager.put(uncleTuu.name(), new prop.Bomb(uncleTuu.name()), new Position(60));
         assertThat(propManager, is(expectedManager));
     }
 

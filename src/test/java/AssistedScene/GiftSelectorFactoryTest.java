@@ -1,9 +1,9 @@
-package AssistedScene;
+package assistedScene;
 
-import Estate.EstateManager;
-import Player.Feature;
-import Prop.PropManager;
-import UI.Map;
+import estate.EstateManager;
+import player.Feature;
+import prop.PropManager;
+import ui.Map;
 import org.junit.Before;
 import org.junit.Test;
 

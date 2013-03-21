@@ -1,6 +1,6 @@
-package Command;
+package command;
 
-import Player.Role;
+import player.Role;
 
 public interface Command {
     public void execute(Role role, int argument);

@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Application.GameException;
-import Player.Feature;
+import application.GameException;
+import player.Feature;
 import org.junit.Test;
 
 public class SkyscraperTest {

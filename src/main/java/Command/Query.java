@@ -1,9 +1,9 @@
-package Command;
+package command;
 
-import Estate.EstateManager;
-import Player.Role;
-import Prop.PropManager;
-import UI.CommandLine;
+import estate.EstateManager;
+import player.Role;
+import prop.PropManager;
+import ui.CommandLine;
 
 public class Query implements Command {
     private final EstateManager estateManager;

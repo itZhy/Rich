@@ -1,8 +1,8 @@
-package AssistedScene;
+package assistedScene;
 
-import Player.Movement;
-import Prop.PropManager;
-import UI.CommandLine;
+import player.Movement;
+import prop.PropManager;
+import ui.CommandLine;
 
 public class PointPool implements Scene {
     private final Integer point;

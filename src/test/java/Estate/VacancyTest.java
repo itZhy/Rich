@@ -1,8 +1,8 @@
-package Estate;
+package estate;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Role;
+import player.Callback;
+import player.Feature;
+import player.Role;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

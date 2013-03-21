@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import UI.PositionExtractor;
+import ui.PositionExtractor;
 import org.junit.Before;
 import org.junit.Test;
 

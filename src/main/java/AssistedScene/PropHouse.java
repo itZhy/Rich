@@ -1,9 +1,9 @@
-package AssistedScene;
+package assistedScene;
 
-import Application.GameException;
-import Player.Movement;
-import Prop.PropManager;
-import UI.CommandLine;
+import application.GameException;
+import player.Movement;
+import prop.PropManager;
+import ui.CommandLine;
 
 public class PropHouse implements Scene {
     private final PropSelectorFactory factory;

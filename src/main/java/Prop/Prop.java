@@ -1,9 +1,9 @@
-package Prop;
+package prop;
 
-import Player.Movement;
-import Player.Position;
-import UI.Element;
-import UI.UIObserver;
+import player.Movement;
+import player.Position;
+import ui.Element;
+import ui.UIObserver;
 
 public abstract class Prop {
     String name;

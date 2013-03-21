@@ -1,10 +1,10 @@
-package Prop;
+package prop;
 
-import Application.GameException;
-import Player.Movement;
-import Player.Observer;
-import Player.Position;
-import UI.UIObserver;
+import application.GameException;
+import player.Movement;
+import player.Observer;
+import player.Position;
+import ui.UIObserver;
 
 public class PropManager implements Observer {
     private final Ownership ownership = new Ownership();

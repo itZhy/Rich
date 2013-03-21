@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import Application.GameException;
+import application.GameException;
 
 import java.util.HashMap;
 import java.util.Map;

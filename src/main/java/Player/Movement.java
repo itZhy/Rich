@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import UI.PositionExtractor;
+import ui.PositionExtractor;
 
 public class Movement {
     public static final Position INVALID_POSITION = new Position(-1);

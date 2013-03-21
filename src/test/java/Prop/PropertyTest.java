@@ -1,7 +1,7 @@
-package Prop;
+package prop;
 
-import Application.GameException;
-import Player.Feature;
+import application.GameException;
+import player.Feature;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import Prop.PropException;
+import prop.PropException;
 
 public class Role {
     private final String name;

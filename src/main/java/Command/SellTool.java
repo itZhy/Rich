@@ -1,10 +1,10 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Player.Role;
-import Prop.*;
-import Prop.Bomb;
-import Prop.Robot;
+import application.GameException;
+import player.Role;
+import prop.*;
+import prop.Bomb;
+import prop.Robot;
 
 import java.util.HashMap;
 import java.util.Map;

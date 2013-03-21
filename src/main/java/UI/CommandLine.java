@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import Application.GameException;
+import application.GameException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

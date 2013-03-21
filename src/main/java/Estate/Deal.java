@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Player.Position;
-import UI.CommandLine;
+import player.Position;
+import ui.CommandLine;
 
 public abstract class Deal {
     final EstateMap estateMap;

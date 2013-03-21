@@ -1,7 +1,7 @@
-package Prop;
+package prop;
 
-import Player.Feature;
-import Player.Movement;
+import player.Feature;
+import player.Movement;
 import org.junit.Test;
 
 public class BarricadeTest {

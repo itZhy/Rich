@@ -1,7 +1,7 @@
-package UI;
+package ui;
 
-import Application.GameException;
-import Player.Position;
+import application.GameException;
+import player.Position;
 
 import java.io.File;
 import java.io.FileNotFoundException;

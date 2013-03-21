@@ -1,10 +1,10 @@
-package Estate;
+package estate;
 
-import Application.GameException;
-import Player.Feature;
-import Player.Position;
-import UI.Element;
-import UI.UIObserver;
+import application.GameException;
+import player.Feature;
+import player.Position;
+import ui.Element;
+import ui.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {

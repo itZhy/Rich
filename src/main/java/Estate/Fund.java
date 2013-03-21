@@ -1,4 +1,4 @@
-package Estate;
+package estate;
 
 class Fund {
     private Integer money;

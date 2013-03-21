@@ -1,9 +1,9 @@
-package Prop;
+package prop;
 
-import Application.GameException;
-import Player.Movement;
-import Player.Position;
-import UI.UIObserver;
+import application.GameException;
+import player.Movement;
+import player.Position;
+import ui.UIObserver;
 
 import java.util.HashMap;
 import java.util.Map;

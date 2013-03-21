@@ -1,9 +1,9 @@
-package AssistedScene;
+package assistedScene;
 
-import Application.GameException;
-import Estate.EstateManager;
-import Prop.PropManager;
-import UI.CommandLine;
+import application.GameException;
+import estate.EstateManager;
+import prop.PropManager;
+import ui.CommandLine;
 
 import java.util.HashMap;
 import java.util.Map;

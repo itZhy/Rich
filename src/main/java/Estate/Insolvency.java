@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Application.GameException;
-import Player.Rounder;
+import application.GameException;
+import player.Rounder;
 
 public class Insolvency extends RuntimeException {
     private final String roleName;

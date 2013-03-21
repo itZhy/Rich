@@ -1,4 +1,4 @@
-package Player;
+package player;
 
 import org.junit.Before;
 import org.junit.Test;

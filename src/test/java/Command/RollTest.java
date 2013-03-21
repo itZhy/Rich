@@ -1,9 +1,9 @@
-package Command;
+package command;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Role;
-import Player.Rounder;
+import player.Callback;
+import player.Feature;
+import player.Role;
+import player.Rounder;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

@@ -1,7 +1,7 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Player.Role;
+import application.GameException;
+import player.Role;
 
 public class Quit implements Command {
     public void execute(Role role, int argument) {

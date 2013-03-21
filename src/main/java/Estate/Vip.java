@@ -1,4 +1,4 @@
-package Estate;
+package estate;
 
 class Vip {
     private int limitation = 5;

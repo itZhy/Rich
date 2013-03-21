@@ -1,10 +1,8 @@
-package Estate;
+package estate;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Role;
-import UI.Map;
-import UI.UIObserver;
+import player.Callback;
+import player.Feature;
+import player.Role;
 import org.junit.Before;
 import org.junit.Test;
 

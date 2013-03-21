@@ -1,6 +1,6 @@
-package Prop;
+package prop;
 
-import UI.CommandLine;
+import ui.CommandLine;
 
 public class PropException extends RuntimeException {
     private final String message;

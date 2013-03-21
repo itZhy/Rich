@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Player.Position;
-import UI.UIObserver;
+import player.Position;
+import ui.UIObserver;
 
 abstract class Building {
     final int basePrice;

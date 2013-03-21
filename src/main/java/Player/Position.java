@@ -1,4 +1,4 @@
-package Player;
+package player;
 
 public class Position {
     private static final int MAX_INDEX = 69;

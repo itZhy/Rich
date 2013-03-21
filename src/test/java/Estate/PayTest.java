@@ -1,8 +1,8 @@
-package Estate;
+package estate;
 
-import Player.Feature;
-import Player.Position;
-import UI.Map;
+import player.Feature;
+import player.Position;
+import ui.Map;
 import org.junit.Before;
 import org.junit.Test;
 

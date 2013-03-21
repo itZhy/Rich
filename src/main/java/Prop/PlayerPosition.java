@@ -1,6 +1,6 @@
-package Prop;
+package prop;
 
-import Player.Position;
+import player.Position;
 
 import java.util.HashMap;
 import java.util.Map;

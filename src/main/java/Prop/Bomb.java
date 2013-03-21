@@ -1,7 +1,7 @@
-package Prop;
+package prop;
 
-import Player.Feature;
-import Player.Movement;
+import player.Feature;
+import player.Movement;
 
 public class Bomb extends Prop {
     public Bomb(String owner) {

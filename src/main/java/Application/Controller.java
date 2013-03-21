@@ -1,12 +1,12 @@
-package Application;
+package application;
 
-import Command.CommandParser;
-import Command.Splitter;
-import Estate.Insolvency;
-import Player.PlayerParser;
-import Player.Rounder;
-import UI.Map;
-import UI.UIObserver;
+import command.CommandParser;
+import command.Splitter;
+import estate.Insolvency;
+import player.PlayerParser;
+import player.Rounder;
+import ui.Map;
+import ui.UIObserver;
 
 class Controller {
     private final Rounder rounder = new Rounder();

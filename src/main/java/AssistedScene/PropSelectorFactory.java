@@ -1,10 +1,10 @@
-package AssistedScene;
+package assistedScene;
 
-import Application.GameException;
-import Prop.Barricade;
-import Prop.Bomb;
-import Prop.PropManager;
-import Prop.Robot;
+import application.GameException;
+import prop.Barricade;
+import prop.Bomb;
+import prop.PropManager;
+import prop.Robot;
 
 import java.util.HashMap;
 import java.util.Map;

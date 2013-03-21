@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Player.Role;
-import Prop.PropManager;
-import UI.CommandLine;
+import player.Role;
+import prop.PropManager;
+import ui.CommandLine;
 
 public class Robot implements Command {
     private final PropManager propManager;

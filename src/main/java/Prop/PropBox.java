@@ -1,6 +1,6 @@
-package Prop;
+package prop;
 
-import Application.GameException;
+import application.GameException;
 
 import java.util.ArrayList;
 import java.util.List;

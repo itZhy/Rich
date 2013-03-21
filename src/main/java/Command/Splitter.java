@@ -1,6 +1,6 @@
-package Command;
+package command;
 
-import Application.GameException;
+import application.GameException;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import Player.Position;
+import player.Position;
 import org.fusesource.jansi.Ansi;
 import org.junit.Test;
 

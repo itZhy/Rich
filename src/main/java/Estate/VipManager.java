@@ -1,4 +1,4 @@
-package Estate;
+package estate;
 
 import java.util.HashMap;
 import java.util.Iterator;

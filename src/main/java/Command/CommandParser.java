@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Application.SubSystem;
-import Player.Rounder;
+import application.GameException;
+import application.SubSystem;
+import player.Rounder;
 
 import java.util.HashMap;
 import java.util.Map;

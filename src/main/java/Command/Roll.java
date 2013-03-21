@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Player.Dice;
-import Player.Role;
-import Player.Rounder;
+import player.Dice;
+import player.Role;
+import player.Rounder;
 
 public class Roll implements Command {
     private final Dice dice = new Dice();

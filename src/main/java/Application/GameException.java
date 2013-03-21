@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 public class GameException extends RuntimeException {
     public static final boolean NEED_RETRY = true;

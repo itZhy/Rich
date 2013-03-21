@@ -1,8 +1,8 @@
-package Estate;
+package estate;
 
-import Player.Position;
-import UI.PositionExtractor;
-import UI.UIObserver;
+import player.Position;
+import ui.PositionExtractor;
+import ui.UIObserver;
 
 import java.util.HashMap;
 import java.util.List;

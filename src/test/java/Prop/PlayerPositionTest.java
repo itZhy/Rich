@@ -1,7 +1,7 @@
-package Prop;
+package prop;
 
-import Player.Feature;
-import Player.Position;
+import player.Feature;
+import player.Position;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

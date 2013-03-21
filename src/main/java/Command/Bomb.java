@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Player.Role;
-import Prop.PropManager;
+import application.GameException;
+import player.Role;
+import prop.PropManager;
 
 public class Bomb implements Command {
     private final PropManager propManager;
@@ -13,7 +13,7 @@ public class Bomb implements Command {
 
     public void execute(Role role, int argument) {
         checkArgument(argument);
-        propManager.put(role.name(), new Prop.Bomb(role.name()), role.currentPosition().offset(argument));
+        propManager.put(role.name(), new prop.Bomb(role.name()), role.currentPosition().offset(argument));
     }
 
     private void checkArgument(int argument) {

@@ -1,9 +1,9 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Player.Role;
-import Prop.Barricade;
-import Prop.PropManager;
+import application.GameException;
+import player.Role;
+import prop.Barricade;
+import prop.PropManager;
 
 public class Block implements Command {
     private final PropManager propManager;

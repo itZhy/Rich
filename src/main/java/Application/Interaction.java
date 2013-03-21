@@ -1,6 +1,6 @@
-package Application;
+package application;
 
-import UI.CommandLine;
+import ui.CommandLine;
 
 public class Interaction {
     private final CommandLine commandLine = new CommandLine();

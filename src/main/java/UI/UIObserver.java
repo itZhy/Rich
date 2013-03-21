@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import Player.Position;
+import player.Position;
 
 public interface UIObserver {
     public void add(Position position, Element element);

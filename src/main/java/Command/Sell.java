@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Estate.EstateManager;
-import Player.Position;
-import Player.Role;
+import estate.EstateManager;
+import player.Position;
+import player.Role;
 
 public class Sell implements Command {
     private final EstateManager estateManager;

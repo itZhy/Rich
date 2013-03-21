@@ -1,8 +1,8 @@
-package Command;
+package command;
 
-import Application.GameException;
-import Player.Role;
-import UI.CommandLine;
+import application.GameException;
+import player.Role;
+import ui.CommandLine;
 
 import java.io.File;
 import java.io.FileNotFoundException;

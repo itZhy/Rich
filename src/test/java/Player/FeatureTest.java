@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import UI.Element;
+import ui.Element;
 import org.fusesource.jansi.Ansi;
 import org.junit.Test;
 

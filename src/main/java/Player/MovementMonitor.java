@@ -1,6 +1,6 @@
-package Player;
+package player;
 
-import UI.UIObserver;
+import ui.UIObserver;
 
 public class MovementMonitor implements Observer {
     private final UIObserver ui;

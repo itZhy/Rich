@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Player.Position;
-import UI.CommandLine;
+import player.Position;
+import ui.CommandLine;
 
 public class Pay extends Deal {
     public Pay(EstateMap estateMap, Bank bank) {

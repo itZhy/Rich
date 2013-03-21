@@ -1,7 +1,7 @@
-package Estate;
+package estate;
 
-import Player.Position;
-import UI.UIObserver;
+import player.Position;
+import ui.UIObserver;
 
 public class Vacancy extends Building {
     public Vacancy(int basePrice) {

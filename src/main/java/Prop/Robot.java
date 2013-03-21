@@ -1,8 +1,8 @@
-package Prop;
+package prop;
 
-import Player.Movement;
-import Player.Position;
-import UI.UIObserver;
+import player.Movement;
+import player.Position;
+import ui.UIObserver;
 
 public class Robot extends Prop {
     public Robot() {

@@ -1,4 +1,4 @@
-package Prop;
+package prop;
 
 import java.util.HashMap;
 import java.util.Map;

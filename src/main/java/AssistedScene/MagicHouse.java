@@ -1,7 +1,7 @@
-package AssistedScene;
+package assistedScene;
 
-import Player.Movement;
-import UI.CommandLine;
+import player.Movement;
+import ui.CommandLine;
 
 public class MagicHouse implements Scene {
     public void handle(String roleName, Movement movement) {

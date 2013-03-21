@@ -1,11 +1,11 @@
-package AssistedScene;
+package assistedScene;
 
-import Estate.EstateManager;
-import Player.Movement;
-import Player.Observer;
-import Player.Position;
-import Prop.PropManager;
-import UI.PositionExtractor;
+import estate.EstateManager;
+import player.Movement;
+import player.Observer;
+import player.Position;
+import prop.PropManager;
+import ui.PositionExtractor;
 
 import java.util.HashMap;
 import java.util.Map;

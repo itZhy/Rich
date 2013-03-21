@@ -1,6 +1,6 @@
-package Estate;
+package estate;
 
-import Application.GameException;
+import application.GameException;
 
 import java.util.HashMap;
 import java.util.Map;

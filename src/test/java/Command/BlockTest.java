@@ -1,13 +1,13 @@
-package Command;
+package command;
 
-import Player.Callback;
-import Player.Feature;
-import Player.Position;
-import Player.Role;
-import Prop.Barricade;
-import Prop.PropManager;
-import UI.Map;
-import UI.UIObserver;
+import player.Callback;
+import player.Feature;
+import player.Position;
+import player.Role;
+import prop.Barricade;
+import prop.PropManager;
+import ui.Map;
+import ui.UIObserver;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

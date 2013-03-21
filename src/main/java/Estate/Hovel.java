@@ -1,9 +1,9 @@
-package Estate;
+package estate;
 
-import Player.Feature;
-import Player.Position;
-import UI.Element;
-import UI.UIObserver;
+import player.Feature;
+import player.Position;
+import ui.Element;
+import ui.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Hovel extends Building {

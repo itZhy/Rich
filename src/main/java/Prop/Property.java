@@ -1,7 +1,7 @@
-package Prop;
+package prop;
 
-import Application.GameException;
-import UI.CommandLine;
+import application.GameException;
+import ui.CommandLine;
 
 class Property {
     private static final int MIN_PRICE = 30;

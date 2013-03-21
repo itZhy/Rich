@@ -1,10 +1,10 @@
-package AssistedScene;
+package assistedScene;
 
-import Application.GameException;
-import Estate.EstateManager;
-import Player.Movement;
-import Prop.PropManager;
-import UI.CommandLine;
+import application.GameException;
+import estate.EstateManager;
+import player.Movement;
+import prop.PropManager;
+import ui.CommandLine;
 
 public class GiftHouse implements Scene {
     private final GiftSelectorFactory factory;

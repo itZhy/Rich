@@ -1,10 +1,10 @@
-package AssistedScene;
+package assistedScene;
 
-import Application.GameException;
-import Player.Feature;
-import Prop.Barricade;
-import Prop.PropManager;
-import UI.Map;
+import application.GameException;
+import player.Feature;
+import prop.Barricade;
+import prop.PropManager;
+import ui.Map;
 import org.junit.Before;
 import org.junit.Test;
 

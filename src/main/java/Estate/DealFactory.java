@@ -1,6 +1,6 @@
-package Estate;
+package estate;
 
-import Player.Position;
+import player.Position;
 
 class DealFactory {
     private final Judge judge;

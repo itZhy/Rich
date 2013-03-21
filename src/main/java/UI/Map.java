@@ -1,7 +1,7 @@
-package UI;
+package ui;
 
-import Application.GameException;
-import Player.Position;
+import application.GameException;
+import player.Position;
 import org.fusesource.jansi.Ansi;
 
 import java.io.File;
