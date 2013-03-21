@@ -1,7 +1,7 @@
 package prop;
 
-import player.Role;
 import player.Movement;
+import player.Role;
 
 public class Barricade extends Prop {
     public Barricade(Role owner) {

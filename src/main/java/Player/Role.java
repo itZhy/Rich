@@ -8,8 +8,8 @@ public enum Role {
     uncleTuu("阿土伯", new Element('U', Ansi.Color.YELLOW)),
     SunHsiaoMei("孙小美", new Element('S', Ansi.Color.RED)),
     babyKin("金贝贝", new Element('B', Ansi.Color.BLUE));
-    private String name;
-    private Element element;
+    private final String name;
+    private final Element element;
 
     private Role(String name, Element element) {
         this.name = name;
@@ -20,11 +20,11 @@ public enum Role {
         return element.dye(symbol);
     }
 
-    public Element getDisplayElement()  {
+    public Element getDisplayElement() {
         return element;
     }
 
-    public String toString()    {
+    public String toString() {
         return name;
     }
 }
