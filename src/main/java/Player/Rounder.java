@@ -4,41 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rounder {
-    private final List<Role> orderedRoles = new ArrayList<Role>();
+    private final List<Player> orderedPlayers = new ArrayList<Player>();
     private int currentIndex = 0;
 
-    public Role current() {
-        return orderedRoles.get(currentIndex);
+    public Player current() {
+        return orderedPlayers.get(currentIndex);
     }
 
     public void next() {
         do {
             ++currentIndex;
-            currentIndex %= orderedRoles.size();
+            currentIndex %= orderedPlayers.size();
         } while (current().skip());
     }
 
-    public void add(Role role) {
-        orderedRoles.add(role);
+    public void add(Player player) {
+        orderedPlayers.add(player);
     }
 
-    public boolean isOnlyOneRoleAfterEliminate(String roleName) {
-        for (Role role : orderedRoles) {
-            if (role.name().equals(roleName)) return isOnlyOneRoleAfterDelete(role);
+    public boolean isOnlyOneRoleAfterEliminate(Role role) {
+        for (Player player : orderedPlayers) {
+            if (player.role().equals(role)) return isOnlyOneRoleAfterDelete(player);
         }
         return false;
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                orderedRoles.equals(((Rounder) object).orderedRoles) &&
+                orderedPlayers.equals(((Rounder) object).orderedPlayers) &&
                 currentIndex == ((Rounder) object).currentIndex;
     }
 
-    private boolean isOnlyOneRoleAfterDelete(Role role) {
-        role.leave();
-        orderedRoles.remove(role);
-        currentIndex %= orderedRoles.size();
-        return 1 == orderedRoles.size();
+    private boolean isOnlyOneRoleAfterDelete(Player player) {
+        player.leave();
+        orderedPlayers.remove(player);
+        currentIndex %= orderedPlayers.size();
+        return 1 == orderedPlayers.size();
     }
 }

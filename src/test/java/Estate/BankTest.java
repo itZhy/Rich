@@ -1,6 +1,6 @@
 package estate;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Map;
 import org.junit.Assert;
@@ -23,7 +23,7 @@ public class BankTest {
     @Test
     public void it_should_add_account_money_earn_money() {
         //given
-        String role = Feature.MADAME_CHYAN;
+        Role role = Role.madameChyan;
         //when
         bank.add(role, 200);
         //then
@@ -36,22 +36,22 @@ public class BankTest {
     @Test
     public void it_should_get_account_information() {
         //given
-        String role = Feature.MADAME_CHYAN;
+        Role role = Role.madameChyan;
         //when
         bank.add(role, 200);
         //then
         assertThat(bank.query(role), is("\n资金： 10200元\n"));
-        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000元\n"));
     }
 
     @Test
     public void it_should_get_twice_money_after_sell_building() {
         //when
-        estateMap.update(new Position(3), Feature.BABY_KIN);
-        bank.withdraw(Feature.BABY_KIN, estateMap.get(new Position(3)).basePrice);
-        bank.add(Feature.BABY_KIN, estateMap.get(new Position(3)).sellingPrice());
+        estateMap.update(new Position(3), Role.babyKin);
+        bank.withdraw(Role.babyKin, estateMap.get(new Position(3)).basePrice);
+        bank.add(Role.babyKin, estateMap.get(new Position(3)).sellingPrice());
         estateMap.clearBuilding(new Position(3));
         //then
-        Assert.assertThat(bank.query(Feature.BABY_KIN), is("\n资金： 10200元\n"));
+        Assert.assertThat(bank.query(Role.babyKin), is("\n资金： 10200元\n"));
     }
 }

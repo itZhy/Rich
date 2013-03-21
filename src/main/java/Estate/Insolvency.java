@@ -1,21 +1,22 @@
 package estate;
 
 import application.GameException;
+import player.Role;
 import player.Rounder;
 
 public class Insolvency extends RuntimeException {
-    private final String roleName;
+    private final Role role;
 
-    public Insolvency(String roleName) {
-        this.roleName = roleName;
+    public Insolvency(Role role) {
+        this.role= role;
     }
 
     public void handle(EstateManager estateManager, Rounder rounder) {
-        estateManager.goBankrupt(roleName);
-        if (rounder.isOnlyOneRoleAfterEliminate(roleName)) {
-            throw new GameException(roleName + "破产了，游戏结束，" +
-                    rounder.current().name() + "取得了最后胜利！", GameException.NEED_NOT_RETRY);
+        estateManager.goBankrupt(role);
+        if (rounder.isOnlyOneRoleAfterEliminate(role)) {
+            throw new GameException(role.toString() + "破产了，游戏结束，" +
+                    rounder.current().role().toString() + "取得了最后胜利！", GameException.NEED_NOT_RETRY);
         }
-        throw new GameException(roleName + "破产了，游戏继续。", GameException.NEED_RETRY);
+        throw new GameException(role.toString() + "破产了，游戏继续。", GameException.NEED_RETRY);
     }
 }

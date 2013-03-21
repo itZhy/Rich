@@ -1,7 +1,7 @@
 package command;
 
 import player.Dice;
-import player.Role;
+import player.Player;
 import player.Rounder;
 
 public class Roll implements Command {
@@ -12,8 +12,8 @@ public class Roll implements Command {
         this.rounder = rounder;
     }
 
-    public void execute(Role role, int argument) {
-        role.forward(dice.roll());
+    public void execute(Player player, int argument) {
+        player.forward(dice.roll());
         rounder.next();
     }
 

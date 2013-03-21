@@ -1,6 +1,7 @@
 package assistedScene;
 
 import application.GameException;
+import player.Role;
 import prop.Barricade;
 import prop.Bomb;
 import prop.PropManager;
@@ -29,25 +30,25 @@ public class PropSelectorFactory {
     }
 
     private class BarricadeSelector implements Selector {
-        public void select(String roleName) {
-            propManager.buy(roleName, new Barricade(roleName));
+        public void select(Role role) {
+            propManager.buy(role, new Barricade(role));
         }
     }
 
     private class RobotSelector implements Selector {
-        public void select(String roleName) {
-            propManager.buy(roleName, new Robot());
+        public void select(Role role) {
+            propManager.buy(role, new Robot());
         }
     }
 
     private class BombSelector implements Selector {
-        public void select(String roleName) {
-            propManager.buy(roleName, new Bomb(roleName));
+        public void select(Role role) {
+            propManager.buy(role, new Bomb(role));
         }
     }
 
     private class Quit implements Selector {
-        public void select(String roleName) {
+        public void select(Role role) {
             throw new GameException("欢迎下次光临。", GameException.NEED_NOT_RETRY);
         }
     }

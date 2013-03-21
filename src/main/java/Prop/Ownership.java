@@ -1,32 +1,34 @@
 package prop;
 
+import player.Role;
+
 import java.util.HashMap;
 import java.util.Map;
 
 class Ownership {
-    private final Map<String, Property> properties = new HashMap<String, Property>();
+    private final Map<Role, Property> properties = new HashMap<Role, Property>();
 
-    public void add(String owner, int point) {
+    public void add(Role owner, int point) {
         initializeWhenNotExist(owner);
         properties.get(owner).add(point);
     }
 
-    public void buy(String owner, Prop prop) {
+    public void buy(Role owner, Prop prop) {
         initializeWhenNotExist(owner);
         properties.get(owner).buy(prop);
     }
 
-    public void sell(String owner, Prop prop) {
+    public void sell(Role owner, Prop prop) {
         initializeWhenNotExist(owner);
         properties.get(owner).sell(prop);
     }
 
-    public void consume(String owner, Prop prop) {
+    public void consume(Role owner, Prop prop) {
         initializeWhenNotExist(owner);
         properties.get(owner).consume(prop);
     }
 
-    public String query(String owner) {
+    public String query(Role owner) {
         initializeWhenNotExist(owner);
         return properties.get(owner).query();
     }
@@ -36,7 +38,7 @@ class Ownership {
                 properties.equals(((Ownership) object).properties);
     }
 
-    private void initializeWhenNotExist(String owner) {
+    private void initializeWhenNotExist(Role owner) {
         if (!properties.containsKey(owner)) {
             properties.put(owner, new Property());
         }

@@ -1,18 +1,18 @@
 package estate;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Element;
 import ui.UIObserver;
 import org.fusesource.jansi.Ansi;
 
 public class Hovel extends Building {
-    public Hovel(String owner, Integer price) {
+    public Hovel(Role owner, Integer price) {
         super(price);
         this.owner = owner;
     }
 
-    public Building update(String owner) {
+    public Building update(Role owner) {
         return new Villa(owner, basePrice);
     }
 
@@ -25,11 +25,11 @@ public class Hovel extends Building {
     }
 
     public void updateUI(Position position, UIObserver ui) {
-        ui.replace(position, new Feature().dye(owner, '0'), new Feature().dye(owner, '1'));
+        ui.replace(position, owner.dye('0'), owner.dye('1'));
     }
 
     public void clearUI(Position position, UIObserver ui) {
-        ui.replace(position, new Feature().dye(owner, '1'), new Element('0', Ansi.Color.WHITE));
+        ui.replace(position, owner.dye('1'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {

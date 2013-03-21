@@ -1,7 +1,7 @@
 package command;
 
 import application.GameException;
-import player.Role;
+import player.Player;
 import prop.Barricade;
 import prop.PropManager;
 
@@ -12,9 +12,9 @@ public class Block implements Command {
         this.propManager = propManager;
     }
 
-    public void execute(Role role, int argument) {
+    public void execute(Player player, int argument) {
         checkArgument(argument);
-        propManager.put(role.name(), new Barricade(role.name()), role.currentPosition().offset(argument));
+        propManager.put(player.role(), new Barricade(player.role()), player.currentPosition().offset(argument));
     }
 
     private void checkArgument(int argument) {

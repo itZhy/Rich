@@ -4,6 +4,7 @@ import estate.EstateManager;
 import player.Movement;
 import player.Observer;
 import player.Position;
+import player.Role;
 import prop.PropManager;
 import ui.PositionExtractor;
 
@@ -25,9 +26,9 @@ public class SceneManager implements Observer {
         scenes.put(new PositionExtractor().getPrison(), new Prison());
     }
 
-    public void handle(String roleName, Movement movement) {
+    public void handle(Role role, Movement movement) {
         if (scenes.containsKey(movement.currentPosition())) {
-            scenes.get(movement.currentPosition()).handle(roleName, movement);
+            scenes.get(movement.currentPosition()).handle(role, movement);
         }
     }
 }

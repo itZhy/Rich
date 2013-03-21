@@ -1,6 +1,7 @@
 package assistedScene;
 
 import player.Movement;
+import player.Role;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -13,9 +14,9 @@ public class PointPool implements Scene {
         this.propManager = propManager;
     }
 
-    public void handle(String roleName, Movement movement) {
-        showPromptMessage(roleName);
-        propManager.add(roleName, point);
+    public void handle(Role role, Movement movement) {
+        showPromptMessage(role);
+        propManager.add(role, point);
     }
 
     public boolean equals(Object object) {
@@ -23,11 +24,11 @@ public class PointPool implements Scene {
                 point.equals(((PointPool) object).point);
     }
 
-    private void showPromptMessage(String roleName) {
-        new CommandLine().outputInNewline(getPromptMessage(roleName));
+    private void showPromptMessage(Role role) {
+        new CommandLine().outputInNewline(getPromptMessage(role));
     }
 
-    private String getPromptMessage(String roleName) {
-        return roleName + "获得了" + point.toString() + "道具点数。";
+    private String getPromptMessage(Role role) {
+        return role.toString() + "获得了" + point.toString() + "道具点数。";
     }
 }

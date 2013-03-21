@@ -1,7 +1,7 @@
 package prop;
 
 import application.GameException;
-import player.Feature;
+import player.Role;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
 
 public class OwnershipTest {
     private Ownership ownership;
-    private String owner;
+    private Role owner;
 
     @Before
     public void setUp() {
         ownership = new Ownership();
-        owner = Feature.UNCLE_TUU;
+        owner = Role.uncleTuu;
     }
 
     @Test

@@ -1,13 +1,13 @@
 package prop;
 
-import player.Feature;
+import player.Role;
 import player.Movement;
 
 public class Barricade extends Prop {
-    public Barricade(String owner) {
+    public Barricade(Role owner) {
         name = "路障";
         price = 50;
-        element = new Feature().dye(owner, '#');
+        element = owner.dye('#');
     }
 
     public void handle(Movement movement) {

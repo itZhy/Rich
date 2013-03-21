@@ -1,7 +1,7 @@
 package assistedScene;
 
 import estate.EstateManager;
-import player.Feature;
+import player.Role;
 import prop.PropManager;
 import ui.Map;
 import org.junit.Before;
@@ -13,13 +13,13 @@ import static org.junit.Assert.assertThat;
 public class GiftSelectorFactoryTest {
     private GiftSelectorFactory factory;
     private PropManager propManager;
-    private String owner;
+    private Role owner;
 
     @Before
     public void setUp() {
         propManager = new PropManager(new Map());
         factory = new GiftSelectorFactory(propManager, new EstateManager(new Map()));
-        owner = Feature.UNCLE_TUU;
+        owner = Role.uncleTuu;
     }
 
     @Test

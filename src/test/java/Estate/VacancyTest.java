@@ -1,8 +1,8 @@
 package estate;
 
 import player.Callback;
-import player.Feature;
 import player.Role;
+import player.Player;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,11 +13,11 @@ public class VacancyTest {
     public void it_should_operate_player_to_buy_house() {
         //given
         Vacancy vacancy = new Vacancy(200);
-        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
+        Player owner = new Player(Role.SunHsiaoMei, new Callback());
         //when
-        Building soldBuilding = vacancy.update(owner.getClass().toString());
+        Building soldBuilding = vacancy.update(owner.role());
         //then
-        Building exceptedBuilding = new SoldVacancy(owner.getClass().toString(), 0);
+        Building exceptedBuilding = new SoldVacancy(owner.role(), 0);
         assertThat(soldBuilding, is(exceptedBuilding));
     }
 }

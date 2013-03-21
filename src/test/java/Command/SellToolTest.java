@@ -1,8 +1,8 @@
 package command;
 
 import player.Callback;
-import player.Feature;
 import player.Role;
+import player.Player;
 import prop.PropManager;
 import prop.Robot;
 import ui.Map;
@@ -16,12 +16,12 @@ public class SellToolTest {
     public void it_should_succeed_in_selling_a_bomb() {
         //given
         PropManager propManager = new PropManager(new Map());
-        String owner = Feature.SUN_HSIAO_MEI;
+        Role owner = Role.SunHsiaoMei;
         propManager.add(owner, 30);
         propManager.buy(owner, new Robot());
         Command sellTool = new SellTool(propManager);
         //when
-        sellTool.execute(new Role(owner, new Callback()), 2);
+        sellTool.execute(new Player(owner, new Callback()), 2);
         //then
         PropManager expectedPropManager = new PropManager(new Map());
         expectedPropManager.add(owner, 30);

@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 
 public class Idle extends Deal {
@@ -7,6 +8,6 @@ public class Idle extends Deal {
         super(estateMap, bank);
     }
 
-    public void handle(Position position, String roleName) {
+    public void handle(Position position, Role role) {
     }
 }

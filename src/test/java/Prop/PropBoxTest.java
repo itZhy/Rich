@@ -1,7 +1,7 @@
 package prop;
 
 import application.GameException;
-import player.Feature;
+import player.Role;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -14,7 +14,7 @@ public class PropBoxTest {
         PropBox box = new PropBox();
         //when
         for (int count = 0; count != 11; ++count) {
-            box.add(new Barricade(Feature.UNCLE_TUU));
+            box.add(new Barricade(Role.uncleTuu));
         }
     }
 
@@ -22,7 +22,7 @@ public class PropBoxTest {
     public void it_should_return_query_message() {
         //given
         PropBox box = new PropBox();
-        String owner = Feature.SUN_HSIAO_MEI;
+        Role owner = Role.SunHsiaoMei;
         box.add(new Barricade(owner));
         box.add(new Robot());
         box.add(new Bomb(owner));

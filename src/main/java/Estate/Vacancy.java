@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 import ui.UIObserver;
 
@@ -8,7 +9,7 @@ public class Vacancy extends Building {
         super(basePrice);
     }
 
-    public Building update(String owner) {
+    public Building update(Role owner) {
         return new SoldVacancy(owner, basePrice);
     }
 

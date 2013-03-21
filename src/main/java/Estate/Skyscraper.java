@@ -1,7 +1,7 @@
 package estate;
 
 import application.GameException;
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Element;
 import ui.UIObserver;
@@ -9,12 +9,12 @@ import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(String owner, Integer basePrice) {
+    public Skyscraper(Role owner, Integer basePrice) {
         super(basePrice);
         this.owner = owner;
     }
 
-    public Building update(String owner) {
+    public Building update(Role owner) {
         throw new GameException("已经是最高级，不能再升级了。", GameException.NEED_NOT_RETRY);
     }
 
@@ -27,11 +27,11 @@ public class Skyscraper extends Building {
     }
 
     public void updateUI(Position position, UIObserver ui) {
-        ui.replace(position, new Feature().dye(owner, '2'), new Feature().dye(owner, '3'));
+        ui.replace(position, owner.dye('2'), owner.dye('3'));
     }
 
     public void clearUI(Position position, UIObserver ui) {
-        ui.replace(position, new Feature().dye(owner, '3'), new Element('0', Ansi.Color.WHITE));
+        ui.replace(position, owner.dye('3'), new Element('0', Ansi.Color.WHITE));
     }
 
     public boolean equals(Object object) {

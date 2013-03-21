@@ -1,25 +1,27 @@
 package estate;
 
+import player.Role;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 class VipManager {
-    private final Map<String, Vip> vips = new HashMap<String, Vip>();
+    private final Map<Role, Vip> vips = new HashMap<Role, Vip>();
 
-    public void setVip(String account) {
-        vips.put(account, new Vip());
+    public void setVip(Role role) {
+        vips.put(role, new Vip());
     }
 
-    public void pass(String account) {
-        if (vips.containsKey(account)) {
-            vips.get(account).pass();
+    public void pass(Role role) {
+        if (vips.containsKey(role)) {
+            vips.get(role).pass();
         }
         removeExpiredVips();
     }
 
-    public boolean isVip(String account) {
-        return (vips.containsKey(account));
+    public boolean isVip(Role role) {
+        return (vips.containsKey(role));
     }
 
     public boolean equals(Object object) {
@@ -28,13 +30,13 @@ class VipManager {
     }
 
     private void removeExpiredVips() {
-        Iterator<Map.Entry<String, Vip>> it = vips.entrySet().iterator();
+        Iterator<Map.Entry<Role, Vip>> it = vips.entrySet().iterator();
         while (it.hasNext()) {
             removeExpiredVip(it);
         }
     }
 
-    private void removeExpiredVip(Iterator<Map.Entry<String, Vip>> it) {
+    private void removeExpiredVip(Iterator<Map.Entry<Role, Vip>> it) {
         if (it.next().getValue().isExpired()) {
             it.remove();
         }

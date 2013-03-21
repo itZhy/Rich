@@ -15,13 +15,13 @@ public class Callback {
         forwardedObservers.add(observer);
     }
 
-    public void notifyWhileForwarding(String role, Movement movement) {
+    public void notifyWhileForwarding(Role role, Movement movement) {
         for (Observer observer : forwardingObservers) {
             observer.handle(role, movement);
         }
     }
 
-    public void notifyAfterForwarded(String role, Movement movement) {
+    public void notifyAfterForwarded(Role role, Movement movement) {
         for (Observer observer : forwardedObservers) {
             observer.handle(role, movement);
         }

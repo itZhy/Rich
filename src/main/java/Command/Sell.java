@@ -2,7 +2,7 @@ package command;
 
 import estate.EstateManager;
 import player.Position;
-import player.Role;
+import player.Player;
 
 public class Sell implements Command {
     private final EstateManager estateManager;
@@ -11,7 +11,7 @@ public class Sell implements Command {
         this.estateManager = estateManager;
     }
 
-    public void execute(Role role, int argument) {
-        estateManager.sell(new Position(argument), role.name());
+    public void execute(Player player, int argument) {
+        estateManager.sell(new Position(argument), player.role());
     }
 }

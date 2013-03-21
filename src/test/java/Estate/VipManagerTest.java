@@ -1,8 +1,8 @@
 package estate;
 
 import player.Callback;
-import player.Feature;
 import player.Role;
+import player.Player;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -14,43 +14,43 @@ public class VipManagerTest {
         //given
         VipManager manager = new VipManager();
         //when
-        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
-        String role = owner.name();
+        Player owner = new Player(Role.SunHsiaoMei, new Callback());
+        Role role = owner.role();
         manager.setVip(role);
         //then
         assertThat(manager.isVip(role), is(true));
-        manager.pass(Feature.SUN_HSIAO_MEI);
+        manager.pass(Role.SunHsiaoMei);
         assertThat(manager.isVip(role), is(true));
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.SUN_HSIAO_MEI);
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.SunHsiaoMei);
         assertThat(manager.isVip(role), is(true));
-        manager.pass(Feature.SUN_HSIAO_MEI);
+        manager.pass(Role.SunHsiaoMei);
         assertThat(manager.isVip(role), is(false));
     }
 
     @Test
     public void it_should_set_multiply_vips() {
         VipManager manager = new VipManager();
-        manager.setVip(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.setVip(Feature.BABY_KIN);
-        manager.pass(Feature.BABY_KIN);
+        manager.setVip(Role.SunHsiaoMei);
+        manager.pass(Role.SunHsiaoMei);
+        manager.setVip(Role.babyKin);
+        manager.pass(Role.babyKin);
 
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.BABY_KIN);
-        manager.pass(Feature.BABY_KIN);
-        assertThat(manager.isVip(Feature.SUN_HSIAO_MEI), is(true));
-        assertThat(manager.isVip(Feature.BABY_KIN), is(true));
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.babyKin);
+        manager.pass(Role.babyKin);
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
+        assertThat(manager.isVip(Role.babyKin), is(true));
 
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.SUN_HSIAO_MEI);
-        manager.pass(Feature.BABY_KIN);
-        assertThat(manager.isVip(Feature.SUN_HSIAO_MEI), is(false));
-        assertThat(manager.isVip(Feature.BABY_KIN), is(true));
-        manager.pass(Feature.BABY_KIN);
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.SunHsiaoMei);
+        manager.pass(Role.babyKin);
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
+        assertThat(manager.isVip(Role.babyKin), is(true));
+        manager.pass(Role.babyKin);
         //then
-        assertThat(manager.isVip(Feature.BABY_KIN), is(false));
+        assertThat(manager.isVip(Role.babyKin), is(false));
     }
 }

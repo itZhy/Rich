@@ -1,10 +1,8 @@
 package estate;
 
-import player.Callback;
-import player.Feature;
-import player.Role;
 import org.junit.Before;
 import org.junit.Test;
+import player.Role;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -12,12 +10,11 @@ import static org.junit.Assert.assertThat;
 public class HovelTest {
     private static final int COST = 200;
     private Hovel hovel;
-    private String role;
+    private Role role;
 
     @Before
     public void setUp() {
-        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
-        role = owner.name();
+        role = Role.SunHsiaoMei;
         hovel = new Hovel(role, COST);
     }
 

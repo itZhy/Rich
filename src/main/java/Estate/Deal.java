@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 import ui.CommandLine;
 
@@ -12,7 +13,7 @@ public abstract class Deal {
         this.bank = bank;
     }
 
-    public abstract void handle(Position position, String role);
+    public abstract void handle(Position position, Role role);
 
     boolean isAgree(String promptMessage) {
         do {

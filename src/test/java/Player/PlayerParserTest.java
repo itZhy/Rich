@@ -11,9 +11,9 @@ public class PlayerParserTest {
         //given
         PlayerParser parser = new PlayerParser(new Callback());
         //when
-        Role role = parser.get('1');
+        Player player = parser.get('1');
         //then
-        Role expectedRole = new Role(Feature.MADAME_CHYAN, new Callback());
-        assertThat(role, is(expectedRole));
+        Player expectedPlayer = new Player(Role.madameChyan, new Callback());
+        assertThat(player, is(expectedPlayer));
     }
 }

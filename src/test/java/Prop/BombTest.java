@@ -1,6 +1,6 @@
 package prop;
 
-import player.Feature;
+import player.Role;
 import player.Movement;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class BombTest {
     @Test
     public void the_role_should_be_moved_to_hospital() {
         //given
-        Prop bomb = new Bomb(Feature.UNCLE_TUU);
+        Prop bomb = new Bomb(Role.uncleTuu);
         //when
         Movement movement = new Movement();
         try {

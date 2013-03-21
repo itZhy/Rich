@@ -2,6 +2,7 @@ package assistedScene;
 
 import application.GameException;
 import estate.EstateManager;
+import player.Role;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -33,22 +34,22 @@ public class GiftSelectorFactory {
     }
 
     private class BonusSelector implements Selector {
-        public void select(String roleName) {
-            estateManager.bonus(roleName);
+        public void select(Role role) {
+            estateManager.bonus(role);
             showPromptMessage("恭喜您获得2000金钱。");
         }
     }
 
     private class PointSelector implements Selector {
-        public void select(String roleName) {
-            propManager.add(roleName, 200);
+        public void select(Role role) {
+            propManager.add(role, 200);
             showPromptMessage("恭喜您获得200点数。");
         }
     }
 
     private class MascotSelector implements Selector {
-        public void select(String roleName) {
-            estateManager.setVip(roleName);
+        public void select(Role role) {
+            estateManager.setVip(role);
             showPromptMessage("恭喜您获得5回合福神附体状态，福神附体期间免收过路费。");
         }
     }

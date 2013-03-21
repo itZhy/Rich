@@ -1,6 +1,6 @@
 package command;
 
-import player.Role;
+import player.Player;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -11,8 +11,8 @@ public class Robot implements Command {
         this.propManager = propManager;
     }
 
-    public void execute(Role role, int argument) {
-        propManager.clean(role.name(), role.currentPosition());
+    public void execute(Player player, int argument) {
+        propManager.clean(player.role(), player.currentPosition());
         showPromptMessage();
 
     }

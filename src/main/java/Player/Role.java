@@ -1,55 +1,30 @@
 package player;
 
-import prop.PropException;
+import org.fusesource.jansi.Ansi;
+import ui.Element;
 
-public class Role {
-    private final String name;
-    private final Callback callback;
-    private final Movement movement = new Movement();
+public enum Role {
+    madameChyan("钱夫人", new Element('M', Ansi.Color.MAGENTA)),
+    uncleTuu("阿土伯", new Element('U', Ansi.Color.YELLOW)),
+    SunHsiaoMei("孙小美", new Element('S', Ansi.Color.RED)),
+    babyKin("金贝贝", new Element('B', Ansi.Color.BLUE));
+    private String name;
+    private Element element;
 
-    public Role(String name, Callback callback) {
+    private Role(String name, Element element) {
         this.name = name;
-        this.callback = callback;
+        this.element = element;
     }
 
-    public String name() {
+    public Element dye(char symbol) {
+        return element.dye(symbol);
+    }
+
+    public Element getDisplayElement()  {
+        return element;
+    }
+
+    public String toString()    {
         return name;
-    }
-
-    public void forward(int step) {
-        forwardStepByStep(step);
-        callback.notifyAfterForwarded(name(), movement);
-    }
-
-    public boolean skip() {
-        return movement.skip();
-    }
-
-    public Position currentPosition() {
-        return movement.currentPosition();
-    }
-
-    public void leave() {
-        movement.leave();
-        callback.notifyWhileForwarding(name(), movement);
-    }
-
-    public boolean equals(Object object) {
-        return getClass() == object.getClass() && movement.equals(((Role) object).movement);
-    }
-
-    private void forwardStepByStep(int step) {
-        try {
-            walk(step);
-        } catch (PropException e) {
-            e.showPromptMessage();
-        }
-    }
-
-    private void walk(int step) {
-        for (int count = 0; count != step; ++count) {
-            movement.walk();
-            callback.notifyWhileForwarding(name(), movement);
-        }
     }
 }

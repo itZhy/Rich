@@ -1,6 +1,6 @@
 package estate;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Map;
 import org.junit.Before;
@@ -24,21 +24,21 @@ public class PayTest {
         //given
         Deal pay = new Pay(estateMap, bank);
         //when
-        estateMap.update(new Position(4), Feature.SUN_HSIAO_MEI);
-        pay.handle(new Position(4), Feature.UNCLE_TUU);
+        estateMap.update(new Position(4), Role.SunHsiaoMei);
+        pay.handle(new Position(4), Role.uncleTuu);
         //then
-        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 9900元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 9900元\n"));
     }
 
     @Test
     public void it_should_not_pay_rent_after_set_vip() {
         //given
         Deal pay = new Pay(estateMap, bank);
-        bank.setVip(Feature.UNCLE_TUU);
+        bank.setVip(Role.uncleTuu);
         //when
-        estateMap.update(new Position(4), Feature.SUN_HSIAO_MEI);
-        pay.handle(new Position(4), Feature.UNCLE_TUU);
+        estateMap.update(new Position(4), Role.SunHsiaoMei);
+        pay.handle(new Position(4), Role.uncleTuu);
         //then
-        assertThat(bank.query(Feature.UNCLE_TUU), is("\n资金： 10000元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000元\n"));
     }
 }

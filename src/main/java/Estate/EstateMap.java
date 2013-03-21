@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 import ui.PositionExtractor;
 import ui.UIObserver;
@@ -21,7 +22,7 @@ class EstateMap {
         return buildings.get(position);
     }
 
-    public void update(Position position, String role) {
+    public void update(Position position, Role role) {
         buildings.put(position, get(position).update(role));
         get(position).updateUI(position, ui);
         ui.refresh();
@@ -33,13 +34,13 @@ class EstateMap {
         ui.refresh();
     }
 
-    public void clearBuildingsOfOwner(String roleName) {
+    public void clearBuildingsOfOwner(Role role) {
         for (Map.Entry<Position, Building> house : buildings.entrySet()) {
-            if (house.getValue().isOwner(roleName)) clearBuilding(house.getKey());
+            if (house.getValue().isOwner(role)) clearBuilding(house.getKey());
         }
     }
 
-    public String query(String role) {
+    public String query(Role role) {
         return "地产：空地" + inquiryBuilding(role, SoldVacancy.class) + "处；茅屋" +
                 inquiryBuilding(role, Hovel.class) + "处；洋房" +
                 inquiryBuilding(role, Villa.class) + "处；摩天楼" +
@@ -50,7 +51,7 @@ class EstateMap {
         return buildings.containsKey(position);
     }
 
-    private int inquiryBuilding(String role, Class type) {
+    private int inquiryBuilding(Role role, Class type) {
         int count = 0;
         for (Building house : buildings.values()) {
             if (house.matchOwnerAndType(role, type)) {

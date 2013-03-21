@@ -1,8 +1,8 @@
 package estate;
 
 import player.Callback;
-import player.Feature;
 import player.Role;
+import player.Player;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,12 +12,12 @@ import static org.junit.Assert.assertThat;
 public class SoldVacancyTest {
     private static final int COST = 200;
     private SoldVacancy soldVacancy;
-    private String role;
+    private Role role;
 
     @Before
     public void setUp() {
-        Role owner = new Role(Feature.SUN_HSIAO_MEI, new Callback());
-        role = owner.name();
+        Player owner = new Player(Role.SunHsiaoMei, new Callback());
+        role = owner.role();
         soldVacancy = new SoldVacancy(role, COST);
     }
 

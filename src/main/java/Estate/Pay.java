@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 import ui.CommandLine;
 
@@ -8,16 +9,16 @@ public class Pay extends Deal {
         super(estateMap, bank);
     }
 
-    public void handle(Position position, String roleName) {
-        if (bank.isVip(roleName)) {
+    public void handle(Position position, Role role) {
+        if (bank.isVip(role)) {
             showPromptMessage("福神附身，可免过路费");
             return;
         }
 
-        pay(position, roleName);
+        pay(position, role);
     }
 
-    private void pay(Position position, String roleName) {
+    private void pay(Position position, Role roleName) {
         showPromptMessage("路过他人地产，留下" + estateMap.get(position).toll() + "元过路费。");
         bank.withdraw(roleName, estateMap.get(position).toll());
         bank.add(estateMap.get(position).owner, estateMap.get(position).toll());

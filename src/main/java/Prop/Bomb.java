@@ -1,13 +1,13 @@
 package prop;
 
-import player.Feature;
+import player.Role;
 import player.Movement;
 
 public class Bomb extends Prop {
-    public Bomb(String owner) {
+    public Bomb(Role owner) {
         name = "炸弹";
         price = 50;
-        element = new Feature().dye(owner, '@');
+        element = owner.dye('@');
     }
 
     public void handle(Movement movement) {

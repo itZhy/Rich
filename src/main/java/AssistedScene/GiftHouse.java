@@ -3,6 +3,7 @@ package assistedScene;
 import application.GameException;
 import estate.EstateManager;
 import player.Movement;
+import player.Role;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -14,14 +15,14 @@ public class GiftHouse implements Scene {
         factory = new GiftSelectorFactory(propManager, estateManager);
     }
 
-    public void handle(String roleName, Movement movement) {
+    public void handle(Role role, Movement movement) {
         showPromptMessage();
-        handleInput(roleName);
+        handleInput(role);
     }
 
-    private void handleInput(String roleName) {
+    private void handleInput(Role role) {
         try {
-            factory.get(commandLine.waitForInput("请输入您要选择的礼品编号：")).select(roleName);
+            factory.get(commandLine.waitForInput("请输入您要选择的礼品编号：")).select(role);
         } catch (GameException e) {
             commandLine.outputInNewline(e.toString());
         }

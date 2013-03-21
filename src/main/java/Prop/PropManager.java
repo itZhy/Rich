@@ -4,6 +4,7 @@ import application.GameException;
 import player.Movement;
 import player.Observer;
 import player.Position;
+import player.Role;
 import ui.UIObserver;
 
 public class PropManager implements Observer {
@@ -15,38 +16,38 @@ public class PropManager implements Observer {
         propMap = new PropMap(ui);
     }
 
-    public void handle(String roleName, Movement movement) {
+    public void handle(Role role, Movement movement) {
         propMap.trigger(movement);
-        playerPosition.record(roleName, movement.currentPosition());
+        playerPosition.record(role, movement.currentPosition());
     }
 
-    public void add(String roleName, int point) {
-        ownership.add(roleName, point);
+    public void add(Role role, int point) {
+        ownership.add(role, point);
     }
 
-    public void sell(String roleName, Prop prop) {
-        ownership.sell(roleName, prop);
+    public void sell(Role role, Prop prop) {
+        ownership.sell(role, prop);
     }
 
-    public void buy(String roleName, Prop prop) {
-        ownership.buy(roleName, prop);
+    public void buy(Role role, Prop prop) {
+        ownership.buy(role, prop);
     }
 
-    public void put(String roleName, Prop prop, Position position) {
+    public void put(Role role, Prop prop, Position position) {
         if (playerPosition.hasPlayer(position)) {
             throw new GameException("此处有玩家，不能放置道具。", GameException.NEED_RETRY);
         }
-        ownership.consume(roleName, prop);
+        ownership.consume(role, prop);
         propMap.put(position, prop);
     }
 
-    public void clean(String roleName, Position position) {
-        ownership.consume(roleName, new Robot());
+    public void clean(Role role, Position position) {
+        ownership.consume(role, new Robot());
         propMap.cleanTheFront(position);
     }
 
-    public String query(String roleName) {
-        return ownership.query(roleName);
+    public String query(Role role) {
+        return ownership.query(role);
     }
 
     public boolean equals(Object object) {

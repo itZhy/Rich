@@ -1,7 +1,7 @@
 package command;
 
 import estate.EstateManager;
-import player.Role;
+import player.Player;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -14,7 +14,7 @@ public class Query implements Command {
         this.propManager = propManager;
     }
 
-    public void execute(Role role, int argument) {
-        new CommandLine().outputInNewline(propManager.query(role.name()) + estateManager.query((role.name())));
+    public void execute(Player player, int argument) {
+        new CommandLine().outputInNewline(propManager.query(player.role()) + estateManager.query((player.role())));
     }
 }

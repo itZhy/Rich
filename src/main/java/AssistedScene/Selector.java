@@ -1,5 +1,7 @@
 package assistedScene;
 
+import player.Role;
+
 public interface Selector {
-    public void select(String roleName);
+    public void select(Role role);
 }

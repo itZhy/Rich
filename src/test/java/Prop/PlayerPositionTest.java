@@ -1,6 +1,6 @@
 package prop;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import org.junit.Test;
 
@@ -13,8 +13,8 @@ public class PlayerPositionTest {
         //given
         PlayerPosition playerPosition = new PlayerPosition();
         //when
-        playerPosition.record(Feature.BABY_KIN, new Position(3));
-        playerPosition.record(Feature.BABY_KIN, new Position(5));
+        playerPosition.record(Role.babyKin, new Position(3));
+        playerPosition.record(Role.babyKin, new Position(5));
         //then
         assertThat(playerPosition.hasPlayer(new Position(3)), is(false));
         assertThat(playerPosition.hasPlayer(new Position(5)), is(true));

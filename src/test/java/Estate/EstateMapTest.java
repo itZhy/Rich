@@ -1,6 +1,6 @@
 package estate;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Map;
 import ui.UIObserver;
@@ -23,16 +23,16 @@ public class EstateMapTest {
     @Test
     public void it_should_update_building_after_payed() {
         //when
-        map.update(new Position(10), Feature.MADAME_CHYAN);
-        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Role.madameChyan);
+        map.update(new Position(10), Role.madameChyan);
         //then
-        assertThat(map.get(new Position(10)), is((Building) new Hovel(Feature.MADAME_CHYAN, 200)));
+        assertThat(map.get(new Position(10)), is((Building) new Hovel(Role.madameChyan, 200)));
     }
 
     @Test
     public void it_should_clear_associated_building() {
         //when
-        map.update(new Position(10), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Role.madameChyan);
         map.clearBuilding(new Position(10));
         //then
         assertThat(map, is(new EstateMap(ui)));
@@ -41,28 +41,28 @@ public class EstateMapTest {
     @Test
     public void it_should_clear_all_buildings_of_player_after_insolvency() {
         //when
-        map.update(new Position(10), Feature.MADAME_CHYAN);
-        map.update(new Position(24), Feature.MADAME_CHYAN);
-        map.update(new Position(25), Feature.BABY_KIN);
-        map.clearBuildingsOfOwner(Feature.MADAME_CHYAN);
+        map.update(new Position(10), Role.madameChyan);
+        map.update(new Position(24), Role.madameChyan);
+        map.update(new Position(25), Role.babyKin);
+        map.clearBuildingsOfOwner(Role.madameChyan);
         //then
         EstateMap exceptedMap = new EstateMap(ui);
-        exceptedMap.update(new Position(25), Feature.BABY_KIN);
+        exceptedMap.update(new Position(25), Role.babyKin);
         assertThat(map, is(exceptedMap));
     }
 
     @Test
     public void it_should_inquiry_buildings_which_match_the_role() {
         //when
-        map.update(new Position(10), Feature.MADAME_CHYAN);
-        map.update(new Position(24), Feature.MADAME_CHYAN);
-        map.update(new Position(25), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Role.madameChyan);
+        map.update(new Position(24), Role.madameChyan);
+        map.update(new Position(25), Role.madameChyan);
 
-        map.update(new Position(10), Feature.MADAME_CHYAN);
-        map.update(new Position(24), Feature.MADAME_CHYAN);
-        map.update(new Position(24), Feature.MADAME_CHYAN);
+        map.update(new Position(10), Role.madameChyan);
+        map.update(new Position(24), Role.madameChyan);
+        map.update(new Position(24), Role.madameChyan);
         //then
-        assertThat(map.query(Feature.MADAME_CHYAN), is("地产：空地1处；茅屋1处；洋房1处；摩天楼0处"));
+        assertThat(map.query(Role.madameChyan), is("地产：空地1处；茅屋1处；洋房1处；摩天楼0处"));
     }
 
     @Test

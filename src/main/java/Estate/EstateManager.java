@@ -1,6 +1,7 @@
 package estate;
 
 import application.GameException;
+import player.Role;
 import player.Movement;
 import player.Observer;
 import player.Position;
@@ -16,24 +17,24 @@ public class EstateManager implements Observer {
         dealFactory = new DealFactory(estateMap, bank);
     }
 
-    public void handle(String role, Movement movement) {
+    public void handle(Role role, Movement movement) {
         if (estateMap.hasBuilding(movement.currentPosition())) {
             dealFactory.get(movement.currentPosition(), role).handle(movement.currentPosition(), role);
         }
         bank.pass(role);
     }
 
-    public void sell(Position position, String role) {
+    public void sell(Position position, Role role) {
         checkIsAbleToSell(position, role);
         bank.add(role, estateMap.get(position).sellingPrice());
         estateMap.clearBuilding(position);
     }
 
-    public void setVip(String role) {
+    public void setVip(Role role) {
         bank.setVip(role);
     }
 
-    public void bonus(String account) {
+    public void bonus(Role account) {
         bank.add(account, 2000);
     }
 
@@ -41,15 +42,15 @@ public class EstateManager implements Observer {
         bank.reset(initialFund);
     }
 
-    public void goBankrupt(String role) {
+    public void goBankrupt(Role role) {
         estateMap.clearBuildingsOfOwner(role);
     }
 
-    public String query(String role) {
+    public String query(Role role) {
         return bank.query(role) + estateMap.query(role);
     }
 
-    private void checkIsAbleToSell(Position position, String role) {
+    private void checkIsAbleToSell(Position position, Role role) {
         if (!estateMap.hasBuilding(position)) {
             throw new GameException("该地不可买卖。", GameException.NEED_RETRY);
         }

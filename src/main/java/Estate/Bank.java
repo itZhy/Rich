@@ -1,12 +1,13 @@
 package estate;
 
 import application.GameException;
+import player.Role;
 
 import java.util.HashMap;
 import java.util.Map;
 
 class Bank {
-    private final Map<String, Fund> funds = new HashMap<String, Fund>();
+    private final Map<Role, Fund> funds = new HashMap<Role, Fund>();
     private final VipManager vipManager = new VipManager();
     private int initialFund = 10000;
 
@@ -15,37 +16,37 @@ class Bank {
         initialFund = fund;
     }
 
-    public String query(String account) {
-        initializeWhenNotExist(account);
-        return "\n资金： " + funds.get(account).toString() + "元\n";
+    public String query(Role role) {
+        initializeWhenNotExist(role);
+        return "\n资金： " + funds.get(role).toString() + "元\n";
     }
 
-    public void withdraw(String account, Integer money) {
-        initializeWhenNotExist(account);
-        funds.get(account).reduce(money);
-        checkBankrupt(account);
+    public void withdraw(Role role, Integer money) {
+        initializeWhenNotExist(role);
+        funds.get(role).reduce(money);
+        checkBankrupt(role);
     }
 
-    public boolean isVip(String account) {
-        return vipManager.isVip(account);
+    public boolean isVip(Role role) {
+        return vipManager.isVip(role);
     }
 
-    public void setVip(String role) {
+    public void setVip(Role role) {
         vipManager.setVip(role);
     }
 
-    public void pass(String role) {
+    public void pass(Role role) {
         vipManager.pass(role);
     }
 
-    public void add(String account, Integer money) {
-        initializeWhenNotExist(account);
-        funds.get(account).add(money);
+    public void add(Role role, Integer money) {
+        initializeWhenNotExist(role);
+        funds.get(role).add(money);
     }
 
-    public boolean checkPurchasingPower(String account, Integer price) {
-        initializeWhenNotExist(account);
-        return funds.get(account).isGreaterOrEqualThan(price);
+    public boolean checkPurchasingPower(Role role, Integer price) {
+        initializeWhenNotExist(role);
+        return funds.get(role).isGreaterOrEqualThan(price);
     }
 
     public boolean equals(Object object) {
@@ -53,15 +54,15 @@ class Bank {
                 funds.equals(((Bank) object).funds);
     }
 
-    private void initializeWhenNotExist(String account) {
-        if (!funds.containsKey(account)) {
-            funds.put(account, new Fund(initialFund));
+    private void initializeWhenNotExist(Role role) {
+        if (!funds.containsKey(role)) {
+            funds.put(role, new Fund(initialFund));
         }
     }
 
-    private void checkBankrupt(String account) {
-        if (!funds.get(account).isGreaterOrEqualThan(0)) {
-            throw new Insolvency(account);
+    private void checkBankrupt(Role role) {
+        if (!funds.get(role).isGreaterOrEqualThan(0)) {
+            throw new Insolvency(role);
         }
     }
 }

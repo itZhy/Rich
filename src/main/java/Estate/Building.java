@@ -1,27 +1,28 @@
 package estate;
 
+import player.Role;
 import player.Position;
 import ui.UIObserver;
 
 abstract class Building {
     final int basePrice;
-    String owner;
+    Role owner;
 
     Building(int basePrice) {
         this.basePrice = basePrice;
     }
 
-    public boolean isOwner(String roleName) {
-        return roleName.equals(owner);
+    public boolean isOwner(Role role) {
+        return role.equals(owner);
     }
 
     public abstract int sellingPrice();
 
-    public abstract Building update(String owner);
+    public abstract Building update(Role owner);
 
     public abstract int toll();
 
-    public boolean matchOwnerAndType(String role, Class type) {
+    public boolean matchOwnerAndType(Role role, Class type) {
         return role.equals(owner) && type.equals(getClass());
     }
 

@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 
 class DealFactory {
@@ -13,7 +14,7 @@ class DealFactory {
         judge = new Judge(estateMap, bank);
     }
 
-    public Deal get(Position position, String role) {
+    public Deal get(Position position, Role role) {
         if (judge.isMetToBuy(position, role)) {
             return new Buy(estateMap, bank);
         }

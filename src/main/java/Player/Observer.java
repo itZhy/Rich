@@ -1,5 +1,5 @@
 package player;
 
 public interface Observer {
-    public void handle(String roleName, Movement movement);
+    public void handle(Role role, Movement movement);
 }

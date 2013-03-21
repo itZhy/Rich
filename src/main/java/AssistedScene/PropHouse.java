@@ -2,6 +2,7 @@ package assistedScene;
 
 import application.GameException;
 import player.Movement;
+import player.Role;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -13,19 +14,19 @@ public class PropHouse implements Scene {
         factory = new PropSelectorFactory(propManager);
     }
 
-    public void handle(String roleName, Movement movement) {
+    public void handle(Role role, Movement movement) {
         showPromptMessage();
-        handleInputUntilQuit(roleName);
+        handleInputUntilQuit(role);
     }
 
-    private void handleInputUntilQuit(String roleName) {
-        while (handleInput(roleName)) {
+    private void handleInputUntilQuit(Role role) {
+        while (handleInput(role)) {
         }
     }
 
-    private boolean handleInput(String roleName) {
+    private boolean handleInput(Role role) {
         try {
-            factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(roleName);
+            factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(role);
             return true;
         } catch (GameException e) {
             commandLine.outputInNewline(e.toString());

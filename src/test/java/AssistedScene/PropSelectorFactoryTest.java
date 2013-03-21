@@ -1,7 +1,7 @@
 package assistedScene;
 
 import application.GameException;
-import player.Feature;
+import player.Role;
 import prop.Barricade;
 import prop.PropManager;
 import ui.Map;
@@ -14,13 +14,13 @@ import static org.junit.Assert.assertThat;
 public class PropSelectorFactoryTest {
     private PropSelectorFactory factory;
     private PropManager propManager;
-    private String owner;
+    private Role owner;
 
     @Before
     public void setUp() {
         propManager = new PropManager(new Map());
         factory = new PropSelectorFactory(propManager);
-        owner = Feature.UNCLE_TUU;
+        owner = Role.uncleTuu;
     }
 
     @Test(expected = GameException.class)

@@ -1,15 +1,16 @@
 package prop;
 
 import player.Position;
+import player.Role;
 
 import java.util.HashMap;
 import java.util.Map;
 
 class PlayerPosition {
-    private final Map<String, Position> positions = new HashMap<String, Position>();
+    private final Map<Role, Position> positions = new HashMap<Role, Position>();
 
-    public void record(String roleName, Position position) {
-        positions.put(roleName, position);
+    public void record(Role role, Position position) {
+        positions.put(role, position);
     }
 
     public Boolean hasPlayer(Position position) {

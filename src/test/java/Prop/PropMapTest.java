@@ -1,6 +1,6 @@
 package prop;
 
-import player.Feature;
+import player.Role;
 import player.Position;
 import ui.Map;
 import ui.UIObserver;
@@ -13,13 +13,13 @@ import static org.junit.Assert.assertThat;
 public class PropMapTest {
     private PropMap propMap;
     private UIObserver ui;
-    private String owner;
+    private Role owner;
 
     @Before
     public void setUp() {
         ui = new Map();
         propMap = new PropMap(ui);
-        owner = Feature.UNCLE_TUU;
+        owner = Role.uncleTuu;
     }
 
     @Test

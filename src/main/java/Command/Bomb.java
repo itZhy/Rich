@@ -1,7 +1,7 @@
 package command;
 
 import application.GameException;
-import player.Role;
+import player.Player;
 import prop.PropManager;
 
 public class Bomb implements Command {
@@ -11,9 +11,9 @@ public class Bomb implements Command {
         this.propManager = propManager;
     }
 
-    public void execute(Role role, int argument) {
+    public void execute(Player player, int argument) {
         checkArgument(argument);
-        propManager.put(role.name(), new prop.Bomb(role.name()), role.currentPosition().offset(argument));
+        propManager.put(player.role(), new prop.Bomb(player.role()), player.currentPosition().offset(argument));
     }
 
     private void checkArgument(int argument) {

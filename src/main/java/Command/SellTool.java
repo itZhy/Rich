@@ -2,6 +2,7 @@ package command;
 
 import application.GameException;
 import player.Role;
+import player.Player;
 import prop.*;
 import prop.Bomb;
 import prop.Robot;
@@ -16,14 +17,14 @@ public class SellTool implements Command {
         this.propManager = propManager;
     }
 
-    public void execute(Role role, int argument) {
-        propManager.sell(role.name(), new PropFactory(role.name()).get(argument));
+    public void execute(Player player, int argument) {
+        propManager.sell(player.role(), new PropFactory(player.role()).get(argument));
     }
 
     private class PropFactory {
         private final Map<Integer, Prop> props = new HashMap<Integer, Prop>();
 
-        public PropFactory(String owner) {
+        public PropFactory(Role owner) {
             props.put(1, new Barricade(owner));
             props.put(2, new Robot());
             props.put(3, new Bomb(owner));

@@ -1,7 +1,7 @@
 package command;
 
 import application.GameException;
-import player.Role;
+import player.Player;
 import ui.CommandLine;
 
 import java.io.File;
@@ -12,7 +12,7 @@ public class Help implements Command {
     private static final String HELP_FILE_PATH = "help";
     private final CommandLine commandLine = new CommandLine();
 
-    public void execute(Role role, int argument) {
+    public void execute(Player player, int argument) {
         try {
             showHelpMessage();
         } catch (FileNotFoundException e) {

@@ -1,5 +1,6 @@
 package estate;
 
+import player.Role;
 import player.Position;
 
 class Judge {
@@ -11,27 +12,27 @@ class Judge {
         this.bank = bank;
     }
 
-    public boolean isMetToBuy(Position position, String role) {
+    public boolean isMetToBuy(Position position, Role role) {
         return (!isSold(position)) && canAfford(position, role);
     }
 
-    public boolean isMetToPay(Position position, String role) {
+    public boolean isMetToPay(Position position, Role role) {
         return (isSold(position)) && isNotOwner(position, role);
     }
 
-    public boolean isMetToUpdate(Position position, String role) {
+    public boolean isMetToUpdate(Position position, Role role) {
         return (isSold(position)) && canAfford(position, role) && isUpdateToTop(position);
     }
 
-    private boolean isNotOwner(Position position, String roleName) {
-        return !estateMap.get(position).isOwner(roleName);
+    private boolean isNotOwner(Position position, Role role) {
+        return !estateMap.get(position).isOwner(role);
     }
 
     private boolean isSold(Position position) {
         return (estateMap.get(position).getClass() != Vacancy.class);
     }
 
-    private boolean canAfford(Position position, String role) {
+    private boolean canAfford(Position position, Role role) {
         return bank.checkPurchasingPower(role, estateMap.get(position).basePrice);
     }
 

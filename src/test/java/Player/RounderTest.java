@@ -15,18 +15,18 @@ public class RounderTest {
         PlayerParser parser = new PlayerParser(new Callback());
         String players = "4213";
         for (int index = 0; index != players.length(); ++index) {
-            Role role = parser.get(players.charAt(index));
-            rounder.add(role);
+            Player player = parser.get(players.charAt(index));
+            rounder.add(player);
         }
     }
 
     @Test
     public void it_should_get_first_player() {
         //when
-        Role currentRole = rounder.current();
+        Player currentPlayer = rounder.current();
         //then
-        Role exceptedRole = new Role(Feature.BABY_KIN, new Callback());
-        assertThat(currentRole, is(exceptedRole));
+        Player exceptedPlayer = new Player(Role.babyKin, new Callback());
+        assertThat(currentPlayer, is(exceptedPlayer));
     }
 
     @Test
@@ -34,10 +34,10 @@ public class RounderTest {
         //when
         rounder.next();
         rounder.next();
-        Role currentRole = rounder.current();
+        Player currentPlayer = rounder.current();
         //then
-        Role exceptedRole = new Role(Feature.MADAME_CHYAN, new Callback());
-        assertThat(currentRole, is(exceptedRole));
+        Player exceptedPlayer = new Player(Role.madameChyan, new Callback());
+        assertThat(currentPlayer, is(exceptedPlayer));
     }
 
     @Test
@@ -47,23 +47,23 @@ public class RounderTest {
         rounder.next();
         rounder.next();
         rounder.next();
-        Role currentRole = rounder.current();
+        Player currentPlayer = rounder.current();
         //then
-        Role exceptedRole = new Role(Feature.BABY_KIN, new Callback());
-        assertThat(currentRole, is(exceptedRole));
+        Player exceptedPlayer = new Player(Role.babyKin, new Callback());
+        assertThat(currentPlayer, is(exceptedPlayer));
     }
 
     @Test
     public void it_should_delete_corresponding_player_when_player_encounter_bankrupt(){
         //when
-        rounder.isOnlyOneRoleAfterEliminate(Feature.BABY_KIN);
+        rounder.isOnlyOneRoleAfterEliminate(Role.babyKin);
         //then
         Rounder exceptedRounder = new Rounder();
         PlayerParser parser = new PlayerParser(new Callback());
         String players = "213";
         for (int index = 0; index != players.length(); ++index) {
-            Role role = parser.get(players.charAt(index));
-            exceptedRounder.add(role);
+            Player player = parser.get(players.charAt(index));
+            exceptedRounder.add(player);
         }
         assertThat(rounder, is(exceptedRounder));
     }

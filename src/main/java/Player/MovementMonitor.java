@@ -9,16 +9,16 @@ public class MovementMonitor implements Observer {
         this.ui = ui;
     }
 
-    public void handle(String roleName, Movement movement) {
+    public void handle(Role role, Movement movement) {
         if (movement.currentPosition().equals(Movement.INVALID_POSITION)) {
-            ui.delete(movement.previousPosition(), new Feature().get(roleName));
+            ui.delete(movement.previousPosition(), role.getDisplayElement());
             return;
         }
-        move(roleName, movement);
+        move(role, movement);
     }
 
-    private void move(String roleName, Movement movement) {
-        ui.move(movement.previousPosition(), movement.currentPosition(), new Feature().get(roleName));
+    private void move(Role role, Movement movement) {
+        ui.move(movement.previousPosition(), movement.currentPosition(), role.getDisplayElement());
         ui.refresh();
     }
 }
