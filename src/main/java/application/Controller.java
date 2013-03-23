@@ -12,7 +12,7 @@ class Controller {
     private final Rounder rounder = new Rounder();
     private final UIObserver ui = new Map();
     private final SubSystem subSystem = new SubSystem(ui);
-    private final CommandFactory parser = new CommandFactory(rounder, subSystem);
+    private final CommandFactory commandFactory = new CommandFactory(rounder, subSystem);
 
     public Controller(String players) {
         initializeRounder(players);
@@ -30,7 +30,7 @@ class Controller {
     public void handleCommand(String input) {
         try {
             Splitter splitter = new Splitter(input);
-            parser.get(splitter.name()).execute(rounder.current(), splitter.argument());
+            commandFactory.get(splitter.name()).execute(rounder.current(), splitter.argument());
         } catch (Insolvency e) {
             e.handle(subSystem.getEstateManager(), rounder);
         }

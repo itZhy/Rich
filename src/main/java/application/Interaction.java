@@ -4,7 +4,7 @@ import ui.CommandLine;
 
 public class Interaction {
     private final CommandLine commandLine = new CommandLine();
-    private Controller controller = null;
+    private Controller controller;
 
     public void run() {
         initializeController();
