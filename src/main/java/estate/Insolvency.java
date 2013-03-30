@@ -13,9 +13,9 @@ public class Insolvency extends RuntimeException {
 
     public void handle(EstateManager estateManager, Rounder rounder) {
         estateManager.goBankrupt(role);
-        if (rounder.isOnlyOneRoleAfterEliminate(role)) {
+        if (rounder.isOnlyOnePlayerAfterEliminate(role)) {
             throw new GameException(role.toString() + "破产了，游戏结束，" +
-                    rounder.current().role().toString() + "取得了最后胜利！", GameException.NEED_NOT_RETRY);
+                    rounder.currentPlayer().role().toString() + "取得了最后胜利！", GameException.NEED_NOT_RETRY);
         }
         throw new GameException(role.toString() + "破产了，游戏继续。", GameException.NEED_RETRY);
     }

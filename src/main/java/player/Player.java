@@ -21,8 +21,12 @@ public class Player {
         callback.notifyAfterForwarded(role, movement);
     }
 
-    public boolean skip() {
-        return movement.skip();
+    public void pass() {
+        movement.pass();
+    }
+
+    public boolean isNeedSkip() {
+        return movement.isNeedSkip();
     }
 
     public Position currentPosition() {

@@ -30,14 +30,14 @@ class Controller {
     public void handleCommand(String input) {
         try {
             Splitter splitter = new Splitter(input);
-            commandFactory.get(splitter.name()).execute(rounder.current(), splitter.argument());
+            commandFactory.get(splitter.name()).execute(rounder.currentPlayer(), splitter.argument());
         } catch (Insolvency e) {
             e.handle(subSystem.getEstateManager(), rounder);
         }
     }
 
     public String getPrompt() {
-        return rounder.current().role().toString() + ">";
+        return rounder.currentPlayer().role().toString() + ">";
     }
 
     private void initializeRounder(String players) {

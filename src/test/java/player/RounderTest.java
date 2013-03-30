@@ -23,7 +23,7 @@ public class RounderTest {
     @Test
     public void it_should_get_first_player() {
         //when
-        Player currentPlayer = rounder.current();
+        Player currentPlayer = rounder.currentPlayer();
         //then
         Player exceptedPlayer = new Player(Role.babyKin, new Callback());
         assertThat(currentPlayer, is(exceptedPlayer));
@@ -32,9 +32,9 @@ public class RounderTest {
     @Test
     public void it_should_get_third_player_when_run_next_twice() {
         //when
-        rounder.next();
-        rounder.next();
-        Player currentPlayer = rounder.current();
+        rounder.nextPlayer();
+        rounder.nextPlayer();
+        Player currentPlayer = rounder.currentPlayer();
         //then
         Player exceptedPlayer = new Player(Role.madameChyan, new Callback());
         assertThat(currentPlayer, is(exceptedPlayer));
@@ -43,11 +43,11 @@ public class RounderTest {
     @Test
     public void it_should_get_first_player_when_run_next_four_times() {
         //when
-        rounder.next();
-        rounder.next();
-        rounder.next();
-        rounder.next();
-        Player currentPlayer = rounder.current();
+        rounder.nextPlayer();
+        rounder.nextPlayer();
+        rounder.nextPlayer();
+        rounder.nextPlayer();
+        Player currentPlayer = rounder.currentPlayer();
         //then
         Player exceptedPlayer = new Player(Role.babyKin, new Callback());
         assertThat(currentPlayer, is(exceptedPlayer));
@@ -56,7 +56,7 @@ public class RounderTest {
     @Test
     public void it_should_delete_corresponding_player_when_player_encounter_bankrupt(){
         //when
-        rounder.isOnlyOneRoleAfterEliminate(Role.babyKin);
+        rounder.isOnlyOnePlayerAfterEliminate(Role.babyKin);
         //then
         Rounder exceptedRounder = new Rounder();
         PlayerParser parser = new PlayerParser(new Callback());

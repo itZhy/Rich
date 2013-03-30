@@ -1,33 +1,34 @@
 package player;
 
 import ui.PositionExtractor;
+import utils.RoundCounter;
 
 public class Movement {
     public static final Position INVALID_POSITION = new Position(-1);
     private Position currentPosition = new Position(0);
     private Position previousPosition = new Position(0);
-    private int stayTimes = 0;
+    private final RoundCounter roundCounter = new RoundCounter();
 
     public void walk() {
         previousPosition = currentPosition;
         currentPosition = currentPosition.offset(1);
     }
 
-    public boolean skip() {
-        if (stayTimes > 0) {
-            --stayTimes;
-            return true;
-        }
-        return false;
+    public void pass() {
+        roundCounter.pass();
     }
 
-    public void stop(int times) {
-        stayTimes = times;
+    public boolean isNeedSkip() {
+        return !roundCounter.isExceed();
+    }
+
+    public void block(int times) {
+        roundCounter.setMaxCount(times);
     }
 
     public void jumpToHospital() {
         currentPosition = new PositionExtractor().getHospital();
-        stop(3);
+        block(3);
     }
 
     public Position currentPosition() {

@@ -7,24 +7,31 @@ public class Rounder {
     private final List<Player> orderedPlayers = new ArrayList<Player>();
     private int currentIndex = 0;
 
-    public Player current() {
+    public Player currentPlayer() {
         return orderedPlayers.get(currentIndex);
     }
 
-    public void next() {
+    public void nextPlayer() {
         do {
-            ++currentIndex;
-            currentIndex %= orderedPlayers.size();
-        } while (current().skip());
+            currentPlayer().pass();
+            next();
+        } while (currentPlayer().isNeedSkip());
+    }
+
+    private void next() {
+        ++currentIndex;
+        currentIndex %= orderedPlayers.size();
     }
 
     public void add(Player player) {
         orderedPlayers.add(player);
     }
 
-    public boolean isOnlyOneRoleAfterEliminate(Role role) {
+    public boolean isOnlyOnePlayerAfterEliminate(Role role) {
         for (Player player : orderedPlayers) {
-            if (player.role().equals(role)) return isOnlyOneRoleAfterDelete(player);
+            if (player.role().equals(role)) {
+                return isOnlyOnePlayerAfterDelete(player);
+            }
         }
         return false;
     }
@@ -35,7 +42,7 @@ public class Rounder {
                 currentIndex == ((Rounder) object).currentIndex;
     }
 
-    private boolean isOnlyOneRoleAfterDelete(Player player) {
+    private boolean isOnlyOnePlayerAfterDelete(Player player) {
         player.leave();
         orderedPlayers.remove(player);
         currentIndex %= orderedPlayers.size();

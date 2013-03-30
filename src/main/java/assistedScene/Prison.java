@@ -6,7 +6,7 @@ import ui.CommandLine;
 
 public class Prison implements Scene {
     public void handle(Role role, Movement movement) {
-        movement.stop(2);
+        movement.block(2);
         showPromptMessage();
     }
 

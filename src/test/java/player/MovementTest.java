@@ -1,8 +1,8 @@
 package player;
 
-import ui.PositionExtractor;
 import org.junit.Before;
 import org.junit.Test;
+import ui.PositionExtractor;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -33,13 +33,15 @@ public class MovementTest {
     }
 
     @Test
-    public void it_should_skip_only_once()  {
-        //when
-        movement.stop(1);
-        boolean firstSkipResult = movement.skip();
-        boolean secondSkipResult = movement.skip();
+    public void it_should_skip_only_once() {
+        //given
+        movement.block(1);
+        movement.pass();
         //then
-        assertThat(firstSkipResult, is(true));
-        assertThat(secondSkipResult, is(false));
+        assertThat(movement.isNeedSkip(), is(true));
+        //when
+        movement.pass();
+        //then
+        assertThat(movement.isNeedSkip(), is(false));
     }
 }

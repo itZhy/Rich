@@ -14,7 +14,7 @@ public class Roll implements Command {
 
     public void execute(Player player, int argument) {
         player.forward(dice.roll());
-        rounder.next();
+        rounder.nextPlayer();
     }
 
     public boolean equals(Object object) {
