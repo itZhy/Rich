@@ -12,6 +12,6 @@ public class RoundCounter {
     }
 
     public void setMaxCount(int maxCount) {
-        this.maxCount = maxCount + 1;
+        this.maxCount = maxCount;
     }
 }

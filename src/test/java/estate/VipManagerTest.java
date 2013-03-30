@@ -14,19 +14,17 @@ public class VipManagerTest {
         //given
         VipManager manager = new VipManager();
         //when
-        Player owner = new Player(Role.SunHsiaoMei, new Callback());
-        Role role = owner.role();
-        manager.setVip(role);
+        manager.setVip(Role.SunHsiaoMei);
         //then
-        assertThat(manager.isVip(role), is(true));
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
         manager.pass(Role.SunHsiaoMei);
-        assertThat(manager.isVip(role), is(true));
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
         manager.pass(Role.SunHsiaoMei);
         manager.pass(Role.SunHsiaoMei);
         manager.pass(Role.SunHsiaoMei);
-        assertThat(manager.isVip(role), is(true));
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
         manager.pass(Role.SunHsiaoMei);
-        assertThat(manager.isVip(role), is(false));
+        assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
     }
 
     @Test

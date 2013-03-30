@@ -36,7 +36,6 @@ public class MovementTest {
     public void it_should_skip_only_once() {
         //given
         movement.block(1);
-        movement.pass();
         //then
         assertThat(movement.isNeedSkip(), is(true));
         //when

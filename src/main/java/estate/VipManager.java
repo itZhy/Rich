@@ -1,44 +1,38 @@
 package estate;
 
 import player.Role;
+import utils.RoundCounter;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 class VipManager {
-    private final Map<Role, Vip> vips = new HashMap<Role, Vip>();
+    private final Map<Role, RoundCounter> vips = new HashMap<Role, RoundCounter>();
 
     public void setVip(Role role) {
-        vips.put(role, new Vip());
+        initializeWhenNotExist(role);
+        vips.get(role).setMaxCount(5);
+    }
+
+    private void initializeWhenNotExist(Role role)   {
+        if (!vips.containsKey(role))    {
+            vips.put(role, new RoundCounter());
+        }
     }
 
     public void pass(Role role) {
-        if (vips.containsKey(role)) {
-            vips.get(role).pass();
-        }
-        removeExpiredVips();
+        initializeWhenNotExist(role);
+        vips.get(role).pass();
     }
 
     public boolean isVip(Role role) {
-        return (vips.containsKey(role));
+        initializeWhenNotExist(role);
+        return !vips.get(role).isExceed();
     }
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 vips.equals(((VipManager) object).vips);
-    }
-
-    private void removeExpiredVips() {
-        Iterator<Map.Entry<Role, Vip>> it = vips.entrySet().iterator();
-        while (it.hasNext()) {
-            removeExpiredVip(it);
-        }
-    }
-
-    private void removeExpiredVip(Iterator<Map.Entry<Role, Vip>> it) {
-        if (it.next().getValue().isExpired()) {
-            it.remove();
-        }
     }
 }
