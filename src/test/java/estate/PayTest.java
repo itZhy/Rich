@@ -34,7 +34,7 @@ public class PayTest {
     public void it_should_not_pay_rent_after_set_vip() {
         //given
         Deal pay = new Pay(estateMap, bank);
-        bank.setVip(Role.uncleTuu);
+        bank.setMascot(Role.uncleTuu);
         //when
         estateMap.update(new Position(4), Role.SunHsiaoMei);
         pay.handle(new Position(4), Role.uncleTuu);

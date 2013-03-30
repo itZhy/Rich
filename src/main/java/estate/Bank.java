@@ -8,7 +8,7 @@ import java.util.Map;
 
 class Bank {
     private final Map<Role, Fund> funds = new HashMap<Role, Fund>();
-    private final VipManager vipManager = new VipManager();
+    private final MascotManager mascotManager = new MascotManager();
     private int initialFund = 10000;
 
     public void reset(Integer fund) {
@@ -28,15 +28,15 @@ class Bank {
     }
 
     public boolean isVip(Role role) {
-        return vipManager.isVip(role);
+        return mascotManager.isVip(role);
     }
 
-    public void setVip(Role role) {
-        vipManager.setVip(role);
+    public void setMascot(Role role) {
+        mascotManager.setMascot(role);
     }
 
-    public void pass(Role role) {
-        vipManager.pass(role);
+    public void updateMascot(Role role) {
+        mascotManager.update(role);
     }
 
     public void add(Role role, Integer money) {

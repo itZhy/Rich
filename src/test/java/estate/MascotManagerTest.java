@@ -1,53 +1,51 @@
 package estate;
 
-import player.Callback;
 import player.Role;
-import player.Player;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class VipManagerTest {
+public class MascotManagerTest {
     @Test
     public void it_should_set_vip_when_mascot_coming_and_sustained_five_times() {
         //given
-        VipManager manager = new VipManager();
+        MascotManager manager = new MascotManager();
         //when
-        manager.setVip(Role.SunHsiaoMei);
+        manager.setMascot(Role.SunHsiaoMei);
         //then
         assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
-        manager.pass(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
         assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
         assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
-        manager.pass(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
         assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
     }
 
     @Test
     public void it_should_set_multiply_vips() {
-        VipManager manager = new VipManager();
-        manager.setVip(Role.SunHsiaoMei);
-        manager.pass(Role.SunHsiaoMei);
-        manager.setVip(Role.babyKin);
-        manager.pass(Role.babyKin);
+        MascotManager manager = new MascotManager();
+        manager.setMascot(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
+        manager.setMascot(Role.babyKin);
+        manager.update(Role.babyKin);
 
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.babyKin);
-        manager.pass(Role.babyKin);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.babyKin);
+        manager.update(Role.babyKin);
         assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
         assertThat(manager.isVip(Role.babyKin), is(true));
 
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.SunHsiaoMei);
-        manager.pass(Role.babyKin);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.SunHsiaoMei);
+        manager.update(Role.babyKin);
         assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
         assertThat(manager.isVip(Role.babyKin), is(true));
-        manager.pass(Role.babyKin);
+        manager.update(Role.babyKin);
         //then
         assertThat(manager.isVip(Role.babyKin), is(false));
     }

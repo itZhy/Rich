@@ -21,7 +21,7 @@ public class EstateManager implements Observer {
         if (estateMap.hasBuilding(movement.currentPosition())) {
             dealFactory.get(movement.currentPosition(), role).handle(movement.currentPosition(), role);
         }
-        bank.pass(role);
+        bank.updateMascot(role);
     }
 
     public void sell(Position position, Role role) {
@@ -31,7 +31,7 @@ public class EstateManager implements Observer {
     }
 
     public void setVip(Role role) {
-        bank.setVip(role);
+        bank.setMascot(role);
     }
 
     public void bonus(Role account) {
