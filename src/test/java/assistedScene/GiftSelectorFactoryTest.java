@@ -2,6 +2,7 @@ package assistedScene;
 
 import estate.EstateManager;
 import player.Role;
+import prop.Point;
 import prop.PropManager;
 import ui.Map;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class GiftSelectorFactoryTest {
         factory.get("2").select(owner);
         //then
         PropManager expectedPropManager = new PropManager(new Map());
-        expectedPropManager.add(owner, 200);
+        expectedPropManager.add(owner, new Point(200));
         assertThat(propManager, is(expectedPropManager));
     }
 }

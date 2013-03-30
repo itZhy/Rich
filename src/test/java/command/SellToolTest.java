@@ -3,6 +3,7 @@ package command;
 import player.Callback;
 import player.Role;
 import player.Player;
+import prop.Point;
 import prop.PropManager;
 import prop.Robot;
 import ui.Map;
@@ -17,14 +18,14 @@ public class SellToolTest {
         //given
         PropManager propManager = new PropManager(new Map());
         Role owner = Role.SunHsiaoMei;
-        propManager.add(owner, 30);
+        propManager.add(owner, new Point(30));
         propManager.buy(owner, new Robot());
         Command sellTool = new SellTool(propManager);
         //when
         sellTool.execute(new Player(owner, new Callback()), 2);
         //then
         PropManager expectedPropManager = new PropManager(new Map());
-        expectedPropManager.add(owner, 30);
+        expectedPropManager.add(owner, new Point(30));
         assertThat(propManager, is(expectedPropManager));
     }
 }

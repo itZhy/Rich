@@ -21,7 +21,7 @@ public class OwnershipTest {
     @Test
     public void it_should_succeed_in_consuming_a_barricade() {
         //when
-        ownership.add(owner, 50);
+        ownership.add(owner, new Point(50));
         ownership.buy(owner, new Barricade(owner));
         ownership.consume(owner, new Barricade(owner));
     }
@@ -35,13 +35,13 @@ public class OwnershipTest {
     @Test
     public void it_should_succeed_in_selling_a_bomb() {
         //given
-        ownership.add(owner, 50);
+        ownership.add(owner, new Point(50));
         ownership.buy(owner, new Bomb(owner));
         //when
         ownership.sell(owner, new Bomb(owner));
         //then
         Ownership expectedOwnership = new Ownership();
-        expectedOwnership.add(owner, 50);
+        expectedOwnership.add(owner, new Point(50));
         assertThat(ownership, is(expectedOwnership));
     }
 }

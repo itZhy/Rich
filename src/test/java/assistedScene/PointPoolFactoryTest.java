@@ -1,6 +1,7 @@
 package assistedScene;
 
 import player.Position;
+import prop.Point;
 import prop.PropManager;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class PointPoolFactoryTest {
         //when
         Map<Position, Scene> results = pointPoolFactory.get();
         //then
-        Scene expectedScene = new PointPool(100, propManager);
+        Scene expectedScene = new PointPool(new Point(100), propManager);
         assertThat(results.get(new Position(66)), is(expectedScene));
     }
 }

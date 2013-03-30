@@ -1,6 +1,7 @@
 package assistedScene;
 
 import player.Position;
+import prop.Point;
 import prop.PropManager;
 import ui.PositionExtractor;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 
 class PointPoolFactory {
     private final PropManager propManager;
-    private final List<Integer> pointsInEachPosition = new ArrayList<Integer>();
+    private final List<Point> pointsInEachPosition = new ArrayList<Point>();
 
     public PointPoolFactory(PropManager propManager) {
         this.propManager = propManager;
@@ -28,11 +29,11 @@ class PointPoolFactory {
     }
 
     private void initializePointsInEachPosition() {
-        pointsInEachPosition.add(20);
-        pointsInEachPosition.add(80);
-        pointsInEachPosition.add(100);
-        pointsInEachPosition.add(40);
-        pointsInEachPosition.add(80);
-        pointsInEachPosition.add(60);
+        pointsInEachPosition.add(new Point(20));
+        pointsInEachPosition.add(new Point(80));
+        pointsInEachPosition.add(new Point(100));
+        pointsInEachPosition.add(new Point(40));
+        pointsInEachPosition.add(new Point(80));
+        pointsInEachPosition.add(new Point(60));
     }
 }

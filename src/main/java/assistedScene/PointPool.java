@@ -2,14 +2,15 @@ package assistedScene;
 
 import player.Movement;
 import player.Role;
+import prop.Point;
 import prop.PropManager;
 import ui.CommandLine;
 
 public class PointPool implements Scene {
-    private final Integer point;
+    private final Point point;
     private final PropManager propManager;
 
-    public PointPool(int point, PropManager propManager) {
+    public PointPool(Point point, PropManager propManager) {
         this.point = point;
         this.propManager = propManager;
     }

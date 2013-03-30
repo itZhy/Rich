@@ -3,6 +3,7 @@ package assistedScene;
 import application.GameException;
 import player.Role;
 import prop.Barricade;
+import prop.Point;
 import prop.PropManager;
 import ui.Map;
 import org.junit.Before;
@@ -32,11 +33,11 @@ public class PropSelectorFactoryTest {
     @Test
     public void it_should_afford_a_barricade() {
         //when
-        propManager.add(owner, 50);
+        propManager.add(owner, new Point(50));
         factory.get("1").select(owner);
         //then
         PropManager expectedPropManager = new PropManager(new Map());
-        expectedPropManager.add(owner, 50);
+        expectedPropManager.add(owner, new Point(50));
         expectedPropManager.buy(owner, new Barricade(owner));
         assertThat(propManager, is(expectedPropManager));
     }

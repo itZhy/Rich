@@ -7,7 +7,7 @@ import ui.UIObserver;
 public class Robot extends Prop {
     public Robot() {
         name = "机器娃娃";
-        price = 30;
+        price = new Point(30);
     }
 
     public void handle(Movement movement) {

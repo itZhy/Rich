@@ -6,7 +6,7 @@ import player.Role;
 public class Bomb extends Prop {
     public Bomb(Role owner) {
         name = "炸弹";
-        price = 50;
+        price = new Point(50);
         element = owner.dye('@');
     }
 

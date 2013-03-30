@@ -3,6 +3,7 @@ package assistedScene;
 import application.GameException;
 import estate.EstateManager;
 import player.Role;
+import prop.Point;
 import prop.PropManager;
 import ui.CommandLine;
 
@@ -42,7 +43,7 @@ public class GiftSelectorFactory {
 
     private class PointSelector implements Selector {
         public void select(Role role) {
-            propManager.add(role, 200);
+            propManager.add(role, new Point(200));
             showPromptMessage("恭喜您获得200点数。");
         }
     }

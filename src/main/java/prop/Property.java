@@ -4,16 +4,15 @@ import application.GameException;
 import ui.CommandLine;
 
 class Property {
-    private static final int MIN_PRICE = 30;
     private final PropBox box = new PropBox();
-    private Integer point = 0;
+    private Point point = new Point(0);
 
-    public void add(int point) {
-        this.point += point;
+    public void add(Point point) {
+        this.point.add(point);
     }
 
     public void buy(Prop prop) {
-        checkPurchasingPower(prop);
+        point.checkPurchasingPower(prop.price());
         exchange(prop);
     }
 
@@ -40,7 +39,7 @@ class Property {
 
     private void exchange(Prop prop) {
         box.add(prop);
-        point -= prop.price();
+        point.consume(prop.price());
         showPromptMessage(prop);
     }
 
@@ -48,17 +47,5 @@ class Property {
         new CommandLine().outputInNewline("您已成功购买" + prop.name() + "道具。");
     }
 
-    private void checkPurchasingPower(Prop prop) {
-        if (point < MIN_PRICE) {
-            throw new GameException(currentPoint() + "不足以购买任何道具。", GameException.NEED_NOT_RETRY);
-        }
 
-        if (prop.price() > point) {
-            throw new GameException(currentPoint() + "不足以购买" + prop.name() + "道具。", GameException.NEED_RETRY);
-        }
-    }
-
-    private String currentPoint() {
-        return "你当前剩余点数为" + point.toString();
-    }
 }

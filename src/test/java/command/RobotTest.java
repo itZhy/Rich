@@ -5,6 +5,7 @@ import player.Role;
 import player.Position;
 import player.Player;
 import prop.Barricade;
+import prop.Point;
 import prop.PropManager;
 import ui.Map;
 import ui.UIObserver;
@@ -20,7 +21,7 @@ public class RobotTest {
         UIObserver ui = new Map();
         PropManager propManager = new PropManager(ui);
         Player uncleTuu = new Player(Role.uncleTuu, new Callback());
-        propManager.add(uncleTuu.role(), 80);
+        propManager.add(uncleTuu.role(), new Point(80));
         propManager.buy(uncleTuu.role(), new prop.Robot());
         propManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
         propManager.put(uncleTuu.role(), new Barricade(uncleTuu.role()), new Position(1));
@@ -29,7 +30,7 @@ public class RobotTest {
         robot.execute(uncleTuu, 0);
         //then
         PropManager expectedManager = new PropManager(ui);
-        expectedManager.add(uncleTuu.role(), 0);
+        expectedManager.add(uncleTuu.role(), new Point(0));
         assertThat(propManager, is(expectedManager));
     }
 }

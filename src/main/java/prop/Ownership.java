@@ -8,7 +8,7 @@ import java.util.Map;
 class Ownership {
     private final Map<Role, Property> properties = new HashMap<Role, Property>();
 
-    public void add(Role owner, int point) {
+    public void add(Role owner, Point point) {
         initializeWhenNotExist(owner);
         properties.get(owner).add(point);
     }

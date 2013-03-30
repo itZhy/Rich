@@ -21,7 +21,7 @@ public class PropManager implements PlayerObserver {
         playerPosition.record(role, movement.currentPosition());
     }
 
-    public void add(Role role, int point) {
+    public void add(Role role, Point point) {
         ownership.add(role, point);
     }
 

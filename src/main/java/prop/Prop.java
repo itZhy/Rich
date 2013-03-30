@@ -7,14 +7,14 @@ import ui.UIObserver;
 
 public abstract class Prop {
     String name;
-    int price;
+    Point price;
     Element element;
 
     public String name() {
         return name;
     }
 
-    public int price() {
+    public Point price() {
         return price;
     }
 

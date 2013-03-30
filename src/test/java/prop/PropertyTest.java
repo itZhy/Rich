@@ -21,7 +21,7 @@ public class PropertyTest {
     @Test
     public void it_should_be_able_to_afford_barricade() {
         //given
-        property.add(50);
+        property.add(new Point(50));
         //when
         property.buy(new Barricade(owner));
     }
@@ -29,7 +29,7 @@ public class PropertyTest {
     @Test
     public void it_should_has_machine_doll() {
         //given
-        property.add(30);
+        property.add(new Point(30));
         property.buy(new Robot());
         //when
         property.consume(new Robot());
@@ -38,7 +38,7 @@ public class PropertyTest {
     @Test(expected = GameException.class)
     public void it_should_not_has_bomb() {
         //given
-        property.add(49);
+        property.add(new Point(49));
         property.buy(new Bomb(owner));
         //when
         property.consume(new Bomb(owner));
@@ -47,7 +47,7 @@ public class PropertyTest {
     @Test
     public void it_should_return_query_message() {
         //given
-        property.add(100);
+        property.add(new Point(100));
         property.buy(new Robot());
         //when
         String queryMessage = property.query();

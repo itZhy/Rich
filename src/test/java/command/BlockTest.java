@@ -5,6 +5,7 @@ import player.Role;
 import player.Position;
 import player.Player;
 import prop.Barricade;
+import prop.Point;
 import prop.PropManager;
 import ui.Map;
 import ui.UIObserver;
@@ -20,14 +21,14 @@ public class BlockTest {
         UIObserver ui = new Map();
         Player uncleTuu = new Player(Role.uncleTuu, new Callback());
         PropManager propManager = new PropManager(ui);
-        propManager.add(uncleTuu.role(), 50);
+        propManager.add(uncleTuu.role(), new Point(50));
         propManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
         Command block = new Block(propManager);
         //when
         block.execute(uncleTuu, 10);
         //then
         PropManager expectedManager = new PropManager(ui);
-        expectedManager.add(uncleTuu.role(), 50);
+        expectedManager.add(uncleTuu.role(), new Point(50));
         expectedManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
         expectedManager.put(uncleTuu.role(), new Barricade(uncleTuu.role()), new Position(10));
         assertThat(propManager, is(expectedManager));

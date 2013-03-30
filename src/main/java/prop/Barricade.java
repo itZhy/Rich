@@ -6,7 +6,7 @@ import player.Role;
 public class Barricade extends Prop {
     public Barricade(Role owner) {
         name = "路障";
-        price = 50;
+        price = new Point(50);
         element = owner.dye('#');
     }
 
