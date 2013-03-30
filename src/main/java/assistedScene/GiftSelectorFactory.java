@@ -1,26 +1,22 @@
 package assistedScene;
 
 import application.GameException;
+import com.google.common.collect.ImmutableMap;
 import estate.EstateManager;
 import player.Role;
 import prop.Point;
 import prop.PropManager;
 import ui.CommandLine;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GiftSelectorFactory {
-    private final Map<String, Selector> selectors = new HashMap<String, Selector>();
+    private final ImmutableMap<String, Selector> selectors;
     private final PropManager propManager;
     private final EstateManager estateManager;
 
     public GiftSelectorFactory(PropManager propManager, EstateManager estateManager) {
         this.propManager = propManager;
         this.estateManager = estateManager;
-        selectors.put("1", new BonusSelector());
-        selectors.put("2", new PointSelector());
-        selectors.put("3", new MascotSelector());
+        selectors = ImmutableMap.of("1", new BonusSelector(), "2", new PointSelector(), "3", new MascotSelector());
     }
 
     public Selector get(String input) {

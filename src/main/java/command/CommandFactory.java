@@ -2,29 +2,25 @@ package command;
 
 import application.GameException;
 import application.SubSystem;
+import com.google.common.collect.ImmutableMap;
 import player.Rounder;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 public class CommandFactory {
-    private final Map<String, Command> stringToCommands = new HashMap<String, Command>();
+    private final ImmutableMap<String, Command> stringToCommands;
 
     public CommandFactory(Rounder rounder, SubSystem subSystem) {
-        stringToCommands.put("roll", new Roll(rounder));
-        stringToCommands.put("quit", new Quit());
-        stringToCommands.put("bomb", new Bomb(subSystem.getPropManager()));
-        stringToCommands.put("block", new Block(subSystem.getPropManager()));
-        stringToCommands.put("robot", new Robot(subSystem.getPropManager()));
-        stringToCommands.put("sell", new Sell(subSystem.getEstateManager()));
-        stringToCommands.put("selltool", new SellTool(subSystem.getPropManager()));
-        stringToCommands.put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager()));
-        stringToCommands.put("help", new Help());
+        stringToCommands = ImmutableMap.<String, Command>builder().put("roll", new Roll(rounder))
+                .put("quit", new Quit()).put("help", new Help())
+                .put("bomb", new Bomb(subSystem.getPropManager()))
+                .put("block", new Block(subSystem.getPropManager()))
+                .put("robot", new Robot(subSystem.getPropManager()))
+                .put("sell", new Sell(subSystem.getEstateManager()))
+                .put("selltool", new SellTool(subSystem.getPropManager()))
+                .put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager())).build();
     }
 
     public Command get(String name) {
-        if (null == stringToCommands.get(name)) {
+        if (!stringToCommands.containsKey(name)) {
             throw new GameException("无法识别您所输入指令，请重新输入。", GameException.NEED_RETRY);
         }
         return stringToCommands.get(name);
