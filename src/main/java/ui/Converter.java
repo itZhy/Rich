@@ -2,6 +2,7 @@ package ui;
 
 import application.GameException;
 import player.Position;
+import utils.Checker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,10 +17,7 @@ class Converter {
     }
 
     public int convert(Position position) {
-        if (null == positionToSurfaceIndex.get(position)) {
-            throw new GameException(CONFIG_FILE_PATH + "的内容不正确。", GameException.NEED_NOT_RETRY);
-        }
-
+        Checker.check(positionToSurfaceIndex.containsKey(position), CONFIG_FILE_PATH + "的内容不正确。");
         return positionToSurfaceIndex.get(position);
     }
 
@@ -27,7 +25,7 @@ class Converter {
         try {
             readConfigFile();
         } catch (NullPointerException e) {
-            throw new GameException(CONFIG_FILE_PATH + "文件不存在。", GameException.NEED_RETRY);
+            throw new GameException(CONFIG_FILE_PATH + "文件不存在。");
         }
     }
 

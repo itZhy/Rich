@@ -1,7 +1,7 @@
 package prop;
 
-import application.GameException;
 import ui.CommandLine;
+import utils.Checker;
 
 class Property {
     private final PropBox box = new PropBox();
@@ -22,9 +22,7 @@ class Property {
     }
 
     public void consume(Prop prop) {
-        if (box.isRemoveFailed(prop)) {
-            throw new GameException("您没有此道具，请重新输入。", GameException.NEED_RETRY);
-        }
+        Checker.check(!box.isRemoveFailed(prop), "您没有此道具，请重新输入。");
     }
 
     public String query() {

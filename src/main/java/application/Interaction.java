@@ -20,9 +20,6 @@ public class Interaction {
                 return;
             } catch (GameException e) {
                 commandLine.outputInNewline(e.toString());
-                if (!e.isNeedRetry()) {
-                    return;
-                }
             }
         }
     }
@@ -35,9 +32,6 @@ public class Interaction {
                 return;
             } catch (GameException e) {
                 commandLine.outputInNewline(e.toString());
-                if (!e.isNeedRetry()) {
-                    return;
-                }
             }
         }
     }
@@ -56,9 +50,6 @@ public class Interaction {
                 controller.handleCommand(commandLine.waitForInput());
             } catch (GameException e) {
                 commandLine.outputInNewline(e.toString());
-                if (!e.isNeedRetry()) {
-                    return;
-                }
             }
         }
     }

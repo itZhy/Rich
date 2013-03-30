@@ -1,13 +1,13 @@
 package assistedScene;
 
 import application.GameException;
+import org.junit.Before;
+import org.junit.Test;
 import player.Role;
 import prop.Barricade;
 import prop.Point;
 import prop.PropManager;
 import ui.Map;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -40,16 +40,5 @@ public class PropSelectorFactoryTest {
         expectedPropManager.add(owner, new Point(50));
         expectedPropManager.buy(owner, new Barricade(owner));
         assertThat(propManager, is(expectedPropManager));
-    }
-
-    @Test
-    public void it_should_get_an_exception_which_means_need_not_retry() {
-        try {
-            //when
-            factory.get("f").select(owner);
-        } catch (GameException e) {
-            //then
-            assertThat(e.isNeedRetry(), is(false));
-        }
     }
 }

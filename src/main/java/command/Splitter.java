@@ -1,6 +1,6 @@
 package command;
 
-import application.GameException;
+import utils.Checker;
 
 import java.util.Scanner;
 
@@ -34,14 +34,8 @@ public class Splitter {
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         }
-        check();
+        Checker.check(!scanner.hasNext(), "无法识别的命令参数，请重新输入，命令应该没有参数或者参数是整数。");
         return 0;
     }
 
-    private void check() {
-        if (scanner.hasNext()) {
-            throw new GameException("无法识别的命令参数，请重新输入，命令应该没有参数或者参数是整数。",
-                    GameException.NEED_RETRY);
-        }
-    }
 }

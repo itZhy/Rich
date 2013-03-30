@@ -46,7 +46,7 @@ public class Map implements UIObserver {
         try {
             readDefaultMap();
         } catch (NullPointerException e) {
-            throw new GameException(DEFAULT_MAP_PATH + "不存在", GameException.NEED_RETRY);
+            throw new GameException(DEFAULT_MAP_PATH + "不存在");
         }
     }
 

@@ -26,9 +26,6 @@ public class PropHouse implements Scene {
                 return;
             } catch (GameException e) {
                 commandLine.outputInNewline(e.toString());
-                if (!e.isNeedRetry()) {
-                    return;
-                }
             }
         }
     }

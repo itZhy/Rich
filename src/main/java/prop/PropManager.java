@@ -1,11 +1,11 @@
 package prop;
 
-import application.GameException;
 import player.Movement;
 import player.PlayerObserver;
 import player.Position;
 import player.Role;
 import ui.UIObserver;
+import utils.Checker;
 
 public class PropManager implements PlayerObserver {
     private final Ownership ownership = new Ownership();
@@ -34,9 +34,7 @@ public class PropManager implements PlayerObserver {
     }
 
     public void put(Role role, Prop prop, Position position) {
-        if (playerPosition.hasPlayer(position)) {
-            throw new GameException("此处有玩家，不能放置道具。", GameException.NEED_RETRY);
-        }
+        Checker.check(!playerPosition.hasPlayer(position), "此处有玩家，不能放置道具。");
         ownership.consume(role, prop);
         propMap.put(position, prop);
     }

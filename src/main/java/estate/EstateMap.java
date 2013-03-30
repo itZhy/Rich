@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 import ui.PositionExtractor;
 import ui.UIObserver;
 
@@ -36,7 +36,9 @@ class EstateMap {
 
     public void clearBuildingsOfOwner(Role role) {
         for (Map.Entry<Position, Building> house : buildings.entrySet()) {
-            if (house.getValue().isOwner(role)) clearBuilding(house.getKey());
+            if (house.getValue().isOwner(role)) {
+                clearBuilding(house.getKey());
+            }
         }
     }
 

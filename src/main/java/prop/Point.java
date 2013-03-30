@@ -1,6 +1,6 @@
 package prop;
 
-import application.GameException;
+import utils.Checker;
 
 public class Point {
     private static final int MIN_PRICE = 30;
@@ -27,13 +27,8 @@ public class Point {
     }
 
     public void checkPurchasingPower(Point price) {
-        if (point < MIN_PRICE) {
-            throw new GameException(currentPoint() + "不足以购买任何道具。", GameException.NEED_NOT_RETRY);
-        }
-
-        if (price.point > point) {
-            throw new GameException(currentPoint() + "不足以购买此道具。", GameException.NEED_RETRY);
-        }
+        Checker.check(point >= MIN_PRICE, currentPoint() + "不足以购买任何道具。");
+        Checker.check(point >= price.point, currentPoint() + "不足以购买此道具。");
     }
 
     public boolean equals(Object object) {

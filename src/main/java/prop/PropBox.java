@@ -1,6 +1,7 @@
 package prop;
 
 import application.GameException;
+import utils.Checker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,7 @@ class PropBox {
     private final List<Prop> props = new ArrayList<Prop>();
 
     public void add(Prop prop) {
-        if (CAPACITY == props.size()) {
-            throw new GameException("您的道具背包已满，不能再购买道具。", GameException.NEED_NOT_RETRY);
-        }
+        Checker.check(CAPACITY != props.size(), "您的道具背包已满，不能再购买道具。");
         props.add(prop);
     }
 

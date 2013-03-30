@@ -1,7 +1,7 @@
 package estate;
 
-import application.GameException;
 import player.Role;
+import utils.Checker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ class Bank {
     private int initialFund = 10000;
 
     public void reset(Integer fund) {
-        if (fund < 1000 || fund > 50000) throw new GameException("输入金额有误。", GameException.NEED_RETRY);
+        Checker.check(fund >= 1000 && fund <= 50000, "输入金额有误。");
         initialFund = fund;
     }
 

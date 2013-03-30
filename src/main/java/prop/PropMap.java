@@ -1,9 +1,9 @@
 package prop;
 
-import application.GameException;
 import player.Movement;
 import player.Position;
 import ui.UIObserver;
+import utils.Checker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +18,7 @@ class PropMap {
     }
 
     public void put(Position position, Prop prop) {
-        if (props.containsKey(position)) {
-            throw new GameException("此处已有道具，不能再放置其他道具了。", GameException.NEED_RETRY);
-        }
+        Checker.check(!props.containsKey(position), "此处已有道具，不能再放置其他道具了。");
         props.put(position, prop);
         prop.addToUI(ui, position);
     }

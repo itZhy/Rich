@@ -1,9 +1,9 @@
 package command;
 
-import application.GameException;
 import application.SubSystem;
 import com.google.common.collect.ImmutableMap;
 import player.Rounder;
+import utils.Checker;
 
 public class CommandFactory {
     private final ImmutableMap<String, Command> stringToCommands;
@@ -20,9 +20,7 @@ public class CommandFactory {
     }
 
     public Command get(String name) {
-        if (!stringToCommands.containsKey(name)) {
-            throw new GameException("无法识别您所输入指令，请重新输入。", GameException.NEED_RETRY);
-        }
+        Checker.check(stringToCommands.containsKey(name), "无法识别您所输入指令，请重新输入。");
         return stringToCommands.get(name);
     }
 }

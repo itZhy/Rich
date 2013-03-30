@@ -1,11 +1,11 @@
 package estate;
 
-import application.GameException;
-import player.PlayerObserver;
-import player.Role;
 import player.Movement;
+import player.PlayerObserver;
 import player.Position;
+import player.Role;
 import ui.UIObserver;
+import utils.Checker;
 
 public class EstateManager implements PlayerObserver {
     private final EstateMap estateMap;
@@ -51,11 +51,7 @@ public class EstateManager implements PlayerObserver {
     }
 
     private void checkIsAbleToSell(Position position, Role role) {
-        if (!estateMap.hasBuilding(position)) {
-            throw new GameException("该地不可买卖。", GameException.NEED_RETRY);
-        }
-        if (!estateMap.get(position).isOwner(role)) {
-            throw new GameException("您尚未购买该地产，请重新输入。", GameException.NEED_RETRY);
-        }
+        Checker.check(estateMap.hasBuilding(position), "该地不可买卖。");
+        Checker.check(estateMap.get(position).isOwner(role), "您尚未购买该地产，请重新输入。");
     }
 }

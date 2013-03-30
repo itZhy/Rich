@@ -14,7 +14,7 @@ public class Help implements Command {
         try {
             showHelpMessage();
         } catch (NullPointerException e) {
-            throw new GameException("未找到帮助文件。", GameException.NEED_RETRY);
+            throw new GameException("未找到帮助文件。");
         }
     }
 

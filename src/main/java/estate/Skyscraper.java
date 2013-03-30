@@ -1,11 +1,10 @@
 package estate;
 
-import application.GameException;
-import player.Role;
+import org.fusesource.jansi.Ansi;
 import player.Position;
+import player.Role;
 import ui.Element;
 import ui.UIObserver;
-import org.fusesource.jansi.Ansi;
 
 public class Skyscraper extends Building {
 
@@ -15,7 +14,7 @@ public class Skyscraper extends Building {
     }
 
     public Building update(Role owner) {
-        throw new GameException("已经是最高级，不能再升级了。", GameException.NEED_NOT_RETRY);
+        return this;
     }
 
     public int toll() {

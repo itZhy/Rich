@@ -14,7 +14,6 @@ public class Pay extends Deal {
             showPromptMessage("福神附身，可免过路费");
             return;
         }
-
         pay(position, role);
     }
 

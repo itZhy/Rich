@@ -1,24 +1,20 @@
 package player;
 
-import application.GameException;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.common.collect.ImmutableMap;
+import utils.Checker;
 
 public class PlayerParser {
-    private final Map<Character, Player> stringToPlayers = new HashMap<Character, Player>();
+    private final ImmutableMap<Character, Player> stringToPlayers;
 
     public PlayerParser(Callback callback) {
-        stringToPlayers.put('1', new Player(Role.madameChyan, callback));
-        stringToPlayers.put('2', new Player(Role.uncleTuu, callback));
-        stringToPlayers.put('3', new Player(Role.SunHsiaoMei, callback));
-        stringToPlayers.put('4', new Player(Role.babyKin, callback));
+        stringToPlayers = ImmutableMap.of('1', new Player(Role.madameChyan, callback),
+                '2', new Player(Role.uncleTuu, callback),
+                '3', new Player(Role.SunHsiaoMei, callback),
+                '4', new Player(Role.babyKin, callback));
     }
 
     public Player get(Character number) {
-        if (!stringToPlayers.containsKey(number)) {
-            throw new GameException("输入的角色不存在，请重新输入。", GameException.NEED_RETRY);
-        }
+        Checker.check(stringToPlayers.containsKey(number), "输入的角色不存在，请重新输入。");
         return stringToPlayers.get(number);
     }
 }

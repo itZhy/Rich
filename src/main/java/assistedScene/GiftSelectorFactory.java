@@ -1,12 +1,12 @@
 package assistedScene;
 
-import application.GameException;
 import com.google.common.collect.ImmutableMap;
 import estate.EstateManager;
 import player.Role;
 import prop.Point;
 import prop.PropManager;
 import ui.CommandLine;
+import utils.Checker;
 
 public class GiftSelectorFactory {
     private final ImmutableMap<String, Selector> selectors;
@@ -20,9 +20,7 @@ public class GiftSelectorFactory {
     }
 
     public Selector get(String input) {
-        if (!selectors.containsKey(input)) {
-            throw new GameException("您所选择的礼品不存在，记得下次输入1，2或3。", GameException.NEED_RETRY);
-        }
+        Checker.check(selectors.containsKey(input), "您所选择的礼品不存在，记得下次输入1，2或3。");
         return selectors.get(input);
     }
 

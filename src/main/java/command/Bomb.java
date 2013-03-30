@@ -1,8 +1,8 @@
 package command;
 
-import application.GameException;
 import player.Player;
 import prop.PropManager;
+import utils.Checker;
 
 public class Bomb implements Command {
     private final PropManager propManager;
@@ -17,8 +17,6 @@ public class Bomb implements Command {
     }
 
     private void checkArgument(int argument) {
-        if (argument > 10 || argument < -10) {
-            throw new GameException("炸弹只能设置在当前位置前后10步的距离，请重新输入。", GameException.NEED_RETRY);
-        }
+        Checker.check(argument <= 10 || argument >= -10, "炸弹只能设置在当前位置前后10步的距离，请重新输入。");
     }
 }

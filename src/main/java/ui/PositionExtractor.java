@@ -44,7 +44,7 @@ public class PositionExtractor {
             return extract(defaultMapStr, symbol);
 
         } catch (NullPointerException e) {
-            throw new GameException(DEFAULT_MAP_PATH + "不存在。", GameException.NEED_RETRY);
+            throw new GameException(DEFAULT_MAP_PATH + "不存在。");
         }
     }
 
