@@ -2,12 +2,12 @@ package prop;
 
 import application.GameException;
 import player.Movement;
-import player.Observer;
+import player.PlayerObserver;
 import player.Position;
 import player.Role;
 import ui.UIObserver;
 
-public class PropManager implements Observer {
+public class PropManager implements PlayerObserver {
     private final Ownership ownership = new Ownership();
     private final PlayerPosition playerPosition = new PlayerPosition();
     private final PropMap propMap;

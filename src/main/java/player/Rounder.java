@@ -12,10 +12,13 @@ public class Rounder {
     }
 
     public void nextPlayer() {
-        do {
-            currentPlayer().pass();
+        while (true) {
             next();
-        } while (currentPlayer().isNeedSkip());
+            if (!currentPlayer().isNeedSkip()) {
+                break;
+            }
+            currentPlayer().skip();
+        }
     }
 
     private void next() {

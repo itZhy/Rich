@@ -21,7 +21,7 @@ public class Player {
         callback.notifyAfterForwarded(role, movement);
     }
 
-    public void pass() {
+    public void skip() {
         movement.pass();
     }
 

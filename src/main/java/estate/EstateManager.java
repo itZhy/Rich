@@ -1,13 +1,13 @@
 package estate;
 
 import application.GameException;
+import player.PlayerObserver;
 import player.Role;
 import player.Movement;
-import player.Observer;
 import player.Position;
 import ui.UIObserver;
 
-public class EstateManager implements Observer {
+public class EstateManager implements PlayerObserver {
     private final EstateMap estateMap;
     private final Bank bank = new Bank();
     private final DealFactory dealFactory;

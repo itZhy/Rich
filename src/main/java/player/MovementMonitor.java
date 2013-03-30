@@ -2,7 +2,7 @@ package player;
 
 import ui.UIObserver;
 
-public class MovementMonitor implements Observer {
+public class MovementMonitor implements PlayerObserver {
     private final UIObserver ui;
 
     public MovementMonitor(UIObserver ui) {

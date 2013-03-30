@@ -2,7 +2,7 @@ package assistedScene;
 
 import estate.EstateManager;
 import player.Movement;
-import player.Observer;
+import player.PlayerObserver;
 import player.Position;
 import player.Role;
 import prop.PropManager;
@@ -11,7 +11,7 @@ import ui.PositionExtractor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SceneManager implements Observer {
+public class SceneManager implements PlayerObserver {
     private final Map<Position, Scene> scenes = new HashMap<Position, Scene>();
 
     public SceneManager(PropManager propManager, EstateManager estateManager) {
