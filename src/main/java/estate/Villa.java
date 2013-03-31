@@ -20,7 +20,7 @@ public class Villa extends Building {
     }
 
     public Money sellingPrice() {
-        return basePrice.multiply(8.);
+        return basePrice.multiply(6.);
     }
 
     public void updateUI(Position position, UIObserver ui) {

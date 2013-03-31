@@ -21,7 +21,7 @@ public class Skyscraper extends Building {
     }
 
     public Money sellingPrice() {
-        return basePrice.multiply(16.);
+        return basePrice.multiply(8.);
     }
 
     public void updateUI(Position position, UIObserver ui) {

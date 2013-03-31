@@ -40,12 +40,10 @@ public class HovelTest {
 
     @Test
     public void it_should_earn_more_money_when_selling_building() {
-        //given
-        Money oldPrice = hovel.sellingPrice();
         //when
         Building villa = hovel.update(role);
         Money newPrice = villa.sellingPrice();
         //then
-        assertThat(newPrice, is(oldPrice.multiply(2.)));
+        assertThat(newPrice, is(new Money(1200.)));
     }
 }
