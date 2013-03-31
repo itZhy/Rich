@@ -1,15 +1,12 @@
 package command;
 
-import application.GameException;
-import player.Role;
+import com.google.common.collect.ImmutableMap;
 import player.Player;
+import player.Role;
 import prop.*;
 import prop.Bomb;
 import prop.Robot;
 import utils.Checker;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SellTool implements Command {
     private final PropManager propManager;
@@ -23,12 +20,10 @@ public class SellTool implements Command {
     }
 
     private class PropFactory {
-        private final Map<Integer, Prop> props = new HashMap<Integer, Prop>();
+        private final ImmutableMap<Integer, Prop> props;
 
         public PropFactory(Role owner) {
-            props.put(1, new Barricade(owner));
-            props.put(2, new Robot());
-            props.put(3, new Bomb(owner));
+            props = ImmutableMap.of(1, new Barricade(owner), 2, new Robot(), 3, new Bomb(owner));
         }
 
         public Prop get(int argument) {
