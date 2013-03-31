@@ -24,7 +24,7 @@ public class GiftHouse implements Scene {
         try {
             factory.get(commandLine.waitForInput("请输入您要选择的礼品编号：")).select(role);
         } catch (GameException e) {
-            commandLine.outputInNewline(e.toString());
+            commandLine.outputInNewline(e.message());
         }
     }
 

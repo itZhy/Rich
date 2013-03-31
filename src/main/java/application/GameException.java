@@ -7,7 +7,7 @@ public class GameException extends RuntimeException {
         this.message = message;
     }
 
-    public String toString() {
+    public String message() {
         return message;
     }
 }

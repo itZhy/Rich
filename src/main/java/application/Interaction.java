@@ -19,7 +19,7 @@ public class Interaction {
                         "请选择2~4位不重复玩家，输入编号即可。(1.钱夫人; 2.阿土伯; 3.孙小美; 4.金贝贝):"));
                 return;
             } catch (GameException e) {
-                commandLine.outputInNewline(e.toString());
+                commandLine.outputInNewline(e.message());
             }
         }
     }
@@ -30,7 +30,7 @@ public class Interaction {
                 setInitialFundByInput(commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）"));
                 return;
             } catch (GameException e) {
-                commandLine.outputInNewline(e.toString());
+                commandLine.outputInNewline(e.message());
             }
         }
     }
@@ -48,7 +48,7 @@ public class Interaction {
                 commandLine.output(controller.getPrompt());
                 controller.handleCommand(commandLine.waitForInput());
             } catch (GameException e) {
-                commandLine.outputInNewline(e.toString());
+                commandLine.outputInNewline(e.message());
             }
         }
     }

@@ -25,7 +25,7 @@ public class PropHouse implements Scene {
                 factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(role);
                 return;
             } catch (GameException e) {
-                commandLine.outputInNewline(e.toString());
+                commandLine.outputInNewline(e.message());
             }
         }
     }
