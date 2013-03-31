@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 class PropMap {
-    private static final int CLEAN_RANGE = 10;
     private final Map<Position, Prop> props = new HashMap<Position, Prop>();
     private final UIObserver ui;
 
@@ -25,6 +24,7 @@ class PropMap {
     }
 
     public void cleanTheFront(Role role, Position position) {
+        final int CLEAN_RANGE = 10;
         for (int step = 1; step <= CLEAN_RANGE; ++step) {
             removeProp(role, position.offset(step));
         }

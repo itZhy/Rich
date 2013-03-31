@@ -1,7 +1,6 @@
 package player;
 
 public class Position {
-    private static final int MAX_INDEX = 69;
     private final int index;
 
     public Position(int index) {
@@ -9,6 +8,7 @@ public class Position {
     }
 
     public Position offset(int step) {
+        final int MAX_INDEX = 69;
         return new Position((MAX_INDEX + 1 + index + step) % (MAX_INDEX + 1));
     }
 

@@ -21,7 +21,6 @@ public class SellTool implements Command {
     private class PropFactory {
         private final ImmutableMap<Integer, Prop> props =
                 ImmutableMap.of(1, new Barricade(), 2, new Robot(), 3, new Bomb());
-        ;
 
         public Prop get(int argument) {
             Checker.check(props.containsKey(argument), "你选择的道具编号不存在，请重新输入1，2或3。");

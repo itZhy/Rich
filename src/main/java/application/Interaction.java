@@ -3,7 +3,6 @@ package application;
 import ui.CommandLine;
 
 public class Interaction {
-    static private final String QUIT_COMMAND = "quit";
     private final CommandLine commandLine = new CommandLine();
     private Controller controller;
 
@@ -46,7 +45,7 @@ public class Interaction {
     private void acceptCommands() {
         while (true) {
             String command = getCommandString();
-            if (QUIT_COMMAND.equals(command.toLowerCase())) {
+            if ("quit".equals(command.toLowerCase())) {
                 commandLine.outputInNewline("正在退出游戏......");
                 break;
             }

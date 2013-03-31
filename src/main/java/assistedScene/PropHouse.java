@@ -7,7 +7,6 @@ import prop.PropManager;
 import ui.CommandLine;
 
 public class PropHouse implements Scene {
-    static private final String QUIT_COMMAND = "f";
     private final PropSelectorFactory factory;
     private final CommandLine commandLine = new CommandLine();
 
@@ -23,7 +22,7 @@ public class PropHouse implements Scene {
     private void acceptInputs(Role role) {
         while (true) {
             String input = commandLine.waitForInput("请输入您要购买的道具编号：");
-            if (QUIT_COMMAND.equals(input.toLowerCase())) {
+            if ("f".equals(input.toLowerCase())) {
                 commandLine.outputInNewline("欢迎下次光临。");
                 break;
             }

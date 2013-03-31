@@ -13,9 +13,9 @@ import java.util.Map;
 
 public class SceneManager implements PlayerObserver {
     private final Map<Position, Scene> scenes = new HashMap<Position, Scene>();
-    private final PositionExtractor positionExtractor = new PositionExtractor();
 
     public SceneManager(PropManager propManager, EstateManager estateManager) {
+        final PositionExtractor positionExtractor = new PositionExtractor();
         scenes.putAll(new PointPoolFactory(propManager).get());
         scenes.put(positionExtractor.getMagicHouse(), new MagicHouse());
         scenes.put(positionExtractor.getGiftHouse(), new GiftHouse(propManager, estateManager));

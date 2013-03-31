@@ -6,7 +6,7 @@ import player.Position;
 import java.util.Scanner;
 
 public class Map implements UIObserver {
-    private static final String DEFAULT_MAP_PATH = "/default_map";
+    private final String DEFAULT_MAP_PATH = "/default_map";
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
 

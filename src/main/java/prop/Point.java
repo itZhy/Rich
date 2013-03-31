@@ -3,7 +3,6 @@ package prop;
 import utils.Checker;
 
 public class Point {
-    private static final int MIN_PRICE = 30;
     private Integer point;
 
     public Point(int point) {
@@ -27,6 +26,7 @@ public class Point {
     }
 
     public void checkPurchasingPower(Point price) {
+        final int MIN_PRICE = 30;
         Checker.check(point >= MIN_PRICE, currentPoint() + "不足以购买任何道具。");
         Checker.check(point >= price.point, currentPoint() + "不足以购买此道具。");
     }

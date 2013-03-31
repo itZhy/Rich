@@ -7,7 +7,6 @@ import ui.CommandLine;
 import java.util.Scanner;
 
 public class Help implements Command {
-    private static final String HELP_FILE_PATH = "/help";
     private final CommandLine commandLine = new CommandLine();
 
     public void execute(Player player, int argument) {
@@ -19,7 +18,7 @@ public class Help implements Command {
     }
 
     private void showHelpMessage() {
-        Scanner scanner = new Scanner(getClass().getResourceAsStream(HELP_FILE_PATH), "UTF-8");
+        Scanner scanner = new Scanner(getClass().getResourceAsStream("/help"), "UTF-8");
         while (scanner.hasNext()) {
             commandLine.outputInNewline(scanner.nextLine());
         }

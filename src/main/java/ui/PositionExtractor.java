@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PositionExtractor {
-    private static final String DEFAULT_MAP_PATH = "/default_map";
-
     public List<Position> getBuildings() {
         return readDefaultMapBySymbol('0');
     }
@@ -39,10 +37,10 @@ public class PositionExtractor {
     }
 
     private List<Position> readDefaultMapBySymbol(char symbol) {
+        final String DEFAULT_MAP_PATH = "/default_map";
         try {
             String defaultMapStr = new Scanner(getClass().getResourceAsStream(DEFAULT_MAP_PATH)).nextLine();
             return extract(defaultMapStr, symbol);
-
         } catch (NullPointerException e) {
             throw new GameException(DEFAULT_MAP_PATH + "不存在。");
         }

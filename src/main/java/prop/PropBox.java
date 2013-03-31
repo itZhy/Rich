@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class PropBox {
-    private static final int CAPACITY = 10;
     private final List<Prop> props = new ArrayList<Prop>();
 
     public void add(Prop prop) {
+        final int CAPACITY = 10;
         Checker.check(CAPACITY != props.size(), "您的道具背包已满，不能再购买道具。");
         props.add(prop);
     }
