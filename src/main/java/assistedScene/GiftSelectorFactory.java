@@ -44,7 +44,7 @@ public class GiftSelectorFactory {
 
     private class MascotSelector implements Selector {
         public void select(Role role) {
-            estateManager.setVip(role);
+            estateManager.setMascot(role);
             showPromptMessage("恭喜您获得5回合福神附体状态，福神附体期间免收过路费。");
         }
     }

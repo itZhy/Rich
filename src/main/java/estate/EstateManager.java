@@ -30,7 +30,7 @@ public class EstateManager implements PlayerObserver {
         estateMap.clearBuilding(position);
     }
 
-    public void setVip(Role role) {
+    public void setMascot(Role role) {
         bank.setMascot(role);
     }
 
