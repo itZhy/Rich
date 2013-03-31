@@ -1,6 +1,5 @@
 package prop;
 
-import org.fusesource.jansi.Ansi;
 import player.Movement;
 import ui.Element;
 
