@@ -1,16 +1,23 @@
 package prop;
 
+import org.fusesource.jansi.Ansi;
 import player.Movement;
-import player.Role;
+import ui.Element;
 
 public class Barricade extends Prop {
-    public Barricade(Role owner) {
-        name = "路障";
-        price = new Point(50);
-        element = owner.dye('#');
+    public Barricade() {
+        element = new Element('#');
+    }
+
+    public Point price() {
+        return new Point(50);
     }
 
     public void handle(Movement movement) {
         throw new PropException("遭遇路障，停止前进。");
+    }
+
+    public String toString() {
+        return "路障";
     }
 }

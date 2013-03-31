@@ -1,7 +1,6 @@
 package prop;
 
 import application.GameException;
-import player.Role;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,12 +9,10 @@ import static org.junit.Assert.assertThat;
 
 public class PropertyTest {
     private Property property;
-    private Role owner;
 
     @Before
     public void setUp() {
         property = new Property();
-        owner = Role.uncleTuu;
     }
 
     @Test
@@ -23,7 +20,7 @@ public class PropertyTest {
         //given
         property.add(new Point(50));
         //when
-        property.buy(new Barricade(owner));
+        property.buy(new Barricade());
     }
 
     @Test
@@ -39,9 +36,9 @@ public class PropertyTest {
     public void it_should_not_has_bomb() {
         //given
         property.add(new Point(49));
-        property.buy(new Bomb(owner));
+        property.buy(new Bomb());
         //when
-        property.consume(new Bomb(owner));
+        property.consume(new Bomb());
     }
 
     @Test

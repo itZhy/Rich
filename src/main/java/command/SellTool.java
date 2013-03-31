@@ -2,7 +2,6 @@ package command;
 
 import com.google.common.collect.ImmutableMap;
 import player.Player;
-import player.Role;
 import prop.*;
 import prop.Bomb;
 import prop.Robot;
@@ -16,15 +15,13 @@ public class SellTool implements Command {
     }
 
     public void execute(Player player, int argument) {
-        propManager.sell(player.role(), new PropFactory(player.role()).get(argument));
+        propManager.sell(player.role(), new PropFactory().get(argument));
     }
 
     private class PropFactory {
-        private final ImmutableMap<Integer, Prop> props;
-
-        public PropFactory(Role owner) {
-            props = ImmutableMap.of(1, new Barricade(owner), 2, new Robot(), 3, new Bomb(owner));
-        }
+        private final ImmutableMap<Integer, Prop> props =
+                ImmutableMap.of(1, new Barricade(), 2, new Robot(), 3, new Bomb());
+        ;
 
         public Prop get(int argument) {
             Checker.check(props.containsKey(argument), "你选择的道具编号不存在，请重新输入1，2或3。");

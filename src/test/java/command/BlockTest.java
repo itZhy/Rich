@@ -22,15 +22,15 @@ public class BlockTest {
         Player uncleTuu = new Player(Role.uncleTuu, new Callback());
         PropManager propManager = new PropManager(ui);
         propManager.add(uncleTuu.role(), new Point(50));
-        propManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
+        propManager.buy(uncleTuu.role(), new Barricade());
         Command block = new Block(propManager);
         //when
         block.execute(uncleTuu, 10);
         //then
         PropManager expectedManager = new PropManager(ui);
         expectedManager.add(uncleTuu.role(), new Point(50));
-        expectedManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
-        expectedManager.put(uncleTuu.role(), new Barricade(uncleTuu.role()), new Position(10));
+        expectedManager.buy(uncleTuu.role(), new Barricade());
+        expectedManager.put(uncleTuu.role(), new Barricade(), new Position(10));
         assertThat(propManager, is(expectedManager));
     }
 }

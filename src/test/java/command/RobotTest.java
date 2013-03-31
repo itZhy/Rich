@@ -23,8 +23,8 @@ public class RobotTest {
         Player uncleTuu = new Player(Role.uncleTuu, new Callback());
         propManager.add(uncleTuu.role(), new Point(80));
         propManager.buy(uncleTuu.role(), new prop.Robot());
-        propManager.buy(uncleTuu.role(), new Barricade(uncleTuu.role()));
-        propManager.put(uncleTuu.role(), new Barricade(uncleTuu.role()), new Position(1));
+        propManager.buy(uncleTuu.role(), new Barricade());
+        propManager.put(uncleTuu.role(), new Barricade(), new Position(1));
         Command robot = new Robot(propManager);
         //when
         robot.execute(uncleTuu, 0);

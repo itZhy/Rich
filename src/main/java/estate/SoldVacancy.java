@@ -1,10 +1,10 @@
 package estate;
 
-import player.Role;
+import org.fusesource.jansi.Ansi;
 import player.Position;
+import player.Role;
 import ui.Element;
 import ui.UIObserver;
-import org.fusesource.jansi.Ansi;
 
 public class SoldVacancy extends Building {
     public SoldVacancy(Role owner, Integer basePrice) {
@@ -25,11 +25,11 @@ public class SoldVacancy extends Building {
     }
 
     public void updateUI(Position position, UIObserver ui) {
-        ui.replace(position, new Element('0', Ansi.Color.WHITE), owner.dye('0'));
+        ui.replace(position, new Element('0'), owner.dye(new Element('0')));
     }
 
     public void clearUI(Position position, UIObserver ui) {
-        ui.replace(position, owner.dye('0'), new Element('0', Ansi.Color.WHITE));
+        ui.replace(position, owner.dye(new Element('0')), new Element('0'));
     }
 
     public boolean equals(Object object) {

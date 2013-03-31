@@ -2,6 +2,7 @@ package prop;
 
 import player.Movement;
 import player.Position;
+import player.Role;
 import ui.UIObserver;
 import utils.Checker;
 
@@ -17,22 +18,22 @@ class PropMap {
         this.ui = ui;
     }
 
-    public void put(Position position, Prop prop) {
+    public void put(Role role, Position position, Prop prop) {
         Checker.check(!props.containsKey(position), "此处已有道具，不能再放置其他道具了。");
         props.put(position, prop);
-        prop.addToUI(ui, position);
+        prop.addToUI(role, ui, position);
     }
 
-    public void cleanTheFront(Position position) {
+    public void cleanTheFront(Role role, Position position) {
         for (int step = 1; step <= CLEAN_RANGE; ++step) {
-            removeProp(position.offset(step));
+            removeProp(role, position.offset(step));
         }
     }
 
-    public void trigger(Movement movement) {
+    public void trigger(Role role, Movement movement) {
         if (props.containsKey(movement.currentPosition())) {
             Prop prop = props.get(movement.currentPosition());
-            removeProp(movement.currentPosition());
+            removeProp(role, movement.currentPosition());
             prop.handle(movement);
         }
     }
@@ -41,9 +42,9 @@ class PropMap {
         return getClass() == object.getClass() && props.equals(((PropMap) object).props);
     }
 
-    private void removeProp(Position position) {
+    private void removeProp(Role role, Position position) {
         if (props.containsKey(position)) {
-            props.get(position).removeFromUI(ui, position);
+            props.get(position).removeFromUI(role, ui, position);
             props.remove(position);
         }
     }

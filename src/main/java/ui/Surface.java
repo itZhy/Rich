@@ -15,7 +15,7 @@ class Surface {
 
     public Surface() {
         for (int index = 0; index != ROW_COUNT * COLUMNS_COUNT; ++index) {
-            pixels.add(new Pixel(new Element(' ', Ansi.Color.WHITE)));
+            pixels.add(new Pixel(new Element(' ')));
         }
     }
 

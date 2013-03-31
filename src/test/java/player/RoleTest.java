@@ -19,7 +19,7 @@ public class RoleTest {
     @Test
     public void it_should_return_S_with_red_element() {
         //when
-        Element element = Role.SunHsiaoMei.dye('S');
+        Element element = Role.SunHsiaoMei.dye(new Element('S'));
         //then
         assertThat(element, is(new Element('S', Ansi.Color.RED)));
     }

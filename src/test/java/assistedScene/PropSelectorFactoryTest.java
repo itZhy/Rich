@@ -38,7 +38,7 @@ public class PropSelectorFactoryTest {
         //then
         PropManager expectedPropManager = new PropManager(new Map());
         expectedPropManager.add(owner, new Point(50));
-        expectedPropManager.buy(owner, new Barricade(owner));
+        expectedPropManager.buy(owner, new Barricade());
         assertThat(propManager, is(expectedPropManager));
     }
 }

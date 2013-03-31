@@ -25,11 +25,11 @@ public class Villa extends Building {
     }
 
     public void updateUI(Position position, UIObserver ui) {
-        ui.replace(position, owner.dye('1'), owner.dye('2'));
+        ui.replace(position, owner.dye(new Element('1')), owner.dye(new Element('2')));
     }
 
     public void clearUI(Position position, UIObserver ui) {
-        ui.replace(position, owner.dye('2'), new Element('0', Ansi.Color.WHITE));
+        ui.replace(position, owner.dye(new Element('2')), new Element('0'));
     }
 
     public boolean equals(Object object) {

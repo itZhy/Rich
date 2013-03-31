@@ -1,11 +1,11 @@
 package prop;
 
-import player.Role;
-import player.Position;
-import ui.Map;
-import ui.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
+import player.Position;
+import player.Role;
+import ui.Map;
+import ui.UIObserver;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -25,10 +25,10 @@ public class PropMapTest {
     @Test
     public void it_should_be_empty_map_after_cleaned() {
         //given
-        propMap.put(new Position(1), new Barricade(owner));
-        propMap.put(new Position(10), new Bomb(owner));
+        propMap.put(owner, new Position(1), new Barricade());
+        propMap.put(owner, new Position(10), new Bomb());
         //when
-        propMap.cleanTheFront(new Position(0));
+        propMap.cleanTheFront(owner, new Position(0));
         //then
         assertThat(propMap, is(new PropMap(ui)));
     }
@@ -36,13 +36,13 @@ public class PropMapTest {
     @Test
     public void it_should_has_only_prop_after_cleaned() {
         //given
-        propMap.put(new Position(2), new Barricade(owner));
-        propMap.put(new Position(11), new Bomb(owner));
+        propMap.put(owner, new Position(2), new Barricade());
+        propMap.put(owner, new Position(11), new Bomb());
         //when
-        propMap.cleanTheFront(new Position(0));
+        propMap.cleanTheFront(owner, new Position(0));
         //then
         PropMap expectedPropMap = new PropMap(ui);
-        expectedPropMap.put(new Position(11), new Bomb(owner));
+        expectedPropMap.put(owner, new Position(11), new Bomb());
         assertThat(propMap, is(expectedPropMap));
     }
 }

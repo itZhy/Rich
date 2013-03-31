@@ -21,15 +21,15 @@ public class BombTest {
         Player uncleTuu = new Player(Role.uncleTuu, new Callback());
         PropManager propManager = new PropManager(ui);
         propManager.add(uncleTuu.role(), new Point(50));
-        propManager.buy(uncleTuu.role(), new prop.Bomb(uncleTuu.role()));
+        propManager.buy(uncleTuu.role(), new prop.Bomb());
         Command bomb = new Bomb(propManager);
         //when
         bomb.execute(uncleTuu, -10);
         //then
         PropManager expectedManager = new PropManager(ui);
         expectedManager.add(uncleTuu.role(), new Point(50));
-        expectedManager.buy(uncleTuu.role(), new prop.Bomb(uncleTuu.role()));
-        expectedManager.put(uncleTuu.role(), new prop.Bomb(uncleTuu.role()), new Position(60));
+        expectedManager.buy(uncleTuu.role(), new prop.Bomb());
+        expectedManager.put(uncleTuu.role(), new prop.Bomb(), new Position(60));
         assertThat(propManager, is(expectedManager));
     }
 

@@ -1,17 +1,24 @@
 package prop;
 
+import org.fusesource.jansi.Ansi;
 import player.Movement;
-import player.Role;
+import ui.Element;
 
 public class Bomb extends Prop {
-    public Bomb(Role owner) {
-        name = "炸弹";
-        price = new Point(50);
-        element = owner.dye('@');
+    public Bomb() {
+        element = new Element('@');
+    }
+
+    public Point price() {
+        return new Point(50);
     }
 
     public void handle(Movement movement) {
         movement.jumpToHospital();
         throw new PropException("您被炸伤送入医院，三回合后出院。");
+    }
+
+    public String toString() {
+        return "炸弹";
     }
 }

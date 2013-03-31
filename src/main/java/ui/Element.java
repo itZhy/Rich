@@ -9,6 +9,11 @@ public class Element {
     private final char symbol;
     private final Ansi.Color color;
 
+    public Element(char symbol) {
+        this.symbol = symbol;
+        this.color = Ansi.Color.WHITE;
+    }
+
     public Element(char symbol, Ansi.Color color) {
         this.symbol = symbol;
         this.color = color;
@@ -18,8 +23,8 @@ public class Element {
         AnsiConsole.out.print(ansi().bg(Ansi.Color.BLACK).fg(color).a(symbol).reset());
     }
 
-    public Element dye(char symbol)    {
-        return new Element(symbol, color);
+    public Element dye(Element element)    {
+        return new Element(element.symbol, color);
     }
 
     public boolean equals(Object object)    {

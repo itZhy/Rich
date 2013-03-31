@@ -53,7 +53,7 @@ public class Map implements UIObserver {
     private void readDefaultMap() throws NullPointerException {
         String defaultMapStr = new Scanner(getClass().getResourceAsStream(DEFAULT_MAP_PATH)).nextLine();
         for (int index = 0; index != defaultMapStr.length(); ++index) {
-            add(new Position(index), new Element(defaultMapStr.charAt(index), Ansi.Color.WHITE));
+            add(new Position(index), new Element(defaultMapStr.charAt(index)));
         }
     }
 }

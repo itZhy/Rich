@@ -17,7 +17,7 @@ public class PropManager implements PlayerObserver {
     }
 
     public void handle(Role role, Movement movement) {
-        propMap.trigger(movement);
+        propMap.trigger(role, movement);
         playerPosition.record(role, movement.currentPosition());
     }
 
@@ -36,12 +36,12 @@ public class PropManager implements PlayerObserver {
     public void put(Role role, Prop prop, Position position) {
         Checker.check(!playerPosition.hasPlayer(position), "此处有玩家，不能放置道具。");
         ownership.consume(role, prop);
-        propMap.put(position, prop);
+        propMap.put(role, position, prop);
     }
 
     public void clean(Role role, Position position) {
         ownership.consume(role, new Robot());
-        propMap.cleanTheFront(position);
+        propMap.cleanTheFront(role, position);
     }
 
     public String query(Role role) {

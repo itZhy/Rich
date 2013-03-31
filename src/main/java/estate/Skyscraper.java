@@ -1,6 +1,5 @@
 package estate;
 
-import org.fusesource.jansi.Ansi;
 import player.Position;
 import player.Role;
 import ui.Element;
@@ -26,11 +25,11 @@ public class Skyscraper extends Building {
     }
 
     public void updateUI(Position position, UIObserver ui) {
-        ui.replace(position, owner.dye('2'), owner.dye('3'));
+        ui.replace(position, owner.dye(new Element('2')), owner.dye(new Element('3')));
     }
 
     public void clearUI(Position position, UIObserver ui) {
-        ui.replace(position, owner.dye('3'), new Element('0', Ansi.Color.WHITE));
+        ui.replace(position, owner.dye(new Element('3')), new Element('0'));
     }
 
     public boolean equals(Object object) {

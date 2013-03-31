@@ -42,8 +42,6 @@ class Property {
     }
 
     private void showPromptMessage(Prop prop) {
-        new CommandLine().outputInNewline("您已成功购买" + prop.name() + "道具。");
+        new CommandLine().outputInNewline("您已成功购买" + prop + "道具。");
     }
-
-
 }

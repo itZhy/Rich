@@ -16,8 +16,8 @@ public enum Role {
         this.element = element;
     }
 
-    public Element dye(char symbol) {
-        return element.dye(symbol);
+    public Element dye(Element element) {
+        return this.element.dye(element);
     }
 
     public Element getDisplayElement() {

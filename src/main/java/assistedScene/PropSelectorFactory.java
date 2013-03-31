@@ -25,7 +25,7 @@ public class PropSelectorFactory {
 
     private class BarricadeSelector implements Selector {
         public void select(Role role) {
-            propManager.buy(role, new Barricade(role));
+            propManager.buy(role, new Barricade());
         }
     }
 
@@ -37,7 +37,7 @@ public class PropSelectorFactory {
 
     private class BombSelector implements Selector {
         public void select(Role role) {
-            propManager.buy(role, new Bomb(role));
+            propManager.buy(role, new Bomb());
         }
     }
 }

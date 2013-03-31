@@ -1,5 +1,6 @@
 package prop;
 
+import com.google.common.collect.HashMultiset;
 import utils.Checker;
 
 import java.util.ArrayList;
@@ -15,9 +16,11 @@ class PropBox {
     }
 
     public String query() {
-        return "道具：路障 " + count("路障") +
-                "个；炸弹 " + count("炸弹") +
-                "个；机器娃娃 " + count("机器娃娃") + "个";
+        final HashMultiset<Prop> multiSet = HashMultiset.create();
+        multiSet.addAll(props);
+        return "道具：路障 " + multiSet.count(new Barricade()) +
+                "个；炸弹 " + multiSet.count(new Bomb()) +
+                "个；机器娃娃 " + multiSet.count(new Robot()) + "个";
     }
 
     public boolean remove(Prop prop) {
@@ -27,20 +30,5 @@ class PropBox {
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 props.equals(((PropBox) object).props);
-    }
-
-    private Integer count(String name) {
-        int count = 0;
-        for (Prop prop : props) {
-            count = addedCount(count, name, prop);
-        }
-        return count;
-    }
-
-    private int addedCount(int count, String name, Prop prop) {
-        if (prop.name().equals(name)) {
-            ++count;
-        }
-        return count;
     }
 }
