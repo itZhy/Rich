@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 
 class Judge {
     private final EstateMap estateMap;

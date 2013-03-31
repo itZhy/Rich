@@ -1,12 +1,12 @@
 package assistedScene;
 
 import estate.EstateManager;
+import org.junit.Before;
+import org.junit.Test;
 import player.Role;
 import prop.Point;
 import prop.PropManager;
 import ui.Map;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

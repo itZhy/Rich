@@ -14,8 +14,8 @@ class MascotManager {
         remainRoundsInEachRole.get(role).setMaxCount(5);
     }
 
-    private void initializeWhenNotExist(Role role)   {
-        if (!remainRoundsInEachRole.containsKey(role))    {
+    private void initializeWhenNotExist(Role role) {
+        if (!remainRoundsInEachRole.containsKey(role)) {
             remainRoundsInEachRole.put(role, new RoundCounter());
         }
     }

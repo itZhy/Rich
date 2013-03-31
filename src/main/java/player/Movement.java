@@ -39,7 +39,7 @@ public class Movement {
         return previousPosition;
     }
 
-    public Position offset(int step)    {
+    public Position offset(int step) {
         return currentPosition.offset(step);
     }
 

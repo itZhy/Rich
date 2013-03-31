@@ -1,6 +1,5 @@
 package estate;
 
-import org.fusesource.jansi.Ansi;
 import player.Position;
 import player.Role;
 import ui.Element;

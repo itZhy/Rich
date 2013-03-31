@@ -1,13 +1,13 @@
 package command;
 
+import org.junit.Test;
 import player.Callback;
-import player.Role;
 import player.Player;
+import player.Role;
 import prop.Point;
 import prop.PropManager;
 import prop.Robot;
 import ui.Map;
-import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

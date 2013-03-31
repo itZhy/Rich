@@ -23,12 +23,12 @@ public class Element {
         AnsiConsole.out.print(ansi().bg(Ansi.Color.BLACK).fg(color).a(symbol).reset());
     }
 
-    public Element dye(Element element)    {
+    public Element dye(Element element) {
         return new Element(element.symbol, color);
     }
 
-    public boolean equals(Object object)    {
-        return getClass() == object.getClass()&&
+    public boolean equals(Object object) {
+        return getClass() == object.getClass() &&
                 symbol == ((Element) object).symbol &&
                 color.equals(((Element) object).color);
     }

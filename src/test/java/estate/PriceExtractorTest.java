@@ -1,14 +1,14 @@
 package estate;
 
-import player.Position;
 import org.junit.Test;
+import player.Position;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class PriceExtractorTest {
     @Test
-    public void it_should_get_price_of_building_by_position(){
+    public void it_should_get_price_of_building_by_position() {
         //given
         PriceExtractor extractor = new PriceExtractor();
         //then

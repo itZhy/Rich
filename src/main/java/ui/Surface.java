@@ -1,6 +1,5 @@
 package ui;
 
-import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
 package player;
 
-import ui.Element;
 import org.fusesource.jansi.Ansi;
 import org.junit.Test;
+import ui.Element;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

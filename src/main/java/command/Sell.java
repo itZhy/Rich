@@ -1,8 +1,8 @@
 package command;
 
 import estate.EstateManager;
-import player.Position;
 import player.Player;
+import player.Position;
 
 public class Sell implements Command {
     private final EstateManager estateManager;

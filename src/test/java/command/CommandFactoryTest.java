@@ -1,9 +1,9 @@
 package command;
 
 import application.SubSystem;
+import org.junit.Test;
 import player.Rounder;
 import ui.Map;
-import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

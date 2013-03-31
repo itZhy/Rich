@@ -1,15 +1,15 @@
 package command;
 
+import org.junit.Test;
 import player.Callback;
-import player.Role;
-import player.Position;
 import player.Player;
+import player.Position;
+import player.Role;
 import prop.Barricade;
 import prop.Point;
 import prop.PropManager;
 import ui.Map;
 import ui.UIObserver;
-import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

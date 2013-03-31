@@ -2,7 +2,6 @@ package prop;
 
 import org.junit.Test;
 import player.Movement;
-import player.Role;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

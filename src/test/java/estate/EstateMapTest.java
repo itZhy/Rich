@@ -1,11 +1,11 @@
 package estate;
 
-import player.Role;
-import player.Position;
-import ui.Map;
-import ui.UIObserver;
 import org.junit.Before;
 import org.junit.Test;
+import player.Position;
+import player.Role;
+import ui.Map;
+import ui.UIObserver;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

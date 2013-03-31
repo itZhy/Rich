@@ -22,7 +22,7 @@ public class Fund {
     }
 
     public boolean isGreaterOrEqualThan(Integer price) {
-        return (price <= money);
+        return price <= money;
     }
 
     public boolean equals(Object object) {

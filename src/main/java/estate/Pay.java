@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 import ui.CommandLine;
 
 public class Pay extends Deal {

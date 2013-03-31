@@ -54,7 +54,7 @@ public class RounderTest {
     }
 
     @Test
-    public void it_should_delete_corresponding_player_when_player_encounter_bankrupt(){
+    public void it_should_delete_corresponding_player_when_player_encounter_bankrupt() {
         //when
         rounder.isOnlyOnePlayerAfterEliminate(Role.babyKin);
         //then

@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import org.junit.Test;
+import player.Role;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

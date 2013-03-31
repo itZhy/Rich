@@ -1,10 +1,10 @@
 package command;
 
-import player.Callback;
-import player.Role;
-import player.Player;
-import player.Rounder;
 import org.junit.Test;
+import player.Callback;
+import player.Player;
+import player.Role;
+import player.Rounder;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

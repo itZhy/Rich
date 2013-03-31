@@ -1,15 +1,15 @@
 package ui;
 
-import player.Position;
 import org.fusesource.jansi.Ansi;
 import org.junit.Test;
+import player.Position;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class MapTest {
     @Test
-    public void it_should_be_able_to_move_element_form_source_to_destination()    {
+    public void it_should_be_able_to_move_element_form_source_to_destination() {
         //given
         Map map = new Map();
         map.add(new Position(3), new Element('A', Ansi.Color.YELLOW));

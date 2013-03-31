@@ -1,10 +1,10 @@
 package estate;
 
-import player.Callback;
-import player.Role;
-import player.Player;
 import org.junit.Before;
 import org.junit.Test;
+import player.Callback;
+import player.Player;
+import player.Role;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

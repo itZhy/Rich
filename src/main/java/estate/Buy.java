@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 
 public class Buy extends Deal {
     public Buy(EstateMap estateMap, Bank bank) {

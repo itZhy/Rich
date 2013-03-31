@@ -1,10 +1,9 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 import ui.Element;
 import ui.UIObserver;
-import org.fusesource.jansi.Ansi;
 
 public class Hovel extends Building {
     public Hovel(Role owner, Integer price) {

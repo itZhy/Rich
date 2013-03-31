@@ -1,9 +1,9 @@
 package assistedScene;
 
+import org.junit.Test;
 import player.Position;
 import prop.Point;
 import prop.PropManager;
-import org.junit.Test;
 
 import java.util.Map;
 

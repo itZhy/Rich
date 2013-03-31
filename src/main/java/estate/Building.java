@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 import ui.UIObserver;
 
 abstract class Building {

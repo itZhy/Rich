@@ -1,7 +1,7 @@
 package ui;
 
-import player.Position;
 import org.junit.Test;
+import player.Position;
 
 import java.util.List;
 

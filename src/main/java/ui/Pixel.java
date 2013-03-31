@@ -15,7 +15,7 @@ class Pixel {
     }
 
     public void add(Element element) {
-        if (!elements.contains(element))    {
+        if (!elements.contains(element)) {
             elements.add(element);
         }
     }

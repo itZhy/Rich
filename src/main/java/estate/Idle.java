@@ -1,7 +1,7 @@
 package estate;
 
-import player.Role;
 import player.Position;
+import player.Role;
 
 public class Idle extends Deal {
     public Idle(EstateMap estateMap, Bank bank) {
