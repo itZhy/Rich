@@ -26,7 +26,7 @@ class Property {
     }
 
     public String query() {
-        return "点数： " + point.toString() + "点\n" + box.query();
+        return "点数： " + point + "点\n" + box.query();
     }
 
     public boolean equals(Object object) {

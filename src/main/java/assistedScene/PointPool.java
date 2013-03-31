@@ -30,6 +30,6 @@ public class PointPool implements Scene {
     }
 
     private String getPromptMessage(Role role) {
-        return role.toString() + "获得了" + point.toString() + "道具点数。";
+        return role + "获得了" + point + "道具点数。";
     }
 }

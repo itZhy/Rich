@@ -23,7 +23,7 @@ public class Point {
     }
 
     private String currentPoint() {
-        return "你当前剩余点数为" + toString();
+        return "你当前剩余点数为" + point;
     }
 
     public void checkPurchasingPower(Point price) {

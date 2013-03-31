@@ -18,7 +18,7 @@ class Bank {
 
     public String query(Role role) {
         initializeWhenNotExist(role);
-        return "\n资金： " + funds.get(role).toString() + "元\n";
+        return "\n资金： " + funds.get(role) + "元\n";
     }
 
     public void withdraw(Role role, Integer money) {

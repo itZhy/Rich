@@ -16,9 +16,9 @@ class PropBox {
     }
 
     public String query() {
-        return "道具：路障 " + count("路障").toString() +
-                "个；炸弹 " + count("炸弹").toString() +
-                "个；机器娃娃 " + count("机器娃娃").toString() + "个";
+        return "道具：路障 " + count("路障") +
+                "个；炸弹 " + count("炸弹") +
+                "个；机器娃娃 " + count("机器娃娃") + "个";
     }
 
     public boolean isRemoveFailed(Prop prop) {
