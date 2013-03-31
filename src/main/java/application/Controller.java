@@ -37,7 +37,7 @@ class Controller {
     }
 
     public String getPrompt() {
-        return rounder.currentPlayer().role().toString() + ">";
+        return rounder.currentPrompt();
     }
 
     private void initializeRounder(String players) {

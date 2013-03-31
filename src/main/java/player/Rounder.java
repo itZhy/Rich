@@ -11,6 +11,10 @@ public class Rounder {
         return orderedPlayers.get(currentIndex);
     }
 
+    public String currentPrompt() {
+        return currentPlayer().role() + ">";
+    }
+
     public void nextPlayer() {
         while (true) {
             next();

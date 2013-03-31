@@ -27,8 +27,7 @@ public class Interaction {
     private void setInitialFund() {
         while (true) {
             try {
-                String input = commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）");
-                setInitialFundByInput(input);
+                setInitialFundByInput(commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）"));
                 return;
             } catch (GameException e) {
                 commandLine.outputInNewline(e.toString());
