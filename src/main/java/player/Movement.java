@@ -39,6 +39,10 @@ public class Movement {
         return previousPosition;
     }
 
+    public Position offset(int step)    {
+        return currentPosition.offset(step);
+    }
+
     public void leave() {
         previousPosition = currentPosition;
         currentPosition = INVALID_POSITION;

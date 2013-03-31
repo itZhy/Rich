@@ -7,14 +7,14 @@ import ui.CommandLine;
 public class Robot implements Command {
     private final PropManager propManager;
 
+
     public Robot(PropManager propManager) {
         this.propManager = propManager;
     }
 
     public void execute(Player player, int argument) {
-        propManager.clean(player.role(), player.currentPosition());
+        propManager.clean(player.role(), player.offsetPosition(0));
         showPromptMessage();
-
     }
 
     private void showPromptMessage() {

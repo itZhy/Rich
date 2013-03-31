@@ -29,8 +29,8 @@ public class Player {
         return movement.isNeedNotSkip();
     }
 
-    public Position currentPosition() {
-        return movement.currentPosition();
+    public Position offsetPosition(int step) {
+        return movement.offset(step);
     }
 
     public void leave() {
