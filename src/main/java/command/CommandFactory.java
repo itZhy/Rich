@@ -9,14 +9,15 @@ public class CommandFactory {
     private final ImmutableMap<String, Command> stringToCommands;
 
     public CommandFactory(Rounder rounder, SubSystem subSystem) {
-        stringToCommands = ImmutableMap.<String, Command>builder().put("roll", new Roll(rounder))
-                .put("quit", new Quit()).put("help", new Help())
+        stringToCommands = ImmutableMap.<String, Command>builder()
+                .put("roll", new Roll(rounder))
+                .put("help", new Help())
                 .put("bomb", new Bomb(subSystem.getPropManager()))
                 .put("block", new Block(subSystem.getPropManager()))
                 .put("robot", new Robot(subSystem.getPropManager()))
                 .put("sell", new Sell(subSystem.getEstateManager()))
-                .put("selltool", new SellTool(subSystem.getPropManager()))
-                .put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager())).build();
+                .put("query", new Query(subSystem.getEstateManager(), subSystem.getPropManager()))
+                .put("selltool", new SellTool(subSystem.getPropManager())).build();
     }
 
     public Command get(String name) {

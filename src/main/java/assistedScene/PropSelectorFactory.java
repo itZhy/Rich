@@ -1,6 +1,5 @@
 package assistedScene;
 
-import application.GameException;
 import com.google.common.collect.ImmutableMap;
 import player.Role;
 import prop.Barricade;
@@ -16,7 +15,7 @@ public class PropSelectorFactory {
     public PropSelectorFactory(PropManager propManager) {
         this.propManager = propManager;
         selectors = ImmutableMap.of(
-                "1", new BarricadeSelector(), "2", new RobotSelector(), "3", new BombSelector(), "f", new Quit());
+                "1", new BarricadeSelector(), "2", new RobotSelector(), "3", new BombSelector());
     }
 
     public Selector get(String input) {
@@ -39,12 +38,6 @@ public class PropSelectorFactory {
     private class BombSelector implements Selector {
         public void select(Role role) {
             propManager.buy(role, new Bomb(role));
-        }
-    }
-
-    private class Quit implements Selector {
-        public void select(Role role) {
-            throw new GameException("欢迎下次光临。");
         }
     }
 }

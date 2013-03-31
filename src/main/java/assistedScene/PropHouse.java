@@ -7,6 +7,7 @@ import prop.PropManager;
 import ui.CommandLine;
 
 public class PropHouse implements Scene {
+    private final String QUIT_COMMAND = "f";
     private final PropSelectorFactory factory;
     private final CommandLine commandLine = new CommandLine();
 
@@ -16,17 +17,25 @@ public class PropHouse implements Scene {
 
     public void handle(Role role, Movement movement) {
         showPromptMessage();
-        handleInput(role);
+        acceptInputs(role);
     }
 
-    private void handleInput(Role role) {
+    private void acceptInputs(Role role) {
         while (true) {
-            try {
-                factory.get(commandLine.waitForInput("请输入您要购买的道具编号：").toLowerCase()).select(role);
-                return;
-            } catch (GameException e) {
-                commandLine.outputInNewline(e.message());
+            String input = commandLine.waitForInput("请输入您要购买的道具编号：");
+            if (QUIT_COMMAND.equals(input.toLowerCase())) {
+                commandLine.outputInNewline("欢迎下次光临。");
+                break;
             }
+            handleInput(role, input);
+        }
+    }
+
+    private void handleInput(Role role, String input) {
+        try {
+            factory.get(input.toLowerCase()).select(role);
+        } catch (GameException e) {
+            commandLine.outputInNewline(e.message());
         }
     }
 

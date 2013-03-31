@@ -3,13 +3,14 @@ package application;
 import ui.CommandLine;
 
 public class Interaction {
+    private final String QUIT_COMMAND = "quit";
     private final CommandLine commandLine = new CommandLine();
     private Controller controller;
 
     public void run() {
         initializeController();
         setInitialFund();
-        handleCommand();
+        acceptCommands();
     }
 
     private void initializeController() {
@@ -42,14 +43,27 @@ public class Interaction {
         controller.initialFund(input);
     }
 
-    private void handleCommand() {
+    private void acceptCommands() {
         while (true) {
-            try {
-                commandLine.output(controller.getPrompt());
-                controller.handleCommand(commandLine.waitForInput());
-            } catch (GameException e) {
-                commandLine.outputInNewline(e.message());
+            String command = getCommandString();
+            if (QUIT_COMMAND.equals(command.toLowerCase())) {
+                commandLine.outputInNewline("正在退出游戏......");
+                break;
             }
+            handleCommand(command);
+        }
+    }
+
+    private String getCommandString() {
+        commandLine.output(controller.getPrompt());
+        return commandLine.waitForInput();
+    }
+
+    private void handleCommand(String command) {
+        try {
+            controller.handleCommand(command);
+        } catch (GameException e) {
+            commandLine.outputInNewline(e.message());
         }
     }
 }

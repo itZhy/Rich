@@ -18,7 +18,7 @@ public class Help implements Command {
         }
     }
 
-    private void showHelpMessage() throws NullPointerException {
+    private void showHelpMessage() {
         Scanner scanner = new Scanner(getClass().getResourceAsStream(HELP_FILE_PATH), "UTF-8");
         while (scanner.hasNext()) {
             commandLine.outputInNewline(scanner.nextLine());
