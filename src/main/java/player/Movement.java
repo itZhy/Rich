@@ -18,8 +18,8 @@ public class Movement {
         roundCounter.pass();
     }
 
-    public boolean isNeedSkip() {
-        return !roundCounter.isExceed();
+    public boolean isNeedNotSkip() {
+        return roundCounter.isExceed();
     }
 
     public void block(int times) {

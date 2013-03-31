@@ -7,7 +7,7 @@ import prop.PropManager;
 import ui.CommandLine;
 
 public class PropHouse implements Scene {
-    private final String QUIT_COMMAND = "f";
+    static private final String QUIT_COMMAND = "f";
     private final PropSelectorFactory factory;
     private final CommandLine commandLine = new CommandLine();
 

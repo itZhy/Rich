@@ -3,7 +3,7 @@ package application;
 import ui.CommandLine;
 
 public class Interaction {
-    private final String QUIT_COMMAND = "quit";
+    static private final String QUIT_COMMAND = "quit";
     private final CommandLine commandLine = new CommandLine();
     private Controller controller;
 

@@ -1,6 +1,5 @@
 package prop;
 
-import application.GameException;
 import utils.Checker;
 
 import java.util.ArrayList;
@@ -21,8 +20,8 @@ class PropBox {
                 "个；机器娃娃 " + count("机器娃娃") + "个";
     }
 
-    public boolean isRemoveFailed(Prop prop) {
-        return !props.remove(prop);
+    public boolean remove(Prop prop) {
+        return props.remove(prop);
     }
 
     public boolean equals(Object object) {

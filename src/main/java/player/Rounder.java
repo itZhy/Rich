@@ -18,7 +18,7 @@ public class Rounder {
     public void nextPlayer() {
         while (true) {
             next();
-            if (!currentPlayer().isNeedSkip()) {
+            if (currentPlayer().isNeedNotSkip()) {
                 break;
             }
             currentPlayer().skip();

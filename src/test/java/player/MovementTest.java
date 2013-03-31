@@ -37,10 +37,10 @@ public class MovementTest {
         //given
         movement.block(1);
         //then
-        assertThat(movement.isNeedSkip(), is(true));
+        assertThat(movement.isNeedNotSkip(), is(false));
         //when
         movement.pass();
         //then
-        assertThat(movement.isNeedSkip(), is(false));
+        assertThat(movement.isNeedNotSkip(), is(true));
     }
 }

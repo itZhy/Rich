@@ -25,8 +25,8 @@ public class Player {
         movement.pass();
     }
 
-    public boolean isNeedSkip() {
-        return movement.isNeedSkip();
+    public boolean isNeedNotSkip() {
+        return movement.isNeedNotSkip();
     }
 
     public Position currentPosition() {

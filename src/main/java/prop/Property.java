@@ -5,7 +5,7 @@ import utils.Checker;
 
 class Property {
     private final PropBox box = new PropBox();
-    private Point point = new Point(0);
+    private final Point point = new Point(0);
 
     public void add(Point point) {
         this.point.add(point);
@@ -22,7 +22,7 @@ class Property {
     }
 
     public void consume(Prop prop) {
-        Checker.check(!box.isRemoveFailed(prop), "您没有此道具，请重新输入。");
+        Checker.check(box.remove(prop), "您没有此道具，请重新输入。");
     }
 
     public String query() {
