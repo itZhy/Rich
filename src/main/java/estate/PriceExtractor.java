@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 class PriceExtractor {
-    private final Map<Position, Integer> prices = new HashMap<Position, Integer>();
+    private final Map<Position, Money> prices = new HashMap<Position, Money>();
 
     public PriceExtractor() {
         initializePrices(new PositionExtractor().getBuildings());
     }
 
-    public Integer priceOfPosition(Position position) {
+    public Money priceOfPosition(Position position) {
         return prices.get(position);
     }
 
@@ -26,19 +26,19 @@ class PriceExtractor {
 
     private void setPriceOfTop(List<Position> positions) {
         for (int index = 0; index != 26; ++index) {
-            prices.put(positions.get(index), 200);
+            prices.put(positions.get(index), new Money(200.));
         }
     }
 
     private void setPriceOfLeft(List<Position> positions) {
         for (int index = 26; index != 32; ++index) {
-            prices.put(positions.get(index), 500);
+            prices.put(positions.get(index), new Money(500.));
         }
     }
 
     private void setPriceOfBottom(List<Position> positions) {
         for (int index = 32; index != 58; ++index) {
-            prices.put(positions.get(index), 300);
+            prices.put(positions.get(index), new Money(300.));
         }
     }
 }

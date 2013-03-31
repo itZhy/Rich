@@ -27,7 +27,7 @@ public class PayTest {
         estateMap.update(new Position(4), Role.SunHsiaoMei);
         pay.handle(new Position(4), Role.uncleTuu);
         //then
-        assertThat(bank.query(Role.uncleTuu), is("\n资金： 9900元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 9900.0元\n"));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class PayTest {
         estateMap.update(new Position(4), Role.SunHsiaoMei);
         pay.handle(new Position(4), Role.uncleTuu);
         //then
-        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000.0元\n"));
     }
 }

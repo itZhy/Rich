@@ -46,14 +46,14 @@ public class DealFactoryTest {
         pay.handle(new Position(5), Role.SunHsiaoMei);
         //then
         assertThat(pay.getClass().toString(), is(Pay.class.toString()));
-        assertThat(bank.query(Role.madameChyan), is("\n资金： 10100元\n"));
-        assertThat(bank.query(Role.SunHsiaoMei), is("\n资金： 9900元\n"));
+        assertThat(bank.query(Role.madameChyan), is("\n资金： 10100.0元\n"));
+        assertThat(bank.query(Role.SunHsiaoMei), is("\n资金： 9900.0元\n"));
     }
 
     @Test
     public void it_should_do_nothing_when_player_not_have_enough_money() {
         //when
-        bank.withdraw(Role.SunHsiaoMei, 9900);
+        bank.withdraw(Role.SunHsiaoMei, new Money(9900.));
         Deal nullDeal = factory.get(new Position(5), Role.SunHsiaoMei);
         //then
         assertThat(nullDeal.getClass().toString(), is(Idle.class.toString()));

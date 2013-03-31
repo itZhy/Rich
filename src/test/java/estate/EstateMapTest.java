@@ -26,7 +26,7 @@ public class EstateMapTest {
         map.update(new Position(10), Role.madameChyan);
         map.update(new Position(10), Role.madameChyan);
         //then
-        assertThat(map.get(new Position(10)), is((Building) new Hovel(Role.madameChyan, 200)));
+        assertThat(map.get(new Position(10)), is((Building) new Hovel(Role.madameChyan, new Money(200.))));
     }
 
     @Test

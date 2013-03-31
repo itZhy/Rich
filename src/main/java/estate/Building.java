@@ -5,10 +5,10 @@ import player.Role;
 import ui.UIObserver;
 
 abstract class Building {
-    final int basePrice;
+    final Money basePrice;
     Role owner;
 
-    Building(int basePrice) {
+    Building(Money basePrice) {
         this.basePrice = basePrice;
     }
 
@@ -16,11 +16,11 @@ abstract class Building {
         return role.equals(owner);
     }
 
-    public abstract int sellingPrice();
+    public abstract Money sellingPrice();
 
     public abstract Building update(Role owner);
 
-    public abstract int toll();
+    public abstract Money toll();
 
     public boolean matchOwnerAndType(Role role, Class type) {
         return role.equals(owner) && type.equals(getClass());

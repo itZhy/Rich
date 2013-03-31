@@ -23,7 +23,7 @@ class Controller {
 
     public void resetInitialMoney(String money) {
         try {
-            subSystem.resetInitialMoney(new Money(Integer.parseInt(money)));
+            subSystem.resetInitialMoney(new Money(Double.parseDouble(money)));
         } catch (java.lang.NumberFormatException e) {
             throw new GameException("输入金额有误。");
         }

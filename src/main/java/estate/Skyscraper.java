@@ -7,7 +7,7 @@ import ui.UIObserver;
 
 public class Skyscraper extends Building {
 
-    public Skyscraper(Role owner, Integer basePrice) {
+    public Skyscraper(Role owner, Money basePrice) {
         super(basePrice);
         this.owner = owner;
     }
@@ -16,12 +16,12 @@ public class Skyscraper extends Building {
         return this;
     }
 
-    public int toll() {
-        return basePrice * 4;
+    public Money toll() {
+        return basePrice.multiply(4.);
     }
 
-    public int sellingPrice() {
-        return basePrice * 16;
+    public Money sellingPrice() {
+        return basePrice.multiply(16.);
     }
 
     public void updateUI(Position position, UIObserver ui) {

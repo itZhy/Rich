@@ -5,7 +5,7 @@ import player.Role;
 import ui.UIObserver;
 
 public class Vacancy extends Building {
-    public Vacancy(int basePrice) {
+    public Vacancy(Money basePrice) {
         super(basePrice);
     }
 
@@ -13,12 +13,12 @@ public class Vacancy extends Building {
         return new SoldVacancy(owner, basePrice);
     }
 
-    public int toll() {
-        return 0;
+    public Money toll() {
+        return new Money(0.);
     }
 
-    public int sellingPrice() {
-        return 0;
+    public Money sellingPrice() {
+        return new Money(0.);
     }
 
     public void updateUI(Position position, UIObserver ui) {

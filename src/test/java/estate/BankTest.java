@@ -25,11 +25,11 @@ public class BankTest {
         //given
         Role role = Role.madameChyan;
         //when
-        bank.add(role, 200);
+        bank.add(role, new Money(200.));
         //then
-        bank.withdraw(role, 200);
+        bank.withdraw(role, new Money(200.));
         Bank exceptedBank = new Bank();
-        exceptedBank.checkPurchasingPower(role, 200);
+        exceptedBank.checkPurchasingPower(role, new Money(200.));
         assertThat(bank, is(exceptedBank));
     }
 
@@ -38,10 +38,10 @@ public class BankTest {
         //given
         Role role = Role.madameChyan;
         //when
-        bank.add(role, 200);
+        bank.add(role, new Money(200.));
         //then
-        assertThat(bank.query(role), is("\n资金： 10200元\n"));
-        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000元\n"));
+        assertThat(bank.query(role), is("\n资金： 10200.0元\n"));
+        assertThat(bank.query(Role.uncleTuu), is("\n资金： 10000.0元\n"));
     }
 
     @Test
@@ -52,6 +52,6 @@ public class BankTest {
         bank.add(Role.babyKin, estateMap.get(new Position(3)).sellingPrice());
         estateMap.clearBuilding(new Position(3));
         //then
-        Assert.assertThat(bank.query(Role.babyKin), is("\n资金： 10200元\n"));
+        Assert.assertThat(bank.query(Role.babyKin), is("\n资金： 10200.0元\n"));
     }
 }

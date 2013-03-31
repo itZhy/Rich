@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class HovelTest {
-    private static final int COST = 200;
+    private static final Money COST = new Money(200.);
     private Hovel hovel;
     private Role role;
 
@@ -30,22 +30,22 @@ public class HovelTest {
     @Test
     public void it_should_earn_more_money_when_other_others_passed() {
         //given
-        Integer oldToll = hovel.toll();
+        Money oldToll = hovel.toll();
         //when
         Building villa = hovel.update(role);
-        Integer newToll = villa.toll();
+        Money newToll = villa.toll();
         //then
-        assertThat(newToll, is(oldToll * 2));
+        assertThat(newToll, is(oldToll.multiply(2.)));
     }
 
     @Test
     public void it_should_earn_more_money_when_selling_building() {
         //given
-        Integer oldPrice = hovel.sellingPrice();
+        Money oldPrice = hovel.sellingPrice();
         //when
         Building villa = hovel.update(role);
-        Integer newPrice = villa.sellingPrice();
+        Money newPrice = villa.sellingPrice();
         //then
-        assertThat(newPrice, is(oldPrice * 2));
+        assertThat(newPrice, is(oldPrice.multiply(2.)));
     }
 }

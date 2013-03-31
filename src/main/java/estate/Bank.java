@@ -8,7 +8,7 @@ import java.util.Map;
 class Bank {
     private final Map<Role, Money> funds = new HashMap<Role, Money>();
     private final MascotManager mascotManager = new MascotManager();
-    private Money initialMoney = new Money(10000);
+    private Money initialMoney = new Money(10000.);
 
     public void reset(Money money) {
         money.checkInitialValue();
@@ -20,7 +20,7 @@ class Bank {
         return "\n资金： " + funds.get(role) + "元\n";
     }
 
-    public void withdraw(Role role, Integer money) {
+    public void withdraw(Role role, Money money) {
         initializeWhenNotExist(role);
         funds.put(role, funds.get(role).reduce(money));
         checkBankrupt(role);
@@ -38,12 +38,12 @@ class Bank {
         mascotManager.update(role);
     }
 
-    public void add(Role role, Integer money) {
+    public void add(Role role, Money money) {
         initializeWhenNotExist(role);
         funds.put(role, funds.get(role).add(money));
     }
 
-    public boolean checkPurchasingPower(Role role, Integer price) {
+    public boolean checkPurchasingPower(Role role, Money price) {
         initializeWhenNotExist(role);
         return funds.get(role).isGreaterOrEqualThan(price);
     }
@@ -60,7 +60,7 @@ class Bank {
     }
 
     private void checkBankrupt(Role role) {
-        if (!funds.get(role).isGreaterOrEqualThan(0)) {
+        if (!funds.get(role).isGreaterOrEqualThan(new Money(0.))) {
             throw new Insolvency(role);
         }
     }

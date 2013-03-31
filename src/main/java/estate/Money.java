@@ -3,26 +3,30 @@ package estate;
 import utils.Checker;
 
 public class Money {
-    private final Integer money;
+    private final Double money;
 
-    public Money(Integer initialMoney) {
+    public Money(Double initialMoney) {
         money = initialMoney;
     }
 
-    public Money add(Integer addMoney) {
-        return new Money(money + addMoney);
+    public Money add(Money addMoney) {
+        return new Money(money + addMoney.money);
     }
 
-    public Money reduce(Integer reduceMoney) {
-        return new Money(money - reduceMoney);
+    public Money reduce(Money reduceMoney) {
+        return new Money(money - reduceMoney.money);
+    }
+
+    public Money multiply(Double factor) {
+        return new Money(money * factor);
     }
 
     public String toString() {
         return money.toString();
     }
 
-    public boolean isGreaterOrEqualThan(Integer price) {
-        return price <= money;
+    public boolean isGreaterOrEqualThan(Money price) {
+        return price.money <= money;
     }
 
     public boolean equals(Object object) {

@@ -6,7 +6,7 @@ import ui.Element;
 import ui.UIObserver;
 
 public class Villa extends Building {
-    public Villa(Role owner, Integer basePrice) {
+    public Villa(Role owner, Money basePrice) {
         super(basePrice);
         this.owner = owner;
     }
@@ -15,12 +15,12 @@ public class Villa extends Building {
         return new Skyscraper(this.owner, basePrice);
     }
 
-    public int toll() {
-        return basePrice * 2;
+    public Money toll() {
+        return basePrice.multiply(2.);
     }
 
-    public int sellingPrice() {
-        return basePrice * 8;
+    public Money sellingPrice() {
+        return basePrice.multiply(8.);
     }
 
     public void updateUI(Position position, UIObserver ui) {

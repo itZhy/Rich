@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class VillaTest {
-    private static final int COST = 200;
+    private static final Money COST = new Money(200.);
     private Villa villa;
     private Role role;
 
@@ -33,12 +33,12 @@ public class VillaTest {
     @Test
     public void it_should_earn_more_money_when_other_others_passed() {
         //given
-        Integer oldToll = villa.toll();
+        Money oldToll = villa.toll();
         //when
         Building skyscraper = villa.update(role);
-        Integer newToll = skyscraper.toll();
+        Money newToll = skyscraper.toll();
         //then
-        assertThat(newToll, is(oldToll * 2));
+        assertThat(newToll, is(oldToll.multiply(2.)));
     }
 }
 

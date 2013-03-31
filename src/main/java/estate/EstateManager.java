@@ -35,7 +35,7 @@ public class EstateManager implements PlayerObserver {
     }
 
     public void bonus(Role account) {
-        bank.add(account, 2000);
+        bank.add(account, new Money(2000.));
     }
 
     public void resetInitialMoney(Money initialMoney) {

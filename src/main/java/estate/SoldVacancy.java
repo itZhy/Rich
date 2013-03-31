@@ -6,7 +6,7 @@ import ui.Element;
 import ui.UIObserver;
 
 public class SoldVacancy extends Building {
-    public SoldVacancy(Role owner, Integer basePrice) {
+    public SoldVacancy(Role owner, Money basePrice) {
         super(basePrice);
         this.owner = owner;
     }
@@ -15,12 +15,12 @@ public class SoldVacancy extends Building {
         return new Hovel(this.owner, basePrice);
     }
 
-    public int toll() {
-        return (basePrice / 2);
+    public Money toll() {
+        return (basePrice.multiply(0.5));
     }
 
-    public int sellingPrice() {
-        return basePrice * 2;
+    public Money sellingPrice() {
+        return basePrice.multiply(2.);
     }
 
     public void updateUI(Position position, UIObserver ui) {
