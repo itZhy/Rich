@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Bank {
-    private final Map<Role, Fund> funds = new HashMap<Role, Fund>();
+    private final Map<Role, Money> funds = new HashMap<Role, Money>();
     private final MascotManager mascotManager = new MascotManager();
-    private Fund initialFund = new Fund(10000);
+    private Money initialMoney = new Money(10000);
 
-    public void reset(Fund fund) {
-        fund.checkInitialValue();
-        initialFund = fund;
+    public void reset(Money money) {
+        money.checkInitialValue();
+        initialMoney = money;
     }
 
     public String query(Role role) {
@@ -55,7 +55,7 @@ class Bank {
 
     private void initializeWhenNotExist(Role role) {
         if (!funds.containsKey(role)) {
-            funds.put(role, initialFund);
+            funds.put(role, initialMoney);
         }
     }
 

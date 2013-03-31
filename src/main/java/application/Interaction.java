@@ -8,7 +8,7 @@ public class Interaction {
 
     public void run() {
         initializeController();
-        setInitialFund();
+        setInitialMoney();
         acceptCommands();
     }
 
@@ -24,10 +24,10 @@ public class Interaction {
         }
     }
 
-    private void setInitialFund() {
+    private void setInitialMoney() {
         while (true) {
             try {
-                setInitialFundByInput(commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）"));
+                setInitialMoneyByInput(commandLine.waitForInput("请输入玩家初始资金，范围1000～50000（默认10000）"));
                 return;
             } catch (GameException e) {
                 commandLine.outputInNewline(e.message());
@@ -35,11 +35,11 @@ public class Interaction {
         }
     }
 
-    private void setInitialFundByInput(String input) {
+    private void setInitialMoneyByInput(String input) {
         if (input.isEmpty()) {
             return;
         }
-        controller.resetInitialFund(input);
+        controller.resetInitialMoney(input);
     }
 
     private void acceptCommands() {

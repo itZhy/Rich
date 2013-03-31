@@ -38,8 +38,8 @@ public class EstateManager implements PlayerObserver {
         bank.add(account, 2000);
     }
 
-    public void resetInitialFund(Fund initialFund) {
-        bank.reset(initialFund);
+    public void resetInitialMoney(Money initialMoney) {
+        bank.reset(initialMoney);
     }
 
     public void goBankrupt(Role role) {

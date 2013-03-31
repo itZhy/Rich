@@ -2,7 +2,7 @@ package application;
 
 import command.CommandFactory;
 import command.Splitter;
-import estate.Fund;
+import estate.Money;
 import estate.Insolvency;
 import player.PlayerParser;
 import player.Rounder;
@@ -21,9 +21,9 @@ class Controller {
         ui.refresh();
     }
 
-    public void resetInitialFund(String fund) {
+    public void resetInitialMoney(String money) {
         try {
-            subSystem.resetInitialFund(new Fund(Integer.parseInt(fund)));
+            subSystem.resetInitialMoney(new Money(Integer.parseInt(money)));
         } catch (java.lang.NumberFormatException e) {
             throw new GameException("输入金额有误。");
         }

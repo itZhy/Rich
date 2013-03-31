@@ -2,19 +2,19 @@ package estate;
 
 import utils.Checker;
 
-public class Fund {
+public class Money {
     private final Integer money;
 
-    public Fund(Integer initialMoney) {
+    public Money(Integer initialMoney) {
         money = initialMoney;
     }
 
-    public Fund add(Integer addMoney) {
-        return new Fund(money + addMoney);
+    public Money add(Integer addMoney) {
+        return new Money(money + addMoney);
     }
 
-    public Fund reduce(Integer reduceMoney) {
-        return new Fund(money - reduceMoney);
+    public Money reduce(Integer reduceMoney) {
+        return new Money(money - reduceMoney);
     }
 
     public String toString() {
@@ -27,7 +27,7 @@ public class Fund {
 
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
-                ((Fund) object).money.equals(money);
+                ((Money) object).money.equals(money);
     }
 
     public void checkInitialValue() {
