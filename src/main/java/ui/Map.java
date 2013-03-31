@@ -1,15 +1,14 @@
 package ui;
 
 import application.GameException;
-import org.fusesource.jansi.Ansi;
 import player.Position;
 
 import java.util.Scanner;
 
 public class Map implements UIObserver {
+    private static final String DEFAULT_MAP_PATH = "/default_map";
     private final Surface surface = new Surface();
     private final Converter converter = new Converter();
-    private static final String DEFAULT_MAP_PATH = "/default_map";
 
     public Map() {
         initializeDefaultMap();
@@ -50,7 +49,7 @@ public class Map implements UIObserver {
         }
     }
 
-    private void readDefaultMap() throws NullPointerException {
+    private void readDefaultMap() {
         String defaultMapStr = new Scanner(getClass().getResourceAsStream(DEFAULT_MAP_PATH)).nextLine();
         for (int index = 0; index != defaultMapStr.length(); ++index) {
             add(new Position(index), new Element(defaultMapStr.charAt(index)));

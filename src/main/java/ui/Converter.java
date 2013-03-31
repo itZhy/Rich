@@ -29,7 +29,7 @@ class Converter {
         }
     }
 
-    private void readConfigFile() throws NullPointerException {
+    private void readConfigFile() {
         Scanner scanner = new Scanner(getClass().getResourceAsStream(CONFIG_FILE_PATH));
         while (scanner.hasNext()) {
             positionToSurfaceIndex.put(new Position(scanner.nextInt()), scanner.nextInt());
