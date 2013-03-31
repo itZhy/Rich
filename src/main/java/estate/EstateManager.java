@@ -38,7 +38,7 @@ public class EstateManager implements PlayerObserver {
         bank.add(account, 2000);
     }
 
-    public void setInitialFund(Integer initialFund) {
+    public void resetInitialFund(Fund initialFund) {
         bank.reset(initialFund);
     }
 

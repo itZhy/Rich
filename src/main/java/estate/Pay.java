@@ -10,7 +10,7 @@ public class Pay extends Deal {
     }
 
     public void handle(Position position, Role role) {
-        if (bank.isVip(role)) {
+        if (bank.hasMascot(role)) {
             showPromptMessage("福神附身，可免过路费");
             return;
         }

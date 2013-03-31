@@ -2,6 +2,7 @@ package application;
 
 import assistedScene.SceneManager;
 import estate.EstateManager;
+import estate.Fund;
 import player.Callback;
 import player.MovementMonitor;
 import prop.PropManager;
@@ -26,6 +27,10 @@ public class SubSystem {
 
     public EstateManager getEstateManager() {
         return estateManager;
+    }
+
+    public void resetInitialFund(Fund fund) {
+        estateManager.resetInitialFund(fund);
     }
 
     public Callback getObservers() {

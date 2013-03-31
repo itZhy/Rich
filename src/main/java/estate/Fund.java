@@ -1,18 +1,20 @@
 package estate;
 
-class Fund {
-    private Integer money;
+import utils.Checker;
+
+public class Fund {
+    private final Integer money;
 
     public Fund(Integer initialMoney) {
         money = initialMoney;
     }
 
-    public void add(Integer addMoney) {
-        money += addMoney;
+    public Fund add(Integer addMoney) {
+        return new Fund(money + addMoney);
     }
 
-    public void reduce(Integer reduceMoney) {
-        money -= reduceMoney;
+    public Fund reduce(Integer reduceMoney) {
+        return new Fund(money - reduceMoney);
     }
 
     public String toString() {
@@ -26,5 +28,9 @@ class Fund {
     public boolean equals(Object object) {
         return getClass() == object.getClass() &&
                 ((Fund) object).money.equals(money);
+    }
+
+    public void checkInitialValue() {
+        Checker.check(money >= 1000 && money <= 50000, "输入金额有误。");
     }
 }

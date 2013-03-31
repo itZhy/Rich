@@ -25,7 +25,7 @@ class MascotManager {
         remainRoundsInEachRole.get(role).pass();
     }
 
-    public boolean isVip(Role role) {
+    public boolean hasMascot(Role role) {
         initializeWhenNotExist(role);
         return !remainRoundsInEachRole.get(role).isExceed();
     }

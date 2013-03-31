@@ -1,7 +1,6 @@
 package estate;
 
 import player.Role;
-import utils.Checker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,10 +8,10 @@ import java.util.Map;
 class Bank {
     private final Map<Role, Fund> funds = new HashMap<Role, Fund>();
     private final MascotManager mascotManager = new MascotManager();
-    private int initialFund = 10000;
+    private Fund initialFund = new Fund(10000);
 
-    public void reset(Integer fund) {
-        Checker.check(fund >= 1000 && fund <= 50000, "输入金额有误。");
+    public void reset(Fund fund) {
+        fund.checkInitialValue();
         initialFund = fund;
     }
 
@@ -23,12 +22,12 @@ class Bank {
 
     public void withdraw(Role role, Integer money) {
         initializeWhenNotExist(role);
-        funds.get(role).reduce(money);
+        funds.put(role, funds.get(role).reduce(money));
         checkBankrupt(role);
     }
 
-    public boolean isVip(Role role) {
-        return mascotManager.isVip(role);
+    public boolean hasMascot(Role role) {
+        return mascotManager.hasMascot(role);
     }
 
     public void setMascot(Role role) {
@@ -41,7 +40,7 @@ class Bank {
 
     public void add(Role role, Integer money) {
         initializeWhenNotExist(role);
-        funds.get(role).add(money);
+        funds.put(role, funds.get(role).add(money));
     }
 
     public boolean checkPurchasingPower(Role role, Integer price) {
@@ -56,7 +55,7 @@ class Bank {
 
     private void initializeWhenNotExist(Role role) {
         if (!funds.containsKey(role)) {
-            funds.put(role, new Fund(initialFund));
+            funds.put(role, initialFund);
         }
     }
 

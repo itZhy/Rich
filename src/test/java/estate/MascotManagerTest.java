@@ -14,15 +14,15 @@ public class MascotManagerTest {
         //when
         manager.setMascot(Role.SunHsiaoMei);
         //then
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(true));
         manager.update(Role.SunHsiaoMei);
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(true));
         manager.update(Role.SunHsiaoMei);
         manager.update(Role.SunHsiaoMei);
         manager.update(Role.SunHsiaoMei);
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(true));
         manager.update(Role.SunHsiaoMei);
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(false));
     }
 
     @Test
@@ -37,16 +37,16 @@ public class MascotManagerTest {
         manager.update(Role.SunHsiaoMei);
         manager.update(Role.babyKin);
         manager.update(Role.babyKin);
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(true));
-        assertThat(manager.isVip(Role.babyKin), is(true));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(true));
+        assertThat(manager.hasMascot(Role.babyKin), is(true));
 
         manager.update(Role.SunHsiaoMei);
         manager.update(Role.SunHsiaoMei);
         manager.update(Role.babyKin);
-        assertThat(manager.isVip(Role.SunHsiaoMei), is(false));
-        assertThat(manager.isVip(Role.babyKin), is(true));
+        assertThat(manager.hasMascot(Role.SunHsiaoMei), is(false));
+        assertThat(manager.hasMascot(Role.babyKin), is(true));
         manager.update(Role.babyKin);
         //then
-        assertThat(manager.isVip(Role.babyKin), is(false));
+        assertThat(manager.hasMascot(Role.babyKin), is(false));
     }
 }

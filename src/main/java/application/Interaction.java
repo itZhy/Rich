@@ -39,7 +39,7 @@ public class Interaction {
         if (input.isEmpty()) {
             return;
         }
-        controller.initialFund(input);
+        controller.resetInitialFund(input);
     }
 
     private void acceptCommands() {
