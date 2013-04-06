@@ -10,7 +10,7 @@ public class MovementMonitor implements PlayerObserver {
     }
 
     public void handle(Role role, Movement movement) {
-        if (movement.currentPosition().equals(Movement.INVALID_POSITION)) {
+        if (movement.isLeaved()) {
             ui.delete(movement.previousPosition(), role.getDisplayElement());
             return;
         }

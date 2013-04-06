@@ -4,7 +4,7 @@ import ui.PositionExtractor;
 import utils.RoundCounter;
 
 public class Movement {
-    public static Position INVALID_POSITION = new Position(-1);
+    private final Position INVALID_POSITION = new Position(-1);
     private final RoundCounter roundCounter = new RoundCounter();
     private Position currentPosition = new Position(0);
     private Position previousPosition = new Position(0);
@@ -46,6 +46,10 @@ public class Movement {
     public void leave() {
         previousPosition = currentPosition;
         currentPosition = INVALID_POSITION;
+    }
+
+    public boolean isLeaved() {
+        return currentPosition.equals(INVALID_POSITION);
     }
 
     public boolean equals(Object object) {

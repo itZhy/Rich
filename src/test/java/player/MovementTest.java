@@ -43,4 +43,13 @@ public class MovementTest {
         //then
         assertThat(movement.isNeedNotSkip(), is(true));
     }
+
+    @Test
+    public void it_should_be_leaved_after_leave() {
+        assertThat(movement.isLeaved(), is(false));
+        //given
+        movement.leave();
+        //then
+        assertThat(movement.isLeaved(), is(true));
+    }
 }
